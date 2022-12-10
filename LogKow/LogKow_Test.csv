@@ -1,0 +1,13 @@
+Name,SMILES,Experimental
+Lufenuron,FC(C(F)(F)F)C(F)(F)Oc1cc(Cl)c(NC(=O)NC(=O)c2c(F)cccc2F)cc1Cl,5.12
+Perfluoroethane,FC(F)(F)C(F)(F)F,2
+Perflenapent,FC(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)F,4.4
+Vinylidene fluoride,FC(F)=C,1.24
+4:2 Fluorotelomer alcohol,OCCC(F)(F)C(F)(F)C(F)(F)C(F)(F)F,3.3
+6:2 Fluorotelomer alcohol,C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)CO,4.54
+8:2 Fluorotelomer alcohol,C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)CO,5.58
+Heptafluorobutanol,OCC(F)(F)C(F)(F)C(F)(F)F,1.94
+Perfluorocyclohexane,FC1(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C1(F)F,2.91
+2:1 Fluorotelomer alcohol,OCC(F)(F)C(F)(F)F,1.23
+Ethyl perfluoropropionate,CCOC(=O)C(F)(F)C(F)(F)F,2.12
+Hexafluoroacetone,O=C(C(F)(F)F)C(F)(F)F,1.46
