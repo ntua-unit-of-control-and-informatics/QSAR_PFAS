@@ -1,0 +1,262 @@
+SMILES,Albumin_Type,Method,Ka
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,Equilibrium dialysis,377000.0
+C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,Equilibrium dialysis,4405000.0
+C(=O)(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,Equilibrium dialysis,6162000.0
+C(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)(F)F,BSA,Equilibrium dialysis,93000.0
+C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,BSA,Equilibrium dialysis,648000.0
+C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,BSA,Equilibrium dialysis,1798999.9999999998
+C1(C(O1)(F)F)(C(F)(F)F)F,BSA,Equilibrium dialysis,65000.0
+C(=O)(C(C(C(F)(F)F)(F)F)(F)F)O,BSA,Equilibrium dialysis,23000.0
+C(=O)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,Equilibrium dialysis,180000.0
+C(=O)(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,Equilibrium dialysis,720000.0
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,Equilibrium dialysis,1100000.0
+C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,Equilibrium dialysis,1400000.0
+C(=O)(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,Equilibrium dialysis,3600000.0
+C(=O)(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,Equilibrium dialysis,3100000.0
+C1(C(O1)(F)F)(C(F)(F)F)F,BSA,Equilibrium dialysis,23000.0
+C(C(C(=O)O)(F)F)(OC(C(C(OC(F)(F)F)(F)F)(F)F)(F)F)F,BSA,Equilibrium dialysis,180000.0
+C(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)(F)F,BSA,Equilibrium dialysis,110000.0
+C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,BSA,Equilibrium dialysis,4400000.0
+C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,BSA,Equilibrium dialysis,3200000.0
+C(C(C(C(F)(F)Cl)(F)F)(F)F)(C(C(OC(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F,BSA,Equilibrium dialysis,6900000.0
+C1(C(C(C(C(C1(F)F)(F)F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)F,BSA,Equilibrium dialysis,2400000.0
+C(=O)(C(C(C(F)(F)F)(F)F)(F)F)O,BSA,Equilibrium dialysis,5400.0
+C(=O)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,Equilibrium dialysis,70000.0
+C(=O)(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,Equilibrium dialysis,410000.0
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,Equilibrium dialysis,1000000.0
+C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,Equilibrium dialysis,2100000.0
+C(=O)(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,Equilibrium dialysis,4700000.0
+C(=O)(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,Equilibrium dialysis,3600000.0
+C1(C(O1)(F)F)(C(F)(F)F)F,BSA,Equilibrium dialysis,34000.0
+C(C(C(=O)O)(F)F)(OC(C(C(OC(F)(F)F)(F)F)(F)F)(F)F)F,BSA,Equilibrium dialysis,420000.0
+C(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)(F)F,BSA,Equilibrium dialysis,31000.0
+C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,BSA,Equilibrium dialysis,2200000.0
+C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,BSA,Equilibrium dialysis,4700000.0
+C(C(C(C(F)(F)Cl)(F)F)(F)F)(C(C(OC(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F,BSA,Equilibrium dialysis,7200000.0
+C1(C(C(C(C(C1(F)F)(F)F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)F,BSA,Equilibrium dialysis,1300000.0
+C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,HSA,ultrafiltration centrifugation,12500000.0
+C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)F,HSA,ultrafiltration centrifugation,2500.0
+C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(F)(F)F)F,HSA,ultrafiltration centrifugation,12499.999999999998
+C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(F)(F)F)(F)F)(C(F)(F)F)F,HSA,ultrafiltration centrifugation,11111.111111111111
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,ultrafiltration centrifugation,10000.0
+C(=O)(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(C(F)(F)F)F)(F)F)O,HSA,ultrafiltration centrifugation,2500.0
+C(=O)(C(C(C(C(C(C(F)(F)F)(F)F)(C(F)(F)F)F)(F)F)(F)F)(F)F)O,HSA,ultrafiltration centrifugation,3333.3333333333335
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,Equilibrium dialysis,200000.0
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,Equilibrium dialysis,1400000.0
+C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,Equilibrium dialysis,1100000.0
+C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,Equilibrium dialysis,3300000.0
+C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,Equilibrium dialysis,2100000.0
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,nanoESI-MS,130000.0
+C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,nanoESI-MS,260000.0
+C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,Equilibrium dialysis,1400000.0
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,fluorescence quenching,479000.0
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,fluorescence quenching,377000.0
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,fluorescence quenching,287000.0
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,fluorescence quenching,244000.0
+C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,BSA,fluorescence quenching,751000.0
+C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,BSA,fluorescence quenching,574000.0
+C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,BSA,fluorescence quenching,419000.0
+C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,BSA,fluorescence quenching,338000.0
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,ESI-MS,830000.0
+C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,BSA,ESI-MS,990000.0
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,ESI-MS,130000.0
+C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,HSA,ESI-MS,200000.0
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,ESI-MS,260000.0
+C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,BSA,ESI-MS,910000.0
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,ESI-MS,120000.0
+C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,HSA,ESI-MS,140000.0
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,ESI-MS,210000.0
+C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,BSA,ESI-MS,760000.0
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,ESI-MS,110000.0
+C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,HSA,ESI-MS,110000.0
+C(=O)(C(C(C(F)(F)F)(F)F)(F)F)O,HSA,Isothermal Titration Calorimetry,31062.0
+C(=O)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,Isothermal Titration Calorimetry,400540.0
+C1(C(O1)(F)F)(C(F)(F)F)F,HSA,Isothermal Titration Calorimetry,216130.0
+C(=O)(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,Isothermal Titration Calorimetry,2155500.0
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,Isothermal Titration Calorimetry,9324800.0
+C(=O)(C(C(C(F)(F)F)(F)F)(F)F)O,HSA,Equilibrium dialysis,2386.634844868735
+C(=O)(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)O,HSA,Equilibrium dialysis,3496.5034965034965
+C(=O)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,Equilibrium dialysis,5128.205128205128
+C(=O)(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,Equilibrium dialysis,5813.953488372093
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,Equilibrium dialysis,8695.652173913044
+C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,Equilibrium dialysis,13698.630136986301
+C(=O)(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,Equilibrium dialysis,15384.615384615387
+C(=O)(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,Equilibrium dialysis,12658.227848101267
+C(=O)(C(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,Equilibrium dialysis,9708.73786407767
+C(=O)(C(C(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,Equilibrium dialysis,3773.5849056603774
+C(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)(F)F,HSA,Equilibrium dialysis,5917.15976331361
+C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,HSA,Equilibrium dialysis,12658.227848101267
+C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,HSA,Equilibrium dialysis,26315.78947368421
+C(C(C(C(F)(F)Cl)(F)F)(F)F)(C(C(OC(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F,HSA,Equilibrium dialysis,14925.373134328358
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,RSA,19F NMR Titration,3448.2758620689656
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,RSA,Microdesalting Column Separation,2777.777777777778
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,Microdesalting Column Separation,2631.578947368421
+C(=O)(C(C(C(F)(F)F)(F)F)(F)F)O,HSA,DSF,389.1050583657588
+C(=O)(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)O,HSA,DSF,476.19047619047615
+C(=O)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,DSF,609.7560975609756
+C(=O)(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,DSF,2272.7272727272725
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,DSF,1204.8192771084337
+C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,DSF,1724.1379310344828
+C(=O)(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,DSF,840.3361344537816
+C(=O)(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,DSF,735.2941176470588
+C(=O)(C(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,DSF,529.1005291005291
+C(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)(F)F,HSA,DSF,606.0606060606061
+C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,HSA,DSF,1408.4507042253522
+C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,HSA,DSF,1449.2753623188407
+C(C(F)(F)F)(OC(C(C(F)(F)F)(F)F)(F)F)F,HSA,DSF,609.7560975609756
+C1(C(O1)(F)F)(C(F)(F)F)F,HSA,DSF,625.0
+C(C(F)(F)F)(OC(C(C(F)(F)F)(OC(C(F)(F)S(=O)(=O)O)(F)F)F)(F)F)F,HSA,DSF,662.251655629139
+C(CS(=O)(=O)O)C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,HSA,DSF,653.59477124183
+C(CC(C(C(F)(F)F)(F)F)(F)F)C(=O)O,HSA,DSF,584.7953216374269
+C(CC(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)C(=O)O,HSA,DSF,1612.9032258064517
+C(CC(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)C(=O)O,HSA,DSF,1234.567901234568
+C(CC(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)C(=O)O,HSA,DSF,1030.9278350515465
+C(CS(=O)(=O)O)C(C(C(C(F)(F)F)(F)F)(F)F)(F)F,HSA,DSF,934.5794392523364
+C(CS(=O)(=O)O)C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,HSA,DSF,2702.702702702703
+C(=O)(C(C(C(F)(F)F)(F)F)(F)F)O,HSA,Equilibrium dialysis,12510.000000000018
+C(=O)(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)O,HSA,Equilibrium dialysis,12995.96742239138
+C(=O)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,Equilibrium dialysis,39474.60267276309
+C(=O)(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,Equilibrium dialysis,337044.42561202415
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,Equilibrium dialysis,111213.05018135966
+C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,Equilibrium dialysis,231798.1826718335
+C(=O)(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,Equilibrium dialysis,84128.05260707425
+C(=O)(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,Equilibrium dialysis,42201.30568499768
+C(=O)(C(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,Equilibrium dialysis,34381.97724615341
+C(=O)(C(C(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,Equilibrium dialysis,22319.20422605054
+C(=O)(C(C(C(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,Equilibrium dialysis,9152.309827182231
+C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,HSA,Equilibrium dialysis,55440.00000000003
+C(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)(F)F,HSA,Equilibrium dialysis,40046.01741611047
+C(C(C(F)(F)F)(F)F)(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F,HSA,Equilibrium dialysis,56517.42821478417
+C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,HSA,Equilibrium dialysis,97298.80335049881
+C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F,HSA,Equilibrium dialysis,42892.91936311625
+C(C(F)(F)F)(C(F)(F)S(=O)(=O)O)(F)F,HSA,Equilibrium dialysis,11690.236631758387
+C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F,HSA,Equilibrium dialysis,123985.90134535865
+C(C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F)(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F,HSA,Equilibrium dialysis,39748.969734248094
+C(C(C(C(C(F)(F)S(=O)(=O)N)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,HSA,Equilibrium dialysis,58702.45025383956
+CN(CC(=O)O)S(=O)(=O)C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,HSA,Equilibrium dialysis,140727.99374443459
+CCN(CC(=O)O)S(=O)(=O)C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,HSA,Equilibrium dialysis,140591.29437718762
+C(CS(=O)(=O)O)C(C(C(C(F)(F)F)(F)F)(F)F)(F)F,HSA,Equilibrium dialysis,83223.965910817
+C(CS(=O)(=O)O)C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,HSA,Equilibrium dialysis,146589.64447008155
+C(CS(=O)(=O)O)C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,HSA,Equilibrium dialysis,43084.17601803407
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,19F NMR Titration,630.0
+C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,19F NMR Titration,8000.0
+C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,19F NMR Titration,20000.0
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,fluorescence quenching,33000.0
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,fluorescence quenching,150000.0
+C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,fluorescence quenching,49000.0
+C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,fluorescence quenching,70000.0
+C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,fluorescence quenching,100000.0
+C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,fluorescence quenching,170000.0
+C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,fluorescence quenching,230000.0
+C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,fluorescence quenching,600000.0
+C(=O)(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,fluorescence quenching,180000.0
+C(=O)(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,fluorescence quenching,140000.0
+C(=O)(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,fluorescence quenching,300000.0
+C(=O)(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,fluorescence quenching,300000.0
+C(=O)(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,fluorescence quenching,20000.0
+C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,fluorescence quenching,30000.0
+C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,fluorescence quenching,50000.0
+C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,fluorescence quenching,7810000.0
+C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,fluorescence quenching,202000.0
+C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,fluorescence quenching,99000.0
+C(=O)(C(C(F)(F)F)(OC(C(C(F)(F)F)(OC(C(C(F)(F)F)(F)F)(F)F)F)(F)F)F)O,HSA,fluorescence quenching,3700000.0
+C(=O)(C(C(F)(F)F)(OC(C(C(F)(F)F)(OC(C(C(F)(F)F)(F)F)(F)F)F)(F)F)F)O,HSA,fluorescence quenching,85400000.0
+C(=O)(C(C(F)(F)F)(OC(C(C(F)(F)F)(OC(C(C(F)(F)F)(F)F)(F)F)F)(F)F)F)O,HSA,fluorescence quenching,2310000000.0
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,fluorescence quenching,2270000.0
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,fluorescence quenching,2230000.0
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,fluorescence quenching,1980000.0
+C(=O)(C(OC(C(OC(C(OC(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,fluorescence quenching,159000.0
+C(=O)(C(OC(C(OC(C(OC(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,fluorescence quenching,45500.0
+C(=O)(C(OC(C(OC(C(OC(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,fluorescence quenching,29900.0
+C(=O)(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,fluorescence quenching,4530.0
+C(=O)(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,fluorescence quenching,535000.0
+C(=O)(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,fluorescence quenching,747000.0
+C(=O)(C(C(C(C(C(C(C(=O)O)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,fluorescence quenching,1520.0
+C(=O)(C(C(C(C(C(C(C(=O)O)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,fluorescence quenching,4930.0
+C(=O)(C(C(C(C(C(C(C(=O)O)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,fluorescence quenching,20700.0
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,fluorescence quenching,43600.0
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,fluorescence quenching,29300.0
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,fluorescence quenching,21700.0
+C(=O)(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,fluorescence quenching,684600.0
+C(=O)(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,fluorescence quenching,441700.0
+C(=O)(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,fluorescence quenching,272200.0
+C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,HSA,ultrafiltration centrifugation,32573.28990228013
+C(C(C(C(F)(F)Cl)(F)F)(F)F)(C(C(OC(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F,HSA,ultrafiltration centrifugation,59880.239520958086
+C(=O)(C(C(C(F)(F)F)(F)F)(F)F)O,HSA,DSF,378.7878787878788
+C(=O)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,DSF,584.7953216374269
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,DSF,1265.8227848101264
+C(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)(F)F,HSA,DSF,595.2380952380953
+C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,HSA,DSF,1449.2753623188407
+C1(C(O1)(F)F)(C(F)(F)F)F,HSA,DSF,636.9426751592357
+C(CS(=O)(=O)O)C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,HSA,DSF,2439.0243902439024
+C(=O)(C(C(C(F)(F)F)(F)F)(F)F)O,BSA,DSF,326.797385620915
+C(=O)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,DSF,460.8294930875576
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,BSA,DSF,1010.1010101010102
+C(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)(F)F,BSA,DSF,1250.0
+C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,BSA,DSF,1162.7906976744187
+C1(C(O1)(F)F)(C(F)(F)F)F,BSA,DSF,392.15686274509807
+C(CS(=O)(=O)O)C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,BSA,DSF,719.4244604316547
+C(=O)(C(C(C(F)(F)F)(F)F)(F)F)O,PSA,DSF,781.2499999999999
+C(=O)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,PSA,DSF,1052.6315789473683
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,PSA,DSF,2702.702702702703
+C(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)(F)F,PSA,DSF,800.0
+C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,PSA,DSF,2631.578947368421
+C1(C(O1)(F)F)(C(F)(F)F)F,PSA,DSF,471.6981132075472
+C(CS(=O)(=O)O)C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,PSA,DSF,1923.0769230769229
+C(=O)(C(C(C(F)(F)F)(F)F)(F)F)O,RSA,DSF,526.3157894736842
+C(=O)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,RSA,DSF,751.8796992481203
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,RSA,DSF,2500.0
+C(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)(F)F,RSA,DSF,709.2198581560284
+C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,RSA,DSF,2380.952380952381
+C1(C(O1)(F)F)(C(F)(F)F)F,RSA,DSF,609.7560975609756
+C(CS(=O)(=O)O)C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,RSA,DSF,3030.3030303030305
+C(=O)(C(C(C(F)(F)F)(F)F)(F)F)O,HSA,DSF,390.0
+C(=O)(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)O,HSA,DSF,479.99999999999994
+C(=O)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,DSF,610.0
+C(=O)(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,DSF,2270.0
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,DSF,1200.0
+C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,DSF,1720.0
+C(=O)(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,DSF,839.9999999999999
+C(=O)(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,DSF,740.0
+C(=O)(C(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,DSF,530.0
+C(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)(F)F,HSA,DSF,610.0
+C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,HSA,DSF,1410.0
+C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,HSA,DSF,1490.0
+C1(C(O1)(F)F)(C(F)(F)F)F,HSA,DSF,630.0
+C(=O)(C(OC(C(OC(C(OC(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,DSF,650.0
+C(=O)(C(C(C(OC(F)(F)F)(F)F)(F)F)(F)F)O,HSA,DSF,440.0
+C(=O)(C(OC(C(OC(F)(F)F)(F)F)(F)F)(F)F)O,HSA,DSF,709.9999999999999
+C(=O)(C(OC(C(OC(C(=O)O)(F)F)(F)F)(F)F)(F)F)O,HSA,DSF,930.0
+C(=O)(C(OC(C(OC(C(OC(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,DSF,4170.0
+C(=O)(C(OC(F)(F)F)(F)F)[O-].[Na+],HSA,DSF,100.0
+C(C(F)(F)F)(OC(C(C(F)(F)F)(OC(C(F)(F)S(=O)(=O)O)(F)F)F)(F)F)F,HSA,DSF,660.0
+C(C(OC(C(F)(F)F)(F)F)(F)F)(C(F)(F)F)(OC(C(F)(F)S(=O)(=O)[O-])(F)F)F.[K+],HSA,DSF,1370.0000000000002
+C(C(F)(F)F)(OC(C(F)(F)S(=O)(=O)O)(F)F)(F)F,HSA,DSF,520.0000000000001
+C(C(C(C(=O)O)(F)F)(F)F)(F)F,HSA,DSF,520.0000000000001
+C(C(C(C(C(=O)O)(F)F)(F)F)(F)F)(F)F,HSA,DSF,640.0
+C(C(C(C(C(C(C(C(C(=O)O)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,HSA,DSF,930.0
+C(CC(C(C(F)(F)F)(F)F)(F)F)C(=O)O,HSA,DSF,580.0
+C(CC(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)C(=O)O,HSA,DSF,1610.0
+C(C(=O)O)C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,HSA,DSF,1750.0
+C(CC(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)C(=O)O,HSA,DSF,1230.0
+C(CC(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)C(=O)O,HSA,DSF,1030.0
+C(CS(=O)(=O)O)C(C(C(C(F)(F)F)(F)F)(F)F)(F)F,HSA,DSF,930.0
+C(CS(=O)(=O)O)C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,HSA,DSF,2700.0
+C(CO)C(C(C(F)(F)F)(F)F)(F)F,HSA,DSF,0.0
+C(CO)C(C(C(C(F)(F)F)(F)F)(F)F)(F)F,HSA,DSF,0.0
+C(CCO)CC(C(C(C(F)(F)F)(F)F)(F)F)(F)F,HSA,DSF,0.0
+C(CO)C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,HSA,DSF,0.0
+C(C(F)(F)F)(OC(C(C(F)(F)F)(F)F)(F)F)F,HSA,DSF,610.0
+C(=O)(C(OC1(C(OC(O1)(F)F)(OC(F)(F)F)F)F)(F)F)O,HSA,Isothermal Titration Calorimetry,185185.1851851852
+C(=O)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,Isothermal Titration Calorimetry,222222.22222222222
+C(=O)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,Isothermal Titration Calorimetry,169491.5254237288
+C1(C(O1)(F)F)(C(F)(F)F)F,HSA,Isothermal Titration Calorimetry,52631.57894736842
+C1(C(O1)(F)F)(C(F)(F)F)F,HSA,Isothermal Titration Calorimetry,101010.101010101
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,Isothermal Titration Calorimetry,2500000.0
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,Isothermal Titration Calorimetry,25445.29262086514
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,Isothermal Titration Calorimetry,1360544.217687075
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,Isothermal Titration Calorimetry,1742160.2787456445
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,Isothermal Titration Calorimetry,1436781.6091954024
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,Isothermal Titration Calorimetry,1949317.738791423
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,Isothermal Titration Calorimetry,4347826.0869565215
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,HSA,Isothermal Titration Calorimetry,2538071.0659898478

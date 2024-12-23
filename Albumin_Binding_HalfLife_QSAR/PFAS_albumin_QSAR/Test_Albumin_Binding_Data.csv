@@ -1,0 +1,57 @@
+SMILES,Authors,Congener,Albumin_Type,Temperature,Method,Ka
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Alesio et al.2022,PFOA,BSA,310.0,Equilibrium dialysis,377000.0
+C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Alesio et al.2022,PFNA,BSA,310.0,Equilibrium dialysis,4405000.0
+C(=O)(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Alesio et al.2022,PFDA,BSA,310.0,Equilibrium dialysis,6162000.0
+C(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)(F)F,Alesio et al.2022,PFBS,BSA,310.0,Equilibrium dialysis,93000.0
+C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,Alesio et al.2022,PFHxS,BSA,310.0,Equilibrium dialysis,648000.0
+C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,Alesio et al.2022,PFOS,BSA,310.0,Equilibrium dialysis,1798999.9999999998
+C1(C(O1)(F)F)(C(F)(F)F)F,Alesio et al.2022,HFPO-DA,BSA,310.0,Equilibrium dialysis,65000.0
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Qin et al.2010,PFOA,BSA,300.0,fluorescence quenching,43600.0
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Qin et al.2010,PFOA,BSA,310.0,fluorescence quenching,29300.0
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Qin et al.2010,PFOA,BSA,320.0,fluorescence quenching,21700.0
+C(=O)(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Qin et al.2010,PFDA,BSA,300.0,fluorescence quenching,684600.0
+C(=O)(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Qin et al.2010,PFDA,BSA,310.0,fluorescence quenching,441700.0
+C(=O)(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Qin et al.2010,PFDA,BSA,320.0,fluorescence quenching,272200.0
+C(=O)(C(C(C(F)(F)F)(F)F)(F)F)O,Starnes et al.2024b,PFBA,HSA,-100.0,DSF,390.0
+C(=O)(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)O,Starnes et al.2024b,PFPeA,HSA,-100.0,DSF,479.99999999999994
+C(=O)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Starnes et al.2024b,PFHxA,HSA,-100.0,DSF,610.0
+C(=O)(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Starnes et al.2024b,PFHpA,HSA,-100.0,DSF,2270.0
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Starnes et al.2024b,PFOA,HSA,-100.0,DSF,1200.0
+C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Starnes et al.2024b,PFNA,HSA,-100.0,DSF,1720.0
+C(=O)(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Starnes et al.2024b,PFDA,HSA,-100.0,DSF,839.9999999999999
+C(=O)(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Starnes et al.2024b,PFunDA,HSA,-100.0,DSF,740.0
+C(=O)(C(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Starnes et al.2024b,PFDoA,HSA,-100.0,DSF,530.0
+C(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)(F)F,Starnes et al.2024b,PFBS,HSA,-100.0,DSF,610.0
+C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,Starnes et al.2024b,PFHxS,HSA,-100.0,DSF,1410.0
+C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,Starnes et al.2024b,PFOS,HSA,-100.0,DSF,1490.0
+C1(C(O1)(F)F)(C(F)(F)F)F,Starnes et al.2024b,"HFPO-DA, GenX",HSA,-100.0,DSF,630.0
+C(=O)(C(OC(C(OC(C(OC(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Starnes et al.2024b,PFO3DoDA,HSA,-100.0,DSF,650.0
+C(=O)(C(C(C(OC(F)(F)F)(F)F)(F)F)(F)F)O,Starnes et al.2024b,PFMBA,HSA,-100.0,DSF,440.0
+C(=O)(C(OC(C(OC(F)(F)F)(F)F)(F)F)(F)F)O,Starnes et al.2024b,"Perfluoro-3,6-dioxaheptanoic acid",HSA,-100.0,DSF,709.9999999999999
+C(=O)(C(OC(C(OC(C(=O)O)(F)F)(F)F)(F)F)(F)F)O,Starnes et al.2024b,"Perfluoro-3,6-dioxaoctane-1,8-dioic acid",HSA,-100.0,DSF,930.0
+C(=O)(C(OC(C(OC(C(OC(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Starnes et al.2024b,"Perfluoro-3,6,9-trioxatridecanoic acid",HSA,-100.0,DSF,4170.0
+C(=O)(C(OC(F)(F)F)(F)F)[O-].[Na+],Starnes et al.2024b,PFMOAA,HSA,-100.0,DSF,100.0
+C(C(F)(F)F)(OC(C(C(F)(F)F)(OC(C(F)(F)S(=O)(=O)O)(F)F)F)(F)F)F,Starnes et al.2024b,Nafion bp2,HSA,-100.0,DSF,660.0
+C(C(OC(C(F)(F)F)(F)F)(F)F)(C(F)(F)F)(OC(C(F)(F)S(=O)(=O)[O-])(F)F)F.[K+],Starnes et al.2024b,"Potassium perfluoro(4-methyl-3,6-dioxaoctane)sulfonate",HSA,-100.0,DSF,1370.0000000000002
+C(C(F)(F)F)(OC(C(F)(F)S(=O)(=O)O)(F)F)(F)F,Starnes et al.2024b,PFEESA,HSA,-100.0,DSF,520.0000000000001
+C(C(C(C(=O)O)(F)F)(F)F)(F)F,Starnes et al.2024b,"2,2,3,3,4,4-hexafluorobutyric acid",HSA,-100.0,DSF,520.0000000000001
+C(C(C(C(C(=O)O)(F)F)(F)F)(F)F)(F)F,Starnes et al.2024b,5H- perfluoropentanoic ,HSA,-100.0,DSF,640.0
+C(C(C(C(C(C(C(C(C(=O)O)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,Starnes et al.2024b,9H-perfluorononanoic acid,HSA,-100.0,DSF,930.0
+C(CC(C(C(F)(F)F)(F)F)(F)F)C(=O)O,Starnes et al.2024b,3:3 FTCA,HSA,-100.0,DSF,580.0
+C(CC(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)C(=O)O,Starnes et al.2024b,5:3 FTCA,HSA,-100.0,DSF,1610.0
+C(C(=O)O)C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,Starnes et al.2024b,6:2 FTCA,HSA,-100.0,DSF,1750.0
+C(CC(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)C(=O)O,Starnes et al.2024b,6:3 FTCA,HSA,-100.0,DSF,1230.0
+C(CC(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)C(=O)O,Starnes et al.2024b,8:3 FTCA,HSA,-100.0,DSF,1030.0
+C(CS(=O)(=O)O)C(C(C(C(F)(F)F)(F)F)(F)F)(F)F,Starnes et al.2024b,4:2 FTSA,HSA,-100.0,DSF,930.0
+C(CS(=O)(=O)O)C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,Starnes et al.2024b,6:2 FTSA,HSA,-100.0,DSF,2700.0
+C(CO)C(C(C(F)(F)F)(F)F)(F)F,Starnes et al.2024b,3:2 FTOH,HSA,-100.0,DSF,0.0
+C(CO)C(C(C(C(F)(F)F)(F)F)(F)F)(F)F,Starnes et al.2024b,4:2 FTOH,HSA,-100.0,DSF,0.0
+C(CCO)CC(C(C(C(F)(F)F)(F)F)(F)F)(F)F,Starnes et al.2024b,4:4 FTOH,HSA,-100.0,DSF,0.0
+C(CO)C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,Starnes et al.2024b,6:2 FTOH,HSA,-100.0,DSF,0.0
+C(C(F)(F)F)(OC(C(C(F)(F)F)(F)F)(F)F)F,Starnes et al.2024b,E1,HSA,-100.0,DSF,610.0
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Maso et al.2021,PFOA,HSA,285.0,Isothermal Titration Calorimetry,1360544.217687075
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Maso et al.2021,PFOA,HSA,292.0,Isothermal Titration Calorimetry,1742160.2787456445
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Maso et al.2021,PFOA,HSA,295.0,Isothermal Titration Calorimetry,1436781.6091954024
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Maso et al.2021,PFOA,HSA,298.0,Isothermal Titration Calorimetry,1949317.738791423
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Maso et al.2021,PFOA,HSA,303.0,Isothermal Titration Calorimetry,4347826.0869565215
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Maso et al.2021,PFOA,HSA,310.0,Isothermal Titration Calorimetry,2538071.0659898478
