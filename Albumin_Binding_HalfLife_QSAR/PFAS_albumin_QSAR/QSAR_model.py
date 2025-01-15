@@ -49,14 +49,6 @@ train_dataset = JaqpotpyDataset(
     task="regression",
 )
 
-# Use VarianceThreshold to select features with a minimum variance of 0.1
-# FeatureSelector = VarianceThreshold(threshold=200)
-# train_dataset.select_features(
-#     FeatureSelector,
-#     ExcludeColumns=["Albumin_Type", "Method"],
-# )
-# train_dataset.selected_features
-
 train_dataset.select_features(
     SelectColumns=[
         "MolWt",
@@ -66,7 +58,6 @@ train_dataset.select_features(
         "Method",
     ]
 )
-
 
 test_dataset = JaqpotpyDataset(
     df=df_test,
@@ -177,7 +168,7 @@ plt.show()
 
 from jaqpotpy import Jaqpot
 
-# # Upload the pretrained model on Jaqpot
+# Upload the pretrained model on Jaqpot
 jaqpot = Jaqpot()
 jaqpot.login()
 model.deploy_on_jaqpot(

@@ -11,13 +11,8 @@ print(f"Unique SMILES count: {unique_smiles_count}")
 
 excluded_studies = [
     "Alesio et al.2022",
-    # "Gao et al.2019",
-    # "Allendorf et al.2019",
     "Qin et al.2010",
-    # "MacManus-Spencer et al.2010",
-    # "Jackson et al.2021",
     "Maso et al.2021",
-    # "Moro et al.2022",
     "Starnes et al.2024b",
 ]
 
