@@ -7,6 +7,7 @@ from sklearn.gaussian_process.kernels import (
     WhiteKernel,
     Matern,
     RationalQuadratic,
+    ExpSineSquared,
 )
 from sklearn.metrics import r2_score
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
@@ -16,12 +17,9 @@ import matplotlib.pyplot as plt
 
 train_df = pd.read_csv("PFAS_HalfLife_QSAR/GPR/train_data.csv")
 test_df = pd.read_csv("PFAS_HalfLife_QSAR/GPR/test_data.csv")
-columns_to_keep = train_df.columns.drop("Study").tolist()
+train_df.drop(columns=["Study"], inplace=True)
+test_df.drop(columns=["Study"], inplace=True)
 categorical_columns = ["sex", "adult", "half_life_type"]
-
-# Drop the Study column and keep only the necessary columns
-train_df = train_df[columns_to_keep]
-test_df = test_df[columns_to_keep]
 
 # One-hot encode the categorical columns
 preprocessor = ColumnTransformer(
@@ -32,7 +30,7 @@ preprocessor = ColumnTransformer(
 )
 
 # Get the non-categorical columns
-numeric_columns = [col for col in columns_to_keep if col not in categorical_columns]
+numeric_columns = [col for col in train_df.columns if col not in categorical_columns]
 
 # Fit and transform the training data
 train_encoded = preprocessor.fit_transform(train_df)
@@ -47,87 +45,80 @@ feature_names = np.concatenate([encoded_features, numeric_columns])
 train_df = pd.DataFrame(train_encoded, columns=feature_names)
 test_df = pd.DataFrame(test_encoded, columns=feature_names)
 
-
-# Rename the column remainder__half_life_days to half_life_days
-train_df.rename(columns={"remainder__half_life_days": "half_life_days"}, inplace=True)
-test_df.rename(columns={"remainder__half_life_days": "half_life_days"}, inplace=True)
-
 x_train, y_train = train_df.drop("half_life_days", axis=1), train_df["half_life_days"]
 x_test, y_test = test_df.drop("half_life_days", axis=1), test_df["half_life_days"]
 
-# Log-scale y
-# y_train = np.log10(y_train)
-# y_test = np.log10(y_test)
-
 scaler = StandardScaler()
-x_train = scaler.fit_transform(x_train)
-x_test = scaler.transform(x_test)
+# Get the indices of the one-hot encoded features
+one_hot_indices = [i for i, col in enumerate(feature_names) if col in encoded_features]
+
+# Scale only the non-one-hot encoded features
+x_train.loc[:, ~x_train.columns.isin(encoded_features)] = scaler.fit_transform(
+    x_train.loc[:, ~x_train.columns.isin(encoded_features)]
+)
+x_test.loc[:, ~x_test.columns.isin(encoded_features)] = scaler.fit_transform(
+    x_test.loc[:, ~x_test.columns.isin(encoded_features)]
+)
 
 # # Perform feature elimination with variance threshold > 1
-# Exclude LogKa from the filter
-logka_index = train_df.columns.get_loc("LogKa")
+# Exclude LogKa and one hot encoded features from the filters
+excluded_from_filter = [
+    "sex_female",
+    "sex_male",
+    "adult_1",
+    "half_life_type_intrinsic",
+    "LogKa",
+]
 
 # Apply VarianceThreshold to all columns except LogKa
 selector = VarianceThreshold(threshold=1)
-x_train_filtered = selector.fit_transform(np.delete(x_train, logka_index, axis=1))
-x_test_filtered = selector.transform(np.delete(x_test, logka_index, axis=1))
+x_train_filtered = selector.fit_transform(x_train.drop(columns=excluded_from_filter))
+x_train_filtered.shape
+x_test_filtered = selector.transform(x_test.drop(columns=excluded_from_filter))
 
-# Add LogKa back to the filtered data
-x_train = np.insert(x_train_filtered, logka_index, x_train[:, logka_index], axis=1)
-x_test = np.insert(x_test_filtered, logka_index, x_test[:, logka_index], axis=1)
+# Get the retained column names after variance threshold
+retained_columns = x_train.drop(columns=excluded_from_filter).columns[
+    selector.get_support()
+]
+# Convert filtered arrays back to DataFrames with retained column names
+x_train_filtered_df = pd.DataFrame(x_train_filtered, columns=retained_columns)
+x_test_filtered_df = pd.DataFrame(x_test_filtered, columns=retained_columns)
 
-# Then select top k most relevant features
-# selector2 = SelectKBest(f_regression, k=50)  # adjust k as needed
-# x_train = selector2.fit_transform(X=x_train, y=y_train)
-# x_test = selector2.transform(X=x_test)
-
-# # Calculate the correlation matrix
-# corr_matrix = pd.DataFrame(x_train).corr().abs()
-
-# # Select upper triangle of correlation matrix
-# upper = corr_matrix.where(np.triu(np.ones(corr_matrix.shape), k=1).astype(bool))
-
-# # Find index of feature columns with correlation greater than 0.9
-# to_drop = []
-# for column in upper.columns:
-#     if any(upper[column] > 0.9):
-#         to_drop.append(column)
-#         break
-
-# # Drop features with high correlation
-# x_train = pd.DataFrame(x_train).drop(columns=to_drop).values
-# x_test = pd.DataFrame(x_test).drop(columns=to_drop).values
+# Add Excluded from filtering columns back to the filtered data
+x_train = pd.concat(
+    [x_train.loc[:, x_train.columns.isin(excluded_from_filter)], x_train_filtered_df],
+    axis=1,
+)
+x_test = pd.concat(
+    [x_test.loc[:, x_test.columns.isin(excluded_from_filter)], x_test_filtered_df],
+    axis=1,
+)
 
 print(f"Final number of dimensions: {x_train.shape[1]}")
 
-# Good with entire dataset
-kernel = ConstantKernel(
-    constant_value=1.0,
-    constant_value_bounds=(1e-3, 1e2),  # Slightly tighter upper bound
-) * RationalQuadratic(
-    length_scale=0.5,  # Try even smaller initial value
-    alpha=2.0,  # Slightly larger initial alpha
-    alpha_bounds=(1e-2, 1e2),  # Keep these bounds
-) + WhiteKernel(noise_level=1e-2, noise_level_bounds=(1e-5, 1e-1))
+##############Kernel##############
+# kernel = ConstantKernel(1.0, (1e-1, 1e1)) * (
+#     Matern(
+#         length_scale=[1.0] * x_train.shape[1], nu=1.5, length_scale_bounds=(1e-2, 1e2)
+#     )
+#     + RationalQuadratic(length_scale=1.0, alpha=0.5, length_scale_bounds=(1e-2, 1e2))
+# ) + WhiteKernel(0.5, (1e-2, 1e1))
+
+kernel = ConstantKernel(1.0, (1e-1, 1e1)) * (
+    Matern(
+        length_scale=[1.3] * x_train.shape[1], nu=2.5, length_scale_bounds=(1e-2, 1e2)
+    )
+    + RationalQuadratic(length_scale=1.1, alpha=0.9, length_scale_bounds=(1e-2, 1e2))
+) + WhiteKernel(0.1, (1e-2, 1e-1))
 
 model = GaussianProcessRegressor(
-    kernel=kernel,
-    alpha=1e-10,
-    normalize_y=True,
-    n_restarts_optimizer=9,
+    kernel=kernel, normalize_y=True, n_restarts_optimizer=9, alpha=1e-10
 )
-# model._optimizer_kwargs = {"maxiter": 5000}  # Default is usually 100
+
 model.fit(x_train, y_train)
 
 y_pred_train, y_train_std = model.predict(x_train, return_std=True)
 y_pred_test, y_test_std = model.predict(x_test, return_std=True)
-
-# y_pred_train = 10 ** (y_pred_train)
-# y_train = 10 ** (y_train)
-# y_train_std = 10 ** (y_train_std)
-# y_pred_test = 10 ** (y_pred_test)
-# y_test = 10 ** (y_test)
-# y_test_std = 10 ** (y_test_std)
 
 r2_train = r2_score(y_train, y_pred_train)
 print(f"R2 score on train data: {r2_train:.2f}")

@@ -1,364 +1,438 @@
-﻿Study,DOI,PFAS,SMILES,half_life_days,tissue,sex,age (years),adult,index
-Arnot et al. 2014,https://doi.org/10.1021/es4029414,PFBS,C(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)(F)F,26,whole body,both,,,0
-Arnot et al. 2014,https://doi.org/10.1021/es4029414,PFHxA,C(=O)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,20,whole body,both,,,1
-Arnot et al. 2014,https://doi.org/10.1021/es4029414,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,2660,whole body,both,,,2
-Arnot et al. 2014,https://doi.org/10.1021/es4029414,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1980,whole body,both,,,3
-Arnot et al. 2014,https://doi.org/10.1021/es4029414,PFOS ,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1750,whole body,both,,,4
-Chang et al. 2008,https://doi.org/10.1093/toxsci/kfn057,PFBA,C(=O)(C(C(C(F)(F)F)(F)F)(F)F)O,4.3875,serum,male,,TRUE,5
-Chang et al. 2008,https://doi.org/10.1093/toxsci/kfn057,PFBA,C(=O)(C(C(C(F)(F)F)(F)F)(F)F)O,4.570833333,serum,male,,TRUE,6
-Chang et al. 2008,https://doi.org/10.1093/toxsci/kfn057,PFBA,C(=O)(C(C(C(F)(F)F)(F)F)(F)F)O,9.75,serum,female,,TRUE,7
-Chang et al. 2008,https://doi.org/10.1093/toxsci/kfn057,PFBA,C(=O)(C(C(C(F)(F)F)(F)F)(F)F)O,9.5,serum,male,,TRUE,8
-Chang et al. 2008,https://doi.org/10.1093/toxsci/kfn057,PFBA,C(=O)(C(C(C(F)(F)F)(F)F)(F)F)O,7.5,serum,male,,TRUE,9
-Chang et al. 2008,https://doi.org/10.1093/toxsci/kfn057,PFBA,C(=O)(C(C(C(F)(F)F)(F)F)(F)F)O,7.5,serum,male,,TRUE,10
-Chang et al. 2008,https://doi.org/10.1093/toxsci/kfn057,PFBA,C(=O)(C(C(C(F)(F)F)(F)F)(F)F)O,7.5,serum,female,,TRUE,11
-Chang et al. 2008,https://doi.org/10.1093/toxsci/kfn057,PFBA,C(=O)(C(C(C(F)(F)F)(F)F)(F)F)O,6.875,serum,male,,TRUE,12
-Chang et al. 2008,https://doi.org/10.1093/toxsci/kfn057,PFBA,C(=O)(C(C(C(F)(F)F)(F)F)(F)F)O,10.875,serum,male,,TRUE,13
-Chang et al. 2008,https://doi.org/10.1093/toxsci/kfn057,PFBA,C(=O)(C(C(C(F)(F)F)(F)F)(F)F)O,7.5,serum,male,,TRUE,14
-Chang et al. 2008,https://doi.org/10.1093/toxsci/kfn057,PFBA,C(=O)(C(C(C(F)(F)F)(F)F)(F)F)O,7.5,serum,male,,TRUE,15
-Fu et al. 2016,https://doi.org/10.1038/srep38039,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,7263.5,serum,male,,TRUE,16
-Fu et al. 2016,https://doi.org/10.1038/srep38039,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1715.5,serum,male,,TRUE,17
-Fu et al. 2016,https://doi.org/10.1038/srep38039,PFOS ,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,22228.5,serum,male,,TRUE,18
-Fu et al. 2016,https://doi.org/10.1038/srep38039,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,2737.5,serum,female,,TRUE,19
-Fu et al. 2016,https://doi.org/10.1038/srep38039,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1131.5,serum,female,,TRUE,20
-Fu et al. 2016,https://doi.org/10.1038/srep38039,PFOS ,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,2920,serum,female,,TRUE,21
-Li et al. 2018,https://doi.org/10.1136/oemed-2017-104651,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,2701,serum,male,15-50,TRUE,22
-Li et al. 2018,https://doi.org/10.1136/oemed-2017-104651,PFOS ,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1679,serum,male,15-50,TRUE,23
-Li et al. 2018,https://doi.org/10.1136/oemed-2017-104651,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1022,serum,male,15-50,TRUE,24
-Li et al. 2018,https://doi.org/10.1136/oemed-2017-104651,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,1715.5,serum,female,15-50,TRUE,25
-Li et al. 2018,https://doi.org/10.1136/oemed-2017-104651,PFOS ,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1131.5,serum,female,15-50,TRUE,26
-Li et al. 2018,https://doi.org/10.1136/oemed-2017-104651,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,876,serum,female,15-50,TRUE,27
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,738.5786448,serum,female,14-Jan,FALSE,28
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFPeS,C(C(C(F)(F)F)(F)F)(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F,407.3550684,serum,female,14-Jan,FALSE,29
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,1137.807246,serum,female,14-Jan,FALSE,30
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFHpS,C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F,1127.362571,serum,female,14-Jan,FALSE,31
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFOS ,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,729.5223472,serum,female,14-Jan,FALSE,32
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,1mPFOS,C(C(C(C(C(F)(F)F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1230.217147,serum,female,14-Jan,FALSE,33
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,3mPFOS,C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)F,865.7998831,serum,female,14-Jan,FALSE,34
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,4mPFOS,C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(F)(F)F)F,865.7998831,serum,female,14-Jan,FALSE,35
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,5mPFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(F)(F)F)(F)F)(C(F)(F)F)F,865.7998831,serum,female,14-Jan,FALSE,36
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,2mPFOS,C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(C(F)(F)F)(C(F)(F)S(=O)(=O)O)F,676.4837773,serum,female,14-Jan,FALSE,37
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,6mPFOS,C(C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F)(C(F)(F)F)(C(F)(F)F)F,676.4837773,serum,female,14-Jan,FALSE,38
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,703.0794867,serum,male,14-Jan,FALSE,39
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFPeS,C(C(C(F)(F)F)(F)F)(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F,398.1841341,serum,male,14-Jan,FALSE,40
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,1120.777331,serum,male,14-Jan,FALSE,41
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFHpS,C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F,1115.72058,serum,male,14-Jan,FALSE,42
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFOS ,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,681.1456688,serum,male,14-Jan,FALSE,43
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,1mPFOS,C(C(C(C(C(F)(F)F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1237.108085,serum,male,14-Jan,FALSE,44
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,3mPFOS,C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)F,847.2160038,serum,male,14-Jan,FALSE,45
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,4mPFOS,C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(F)(F)F)F,847.2160038,serum,male,14-Jan,FALSE,46
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,5mPFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(F)(F)F)(F)F)(C(F)(F)F)F,847.2160038,serum,male,14-Jan,FALSE,47
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,2mPFOS,C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(C(F)(F)F)(C(F)(F)S(=O)(=O)O)F,654.0532005,serum,male,14-Jan,FALSE,48
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,6mPFOS,C(C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F)(C(F)(F)F)(C(F)(F)F)F,654.0532005,serum,male,14-Jan,FALSE,49
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,884.8809065,serum,female,15-50,TRUE,50
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFPeS,C(C(C(F)(F)F)(F)F)(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F,319.1587243,serum,female,15-50,TRUE,51
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,1632.806569,serum,female,15-50,TRUE,52
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFHpS,C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F,1601.772918,serum,female,15-50,TRUE,53
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFOS ,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,941.3357398,serum,female,15-50,TRUE,54
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,1mPFOS,C(C(C(C(C(F)(F)F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1718.901107,serum,female,15-50,TRUE,55
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,3mPFOS,C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)F,1168.475654,serum,female,15-50,TRUE,56
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,4mPFOS,C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(F)(F)F)F,1168.475654,serum,female,15-50,TRUE,57
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,5mPFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(F)(F)F)(F)F)(C(F)(F)F)F,1168.475654,serum,female,15-50,TRUE,58
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,2mPFOS,C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(C(F)(F)F)(C(F)(F)S(=O)(=O)O)F,884.5324199,serum,female,15-50,TRUE,59
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,6mPFOS,C(C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F)(C(F)(F)F)(C(F)(F)F)F,884.5324199,serum,female,15-50,TRUE,60
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,918.5373779,serum,male,15-50,TRUE,61
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFPeS,C(C(C(F)(F)F)(F)F)(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F,252.5244133,serum,male,15-50,TRUE,62
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,1957.54108,serum,male,15-50,TRUE,63
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFHpS,C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F,1978.120132,serum,male,15-50,TRUE,64
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFOS ,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1060.554848,serum,male,15-50,TRUE,65
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,1mPFOS,C(C(C(C(C(F)(F)F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,2220.905261,serum,male,15-50,TRUE,66
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,3mPFOS,C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)F,1471.934138,serum,male,15-50,TRUE,67
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,4mPFOS,C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(F)(F)F)F,1471.934138,serum,male,15-50,TRUE,68
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,5mPFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(F)(F)F)(F)F)(C(F)(F)F)F,1471.934138,serum,male,15-50,TRUE,69
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,2mPFOS,C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(C(F)(F)F)(C(F)(F)S(=O)(=O)O)F,1050.907271,serum,male,15-50,TRUE,70
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,6mPFOS,C(C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F)(C(F)(F)F)(C(F)(F)F)F,1050.907271,serum,male,15-50,TRUE,71
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1298.435595,serum,female,>50,TRUE,72
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFPeS,C(C(C(F)(F)F)(F)F)(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F,483.876615,serum,female,>50,TRUE,73
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,2437.144136,serum,female,>50,TRUE,74
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFHpS,C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F,2671.998434,serum,female,>50,TRUE,75
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFOS ,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1209.834443,serum,female,>50,TRUE,76
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,1mPFOS,C(C(C(C(C(F)(F)F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,2550.243302,serum,female,>50,TRUE,77
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,3mPFOS,C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)F,1588.532916,serum,female,>50,TRUE,78
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,4mPFOS,C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(F)(F)F)F,1588.532916,serum,female,>50,TRUE,79
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,5mPFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(F)(F)F)(F)F)(C(F)(F)F)F,1588.532916,serum,female,>50,TRUE,80
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,2mPFOS,C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(C(F)(F)F)(C(F)(F)S(=O)(=O)O)F,1165.125566,serum,female,>50,TRUE,81
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,6mPFOS,C(C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F)(C(F)(F)F)(C(F)(F)F)F,1165.125566,serum,female,>50,TRUE,82
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1238.90542,serum,male,>50,TRUE,83
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFPeS,C(C(C(F)(F)F)(F)F)(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F,486.7347167,serum,male,>50,TRUE,84
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,2333.150064,serum,male,>50,TRUE,85
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFHpS,C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F,2575.108787,serum,male,>50,TRUE,86
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFOS ,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1344.696012,serum,male,>50,TRUE,87
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,1mPFOS,C(C(C(C(C(F)(F)F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,2276.396331,serum,male,>50,TRUE,88
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,3mPFOS,C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)F,1683.503552,serum,male,>50,TRUE,89
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,4mPFOS,C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(F)(F)F)F,1683.503552,serum,male,>50,TRUE,90
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,5mPFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(F)(F)F)(F)F)(C(F)(F)F)F,1683.503552,serum,male,>50,TRUE,91
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,2mPFOS,C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(C(F)(F)F)(C(F)(F)S(=O)(=O)O)F,1358.94569,serum,male,>50,TRUE,92
-Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,6mPFOS,C(C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F)(C(F)(F)F)(C(F)(F)F)F,1358.94569,serum,male,>50,TRUE,93
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1598,serum,male,>50,TRUE,94
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,885,serum,male,>50,TRUE,95
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1411,serum,male,>50,TRUE,96
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1124,serum,male,>50,TRUE,97
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,2304,serum,male,>50,TRUE,98
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1273,serum,male,>50,TRUE,99
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1792,serum,female,>50,TRUE,100
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1436,serum,male,>50,TRUE,101
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,2761,serum,male,>50,TRUE,102
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1387,serum,male,>50,TRUE,103
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1961,serum,male,>50,TRUE,104
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1163,serum,male,>50,TRUE,105
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1354,serum,male,>50,TRUE,106
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1224,serum,male,>50,TRUE,107
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,2456,serum,male,>50,TRUE,108
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1871,serum,male,>50,TRUE,109
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,2464,serum,male,>50,TRUE,110
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,908,serum,male,>50,TRUE,111
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,7919,serum,male,>50,TRUE,112
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1484,serum,male,>50,TRUE,113
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1737,serum,male,>50,TRUE,114
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1566,serum,male,>50,TRUE,115
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1723,serum,male,>50,TRUE,116
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,3122,serum,male,>50,TRUE,117
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,2475,serum,female,>50,TRUE,118
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1973,serum,male,>50,TRUE,119
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,1440,serum,male,>50,TRUE,120
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,798,serum,male,>50,TRUE,121
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,4373,serum,male,>50,TRUE,122
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,1971,serum,male,>50,TRUE,123
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,3508,serum,male,>50,TRUE,124
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,2284,serum,male,>50,TRUE,125
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,4458,serum,female,>50,TRUE,126
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,2347,serum,male,>50,TRUE,127
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,5329,serum,male,>50,TRUE,128
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,1923,serum,male,>50,TRUE,129
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,1878,serum,male,>50,TRUE,130
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,1892,serum,male,>50,TRUE,131
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,3028,serum,male,>50,TRUE,132
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,1065,serum,male,>50,TRUE,133
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,4000,serum,male,>50,TRUE,134
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,2266,serum,male,>50,TRUE,135
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,3836,serum,male,>50,TRUE,136
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,1024,serum,male,>50,TRUE,137
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,4939,serum,male,>50,TRUE,138
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,2825,serum,male,>50,TRUE,139
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,2134,serum,male,>50,TRUE,140
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,3637,serum,male,>50,TRUE,141
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,1983,serum,male,>50,TRUE,142
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,9858,serum,male,>50,TRUE,143
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,4866,serum,female,>50,TRUE,144
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,3180,serum,male,>50,TRUE,145
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1297,serum,male,>50,TRUE,146
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,830,serum,male,>50,TRUE,147
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1031,serum,male,>50,TRUE,148
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1314,serum,male,>50,TRUE,149
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1205,serum,male,>50,TRUE,150
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,858,serum,male,>50,TRUE,151
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1221,serum,female,>50,TRUE,152
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,2518,serum,male,>50,TRUE,153
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1401,serum,male,>50,TRUE,154
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1107,serum,male,>50,TRUE,155
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1551,serum,male,>50,TRUE,156
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,561,serum,male,>50,TRUE,157
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1280,serum,male,>50,TRUE,158
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1020,serum,male,>50,TRUE,159
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,3334,serum,male,>50,TRUE,160
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1737,serum,male,>50,TRUE,161
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1385,serum,male,>50,TRUE,162
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,570,serum,male,>50,TRUE,163
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,2552,serum,male,>50,TRUE,164
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1041,serum,male,>50,TRUE,165
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1479,serum,male,>50,TRUE,166
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1235,serum,male,>50,TRUE,167
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1358,serum,male,>50,TRUE,168
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1662,serum,male,>50,TRUE,169
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1223,serum,female,>50,TRUE,170
-Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1061,serum,male,>50,TRUE,171
-Olse et al. 2009,https://doi.org/10.1016/j.tox.2008.11.008,PFBS,C(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)(F)F,24.5,serum,male,,TRUE,172
-Olse et al. 2009,https://doi.org/10.1016/j.tox.2008.11.008,PFBS,C(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)(F)F,21.2,serum,male,,TRUE,173
-Olse et al. 2009,https://doi.org/10.1016/j.tox.2008.11.008,PFBS,C(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)(F)F,13.1,serum,male,,TRUE,174
-Olse et al. 2009,https://doi.org/10.1016/j.tox.2008.11.008,PFBS,C(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)(F)F,32.5,serum,male,,TRUE,175
-Olse et al. 2009,https://doi.org/10.1016/j.tox.2008.11.008,PFBS,C(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)(F)F,29.2,serum,male,,TRUE,176
-Olse et al. 2009,https://doi.org/10.1016/j.tox.2008.11.008,PFBS,C(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)(F)F,45.7,serum,female,,TRUE,177
-Russel et al. 2013,http://dx.doi.org/10.1016/j.chemosphere.2013.08.060,PFHxA,C(=O)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,31,serum,male,,TRUE,178
-Russel et al. 2013,http://dx.doi.org/10.1016/j.chemosphere.2013.08.060,PFHxA,C(=O)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,45,serum,male,,TRUE,179
-Russel et al. 2013,http://dx.doi.org/10.1016/j.chemosphere.2013.08.060,PFHxA,C(=O)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,14,serum,male,,TRUE,180
-Russel et al. 2013,http://dx.doi.org/10.1016/j.chemosphere.2013.08.060,PFHxA,C(=O)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,25,serum,male,,TRUE,181
-Russel et al. 2013,http://dx.doi.org/10.1016/j.chemosphere.2013.08.060,PFHxA,C(=O)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,48,serum,male,,TRUE,182
-Russel et al. 2013,http://dx.doi.org/10.1016/j.chemosphere.2013.08.060,PFHxA,C(=O)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,33,serum,male,,TRUE,183
-Russel et al. 2013,http://dx.doi.org/10.1016/j.chemosphere.2013.08.060,PFHxA,C(=O)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,49,serum,male,,TRUE,184
-Shi et al. 2016,https://doi.org/10.1021/acs.est.5b05849,6:2 Cl-PFESA,C(C(C(C(F)(F)Cl)(F)F)(F)F)(C(C(OC(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F,6752.5,serum,both,,TRUE,185
-Xu et al.2020,https://doi.org/10.1289/EHP6785,PFHxA,C(=O)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,594.95,serum,both,<22,TRUE,186
-Xu et al.2020,https://doi.org/10.1289/EHP6785,PFHpA,C(=O)(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,62.05,serum,both,<22,TRUE,187
-Xu et al.2020,https://doi.org/10.1289/EHP6785,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,646.05,serum,both,<22,TRUE,188
-Xu et al.2020,https://doi.org/10.1289/EHP6785,PFBS,C(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)(F)F,43.8,serum,both,<22,TRUE,189
-Xu et al.2020,https://doi.org/10.1289/EHP6785,PFPeS,C(C(C(F)(F)F)(F)F)(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F,229.95,serum,both,<22,TRUE,190
-Xu et al.2020,https://doi.org/10.1289/EHP6785,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,1043.9,serum,both,<22,TRUE,191
-Xu et al.2020,https://doi.org/10.1289/EHP6785,PFHpS,C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F,532.9,serum,both,<22,TRUE,192
-Xu et al.2020,https://doi.org/10.1289/EHP6785,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1062.15,serum,both,<22,TRUE,193
-Xu et al.2020,https://doi.org/10.1289/EHP6785,1mPFOS,C(C(C(C(C(F)(F)F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,463.55,serum,both,<22,TRUE,194
-Xu et al.2020,https://doi.org/10.1289/EHP6785,3mPFOS,C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)F,397.85,serum,both,<22,TRUE,195
-Xu et al.2020,https://doi.org/10.1289/EHP6785,4mPFOS,C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(F)(F)F)F,397.85,serum,both,<22,TRUE,196
-Xu et al.2020,https://doi.org/10.1289/EHP6785,5mPFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(F)(F)F)(F)F)(C(F)(F)F)F,397.85,serum,both,<22,TRUE,197
-Xu et al.2020,https://doi.org/10.1289/EHP6785,2mPFOS,C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(C(F)(F)F)(C(F)(F)S(=O)(=O)O)F,379.6,serum,both,<22,TRUE,198
-Xu et al.2020,https://doi.org/10.1289/EHP6785,6mPFOS,C(C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F)(C(F)(F)F)(C(F)(F)F)F,379.6,serum,both,<22,TRUE,199
-Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,2810.5,serum,female,<50,TRUE,200
-Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,2445.5,serum,female,<50,TRUE,201
-Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,iso-PFOS,C(C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F)(C(F)(F)F)(C(F)(F)F)F,2153.5,serum,female,<50,TRUE,202
-Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,1mPFOS,C(C(C(C(C(F)(F)F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,3650,serum,female,<50,TRUE,203
-Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,4mPFOS,C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(F)(F)F)F,2117,serum,female,<50,TRUE,204
-Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,3mPFOS,C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)F,1825,serum,female,<50,TRUE,205
-Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,5mPFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(F)(F)F)(F)F)(C(F)(F)F)F,1825,serum,female,<50,TRUE,206
-Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,PFHpA,C(=O)(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,547.5,serum,female,<50,TRUE,207
-Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,912.5,serum,female,<50,TRUE,208
-Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,PFDA,C(=O)(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1642.5,serum,female,<50,TRUE,209
-Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,PFUnA,C(=O)(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1642.5,serum,female,<50,TRUE,210
-Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,839.5,serum,female,<50,TRUE,211
-Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,iso-PFOA,NA,511,serum,female,<50,TRUE,212
-Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,4mPFOA,C(=O)(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(C(F)(F)F)F)(F)F)(F)F)O,233.6,serum,female,<50,TRUE,213
-Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,5mPFOA,C(=O)(C(C(C(C(C(C(F)(F)F)(F)F)(C(F)(F)F)F)(F)F)(F)F)(F)F)O,193.45,serum,female,<50,TRUE,214
-Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,12775,serum,both,>50,TRUE,215
-Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,12410,serum,both,>50,TRUE,216
-Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,iso-PFOS,C(C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F)(C(F)(F)F)(C(F)(F)F)F,8760,serum,both,>50,TRUE,217
-Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,1mPFOS,C(C(C(C(C(F)(F)F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,32850,serum,both,>50,TRUE,218
-Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,4mPFOS,C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(F)(F)F)F,9855,serum,both,>50,TRUE,219
-Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,3mPFOS,C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)F,7665,serum,both,>50,TRUE,220
-Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,5mPFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(F)(F)F)(F)F)(C(F)(F)F)F,7665,serum,both,>50,TRUE,221
-Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,PFHpA,C(=O)(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,438,serum,both,>50,TRUE,222
-Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1569.5,serum,both,>50,TRUE,223
-Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,PFDA,C(=O)(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,4380,serum,both,>50,TRUE,224
-Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,PFUnA,C(=O)(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,4380,serum,both,>50,TRUE,225
-Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1022,serum,both,>50,TRUE,226
-Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,iso-PFOA,NA,912.5,serum,both,>50,TRUE,227
-Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,4mPFOA,C(=O)(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(C(F)(F)F)F)(F)F)(F)F)O,511,serum,both,>50,TRUE,228
-Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,5mPFOA,C(=O)(C(C(C(C(C(C(F)(F)F)(F)F)(C(F)(F)F)F)(F)F)(F)F)(F)F)O,474.5,serum,both,>50,TRUE,229
-Wallis et al. 2023,https://doi.org/10.1021/acs.est.2c08241,PFO4DA,C(=O)(C(OC(OC(OC(OC(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,86,serum,both,,TRUE,230
-Wallis et al. 2023,https://doi.org/10.1021/acs.est.2c08241,Nafion-BP2,C(C(F)(F)F)(OC(C(C(F)(F)F)(OC(C(F)(F)S(=O)(=O)O)(F)F)F)(F)F)F,176,serum,both,,TRUE,231
-Wallis et al. 2023,https://doi.org/10.1021/acs.est.2c08241,PFO5DoA,C(=O)(C(OC(OC(OC(OC(OC(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,199,serum,both,,TRUE,232
-Nilsson et al.2022a,https://doi.org/10.1021/acs.est.2c04637,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1496.5,serum,male,,TRUE,233
-Nilsson et al.2022a,https://doi.org/10.1021/acs.est.2c04637,1mPFOS,C(C(C(C(C(F)(F)F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,4526,serum,male,,TRUE,234
-Nilsson et al.2022a,https://doi.org/10.1021/acs.est.2c04637,3mPFOS,C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)F,2847,serum,male,,TRUE,235
-Nilsson et al.2022a,https://doi.org/10.1021/acs.est.2c04637,4mPFOS,C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(F)(F)F)F,2847,serum,male,,TRUE,236
-Nilsson et al.2022a,https://doi.org/10.1021/acs.est.2c04637,5mPFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(F)(F)F)(F)F)(C(F)(F)F)F,2847,serum,male,,TRUE,237
-Nilsson et al.2022a,https://doi.org/10.1021/acs.est.2c04637,"4,5dm-PFOS",C(C(C(F)(F)F)(C(F)(F)F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(F)(F)F)F,1861.5,serum,male,,TRUE,238
-Nilsson et al.2022a,https://doi.org/10.1021/acs.est.2c04637,8-Cl-PFOS,C(C(C(C(C(F)(F)Cl)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F,1898,serum,male,,TRUE,239
-Nilsson et al.2022b,https://doi.org/10.1016/j.ijheh.2022.114040,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,730,serum,male,,TRUE,240
-Nilsson et al.2022b,https://doi.org/10.1016/j.ijheh.2022.114040,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,2190,serum,male,,TRUE,241
-Nilsson et al.2022b,https://doi.org/10.1016/j.ijheh.2022.114040,PFHpS,C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F,2044,serum,male,,TRUE,242
-Nilsson et al.2022b,https://doi.org/10.1016/j.ijheh.2022.114040,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,2080.5,serum,male,,TRUE,243
-Batzella et al. 2024,https://doi.org/10.1289/EHP13152,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,949,serum,male,14-19,TRUE,244
-Batzella et al. 2024,https://doi.org/10.1289/EHP13152,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,777.45,serum,female,14-19,TRUE,245
-Batzella et al. 2024,https://doi.org/10.1289/EHP13152,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1084.05,serum,male,20-30,TRUE,246
-Batzella et al. 2024,https://doi.org/10.1289/EHP13152,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,762.85,serum,female,20-30,TRUE,247
-Batzella et al. 2024,https://doi.org/10.1289/EHP13152,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1058.5,serum,male,>30,TRUE,248
-Batzella et al. 2024,https://doi.org/10.1289/EHP13152,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,711.75,serum,female,>30,TRUE,249
-Batzella et al. 2024,https://doi.org/10.1289/EHP13152,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,605.9,serum,male,<14,FALSE,250
-Batzella et al. 2024,https://doi.org/10.1289/EHP13152,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,587.65,serum,female,<14,FALSE,251
-Costa et al. 2009,https://doi.org/10.1097/JOM.0b013e3181965d80,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1861.5,serum,male,,TRUE,252
-Gomis et al. 2016,https://doi.org/10.1021/acs.est.6b01477,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,949,serum,male,,TRUE,253
-Gomis et al. 2016,https://doi.org/10.1021/acs.est.6b01477,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,730,serum,male,,TRUE,254
-Gomis et al. 2016,https://doi.org/10.1021/acs.est.6b01477,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1022,serum,male,,TRUE,255
-Gomis et al. 2016,https://doi.org/10.1021/acs.est.6b01477,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,766.5,serum,male,,TRUE,256
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1788.5,serum,male,36,TRUE,257
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,3796,serum,female,36,TRUE,258
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,981.85,serum,female,40,TRUE,259
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1354.15,serum,female,48,TRUE,260
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,930.75,serum,female,27,TRUE,261
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,912.5,serum,male,41,TRUE,262
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,6719.65,serum,female,69,TRUE,263
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,3759.5,serum,female,48,TRUE,264
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,529.25,serum,male,60,TRUE,265
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,890.6,serum,female,55,TRUE,266
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1178.95,serum,female,56,TRUE,267
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,970.9,serum,male,65,TRUE,268
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,2047.65,serum,male,62,TRUE,269
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,722.7,serum,female,43,TRUE,270
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1310.35,serum,male,52,TRUE,271
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1314,serum,female,40,TRUE,272
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1036.6,serum,female,66,TRUE,273
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,2883.5,serum,female,32,TRUE,274
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1576.8,serum,female,52,TRUE,275
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,3014.9,serum,female,27,TRUE,276
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1036.6,serum,female,54,TRUE,277
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1157.05,serum,male,50,TRUE,278
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1543.95,serum,female,63,TRUE,279
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1343.2,serum,female,60,TRUE,280
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,2149.85,serum,female,20,TRUE,281
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1722.8,serum,female,23,TRUE,282
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1412.55,serum,female,67,TRUE,283
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1693.6,serum,female,54,TRUE,284
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1306.7,serum,female,55,TRUE,285
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1927.2,serum,female,35,TRUE,286
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1328.6,serum,female,55,TRUE,287
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1354.15,serum,female,41,TRUE,288
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1047.55,serum,male,53,TRUE,289
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,861.4,serum,male,22,TRUE,290
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,832.2,serum,female,61,TRUE,291
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1522.05,serum,female,51,TRUE,292
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1401.6,serum,female,55,TRUE,293
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,934.4,serum,male,27,TRUE,294
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,938.05,serum,female,41,TRUE,295
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1445.4,serum,male,41,TRUE,296
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1113.25,serum,female,63,TRUE,297
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,18786.55,serum,female,53,TRUE,298
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1901.65,serum,female,61,TRUE,299
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,2642.6,serum,male,55,TRUE,300
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1595.05,serum,female,49,TRUE,301
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1525.7,serum,male,57,TRUE,302
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1803.1,serum,male,37,TRUE,303
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1752,serum,male,51,TRUE,304
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1755.65,serum,male,51,TRUE,305
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1770.25,serum,male,45,TRUE,306
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,806.65,serum,female,30,TRUE,307
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,646.05,serum,female,37,TRUE,308
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,2000.2,serum,female,39,TRUE,309
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,744.6,serum,female,29,TRUE,310
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1189.9,serum,female,72,TRUE,311
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,2544.05,serum,female,67,TRUE,312
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1222.75,serum,male,64,TRUE,313
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1222.75,serum,male,56,TRUE,314
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1810.4,serum,male,57,TRUE,315
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,850.45,serum,female,59,TRUE,316
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,879.65,serum,female,34,TRUE,317
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,12026.75,serum,female,60,TRUE,318
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1401.6,serum,female,28,TRUE,319
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,306.6,serum,female,36,TRUE,320
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,149496.7,serum,female,57,TRUE,321
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,777.45,serum,female,57,TRUE,322
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1153.4,serum,female,32,TRUE,323
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,2211.9,serum,male,59,TRUE,324
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1317.65,serum,male,46,TRUE,325
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1616.95,serum,male,53,TRUE,326
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1638.85,serum,female,58,TRUE,327
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,890.6,serum,female,72,TRUE,328
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1868.8,serum,female,26,TRUE,329
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1682.65,serum,male,60,TRUE,330
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,2153.5,serum,female,56,TRUE,331
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,10968.25,serum,female,24,TRUE,332
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,978.2,serum,male,27,TRUE,333
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,7227,serum,female,33,TRUE,334
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,2226.5,serum,female,47,TRUE,335
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,952.65,serum,female,37,TRUE,336
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,748.25,serum,female,35,TRUE,337
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1310.35,serum,female,54,TRUE,338
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,5668.45,serum,female,31,TRUE,339
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,773.8,serum,female,39,TRUE,340
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,452.6,serum,female,45,TRUE,341
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,3796,serum,female,43,TRUE,342
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,3069.65,serum,male,54,TRUE,343
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,2387.1,serum,male,61,TRUE,344
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,2259.35,serum,female,64,TRUE,345
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1551.25,serum,female,66,TRUE,346
-Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1317.65,serum,male,55,TRUE,347
-Abraham et al. 2024,https://doi.org/10.1016/j.envint.2024.109047,PFBA,C(=O)(C(C(C(F)(F)F)(F)F)(F)F)O,4.18,serum,male,67,TRUE,348
-Abraham et al. 2024,https://doi.org/10.1016/j.envint.2024.109047,PFPeA,C(=O)(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)O,0.52,serum,male,67,TRUE,349
-Abraham et al. 2024,https://doi.org/10.1016/j.envint.2024.109047,PFHxA,C(=O)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1.45,serum,male,67,TRUE,350
-Abraham et al. 2024,https://doi.org/10.1016/j.envint.2024.109047,PFHpA,C(=O)(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,152,serum,male,67,TRUE,351
-Abraham et al. 2024,https://doi.org/10.1016/j.envint.2024.109047,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,2011,serum,male,67,TRUE,352
-Abraham et al. 2024,https://doi.org/10.1016/j.envint.2024.109047,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1305,serum,male,67,TRUE,353
-Abraham et al. 2024,https://doi.org/10.1016/j.envint.2024.109047,PFDA,C(=O)(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,862,serum,male,67,TRUE,354
-Abraham et al. 2024,https://doi.org/10.1016/j.envint.2024.109047,PFUdA,C(=O)(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,584,serum,male,67,TRUE,355
-Abraham et al. 2024,https://doi.org/10.1016/j.envint.2024.109047,PFDoA,C(=O)(C(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,295,serum,male,67,TRUE,356
-Abraham et al. 2024,https://doi.org/10.1016/j.envint.2024.109047,PFBS,C(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)(F)F,50.6,serum,male,67,TRUE,357
-Abraham et al. 2024,https://doi.org/10.1016/j.envint.2024.109047,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,1634,serum,male,67,TRUE,358
-Abraham et al. 2024,https://doi.org/10.1016/j.envint.2024.109047,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1211,serum,male,67,TRUE,359
-Abraham et al. 2024,https://doi.org/10.1016/j.envint.2024.109047,6:2FTS,[13CH2]([13CH2]S(=O)(=O)O)C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,4.14,serum,male,67,TRUE,360
-Abraham et al. 2024,https://doi.org/10.1016/j.envint.2024.109047,HFPO-DA,C(=O)(C(C(F)(F)F)(OC(C(C(F)(F)F)(F)F)(F)F)F)O,2.86,serum,male,67,TRUE,361
-Abraham et al. 2024,https://doi.org/10.1016/j.envint.2024.109047,DONA,C(C(C(=O)O)(F)F)(OC(C(C(OC(F)(F)F)(F)F)(F)F)(F)F)F,34.7,serum,male,67,TRUE,362
+﻿Study,DOI,PFAS,SMILES,half_life_days,half_life_type,tissue,sex,age (years),adult
+Arnot et al. 2014,https://doi.org/10.1021/es4029414,PFBS,C(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)(F)F,26,,whole body,both,,
+Arnot et al. 2014,https://doi.org/10.1021/es4029414,PFHxA,C(=O)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,20,,whole body,both,,
+Arnot et al. 2014,https://doi.org/10.1021/es4029414,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,2660,,whole body,both,,
+Arnot et al. 2014,https://doi.org/10.1021/es4029414,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1980,,whole body,both,,
+Arnot et al. 2014,https://doi.org/10.1021/es4029414,PFOS ,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1750,,whole body,both,,
+Chang et al. 2008,https://doi.org/10.1093/toxsci/kfn057,PFBA,C(=O)(C(C(C(F)(F)F)(F)F)(F)F)O,4.3875,intrinsic,serum,male,,TRUE
+Chang et al. 2008,https://doi.org/10.1093/toxsci/kfn057,PFBA,C(=O)(C(C(C(F)(F)F)(F)F)(F)F)O,4.570833333,intrinsic,serum,male,,TRUE
+Chang et al. 2008,https://doi.org/10.1093/toxsci/kfn057,PFBA,C(=O)(C(C(C(F)(F)F)(F)F)(F)F)O,9.75,intrinsic,serum,female,,TRUE
+Chang et al. 2008,https://doi.org/10.1093/toxsci/kfn057,PFBA,C(=O)(C(C(C(F)(F)F)(F)F)(F)F)O,9.5,intrinsic,serum,male,,TRUE
+Chang et al. 2008,https://doi.org/10.1093/toxsci/kfn057,PFBA,C(=O)(C(C(C(F)(F)F)(F)F)(F)F)O,7.5,intrinsic,serum,male,,TRUE
+Chang et al. 2008,https://doi.org/10.1093/toxsci/kfn057,PFBA,C(=O)(C(C(C(F)(F)F)(F)F)(F)F)O,7.5,intrinsic,serum,male,,TRUE
+Chang et al. 2008,https://doi.org/10.1093/toxsci/kfn057,PFBA,C(=O)(C(C(C(F)(F)F)(F)F)(F)F)O,7.5,intrinsic,serum,female,,TRUE
+Chang et al. 2008,https://doi.org/10.1093/toxsci/kfn057,PFBA,C(=O)(C(C(C(F)(F)F)(F)F)(F)F)O,6.875,intrinsic,serum,male,,TRUE
+Chang et al. 2008,https://doi.org/10.1093/toxsci/kfn057,PFBA,C(=O)(C(C(C(F)(F)F)(F)F)(F)F)O,10.875,intrinsic,serum,male,,TRUE
+Chang et al. 2008,https://doi.org/10.1093/toxsci/kfn057,PFBA,C(=O)(C(C(C(F)(F)F)(F)F)(F)F)O,7.5,intrinsic,serum,male,,TRUE
+Chang et al. 2008,https://doi.org/10.1093/toxsci/kfn057,PFBA,C(=O)(C(C(C(F)(F)F)(F)F)(F)F)O,7.5,intrinsic,serum,male,,TRUE
+Fu et al. 2016,https://doi.org/10.1038/srep38039,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,7263.5,apparent,serum,male,,TRUE
+Fu et al. 2016,https://doi.org/10.1038/srep38039,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1715.5,apparent,serum,male,,TRUE
+Fu et al. 2016,https://doi.org/10.1038/srep38039,PFOS ,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,22228.5,apparent,serum,male,,TRUE
+Fu et al. 2016,https://doi.org/10.1038/srep38039,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,2737.5,apparent,serum,female,,TRUE
+Fu et al. 2016,https://doi.org/10.1038/srep38039,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1131.5,apparent,serum,female,,TRUE
+Fu et al. 2016,https://doi.org/10.1038/srep38039,PFOS ,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,2920,apparent,serum,female,,TRUE
+Li et al. 2018,https://doi.org/10.1136/oemed-2017-104651,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,2701,intrinsic,serum,male,15-50,TRUE
+Li et al. 2018,https://doi.org/10.1136/oemed-2017-104651,PFOS ,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1679,intrinsic,serum,male,15-50,TRUE
+Li et al. 2018,https://doi.org/10.1136/oemed-2017-104651,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1022,intrinsic,serum,male,15-50,TRUE
+Li et al. 2018,https://doi.org/10.1136/oemed-2017-104651,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,1715.5,intrinsic,serum,female,15-50,TRUE
+Li et al. 2018,https://doi.org/10.1136/oemed-2017-104651,PFOS ,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1131.5,intrinsic,serum,female,15-50,TRUE
+Li et al. 2018,https://doi.org/10.1136/oemed-2017-104651,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,876,intrinsic,serum,female,15-50,TRUE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,738.5786448,intrinsic,serum,female,1-14,FALSE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFPeS,C(C(C(F)(F)F)(F)F)(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F,407.3550684,intrinsic,serum,female,1-14,FALSE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,1137.807246,intrinsic,serum,female,1-14,FALSE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFHpS,C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F,1127.362571,intrinsic,serum,female,1-14,FALSE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFOS ,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,729.5223472,intrinsic,serum,female,1-14,FALSE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,1mPFOS,C(C(C(C(C(F)(F)F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1230.217147,intrinsic,serum,female,1-14,FALSE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,3mPFOS,C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)F,865.7998831,intrinsic,serum,female,1-14,FALSE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,4mPFOS,C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(F)(F)F)F,865.7998831,intrinsic,serum,female,1-14,FALSE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,5mPFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(F)(F)F)(F)F)(C(F)(F)F)F,865.7998831,intrinsic,serum,female,1-14,FALSE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,2mPFOS,C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(C(F)(F)F)(C(F)(F)S(=O)(=O)O)F,676.4837773,intrinsic,serum,female,1-14,FALSE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,6mPFOS,C(C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F)(C(F)(F)F)(C(F)(F)F)F,676.4837773,intrinsic,serum,female,1-14,FALSE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,703.0794867,intrinsic,serum,male,1-14,FALSE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFPeS,C(C(C(F)(F)F)(F)F)(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F,398.1841341,intrinsic,serum,male,1-14,FALSE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,1120.777331,intrinsic,serum,male,1-14,FALSE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFHpS,C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F,1115.72058,intrinsic,serum,male,1-14,FALSE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFOS ,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,681.1456688,intrinsic,serum,male,1-14,FALSE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,1mPFOS,C(C(C(C(C(F)(F)F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1237.108085,intrinsic,serum,male,1-14,FALSE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,3mPFOS,C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)F,847.2160038,intrinsic,serum,male,1-14,FALSE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,4mPFOS,C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(F)(F)F)F,847.2160038,intrinsic,serum,male,1-14,FALSE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,5mPFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(F)(F)F)(F)F)(C(F)(F)F)F,847.2160038,intrinsic,serum,male,1-14,FALSE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,2mPFOS,C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(C(F)(F)F)(C(F)(F)S(=O)(=O)O)F,654.0532005,intrinsic,serum,male,1-14,FALSE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,6mPFOS,C(C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F)(C(F)(F)F)(C(F)(F)F)F,654.0532005,intrinsic,serum,male,1-14,FALSE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,884.8809065,intrinsic,serum,female,15-50,TRUE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFPeS,C(C(C(F)(F)F)(F)F)(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F,319.1587243,intrinsic,serum,female,15-50,TRUE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,1632.806569,intrinsic,serum,female,15-50,TRUE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFHpS,C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F,1601.772918,intrinsic,serum,female,15-50,TRUE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFOS ,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,941.3357398,intrinsic,serum,female,15-50,TRUE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,1mPFOS,C(C(C(C(C(F)(F)F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1718.901107,intrinsic,serum,female,15-50,TRUE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,3mPFOS,C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)F,1168.475654,intrinsic,serum,female,15-50,TRUE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,4mPFOS,C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(F)(F)F)F,1168.475654,intrinsic,serum,female,15-50,TRUE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,5mPFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(F)(F)F)(F)F)(C(F)(F)F)F,1168.475654,intrinsic,serum,female,15-50,TRUE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,2mPFOS,C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(C(F)(F)F)(C(F)(F)S(=O)(=O)O)F,884.5324199,intrinsic,serum,female,15-50,TRUE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,6mPFOS,C(C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F)(C(F)(F)F)(C(F)(F)F)F,884.5324199,intrinsic,serum,female,15-50,TRUE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,918.5373779,intrinsic,serum,male,15-50,TRUE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFPeS,C(C(C(F)(F)F)(F)F)(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F,252.5244133,intrinsic,serum,male,15-50,TRUE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,1957.54108,intrinsic,serum,male,15-50,TRUE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFHpS,C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F,1978.120132,intrinsic,serum,male,15-50,TRUE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFOS ,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1060.554848,intrinsic,serum,male,15-50,TRUE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,1mPFOS,C(C(C(C(C(F)(F)F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,2220.905261,intrinsic,serum,male,15-50,TRUE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,3mPFOS,C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)F,1471.934138,intrinsic,serum,male,15-50,TRUE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,4mPFOS,C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(F)(F)F)F,1471.934138,intrinsic,serum,male,15-50,TRUE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,5mPFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(F)(F)F)(F)F)(C(F)(F)F)F,1471.934138,intrinsic,serum,male,15-50,TRUE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,2mPFOS,C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(C(F)(F)F)(C(F)(F)S(=O)(=O)O)F,1050.907271,intrinsic,serum,male,15-50,TRUE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,6mPFOS,C(C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F)(C(F)(F)F)(C(F)(F)F)F,1050.907271,intrinsic,serum,male,15-50,TRUE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1298.435595,intrinsic,serum,female,>50,TRUE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFPeS,C(C(C(F)(F)F)(F)F)(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F,483.876615,intrinsic,serum,female,>50,TRUE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,2437.144136,intrinsic,serum,female,>50,TRUE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFHpS,C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F,2671.998434,intrinsic,serum,female,>50,TRUE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFOS ,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1209.834443,intrinsic,serum,female,>50,TRUE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,1mPFOS,C(C(C(C(C(F)(F)F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,2550.243302,intrinsic,serum,female,>50,TRUE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,3mPFOS,C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)F,1588.532916,intrinsic,serum,female,>50,TRUE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,4mPFOS,C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(F)(F)F)F,1588.532916,intrinsic,serum,female,>50,TRUE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,5mPFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(F)(F)F)(F)F)(C(F)(F)F)F,1588.532916,intrinsic,serum,female,>50,TRUE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,2mPFOS,C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(C(F)(F)F)(C(F)(F)S(=O)(=O)O)F,1165.125566,intrinsic,serum,female,>50,TRUE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,6mPFOS,C(C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F)(C(F)(F)F)(C(F)(F)F)F,1165.125566,intrinsic,serum,female,>50,TRUE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1238.90542,intrinsic,serum,male,>50,TRUE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFPeS,C(C(C(F)(F)F)(F)F)(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F,486.7347167,intrinsic,serum,male,>50,TRUE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,2333.150064,intrinsic,serum,male,>50,TRUE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFHpS,C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F,2575.108787,intrinsic,serum,male,>50,TRUE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,PFOS ,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1344.696012,intrinsic,serum,male,>50,TRUE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,1mPFOS,C(C(C(C(C(F)(F)F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,2276.396331,intrinsic,serum,male,>50,TRUE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,3mPFOS,C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)F,1683.503552,intrinsic,serum,male,>50,TRUE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,4mPFOS,C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(F)(F)F)F,1683.503552,intrinsic,serum,male,>50,TRUE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,5mPFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(F)(F)F)(F)F)(C(F)(F)F)F,1683.503552,intrinsic,serum,male,>50,TRUE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,2mPFOS,C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(C(F)(F)F)(C(F)(F)S(=O)(=O)O)F,1358.94569,intrinsic,serum,male,>50,TRUE
+Li et al. 2022,https://doi.org/10.1016/j.envint.2022.107198,6mPFOS,C(C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F)(C(F)(F)F)(C(F)(F)F)F,1358.94569,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1598,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,885,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1411,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1124,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,2304,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1273,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1792,intrinsic,serum,female,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1436,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,2761,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1387,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1961,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1163,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1354,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1224,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,2456,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1871,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,2464,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,908,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,7919,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1484,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1737,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1566,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1723,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,3122,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,2475,intrinsic,serum,female,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1973,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,1440,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,798,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,4373,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,1971,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,3508,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,2284,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,4458,intrinsic,serum,female,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,2347,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,5329,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,1923,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,1878,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,1892,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,3028,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,1065,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,4000,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,2266,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,3836,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,1024,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,4939,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,2825,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,2134,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,3637,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,1983,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,9858,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,4866,intrinsic,serum,female,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,3180,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1297,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,830,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1031,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1314,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1205,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,858,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1221,intrinsic,serum,female,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,2518,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1401,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1107,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1551,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,561,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1280,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1020,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,3334,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1737,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1385,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,570,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,2552,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1041,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1479,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1235,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1358,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1662,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1223,intrinsic,serum,female,>50,TRUE
+Olsen et al. 2007,https://doi.org/10.1289/ehp.10009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1061,intrinsic,serum,male,>50,TRUE
+Olsen et al. 2009,https://doi.org/10.1016/j.tox.2008.11.008,PFBS,C(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)(F)F,24.5,intrinsic,serum,male,,TRUE
+Olsen et al. 2009,https://doi.org/10.1016/j.tox.2008.11.008,PFBS,C(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)(F)F,21.2,intrinsic,serum,male,,TRUE
+Olsen et al. 2009,https://doi.org/10.1016/j.tox.2008.11.008,PFBS,C(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)(F)F,13.1,intrinsic,serum,male,,TRUE
+Olsen et al. 2009,https://doi.org/10.1016/j.tox.2008.11.008,PFBS,C(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)(F)F,32.5,intrinsic,serum,male,,TRUE
+Olsen et al. 2009,https://doi.org/10.1016/j.tox.2008.11.008,PFBS,C(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)(F)F,29.2,intrinsic,serum,male,,TRUE
+Olsen et al. 2009,https://doi.org/10.1016/j.tox.2008.11.008,PFBS,C(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)(F)F,45.7,intrinsic,serum,female,,TRUE
+Russel et al. 2013,http://dx.doi.org/10.1016/j.chemosphere.2013.08.060,PFHxA,C(=O)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,31,apparent,serum,male,,TRUE
+Russel et al. 2013,http://dx.doi.org/10.1016/j.chemosphere.2013.08.060,PFHxA,C(=O)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,45,apparent,serum,male,,TRUE
+Russel et al. 2013,http://dx.doi.org/10.1016/j.chemosphere.2013.08.060,PFHxA,C(=O)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,14,apparent,serum,male,,TRUE
+Russel et al. 2013,http://dx.doi.org/10.1016/j.chemosphere.2013.08.060,PFHxA,C(=O)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,25,apparent,serum,male,,TRUE
+Russel et al. 2013,http://dx.doi.org/10.1016/j.chemosphere.2013.08.060,PFHxA,C(=O)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,48,apparent,serum,male,,TRUE
+Russel et al. 2013,http://dx.doi.org/10.1016/j.chemosphere.2013.08.060,PFHxA,C(=O)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,33,apparent,serum,male,,TRUE
+Russel et al. 2013,http://dx.doi.org/10.1016/j.chemosphere.2013.08.060,PFHxA,C(=O)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,49,apparent,serum,male,,TRUE
+Shi et al. 2016,https://doi.org/10.1021/acs.est.5b05849,6:2 Cl-PFESA,C(C(C(C(F)(F)Cl)(F)F)(F)F)(C(C(OC(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F,6752.5,apparent,serum,both,,TRUE
+Xu et al.2020,https://doi.org/10.1289/EHP6785,PFHxA,C(=O)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,594.95,intrinsic,serum,both,<22,TRUE
+Xu et al.2020,https://doi.org/10.1289/EHP6785,PFHpA,C(=O)(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,62.05,intrinsic,serum,both,<22,TRUE
+Xu et al.2020,https://doi.org/10.1289/EHP6785,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,646.05,intrinsic,serum,both,<22,TRUE
+Xu et al.2020,https://doi.org/10.1289/EHP6785,PFBS,C(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)(F)F,43.8,intrinsic,serum,both,<22,TRUE
+Xu et al.2020,https://doi.org/10.1289/EHP6785,PFPeS,C(C(C(F)(F)F)(F)F)(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F,229.95,intrinsic,serum,both,<22,TRUE
+Xu et al.2020,https://doi.org/10.1289/EHP6785,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,1043.9,intrinsic,serum,both,<22,TRUE
+Xu et al.2020,https://doi.org/10.1289/EHP6785,PFHpS,C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F,532.9,intrinsic,serum,both,<22,TRUE
+Xu et al.2020,https://doi.org/10.1289/EHP6785,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1062.15,intrinsic,serum,both,<22,TRUE
+Xu et al.2020,https://doi.org/10.1289/EHP6785,1mPFOS,C(C(C(C(C(F)(F)F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,463.55,intrinsic,serum,both,<22,TRUE
+Xu et al.2020,https://doi.org/10.1289/EHP6785,3mPFOS,C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)F,397.85,intrinsic,serum,both,<22,TRUE
+Xu et al.2020,https://doi.org/10.1289/EHP6785,4mPFOS,C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(F)(F)F)F,397.85,intrinsic,serum,both,<22,TRUE
+Xu et al.2020,https://doi.org/10.1289/EHP6785,5mPFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(F)(F)F)(F)F)(C(F)(F)F)F,397.85,intrinsic,serum,both,<22,TRUE
+Xu et al.2020,https://doi.org/10.1289/EHP6785,2mPFOS,C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(C(F)(F)F)(C(F)(F)S(=O)(=O)O)F,379.6,intrinsic,serum,both,<22,TRUE
+Xu et al.2020,https://doi.org/10.1289/EHP6785,6mPFOS,C(C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F)(C(F)(F)F)(C(F)(F)F)F,379.6,intrinsic,serum,both,<22,TRUE
+Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,2810.5,apparent,serum,female,<50,TRUE
+Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,2445.5,apparent,serum,female,<50,TRUE
+Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,iso-PFOS,C(C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F)(C(F)(F)F)(C(F)(F)F)F,2153.5,apparent,serum,female,<50,TRUE
+Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,1mPFOS,C(C(C(C(C(F)(F)F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,3650,apparent,serum,female,<50,TRUE
+Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,4mPFOS,C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(F)(F)F)F,2117,apparent,serum,female,<50,TRUE
+Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,3mPFOS,C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)F,1825,apparent,serum,female,<50,TRUE
+Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,5mPFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(F)(F)F)(F)F)(C(F)(F)F)F,1825,apparent,serum,female,<50,TRUE
+Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,PFHpA,C(=O)(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,547.5,apparent,serum,female,<50,TRUE
+Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,912.5,apparent,serum,female,<50,TRUE
+Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,PFDA,C(=O)(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1642.5,apparent,serum,female,<50,TRUE
+Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,PFUnA,C(=O)(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1642.5,apparent,serum,female,<50,TRUE
+Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,839.5,apparent,serum,female,<50,TRUE
+Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,iso-PFOA,NA,511,apparent,serum,female,<50,TRUE
+Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,4mPFOA,C(=O)(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(C(F)(F)F)F)(F)F)(F)F)O,233.6,apparent,serum,female,<50,TRUE
+Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,5mPFOA,C(=O)(C(C(C(C(C(C(F)(F)F)(F)F)(C(F)(F)F)F)(F)F)(F)F)(F)F)O,193.45,apparent,serum,female,<50,TRUE
+Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,12775,apparent,serum,both,>50,TRUE
+Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,12410,apparent,serum,both,>50,TRUE
+Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,iso-PFOS,C(C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F)(C(F)(F)F)(C(F)(F)F)F,8760,apparent,serum,both,>50,TRUE
+Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,1mPFOS,C(C(C(C(C(F)(F)F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,32850,apparent,serum,both,>50,TRUE
+Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,4mPFOS,C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(F)(F)F)F,9855,apparent,serum,both,>50,TRUE
+Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,3mPFOS,C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)F,7665,apparent,serum,both,>50,TRUE
+Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,5mPFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(F)(F)F)(F)F)(C(F)(F)F)F,7665,apparent,serum,both,>50,TRUE
+Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,PFHpA,C(=O)(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,438,apparent,serum,both,>50,TRUE
+Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1569.5,apparent,serum,both,>50,TRUE
+Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,PFDA,C(=O)(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,4380,apparent,serum,both,>50,TRUE
+Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,PFUnA,C(=O)(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,4380,apparent,serum,both,>50,TRUE
+Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1022,apparent,serum,both,>50,TRUE
+Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,iso-PFOA,NA,912.5,apparent,serum,both,>50,TRUE
+Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,4mPFOA,C(=O)(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(C(F)(F)F)F)(F)F)(F)F)O,511,apparent,serum,both,>50,TRUE
+Zhang et al. 2013,https://doi.org/dx.doi.org/10.1021/es401905e,5mPFOA,C(=O)(C(C(C(C(C(C(F)(F)F)(F)F)(C(F)(F)F)F)(F)F)(F)F)(F)F)O,474.5,apparent,serum,both,>50,TRUE
+Wallis et al. 2023,https://doi.org/10.1021/acs.est.2c08241,PFO4DA,C(=O)(C(OC(OC(OC(OC(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,86,intrinsic,serum,both,,TRUE
+Wallis et al. 2023,https://doi.org/10.1021/acs.est.2c08241,Nafion-BP2,C(C(F)(F)F)(OC(C(C(F)(F)F)(OC(C(F)(F)S(=O)(=O)O)(F)F)F)(F)F)F,176,intrinsic,serum,both,,TRUE
+Wallis et al. 2023,https://doi.org/10.1021/acs.est.2c08241,PFO5DoA,C(=O)(C(OC(OC(OC(OC(OC(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,199,intrinsic,serum,both,,TRUE
+Nilsson et al.2022a,https://doi.org/10.1021/acs.est.2c04637,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1496.5,apparent,serum,male,,TRUE
+Nilsson et al.2022a,https://doi.org/10.1021/acs.est.2c04637,1mPFOS,C(C(C(C(C(F)(F)F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,4526,apparent,serum,male,,TRUE
+Nilsson et al.2022a,https://doi.org/10.1021/acs.est.2c04637,3mPFOS,C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)F,2847,apparent,serum,male,,TRUE
+Nilsson et al.2022a,https://doi.org/10.1021/acs.est.2c04637,4mPFOS,C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(F)(F)F)F,2847,apparent,serum,male,,TRUE
+Nilsson et al.2022a,https://doi.org/10.1021/acs.est.2c04637,5mPFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(F)(F)F)(F)F)(C(F)(F)F)F,2847,apparent,serum,male,,TRUE
+Nilsson et al.2022a,https://doi.org/10.1021/acs.est.2c04637,"4,5dm-PFOS",C(C(C(F)(F)F)(C(F)(F)F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(F)(F)F)F,1861.5,apparent,serum,male,,TRUE
+Nilsson et al.2022a,https://doi.org/10.1021/acs.est.2c04637,8-Cl-PFOS,C(C(C(C(C(F)(F)Cl)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F,1898,apparent,serum,male,,TRUE
+Nilsson et al.2022b,https://doi.org/10.1016/j.ijheh.2022.114040,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,730,apparent,serum,male,,TRUE
+Nilsson et al.2022b,https://doi.org/10.1016/j.ijheh.2022.114040,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,2190,apparent,serum,male,,TRUE
+Nilsson et al.2022b,https://doi.org/10.1016/j.ijheh.2022.114040,PFHpS,C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F,2044,apparent,serum,male,,TRUE
+Nilsson et al.2022b,https://doi.org/10.1016/j.ijheh.2022.114040,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,2080.5,apparent,serum,male,,TRUE
+Batzella et al. 2024,https://doi.org/10.1289/EHP13152,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,949,intrinsic,serum,male,14-19,TRUE
+Batzella et al. 2024,https://doi.org/10.1289/EHP13152,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,777.45,intrinsic,serum,female,14-19,TRUE
+Batzella et al. 2024,https://doi.org/10.1289/EHP13152,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1084.05,intrinsic,serum,male,20-30,TRUE
+Batzella et al. 2024,https://doi.org/10.1289/EHP13152,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,762.85,intrinsic,serum,female,20-30,TRUE
+Batzella et al. 2024,https://doi.org/10.1289/EHP13152,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1058.5,intrinsic,serum,male,>30,TRUE
+Batzella et al. 2024,https://doi.org/10.1289/EHP13152,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,711.75,intrinsic,serum,female,>30,TRUE
+Batzella et al. 2024,https://doi.org/10.1289/EHP13152,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,605.9,intrinsic,serum,male,<14,FALSE
+Batzella et al. 2024,https://doi.org/10.1289/EHP13152,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,587.65,intrinsic,serum,female,<14,FALSE
+Costa et al. 2009,https://doi.org/10.1097/JOM.0b013e3181965d80,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1861.5,intrinsic,serum,male,,TRUE
+Gomis et al. 2016,https://doi.org/10.1021/acs.est.6b01477,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,949,intrinsic,serum,male,,TRUE
+Gomis et al. 2016,https://doi.org/10.1021/acs.est.6b01477,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,730,intrinsic,serum,male,,TRUE
+Gomis et al. 2016,https://doi.org/10.1021/acs.est.6b01477,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1022,intrinsic,serum,male,,TRUE
+Gomis et al. 2016,https://doi.org/10.1021/acs.est.6b01477,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,766.5,intrinsic,serum,male,,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1788.5,intrinsic,serum,male,36,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,3796,intrinsic,serum,female,36,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,981.85,intrinsic,serum,female,40,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1354.15,intrinsic,serum,female,48,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,930.75,intrinsic,serum,female,27,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,912.5,intrinsic,serum,male,41,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,6719.65,intrinsic,serum,female,69,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,3759.5,intrinsic,serum,female,48,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,529.25,intrinsic,serum,male,60,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,890.6,intrinsic,serum,female,55,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1178.95,intrinsic,serum,female,56,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,970.9,intrinsic,serum,male,65,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,2047.65,intrinsic,serum,male,62,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,722.7,intrinsic,serum,female,43,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1310.35,intrinsic,serum,male,52,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1314,intrinsic,serum,female,40,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1036.6,intrinsic,serum,female,66,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,2883.5,intrinsic,serum,female,32,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1576.8,intrinsic,serum,female,52,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,3014.9,intrinsic,serum,female,27,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1036.6,intrinsic,serum,female,54,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1157.05,intrinsic,serum,male,50,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1543.95,intrinsic,serum,female,63,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1343.2,intrinsic,serum,female,60,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,2149.85,intrinsic,serum,female,20,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1722.8,intrinsic,serum,female,23,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1412.55,intrinsic,serum,female,67,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1693.6,intrinsic,serum,female,54,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1306.7,intrinsic,serum,female,55,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1927.2,intrinsic,serum,female,35,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1328.6,intrinsic,serum,female,55,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1354.15,intrinsic,serum,female,41,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1047.55,intrinsic,serum,male,53,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,861.4,intrinsic,serum,male,22,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,832.2,intrinsic,serum,female,61,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1522.05,intrinsic,serum,female,51,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1401.6,intrinsic,serum,female,55,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,934.4,intrinsic,serum,male,27,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,938.05,intrinsic,serum,female,41,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1445.4,intrinsic,serum,male,41,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1113.25,intrinsic,serum,female,63,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,18786.55,intrinsic,serum,female,53,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1901.65,intrinsic,serum,female,61,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,2642.6,intrinsic,serum,male,55,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1595.05,intrinsic,serum,female,49,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1525.7,intrinsic,serum,male,57,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1803.1,intrinsic,serum,male,37,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1752,intrinsic,serum,male,51,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1755.65,intrinsic,serum,male,51,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1770.25,intrinsic,serum,male,45,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,806.65,intrinsic,serum,female,30,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,646.05,intrinsic,serum,female,37,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,2000.2,intrinsic,serum,female,39,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,744.6,intrinsic,serum,female,29,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1189.9,intrinsic,serum,female,72,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,2544.05,intrinsic,serum,female,67,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1222.75,intrinsic,serum,male,64,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1222.75,intrinsic,serum,male,56,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1810.4,intrinsic,serum,male,57,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,850.45,intrinsic,serum,female,59,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,879.65,intrinsic,serum,female,34,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,12026.75,intrinsic,serum,female,60,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1401.6,intrinsic,serum,female,28,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,306.6,intrinsic,serum,female,36,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,149496.7,intrinsic,serum,female,57,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,777.45,intrinsic,serum,female,57,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1153.4,intrinsic,serum,female,32,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,2211.9,intrinsic,serum,male,59,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1317.65,intrinsic,serum,male,46,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1616.95,intrinsic,serum,male,53,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1638.85,intrinsic,serum,female,58,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,890.6,intrinsic,serum,female,72,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1868.8,intrinsic,serum,female,26,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1682.65,intrinsic,serum,male,60,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,2153.5,intrinsic,serum,female,56,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,10968.25,intrinsic,serum,female,24,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,978.2,intrinsic,serum,male,27,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,7227,intrinsic,serum,female,33,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,2226.5,intrinsic,serum,female,47,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,952.65,intrinsic,serum,female,37,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,748.25,intrinsic,serum,female,35,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1310.35,intrinsic,serum,female,54,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,5668.45,intrinsic,serum,female,31,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,773.8,intrinsic,serum,female,39,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,452.6,intrinsic,serum,female,45,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,3796,intrinsic,serum,female,43,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,3069.65,intrinsic,serum,male,54,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,2387.1,intrinsic,serum,male,61,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,2259.35,intrinsic,serum,female,64,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1551.25,intrinsic,serum,female,66,TRUE
+Yu et al. 2021,https://doi.org/10.1016/j.ijheh.2021.113757,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1317.65,intrinsic,serum,male,55,TRUE
+Abraham et al. 2024,https://doi.org/10.1016/j.envint.2024.109047,PFBA,C(=O)(C(C(C(F)(F)F)(F)F)(F)F)O,4.18,intrinsic,serum,male,67,TRUE
+Abraham et al. 2024,https://doi.org/10.1016/j.envint.2024.109047,PFPeA,C(=O)(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)O,0.52,intrinsic,serum,male,67,TRUE
+Abraham et al. 2024,https://doi.org/10.1016/j.envint.2024.109047,PFHxA,C(=O)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1.45,intrinsic,serum,male,67,TRUE
+Abraham et al. 2024,https://doi.org/10.1016/j.envint.2024.109047,PFHpA,C(=O)(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,152,intrinsic,serum,male,67,TRUE
+Abraham et al. 2024,https://doi.org/10.1016/j.envint.2024.109047,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,2011,intrinsic,serum,male,67,TRUE
+Abraham et al. 2024,https://doi.org/10.1016/j.envint.2024.109047,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1305,intrinsic,serum,male,67,TRUE
+Abraham et al. 2024,https://doi.org/10.1016/j.envint.2024.109047,PFDA,C(=O)(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,862,intrinsic,serum,male,67,TRUE
+Abraham et al. 2024,https://doi.org/10.1016/j.envint.2024.109047,PFUdA,C(=O)(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,584,intrinsic,serum,male,67,TRUE
+Abraham et al. 2024,https://doi.org/10.1016/j.envint.2024.109047,PFDoA,C(=O)(C(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,295,intrinsic,serum,male,67,TRUE
+Abraham et al. 2024,https://doi.org/10.1016/j.envint.2024.109047,PFBS,C(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)(F)F,50.6,intrinsic,serum,male,67,TRUE
+Abraham et al. 2024,https://doi.org/10.1016/j.envint.2024.109047,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,1634,intrinsic,serum,male,67,TRUE
+Abraham et al. 2024,https://doi.org/10.1016/j.envint.2024.109047,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1211,intrinsic,serum,male,67,TRUE
+Abraham et al. 2024,https://doi.org/10.1016/j.envint.2024.109047,6:2FTS,[13CH2]([13CH2]S(=O)(=O)O)C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,4.14,intrinsic,serum,male,67,TRUE
+Abraham et al. 2024,https://doi.org/10.1016/j.envint.2024.109047,HFPO-DA,C(=O)(C(C(F)(F)F)(OC(C(C(F)(F)F)(F)F)(F)F)F)O,2.86,intrinsic,serum,male,67,TRUE
+Abraham et al. 2024,https://doi.org/10.1016/j.envint.2024.109047,DONA,C(C(C(=O)O)(F)F)(OC(C(C(OC(F)(F)F)(F)F)(F)F)(F)F)F,34.7,intrinsic,serum,male,67,TRUE
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,

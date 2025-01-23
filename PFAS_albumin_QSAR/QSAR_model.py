@@ -72,7 +72,6 @@ test_dataset.select_features(SelectColumns=train_dataset.X.columns.tolist())
 preprocessor_x = ColumnTransformer(
     transformers=[
         ("OneHotEncoder", OneHotEncoder(), categorical_cols),
-        # ("MinMaxScaler", MinMaxScaler(), cols_to_scaling),
     ],
     remainder="passthrough",
     force_int_remainder_cols=False,
