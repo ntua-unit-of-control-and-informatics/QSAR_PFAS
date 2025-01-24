@@ -1,6 +1,6 @@
 import pandas as pd
 from jaqpotpy.datasets import JaqpotpyDataset
-from jaqpotpy.descriptors import RDKitDescriptors, MordredDescriptors
+from jaqpotpy.descriptors import RDKitDescriptors
 
 df_train = pd.read_csv("PFAS_HalfLife_QSAR/Datasets/Half-life_dataset_Human_train.csv")
 df_test = pd.read_csv("PFAS_HalfLife_QSAR/Datasets/Half-life_dataset_Human_test.csv")

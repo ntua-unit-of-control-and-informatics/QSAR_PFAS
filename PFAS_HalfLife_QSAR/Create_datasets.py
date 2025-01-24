@@ -54,6 +54,8 @@ else:
 
 # Transform all trues of 'adult' column to 1 and false to 0
 halflife_df["adult"] = halflife_df["adult"].astype(int)
+halflife_df["Occupational_exposure"] = halflife_df["Occupational_exposure"].astype(int)
+
 
 # Number of studies included in dataset
 N_studies = halflife_df["Study"].nunique()
