@@ -5,9 +5,9 @@ C(=O)(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Allendorf et al.2019,PFHpA,B
 C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Allendorf et al.2019,PFOA,BSA,310.0,Equilibrium dialysis,1100000.0
 C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Allendorf et al.2019,PFNA,BSA,310.0,Equilibrium dialysis,1400000.0
 C(=O)(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Allendorf et al.2019,PFDA,BSA,310.0,Equilibrium dialysis,3600000.0
-C(=O)(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Allendorf et al.2019,PFUnDA,BSA,310.0,Equilibrium dialysis,3100000.0
+C(=O)(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Allendorf et al.2019,PFUnA,BSA,310.0,Equilibrium dialysis,3100000.0
 C1(C(O1)(F)F)(C(F)(F)F)F,Allendorf et al.2019,HFPO-DA,BSA,310.0,Equilibrium dialysis,23000.0
-C(C(C(=O)O)(F)F)(OC(C(C(OC(F)(F)F)(F)F)(F)F)(F)F)F,Allendorf et al.2019,DONA,BSA,310.0,Equilibrium dialysis,180000.0
+C(C(C(=O)O)(F)F)(OC(C(C(OC(F)(F)F)(F)F)(F)F)(F)F)F,Allendorf et al.2019,ADONA,BSA,310.0,Equilibrium dialysis,180000.0
 C(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)(F)F,Allendorf et al.2019,PFBS,BSA,310.0,Equilibrium dialysis,110000.0
 C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,Allendorf et al.2019,PFHxS,BSA,310.0,Equilibrium dialysis,4400000.0
 C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,Allendorf et al.2019,PFOS,BSA,310.0,Equilibrium dialysis,3200000.0
@@ -19,9 +19,9 @@ C(=O)(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Allendorf et al.2019,PFHpA,B
 C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Allendorf et al.2019,PFOA,BSA,310.0,Equilibrium dialysis,1000000.0
 C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Allendorf et al.2019,PFNA,BSA,310.0,Equilibrium dialysis,2100000.0
 C(=O)(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Allendorf et al.2019,PFDA,BSA,310.0,Equilibrium dialysis,4700000.0
-C(=O)(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Allendorf et al.2019,PFUnDA,BSA,310.0,Equilibrium dialysis,3600000.0
+C(=O)(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Allendorf et al.2019,PFUnA,BSA,310.0,Equilibrium dialysis,3600000.0
 C1(C(O1)(F)F)(C(F)(F)F)F,Allendorf et al.2019,HFPO-DA,BSA,310.0,Equilibrium dialysis,34000.0
-C(C(C(=O)O)(F)F)(OC(C(C(OC(F)(F)F)(F)F)(F)F)(F)F)F,Allendorf et al.2019,DONA,BSA,310.0,Equilibrium dialysis,420000.0
+C(C(C(=O)O)(F)F)(OC(C(C(OC(F)(F)F)(F)F)(F)F)(F)F)F,Allendorf et al.2019,ADONA,BSA,310.0,Equilibrium dialysis,420000.0
 C(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)(F)F,Allendorf et al.2019,PFBS,BSA,310.0,Equilibrium dialysis,31000.0
 C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,Allendorf et al.2019,PFHxS,BSA,310.0,Equilibrium dialysis,2200000.0
 C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,Allendorf et al.2019,PFOS,BSA,310.0,Equilibrium dialysis,4700000.0
@@ -74,13 +74,13 @@ C(=O)(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Gao et al.2019,PFHpA,HSA,310
 C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Gao et al.2019,PFOA,HSA,310.0,Equilibrium dialysis,8695.652173913044
 C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Gao et al.2019,PFNA,HSA,310.0,Equilibrium dialysis,13698.630136986301
 C(=O)(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Gao et al.2019,PFDA,HSA,310.0,Equilibrium dialysis,15384.615384615387
-C(=O)(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Gao et al.2019,PFUdA,HSA,310.0,Equilibrium dialysis,12658.227848101267
+C(=O)(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Gao et al.2019,PFUnA,HSA,310.0,Equilibrium dialysis,12658.227848101267
 C(=O)(C(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Gao et al.2019,PFDoA,HSA,310.0,Equilibrium dialysis,9708.73786407767
 C(=O)(C(C(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Gao et al.2019,PFTrA,HSA,310.0,Equilibrium dialysis,3773.5849056603774
 C(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)(F)F,Gao et al.2019,PFBS,HSA,310.0,Equilibrium dialysis,5917.15976331361
 C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,Gao et al.2019,PFHxS,HSA,310.0,Equilibrium dialysis,12658.227848101267
 C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,Gao et al.2019,PFOS,HSA,310.0,Equilibrium dialysis,26315.78947368421
-C(C(C(C(F)(F)Cl)(F)F)(F)F)(C(C(OC(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F,Gao et al.2019,6:2 Cl-PFESA,HSA,310.0,Equilibrium dialysis,14925.373134328358
+C(C(C(C(F)(F)Cl)(F)F)(F)F)(C(C(OC(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F,Gao et al.2019,9Cl-PF3ONS,HSA,310.0,Equilibrium dialysis,14925.373134328358
 C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Han et al.2003,PFOA,RSA,296.0,19F NMR Titration,3448.2758620689656
 C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Han et al.2003,PFOA,RSA,296.0,Microdesalting Column Separation,2777.777777777778
 C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Han et al.2003,PFOA,HSA,296.0,Microdesalting Column Separation,2631.578947368421
@@ -91,7 +91,7 @@ C(=O)(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Jackson et al.2021,PFHpA,HSA
 C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Jackson et al.2021,PFOA,HSA,-100.0,DSF,1204.8192771084337
 C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Jackson et al.2021,PFNA,HSA,-100.0,DSF,1724.1379310344828
 C(=O)(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Jackson et al.2021,PFDA,HSA,-100.0,DSF,840.3361344537816
-C(=O)(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Jackson et al.2021,PFUnDA,HSA,-100.0,DSF,735.2941176470588
+C(=O)(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Jackson et al.2021,PFUnA,HSA,-100.0,DSF,735.2941176470588
 C(=O)(C(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Jackson et al.2021,PFDoA,HSA,-100.0,DSF,529.1005291005291
 C(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)(F)F,Jackson et al.2021,PFBS,HSA,-100.0,DSF,606.0606060606061
 C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,Jackson et al.2021,PFHxS,HSA,-100.0,DSF,1408.4507042253522
@@ -106,31 +106,6 @@ C(CC(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)C(=O)O,Jackson et al.2021,6:3 FTC
 C(CC(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)C(=O)O,Jackson et al.2021,8:3 FTCA,HSA,-100.0,DSF,1030.9278350515465
 C(CS(=O)(=O)O)C(C(C(C(F)(F)F)(F)F)(F)F)(F)F,Jackson et al.2021,4:2 FTSA,HSA,-100.0,DSF,934.5794392523364
 C(CS(=O)(=O)O)C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,Jackson et al.2021,6:2 FTSA,HSA,-100.0,DSF,2702.702702702703
-C(=O)(C(C(C(F)(F)F)(F)F)(F)F)O,Li et al. 2021,PFBA,HSA,310.0,Equilibrium dialysis,12510.000000000018
-C(=O)(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)O,Li et al. 2021,PFPeA,HSA,310.0,Equilibrium dialysis,12995.96742239138
-C(=O)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Li et al. 2021,PFHxA,HSA,310.0,Equilibrium dialysis,39474.60267276309
-C(=O)(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Li et al. 2021,PFHpA,HSA,310.0,Equilibrium dialysis,337044.42561202415
-C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Li et al. 2021,PFOA,HSA,310.0,Equilibrium dialysis,111213.05018135966
-C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Li et al. 2021,PFNA,HSA,310.0,Equilibrium dialysis,231798.1826718335
-C(=O)(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Li et al. 2021,PFDA,HSA,310.0,Equilibrium dialysis,84128.05260707425
-C(=O)(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Li et al. 2021,PFUdA,HSA,310.0,Equilibrium dialysis,42201.30568499768
-C(=O)(C(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Li et al. 2021,PFDoA,HSA,310.0,Equilibrium dialysis,34381.97724615341
-C(=O)(C(C(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Li et al. 2021,PFTrDA,HSA,310.0,Equilibrium dialysis,22319.20422605054
-C(=O)(C(C(C(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Li et al. 2021,PFTeDA,HSA,310.0,Equilibrium dialysis,9152.309827182231
-C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,Li et al. 2021,L-PFOS,HSA,310.0,Equilibrium dialysis,55440.00000000003
-C(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)(F)F,Li et al. 2021,PFBS,HSA,310.0,Equilibrium dialysis,40046.01741611047
-C(C(C(F)(F)F)(F)F)(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F,Li et al. 2021,PFPeS,HSA,310.0,Equilibrium dialysis,56517.42821478417
-C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,Li et al. 2021,PFHxS,HSA,310.0,Equilibrium dialysis,97298.80335049881
-C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F,Li et al. 2021,PFHpS,HSA,310.0,Equilibrium dialysis,42892.91936311625
-C(C(F)(F)F)(C(F)(F)S(=O)(=O)O)(F)F,Li et al. 2021,L-PFPrS,HSA,310.0,Equilibrium dialysis,11690.236631758387
-C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F,Li et al. 2021,PFNS,HSA,310.0,Equilibrium dialysis,123985.90134535865
-C(C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F)(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F,Li et al. 2021,PFDS,HSA,310.0,Equilibrium dialysis,39748.969734248094
-C(C(C(C(C(F)(F)S(=O)(=O)N)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,Li et al. 2021,FOSA,HSA,310.0,Equilibrium dialysis,58702.45025383956
-CN(CC(=O)O)S(=O)(=O)C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,Li et al. 2021,MeFOSAA,HSA,310.0,Equilibrium dialysis,140727.99374443459
-CCN(CC(=O)O)S(=O)(=O)C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,Li et al. 2021,EtFOSAA,HSA,310.0,Equilibrium dialysis,140591.29437718762
-C(CS(=O)(=O)O)C(C(C(C(F)(F)F)(F)F)(F)F)(F)F,Li et al. 2021,4:2 FTSA,HSA,310.0,Equilibrium dialysis,83223.965910817
-C(CS(=O)(=O)O)C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,Li et al. 2021,6:2 FTSA,HSA,310.0,Equilibrium dialysis,146589.64447008155
-C(CS(=O)(=O)O)C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,Li et al. 2021,8:2 FTSA,HSA,310.0,Equilibrium dialysis,43084.17601803407
 C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,MacManus-Spencer et al.2010,PFOA,BSA,310.0,19F NMR Titration,630.0
 C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,MacManus-Spencer et al.2010,PFNA,BSA,310.0,19F NMR Titration,8000.0
 C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,MacManus-Spencer et al.2010,PFNA,HSA,310.0,19F NMR Titration,20000.0
@@ -168,7 +143,7 @@ C(=O)(C(C(C(C(C(C(C(=O)O)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Peng et al.2024,DFSA,HS
 C(=O)(C(C(C(C(C(C(C(=O)O)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Peng et al.2024,DFSA,HSA,304.0,fluorescence quenching,4930.0
 C(=O)(C(C(C(C(C(C(C(=O)O)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Peng et al.2024,DFSA,HSA,310.0,fluorescence quenching,20700.0
 C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,Sheng et al.2020,PFOS,HSA,310.0,ultrafiltration centrifugation,32573.28990228013
-C(C(C(C(F)(F)Cl)(F)F)(F)F)(C(C(OC(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F,Sheng et al.2020,6:2 Cl-PFESA,HSA,310.0,ultrafiltration centrifugation,59880.239520958086
+C(C(C(C(F)(F)Cl)(F)F)(F)F)(C(C(OC(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F,Sheng et al.2020,9Cl-PF3ONS,HSA,310.0,ultrafiltration centrifugation,59880.239520958086
 C(=O)(C(C(C(F)(F)F)(F)F)(F)F)O,Starnes et al.2024,PFBA,HSA,-100.0,DSF,378.7878787878788
 C(=O)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Starnes et al.2024,PFHxA,HSA,-100.0,DSF,584.7953216374269
 C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Starnes et al.2024,PFOA,HSA,-100.0,DSF,1265.8227848101264
@@ -197,10 +172,61 @@ C(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)(F)F,Starnes et al.2024,PFBS,RSA,-100.0,DSF
 C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,Starnes et al.2024,PFOS,RSA,-100.0,DSF,2380.952380952381
 C1(C(O1)(F)F)(C(F)(F)F)F,Starnes et al.2024,HFPO-DA,RSA,-100.0,DSF,609.7560975609756
 C(CS(=O)(=O)O)C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,Starnes et al.2024,6:2 FTSA,RSA,-100.0,DSF,3030.3030303030305
-C(=O)(C(OC1(C(OC(O1)(F)F)(OC(F)(F)F)F)F)(F)F)O,Moro et al.2022,C6O4,HSA,310.0,Isothermal Titration Calorimetry,185185.1851851852
-C(=O)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Moro et al.2022,PFHxA,HSA,298.0,Isothermal Titration Calorimetry,222222.22222222222
-C(=O)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Moro et al.2022,PFHxA,HSA,310.0,Isothermal Titration Calorimetry,169491.5254237288
-C1(C(O1)(F)F)(C(F)(F)F)F,Moro et al.2022,HPFO-DA,HSA,298.0,Isothermal Titration Calorimetry,52631.57894736842
-C1(C(O1)(F)F)(C(F)(F)F)F,Moro et al.2022,HPFO-DA,HSA,310.0,Isothermal Titration Calorimetry,101010.101010101
-C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Moro et al.2022,PFOA,HSA,298.0,Isothermal Titration Calorimetry,2500000.0
-C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Moro et al.2022,PFOA,HSA,310.0,Isothermal Titration Calorimetry,25445.29262086514
+C(=O)(C(C(C(F)(F)F)(F)F)(F)F)O,Chen et al.2025,PFBA,HSA,-100.0,Equilibrium dialysis,11780.0
+C(=O)(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)O,Chen et al.2025,PFPeA,HSA,-100.0,Equilibrium dialysis,61460.0
+C(=O)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Chen et al.2025,PFHxA,HSA,-100.0,Equilibrium dialysis,71530.0
+C(=O)(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Chen et al.2025,PFHpA,HSA,-100.0,Equilibrium dialysis,161300.0
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Chen et al.2025,PFOA,HSA,-100.0,Equilibrium dialysis,389100.0
+C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Chen et al.2025,PFNA,HSA,-100.0,Equilibrium dialysis,266700.0
+C(=O)(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Chen et al.2025,PFDA,HSA,-100.0,Equilibrium dialysis,274700.0
+C(=O)(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Chen et al.2025,PFUnA,HSA,-100.0,Equilibrium dialysis,211400.0
+C(=O)(C(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Chen et al.2025,PFDoA,HSA,-100.0,Equilibrium dialysis,63450.0
+C(=O)(C(C(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Chen et al.2025,PFTrA,HSA,-100.0,Equilibrium dialysis,31810.0
+C(=O)(C(C(C(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Chen et al.2025,PFTeDA,HSA,-100.0,Equilibrium dialysis,76390.0
+C(=O)(C(C(C(C(C(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Chen et al.2025,PFHxDA,HSA,-100.0,Equilibrium dialysis,95690.0
+C(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)(F)F,Chen et al.2025,PFBS,HSA,-100.0,Equilibrium dialysis,64100.0
+C(C(C(F)(F)F)(F)F)(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F,Chen et al.2025,PFPeS,HSA,-100.0,Equilibrium dialysis,58310.0
+C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,Chen et al.2025,PFHxS,HSA,-100.0,Equilibrium dialysis,763400.0
+C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F,Chen et al.2025,PFHpS,HSA,-100.0,Equilibrium dialysis,595200.0
+C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,Chen et al.2025,PFOS,HSA,-100.0,Equilibrium dialysis,1064000.0
+C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F,Chen et al.2025,PFNS,HSA,-100.0,Equilibrium dialysis,152400.0
+C(C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F)(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F,Chen et al.2025,PFDS,HSA,-100.0,Equilibrium dialysis,531900.0
+C(C(C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F)(F)F)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,Chen et al.2025,PFDoS,HSA,-100.0,Equilibrium dialysis,775200.0
+C(CS(=O)(=O)O)C(C(C(C(F)(F)F)(F)F)(F)F)(F)F,Chen et al.2025,4:2 FTS,HSA,-100.0,Equilibrium dialysis,52740.0
+C(CS(=O)(=O)O)C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,Chen et al.2025,6:2 FTS,HSA,-100.0,Equilibrium dialysis,413200.0
+C(CS(=O)(=O)O)C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,Chen et al.2025,8:2 FTS,HSA,-100.0,Equilibrium dialysis,222700.0
+C(CS(=O)(=O)O)C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,Chen et al.2025,10:2 FTS,HSA,-100.0,Equilibrium dialysis,432900.0
+C(C(C(C(C(F)(F)S(=O)(=O)N)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,Chen et al.2025,FOSA,HSA,-100.0,Equilibrium dialysis,89450.0
+CNS(=O)(=O)C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,Chen et al.2025,NMeFOSA,HSA,-100.0,Equilibrium dialysis,81830.0
+CCNS(=O)(=O)C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,Chen et al.2025,NEtFOSA,HSA,-100.0,Equilibrium dialysis,77040.0
+CN(CC(=O)O)S(=O)(=O)C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,Chen et al.2025,MeFOSAA,HSA,-100.0,Equilibrium dialysis,150800.0
+CCN(CC(=O)O)S(=O)(=O)C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,Chen et al.2025,EtFOSAA,HSA,-100.0,Equilibrium dialysis,183800.0
+C(C(=O)O)NS(=O)(=O)C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,Chen et al.2025,FOSAA,HSA,-100.0,Equilibrium dialysis,135100.0
+CN(CCO)S(=O)(=O)C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,Chen et al.2025,NMeFOSE,HSA,-100.0,Equilibrium dialysis,170100.0
+CCN(CCO)S(=O)(=O)C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,Chen et al.2025,NEtFOSE,HSA,-100.0,Equilibrium dialysis,164200.0
+C1(C(O1)(F)F)(C(F)(F)F)F,Chen et al.2025,HFPO-DA,HSA,-100.0,Equilibrium dialysis,152200.0
+C(C(C(=O)O)(F)F)(OC(C(C(OC(F)(F)F)(F)F)(F)F)(F)F)F,Chen et al.2025,ADONA,HSA,-100.0,Equilibrium dialysis,176100.0
+C(=O)(C(C(OC(F)(F)F)(F)F)(F)F)O,Chen et al.2025,PFMPA,HSA,-100.0,Equilibrium dialysis,21030.0
+C(=O)(C(C(C(OC(F)(F)F)(F)F)(F)F)(F)F)O,Chen et al.2025,PFMBA,HSA,-100.0,Equilibrium dialysis,4545000.0
+C(=O)(C(OC(C(OC(F)(F)F)(F)F)(F)F)(F)F)O,Chen et al.2025,NFDHA,HSA,-100.0,Equilibrium dialysis,57670.0
+C(C(C(C(F)(F)Cl)(F)F)(F)F)(C(C(OC(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F,Chen et al.2025,9Cl-PF3ONS,HSA,-100.0,Equilibrium dialysis,632900.0
+C(C(C(C(C(F)(F)Cl)(F)F)(F)F)(F)F)(C(C(C(OC(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F)(F)F,Chen et al.2025,11Cl-PF3OUdS,HSA,-100.0,Equilibrium dialysis,284100.0
+C(C(F)(F)F)(OC(C(F)(F)S(=O)(=O)O)(F)F)(F)F,Chen et al.2025,PFEESA,HSA,-100.0,Equilibrium dialysis,194200.0
+C(CC(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)C(=O)O,Chen et al.2025,7:3 FTCA,HSA,-100.0,Equilibrium dialysis,549500.0
+C(C(=O)O)C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,Chen et al.2025,6:2 FTCA,HSA,-100.0,Equilibrium dialysis,274700.0
+C(C(=O)O)C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,Chen et al.2025,8:2 FTCA,HSA,-100.0,Equilibrium dialysis,502500.0
+C(C(=O)O)C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,Chen et al.2025,10:2 FTCA,HSA,-100.0,Equilibrium dialysis,110400.0
+C(C(C(C(C(F)(F)Cl)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F,Chen et al.2025,8Cl-PFOS,HSA,-100.0,Equilibrium dialysis,1149000.0
+C1(C(C(C(C(C1(F)F)(F)F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)F,Chen et al.2025,PFECHS,HSA,-100.0,Equilibrium dialysis,617300.0
+C(C(C(F)(F)S(=O)(=O)N)(F)F)(C(F)(F)F)(F)F,Chen et al.2025,FBSA,HSA,-100.0,Equilibrium dialysis,179200.0
+C(C(C(C(F)(F)S(=O)(=O)N)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,Chen et al.2025,FHxSA,HSA,-100.0,Equilibrium dialysis,325700.0
+C(=C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)F)C(=O)O,Chen et al.2025,6:2 FTUCA,HSA,-100.0,Equilibrium dialysis,236400.0
+C(=C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)F)C(=O)O,Chen et al.2025,8:2 FTUCA,HSA,-100.0,Equilibrium dialysis,442500.0
+C(COP(=O)(O)OCCC(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,Chen et al.2025,6:2 diPAP,HSA,-100.0,Equilibrium dialysis,369000.0
+C(COP(=O)(O)OCCC(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,Chen et al.2025,8:2 diPAP,HSA,-100.0,Equilibrium dialysis,69440.0
+CCN(CCOP(=O)(O)OCCN(CC)S(=O)(=O)C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)S(=O)(=O)C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,Chen et al.2025,diSAmPAP,HSA,-100.0,Equilibrium dialysis,168400.0
+CN(C)CCCNS(=O)(=O)C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,Chen et al.2025,PFHxSaAm,HSA,-100.0,Equilibrium dialysis,161600.0
+C[N+](C)(CCCNS(=O)(=O)CCC(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)CC(=O)[O-],Chen et al.2025,6:2 FtSaB,HSA,-100.0,Equilibrium dialysis,58930.0
+C[N+](C)(C)CCCNS(=O)(=O)C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,Chen et al.2025,N-TAmP-FHxSA,HSA,-100.0,Equilibrium dialysis,29690.0
+C[N+](C)(CCCC(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)CC(=O)[O-],Chen et al.2025,5:3 FTB,HSA,-100.0,Equilibrium dialysis,32850.0
+C[N+](C)(CCC(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)F)CC(=O)[O-],Chen et al.2025,5:1:2 FTB,HSA,-100.0,Equilibrium dialysis,20280.0

@@ -6,12 +6,31 @@ C(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)(F)F,Alesio et al.2022,PFBS,BSA,310.0,Equil
 C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,Alesio et al.2022,PFHxS,BSA,310.0,Equilibrium dialysis,648000.0
 C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,Alesio et al.2022,PFOS,BSA,310.0,Equilibrium dialysis,1798999.9999999998
 C1(C(O1)(F)F)(C(F)(F)F)F,Alesio et al.2022,HFPO-DA,BSA,310.0,Equilibrium dialysis,65000.0
-C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Qin et al.2010,PFOA,BSA,300.0,fluorescence quenching,43600.0
-C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Qin et al.2010,PFOA,BSA,310.0,fluorescence quenching,29300.0
-C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Qin et al.2010,PFOA,BSA,320.0,fluorescence quenching,21700.0
-C(=O)(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Qin et al.2010,PFDA,BSA,300.0,fluorescence quenching,684600.0
-C(=O)(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Qin et al.2010,PFDA,BSA,310.0,fluorescence quenching,441700.0
-C(=O)(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Qin et al.2010,PFDA,BSA,320.0,fluorescence quenching,272200.0
+C(=O)(C(C(C(F)(F)F)(F)F)(F)F)O,Li et al. 2021,PFBA,HSA,310.0,Equilibrium dialysis,12510.000000000018
+C(=O)(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)O,Li et al. 2021,PFPeA,HSA,310.0,Equilibrium dialysis,12995.96742239138
+C(=O)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Li et al. 2021,PFHxA,HSA,310.0,Equilibrium dialysis,39474.60267276309
+C(=O)(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Li et al. 2021,PFHpA,HSA,310.0,Equilibrium dialysis,337044.42561202415
+C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Li et al. 2021,PFOA,HSA,310.0,Equilibrium dialysis,111213.05018135966
+C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Li et al. 2021,PFNA,HSA,310.0,Equilibrium dialysis,231798.1826718335
+C(=O)(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Li et al. 2021,PFDA,HSA,310.0,Equilibrium dialysis,84128.05260707425
+C(=O)(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Li et al. 2021,PFUnA,HSA,310.0,Equilibrium dialysis,42201.30568499768
+C(=O)(C(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Li et al. 2021,PFDoA,HSA,310.0,Equilibrium dialysis,34381.97724615341
+C(=O)(C(C(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Li et al. 2021,PFTrA,HSA,310.0,Equilibrium dialysis,22319.20422605054
+C(=O)(C(C(C(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Li et al. 2021,PFTeDA,HSA,310.0,Equilibrium dialysis,9152.309827182231
+C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,Li et al. 2021,L-PFOS,HSA,310.0,Equilibrium dialysis,55440.00000000003
+C(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)(F)F,Li et al. 2021,PFBS,HSA,310.0,Equilibrium dialysis,40046.01741611047
+C(C(C(F)(F)F)(F)F)(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F,Li et al. 2021,PFPeS,HSA,310.0,Equilibrium dialysis,56517.42821478417
+C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,Li et al. 2021,PFHxS,HSA,310.0,Equilibrium dialysis,97298.80335049881
+C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F,Li et al. 2021,PFHpS,HSA,310.0,Equilibrium dialysis,42892.91936311625
+C(C(F)(F)F)(C(F)(F)S(=O)(=O)O)(F)F,Li et al. 2021,L-PFPrS,HSA,310.0,Equilibrium dialysis,11690.236631758387
+C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F,Li et al. 2021,PFNS,HSA,310.0,Equilibrium dialysis,123985.90134535865
+C(C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F)(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F,Li et al. 2021,PFDS,HSA,310.0,Equilibrium dialysis,39748.969734248094
+C(C(C(C(C(F)(F)S(=O)(=O)N)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,Li et al. 2021,FOSA,HSA,310.0,Equilibrium dialysis,58702.45025383956
+CN(CC(=O)O)S(=O)(=O)C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,Li et al. 2021,MeFOSAA,HSA,310.0,Equilibrium dialysis,140727.99374443459
+CCN(CC(=O)O)S(=O)(=O)C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,Li et al. 2021,EtFOSAA,HSA,310.0,Equilibrium dialysis,140591.29437718762
+C(CS(=O)(=O)O)C(C(C(C(F)(F)F)(F)F)(F)F)(F)F,Li et al. 2021,4:2 FTSA,HSA,310.0,Equilibrium dialysis,83223.965910817
+C(CS(=O)(=O)O)C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,Li et al. 2021,6:2 FTSA,HSA,310.0,Equilibrium dialysis,146589.64447008155
+C(CS(=O)(=O)O)C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,Li et al. 2021,8:2 FTSA,HSA,310.0,Equilibrium dialysis,43084.17601803407
 C(=O)(C(C(C(F)(F)F)(F)F)(F)F)O,Starnes et al.2024b,PFBA,HSA,-100.0,DSF,390.0
 C(=O)(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)O,Starnes et al.2024b,PFPeA,HSA,-100.0,DSF,479.99999999999994
 C(=O)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Starnes et al.2024b,PFHxA,HSA,-100.0,DSF,610.0
@@ -19,15 +38,15 @@ C(=O)(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Starnes et al.2024b,PFHpA,HS
 C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Starnes et al.2024b,PFOA,HSA,-100.0,DSF,1200.0
 C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Starnes et al.2024b,PFNA,HSA,-100.0,DSF,1720.0
 C(=O)(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Starnes et al.2024b,PFDA,HSA,-100.0,DSF,839.9999999999999
-C(=O)(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Starnes et al.2024b,PFunDA,HSA,-100.0,DSF,740.0
+C(=O)(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Starnes et al.2024b,PFUnA,HSA,-100.0,DSF,740.0
 C(=O)(C(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Starnes et al.2024b,PFDoA,HSA,-100.0,DSF,530.0
 C(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)(F)F,Starnes et al.2024b,PFBS,HSA,-100.0,DSF,610.0
 C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,Starnes et al.2024b,PFHxS,HSA,-100.0,DSF,1410.0
 C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,Starnes et al.2024b,PFOS,HSA,-100.0,DSF,1490.0
 C1(C(O1)(F)F)(C(F)(F)F)F,Starnes et al.2024b,"HFPO-DA, GenX",HSA,-100.0,DSF,630.0
-C(=O)(C(OC(C(OC(C(OC(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Starnes et al.2024b,PFO3DoDA,HSA,-100.0,DSF,650.0
+C(=O)(C(OC(C(OC(C(OC(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Starnes et al.2024b,PFO3DA,HSA,-100.0,DSF,650.0
 C(=O)(C(C(C(OC(F)(F)F)(F)F)(F)F)(F)F)O,Starnes et al.2024b,PFMBA,HSA,-100.0,DSF,440.0
-C(=O)(C(OC(C(OC(F)(F)F)(F)F)(F)F)(F)F)O,Starnes et al.2024b,"Perfluoro-3,6-dioxaheptanoic acid",HSA,-100.0,DSF,709.9999999999999
+C(=O)(C(OC(C(OC(F)(F)F)(F)F)(F)F)(F)F)O,Starnes et al.2024b,NFDHA,HSA,-100.0,DSF,709.9999999999999
 C(=O)(C(OC(C(OC(C(=O)O)(F)F)(F)F)(F)F)(F)F)O,Starnes et al.2024b,"Perfluoro-3,6-dioxaoctane-1,8-dioic acid",HSA,-100.0,DSF,930.0
 C(=O)(C(OC(C(OC(C(OC(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Starnes et al.2024b,"Perfluoro-3,6,9-trioxatridecanoic acid",HSA,-100.0,DSF,4170.0
 C(=O)(C(OC(F)(F)F)(F)F)[O-].[Na+],Starnes et al.2024b,PFMOAA,HSA,-100.0,DSF,100.0
@@ -49,9 +68,3 @@ C(CO)C(C(C(C(F)(F)F)(F)F)(F)F)(F)F,Starnes et al.2024b,4:2 FTOH,HSA,-100.0,DSF,0
 C(CCO)CC(C(C(C(F)(F)F)(F)F)(F)F)(F)F,Starnes et al.2024b,4:4 FTOH,HSA,-100.0,DSF,0.0
 C(CO)C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,Starnes et al.2024b,6:2 FTOH,HSA,-100.0,DSF,0.0
 C(C(F)(F)F)(OC(C(C(F)(F)F)(F)F)(F)F)F,Starnes et al.2024b,E1,HSA,-100.0,DSF,610.0
-C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Maso et al.2021,PFOA,HSA,285.0,Isothermal Titration Calorimetry,1360544.217687075
-C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Maso et al.2021,PFOA,HSA,292.0,Isothermal Titration Calorimetry,1742160.2787456445
-C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Maso et al.2021,PFOA,HSA,295.0,Isothermal Titration Calorimetry,1436781.6091954024
-C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Maso et al.2021,PFOA,HSA,298.0,Isothermal Titration Calorimetry,1949317.738791423
-C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Maso et al.2021,PFOA,HSA,303.0,Isothermal Titration Calorimetry,4347826.0869565215
-C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Maso et al.2021,PFOA,HSA,310.0,Isothermal Titration Calorimetry,2538071.0659898478

@@ -18,7 +18,6 @@ from jaqpotpy.doa import (
 from sklearn.feature_selection import VarianceThreshold
 from jaqpotpy.models import SklearnModel
 from sklearn.ensemble import RandomForestRegressor
-from sklearn.neural_network import MLPRegressor
 from sklearn.linear_model import LinearRegression
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import StandardScaler, MinMaxScaler, OneHotEncoder
@@ -26,20 +25,18 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import r2_score
 import sys
 
-df_train = pd.read_csv("PFAS_albumin_QSAR/Train_Albumin_Binding_Data.csv")
-df_train = df_train[df_train["Ka"] != 0]
-df_train[["Ka"]] = np.log10(df_train[["Ka"]])
-# df_train.drop(columns=["Authors"], inplace=True)
-
-df_test = pd.read_csv("PFAS_albumin_QSAR/Test_Albumin_Binding_Data.csv")
-df_test = df_test[df_test["Ka"] != 0]
-df_test[["Ka"]] = np.log10(df_test[["Ka"]])
-# df_test.drop(columns=["Authors"], inplace=True)
+df_train = pd.read_csv(
+    "PFAS_albumin_QSAR/Equilibrium_dialysis/Train_Albumin_Binding_Data.csv"
+)
+df_test = pd.read_csv(
+    "PFAS_albumin_QSAR/Equilibrium_dialysis/Test_Albumin_Binding_Data.csv"
+)
+df_test = df_test[df_test["Congener"] != "PFMBA"]
 
 # Create a JaqpotpyDataset objects
-x_cols = ["Temperature", "Albumin_Type", "Method"]
-categorical_cols = ["Albumin_Type", "Method"]
-featurizers = [RDKitDescriptors()]
+x_cols = []  # ["Albumin_Type"]
+categorical_cols = []  # ["Albumin_Type"]
+featurizers = [RDKitDescriptors(), TopologicalFingerprint()]
 
 train_dataset = JaqpotpyDataset(
     df=df_train,
@@ -52,11 +49,16 @@ train_dataset = JaqpotpyDataset(
 
 train_dataset.select_features(
     SelectColumns=[
-        "BalabanJ",
-        "MolWt",
-        # "PEOE_VSA2",
-        "Albumin_Type",
-        "Method",
+        "fr_quatN",
+        "Bit_592",
+        "Chi2v",
+        "AvgIpc",
+        "Bit_886",
+        "Bit_741",
+        "Bit_1977",
+        "Bit_636",
+        # "PEOE_VSA12",
+        # "Bit_807",
     ]
 )
 
@@ -68,8 +70,8 @@ test_dataset = JaqpotpyDataset(
     featurizer=featurizers,
     task="regression",
 )
+
 test_dataset.select_features(SelectColumns=train_dataset.X.columns.tolist())
-# print(list(set(train_dataset.X.columns) - set(categorical_cols)))
 preprocessor_x = ColumnTransformer(
     transformers=[
         (
@@ -77,7 +79,6 @@ preprocessor_x = ColumnTransformer(
             StandardScaler(),
             list(set(train_dataset.X.columns) - set(categorical_cols)),
         ),
-        ("OneHotEncoder", OneHotEncoder(sparse_output=False), categorical_cols),
     ],
     remainder="passthrough",
     force_int_remainder_cols=False,
@@ -85,7 +86,7 @@ preprocessor_x = ColumnTransformer(
 
 model = SklearnModel(
     dataset=train_dataset,
-    model=RandomForestRegressor(),
+    model=RandomForestRegressor(random_state=42),
     preprocess_x=[preprocessor_x],
     doa=[
         Leverage(),
@@ -97,7 +98,7 @@ model = SklearnModel(
     ],
 )
 model.fit()
-model.cross_validate(dataset=train_dataset, n_splits=10, random_seed=42)
+model.cross_validate(dataset=train_dataset, n_splits=5, random_seed=42)
 print("10-fold Cross-val Average Scores:", model.average_cross_val_scores)
 model.evaluate(test_dataset)
 print("Test scores", model.test_scores)
@@ -133,52 +134,28 @@ yy = model.predict(test_dataset)
 yx = test_dataset.y
 yx = yx.to_numpy()
 
-# Create a color map based on the "Authors" column
-authors = df_test["Authors"].unique()
-color_map = {author: plt.cm.tab20(i) for i, author in enumerate(authors)}
-colors = df_test["Authors"].map(color_map)
+# Create a y_observed vs y_predicted plot and annotate the points with the congener
+plt.figure(figsize=(10, 6))
 
-plt.figure(figsize=(10, 8))
-plt.scatter(yx, yy, color=colors, label="Predicted vs Actual")
+# Plot each point with color based on DOA
+for i in range(len(yx)):
+    color = "black" if not majority_voting_results[i] else "blue"
+    plt.scatter(yx[i], yy[i], color=color, alpha=0.7)
 
-# Annotate each data point with the corresponding congener from df_test
+plt.plot(
+    [min(yx), max(yx)],
+    [min(yx), max(yx)],
+    color="red",
+    linestyle="--",
+    label="Ideal fit",
+)
+plt.xlabel("Observed Ka")
+plt.ylabel("Predicted Ka")
+plt.title("Observed vs Predicted Ka")
+plt.legend()
+
+# Annotate the points with the congener
 for i, txt in enumerate(df_test["Congener"]):
     plt.annotate(txt, (yx[i], yy[i]), fontsize=8, alpha=0.7)
 
-plt.plot(
-    [min(yx), max(yx)], [min(yx), max(yx)], color="red", linestyle="--", label="y=x"
-)
-plt.xlabel("Actual Ka (log scale)")
-plt.ylabel("Predicted Ka (log scale)")
-plt.title("Actual vs Predicted Ka (log scale)")
-
-# Create a custom legend for the authors
-handles = [
-    plt.Line2D(
-        [0],
-        [0],
-        marker="o",
-        color="w",
-        markerfacecolor=color_map[author],
-        markersize=10,
-    )
-    for author in authors
-]
-plt.legend(
-    handles, authors, title="Authors", bbox_to_anchor=(1.05, 1), loc="upper left"
-)
-
-plt.tight_layout()
 plt.show()
-
-# from jaqpotpy import Jaqpot
-
-# # Upload the pretrained model on Jaqpot
-# jaqpot = Jaqpot()
-# jaqpot.login()
-# model.deploy_on_jaqpot(
-#     jaqpot=jaqpot,
-#     name="Qsar PFAS Albumin Binding",
-#     description="Predicts log10Ka of PFAS compounds binding to albumin",
-#     visibility="PRIVATE",
-# )
