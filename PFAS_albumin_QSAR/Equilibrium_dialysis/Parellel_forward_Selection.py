@@ -112,8 +112,8 @@ if __name__ == "__main__":
     )
 
     # Create a JaqpotpyDataset objects
-    x_cols = []  # ["Albumin_Type"]
-    categorical_cols = []  # ["Albumin_Type"]
+    x_cols = []
+    categorical_cols = []
     featurizers = [RDKitDescriptors(), TopologicalFingerprint()]
 
     train_dataset = JaqpotpyDataset(

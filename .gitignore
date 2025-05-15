@@ -1,3 +1,5 @@
 **/venv/
 **/Studies
+**/to_be_deleted/
+**/launch.json
 .env

@@ -1,0 +1,6 @@
+## Overview
+This model predicts the logarithm (Log10) of the association constant (K_a) for the binding of per- and polyfluoroalkyl substances (PFAS) to human serum albumin (HSA). Built using a Random Forest algorithm, it leverages experimental data published by Chen et al. (2025) to provide accurate and reliable predictions. 
+
+The model has been trained on a small subset of RDKit descriptors and Morgan Fingerprints. However, the user has to provide only the SMILES of PFAS to take predictions, as the features are internally calculated. The model supports 6 different domain of applicability methods (Mahalanobis, Kernel-based, City block, Leverage, Mean-Variance, and Bounding-Box). 
+
+The dataset included the data that were reported in the work of Chen et al., who experimentally meassured the dissociation constant (K_d) of various PFAS with human serum albumin through equilibrium dialysis, which is considered as gold standard at measuring binding affinities. The SMILES represenations of PFAS were used for the features generation and a forward selection of features based on the scores of 5-fold cross validation was applied to identify the best predictors of association constants. Finally, the model was tested on unseen data that were removed from the original dataset.

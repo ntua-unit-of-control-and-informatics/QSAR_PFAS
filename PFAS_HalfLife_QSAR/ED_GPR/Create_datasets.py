@@ -10,7 +10,7 @@ halflife_df = pd.read_csv("PFAS_HalfLife_QSAR/Datasets/Half-life_dataset_Human.c
 Ka_data = pd.read_csv("PFAS_HalfLife_QSAR/Datasets/Ka_results.csv")
 
 # Drop row with half_life == 149496.70
-halflife_df = halflife_df[halflife_df["half_life_days"] != 149496.70]
+# halflife_df = halflife_df[halflife_df["half_life_days"] != 149496.70]
 
 # Drop rows with NaN values because no SMILES found for these rows
 halflife_df.dropna(subset=["SMILES"], inplace=True)
@@ -24,14 +24,13 @@ halflife_df.drop(
 halflife_df = halflife_df.merge(Ka_data, on="SMILES", how="left")
 
 # Group data by PFAS and calculate z-scores within each group
-grouped = halflife_df.groupby("PFAS")
+grouped = halflife_df.groupby("SMILES")
 halflife_df["z_score"] = grouped["half_life_days"].transform(
     lambda x: stats.zscore(x, nan_policy="omit")
 )
-
 # Outliers detection with z-score per group
 halflife_df["abs_z_score"] = abs(halflife_df["z_score"])
-filtered_entries = halflife_df["abs_z_score"] > 3
+filtered_entries = halflife_df["abs_z_score"] > 2
 
 # Separate outliers into a different dataframe
 outliers_df = halflife_df[filtered_entries].copy()
@@ -42,10 +41,17 @@ halflife_df = halflife_df[~filtered_entries]
 # Drop the z_score and abs_z_score columns as they are no longer needed
 halflife_df.drop(columns=["z_score", "abs_z_score"], inplace=True)
 
+# From Yu et al. 2021 drop all rows with half_life_days > 10
+# yu2021_to_drop = halflife_df[
+#     (halflife_df["Study"] == "Yu et al. 2021") & (halflife_df["half_life_days"] > 10)
+# ]
+# print("Rows from Yu et al. 2021 with half_life_days > 10:", yu2021_to_drop)
+# halflife_df = halflife_df.drop(yu2021_to_drop.index)
+
 # Tranform half-life to years
 halflife_df["half_life_days"] = halflife_df["half_life_days"] / 365
 # Drop rows with half_life_days > 15*365
-halflife_df = halflife_df[halflife_df["half_life_days"] <= 40]
+# halflife_df = halflife_df[halflife_df["half_life_days"] <= 40]
 
 if halflife_df.isnull().values.any():
     print("The dataframe contains NaN values.")
@@ -81,12 +87,37 @@ print(study_summary_df)
 # plt.show()
 
 # Random train-test split of the dataset
-train_df, test_df = train_test_split(halflife_df, test_size=0.2, random_state=42)
+# Sort the dataframe by half_life_days
+halflife_df = halflife_df.sort_values(by="half_life_days")
 
-# Keep specific Studies for test dataset
-# test_studies = ["Abraham et al. 2024", "Li et al. 2022"]
-# train_df = halflife_df[~halflife_df["Study"].isin(test_studies)].reset_index(drop=True)
-# test_df = halflife_df[halflife_df["Study"].isin(test_studies)].reset_index(drop=True)
+# Split the dataframe into train and test sets based on the rule
+train_indices = []
+test_indices = []
+
+# Iterate over the dataframe in chunks of 10
+for i in range(0, len(halflife_df), 10):
+    chunk = halflife_df.iloc[i : i + 10]
+    test_chunk = chunk.sample(
+        frac=0.2, random_state=42
+    )  # Randomly select 20% (2 out of 10) for test
+    train_chunk = chunk.drop(test_chunk.index)  # The rest go to train
+
+    train_indices.extend(train_chunk.index)
+    test_indices.extend(test_chunk.index)
+
+# Create train and test dataframes
+train_df = halflife_df.loc[train_indices].copy()
+test_df = halflife_df.loc[test_indices].copy()
+# Create a scatter plot of the train and test values of half_life with different colors
+plt.figure(figsize=(10, 6))
+plt.scatter(train_df["half_life_days"], train_df["PFAS"], color="blue", label="Train")
+plt.scatter(test_df["half_life_days"], test_df["PFAS"], color="red", label="Test")
+plt.title("Scatter Plot of Half-life Values")
+plt.xlabel("Half-life (years)")
+plt.ylabel("PFAS")
+plt.legend()
+plt.show()
+
 
 print("Train dataset shape:", train_df.shape)
 print("Test dataset shape:", test_df.shape)

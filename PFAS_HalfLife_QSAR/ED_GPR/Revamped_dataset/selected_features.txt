@@ -1,0 +1,9 @@
+Selected features:
+- LogKa
+- BCUT2D_LOGPLOW
+- Bit_1159
+- Kappa3
+- Bit_1050
+
+Best score: 0.6163804058608887
+Time taken: 522.36 minutes
