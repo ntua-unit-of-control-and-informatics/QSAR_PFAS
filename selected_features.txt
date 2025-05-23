@@ -1,0 +1,13 @@
+Selected features:
+- PEOE_VSA4
+- Bit_1198
+- Bit_1720
+- Bit_486
+
+PFAS-level R² scores:
+Features 1: 0.3116
+Features 2: 0.5719
+Features 3: 0.7412
+Features 4: 0.8352
+
+Time taken: 56.27 minutes

@@ -485,7 +485,7 @@ def perform_pfas_cv(model, X, y, pfas_values, halflife_stats, n_folds=5):
         y_val_pred = fold_model.predict(X_val)
 
         # Calculate sample-level metrics
-        r2 = r2_score(y_val, y_val_pred)
+        r2 = r2_score(10 ** y_val, 10 ** y_val_pred)
         rmse = np.sqrt(np.mean((y_val - y_val_pred) ** 2))
         mae = np.mean(np.abs(y_val - y_val_pred))
 
@@ -532,7 +532,7 @@ def perform_pfas_cv(model, X, y, pfas_values, halflife_stats, n_folds=5):
                     [val_pfas_pred_means[pfas] for pfas in common_pfas]
                 )
 
-                pfas_r2 = r2_score(pfas_true, pfas_pred)
+                pfas_r2 = r2_score(10 ** pfas_true, 10 ** pfas_pred)
                 pfas_r2_scores.append(pfas_r2)
                 print(
                     f"PFAS-level metrics - R² (mean values): {pfas_r2:.4f} (n={len(common_pfas)} PFAS)"
@@ -591,16 +591,18 @@ if __name__ == "__main__":
 
     # Features selected from forward selection
     # These should be replaced with the actual features selected by the forward selection algorithm
-
-    selected_features = [
-        "LogKa",
-        "PEOE_VSA4",
-        "Bit_1198",
-        "Bit_1720",
-        "Bit_486",
-        "Bit_1840",
-    ]
-
+    # selected_features = [
+    #     "LogKa",
+    #     "Bit_1720",
+    #     "Bit_581",
+    #     # "Bit_1840",
+    #     # "Bit_2044",
+    #     # "fr_halogen",
+    #     # "Bit_486",
+    #     # "MaxEStateIndex",
+    #     # "Bit_741",
+    # ]
+    selected_features = ["LogKa", "PEOE_VSA2", "Bit_64"]
     # Prepare training data
     X = train_dataset.X[selected_features].copy()
 
@@ -610,7 +612,8 @@ if __name__ == "__main__":
         X = pd.get_dummies(X, columns=categorical_selected, drop_first=True)
 
     X = X.values
-    y = train_dataset.y.values
+    y_original = train_dataset.y.values  # Keep original values for metric evaluation
+    y = np.log10(y_original)  # Train on log10 scale
 
     # Set model parameters with appropriate priors
     model_params = {
@@ -646,7 +649,7 @@ if __name__ == "__main__":
 
     # Predict on training data
     y_train_pred, y_train_sd_pred = model.predict(X, return_std=True)
-    r2_train = r2_score(y, y_train_pred)
+    r2_train = r2_score(10 ** y, 10 ** y_train_pred)
     rmse_train = np.sqrt(np.mean((y - y_train_pred.reshape(-1, 1)) ** 2))
     mae_train = np.mean(np.abs(y - y_train_pred.reshape(-1, 1)))
     elpd_train, avg_elpd_train = calculate_elpd(
@@ -691,7 +694,7 @@ if __name__ == "__main__":
             train_pfas_pred_sd = np.array(
                 [train_pfas_pred_sd[pfas] for pfas in common_pfas]
             )
-            train_pfas_r2 = r2_score(train_pfas_true, train_pfas_pred)
+            train_pfas_r2 = r2_score(10 ** train_pfas_true, 10 ** train_pfas_pred)
             train_pfas_rmse = np.sqrt(np.mean((train_pfas_true - train_pfas_pred) ** 2))
             train_pfas_mae = np.mean(np.abs(train_pfas_true - train_pfas_pred))
             elpd_train, avg_elpd_train = calculate_elpd(
@@ -760,7 +763,7 @@ if __name__ == "__main__":
         test_pfas_true = np.array([test_pfas_true_means[pfas] for pfas in common_pfas])
         test_pfas_pred = np.array([test_pfas_pred_means[pfas] for pfas in common_pfas])
         test_pfas_pred_sd = np.array([test_pfas_pred_sd[pfas] for pfas in common_pfas])
-        test_pfas_r2 = r2_score(test_pfas_true, test_pfas_pred)
+        test_pfas_r2 = r2_score(10 ** test_pfas_true, 10 ** test_pfas_pred)
         test_pfas_q2 = q2_score(
             test_pfas_true, test_pfas_pred, np.mean(train_pfas_true)
         )
@@ -786,6 +789,43 @@ if __name__ == "__main__":
             f"Test PFAS-level average ELPD: {avg_elpd_test:.4f} (n={len(common_pfas)} PFAS)"
         )
 
+    # # Decomposed uncertainty prediction for test data
+    # y_test_mean, y_test_epis, y_test_alea = model.predict(
+    #     X_test, return_decomposed=True
+    # )
+    # print(f"Average epistemic uncertainty: {np.mean(y_test_epis):.3f}")
+    # print(f"Average aleatoric uncertainty: {np.mean(y_test_alea):.3f}")
+
+    # # Save test predictions, true values, and SMILES to CSV
+    # test_predictions_df = pd.DataFrame(
+    #     {
+    #         "SMILES": test_df["SMILES"],
+    #         "PFAS": test_pfas,
+    #         "Observed_Half_Life": y_test.flatten(),
+    #         "Predicted_Half_Life": y_test_mean,
+    #         "Prediction_Std": y_test_std,
+    #         "Epistemic_Uncertainty": y_test_epis,
+    #         "Aleatoric_Uncertainty": y_test_alea,
+    #     }
+    # )
+
+    # # Add the original selected features from the test set for reference
+    # for feature in selected_features:
+    #     if feature in test_dataset.X.columns:
+    #         test_predictions_df[feature] = test_dataset.X[feature].values
+
+    # # Sort the test predictions by SMILES
+    # test_predictions_df = test_predictions_df.sort_values("Predicted_Half_Life")
+
+    # # Save to CSV
+    # test_predictions_df.to_csv(
+    #     "PFAS_HalfLife_QSAR/ED_GPR/Revamped_dataset/hgpr_test_predictions.csv",
+    #     index=False,
+    # )
+    # print(
+    #     "Test predictions saved to 'PFAS_HalfLife_QSAR/ED_GPR/Revamped_dataset/hgpr_test_predictions.csv'"
+    # )
+
     # ---------------------------------------------------------------------
     #                       Plotting the results
     # ---------------------------------------------------------------------
@@ -801,7 +841,7 @@ if __name__ == "__main__":
         print("No matching PFAS compounds found between test set and halflife_stats")
         # Create a basic plot of test predictions instead
         plt.figure(figsize=(8, 8))
-        plt.scatter(y_test, y_test_mean, alpha=0.8)
+        plt.scatter(10 ** y_test, 10 ** y_test_mean, alpha=0.8)
         plt.plot(
             [0, max(y_test.max(), y_test_mean.max())],
             [0, max(y_test.max(), y_test_mean.max())],
@@ -998,8 +1038,7 @@ if __name__ == "__main__":
         )
 
         # Add R² to the plot
-        test_r2 = r2_score(
-            data_to_plot["Observed_Half_Life"], data_to_plot["Predicted_Half_Life"]
+        test_r2 = r2_score(10 ** data_to_plot["Observed_Half_Life"], 10 ** data_to_plot["Predicted_Half_Life"]
         )
         ax.text(
             0.05,
@@ -1029,35 +1068,3 @@ if __name__ == "__main__":
             "PFAS_HalfLife_QSAR/ED_GPR/Revamped_dataset/Final_Modeling_Attempt/pfas_halflife_test_stats_predictions.csv",
             index=False,
         )
-
-    # ---------------------------------------------------------------------
-    #                       Domain of Applicability
-    # ---------------------------------------------------------------------
-
-    # Get the PFAS compounds in the training set
-    train_pfas_set = set(train_pfas)
-
-    # Filter halflife_stats to keep only PFAS compounds that were in the training set
-    train_domain = halflife_stats[halflife_stats["PFAS"].isin(train_pfas_set)]
-    test_domain = halflife_stats[halflife_stats["PFAS"].isin(test_pfas)]
-
-    test_domain = JaqpotTabularDataset()
-
-    # # Use model's optimized length scales for distance calculation
-    # lengthscales = model.length_scales_
-
-    # def ard_rbf_kernel(x, X_train, lengthscales):
-    #     diffs = (X_train - x) / lengthscales
-    #     dists2 = np.sum(diffs**2, axis=1)
-    #     return np.exp(-0.5 * dists2)
-
-    # # 1. Calculate max kernel similarity for each train compound
-    # train_sims = []
-    # for i in range(X.shape[0]):
-    #     sims = ard_rbf_kernel(X[i], np.delete(X, i, axis=0), lengthscales)
-    #     train_sims.append(sims.max())
-    # threshold = np.percentile(train_sims, 5)
-
-    # # 2. Calculate for test set
-    # test_sims = np.array([ard_rbf_kernel(x, X, lengthscales).max() for x in X_test])
-    # in_domain = test_sims >= threshold

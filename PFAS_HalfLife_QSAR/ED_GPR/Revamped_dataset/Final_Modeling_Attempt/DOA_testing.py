@@ -631,8 +631,8 @@ if __name__ == "__main__":
     train_pfas = create_pfas_mapping(train_df, halflife_stats)
 
     # Create and perform PFAS-based cross-validation
-    model = HeteroscedasticGPR(**model_params)
-    cv_results = perform_pfas_cv(model, X, y, train_pfas, halflife_stats, n_folds=5)
+    # model = HeteroscedasticGPR(**model_params)
+    # cv_results = perform_pfas_cv(model, X, y, train_pfas, halflife_stats, n_folds=5)
 
     # Refit model on all training data
     model = HeteroscedasticGPR(**model_params)
@@ -710,52 +710,47 @@ if __name__ == "__main__":
     print(f"ELPD on training data: {elpd_train:.3f}")
     print(f"Average ELPD on training data: {avg_elpd_train:.3f}")
 
-    # Prepare test dataset
-    test_dataset = JaqpotTabularDataset(
-        df=test_df,
-        y_cols="half_life",
+    # Create PFAS mapping for test set and get set of unique pfas
+    test_smiles = set(test_df["SMILES"])
+    filtered_halflife_stats = halflife_stats[halflife_stats["SMILES"].isin(test_smiles)]
+
+    halflife_stats_dataset = JaqpotTabularDataset(
+        df=filtered_halflife_stats,
+        y_cols=None,
         x_cols=x_cols,
         smiles_cols="SMILES",
         featurizer=featurizers,
         task="regression",
     )
 
-    X_test = test_dataset.X[selected_features].copy()
+    # Use all selected features
+    halflife_stats_dataset = halflife_stats_dataset.X[selected_features].copy().values
+    predictions_per_pfas_mean, predictions_per_pfas_mean_sd = model.predict(
+        halflife_stats_dataset, return_std=True
+    )
+    print("Predicted test means", predictions_per_pfas_mean)
+    # print(
+    #     "observed test means", filtered_halflife_stats["half_life_mean"].flatten()
+    # )
 
-    # Handle categorical features if any are selected
-    if categorical_selected:
-        X_test = pd.get_dummies(X_test, columns=categorical_selected, drop_first=True)
-
-    X_test = X_test.values
-    y_test = test_dataset.y.values
-
-    # Create PFAS mapping for test set
-    test_pfas = create_pfas_mapping(test_df, halflife_stats)
-
-    # Predict on test data with uncertainty
-    y_test_mean, y_test_std = model.predict(X_test, return_std=True)
-
-    # Calculate PFAS-level metrics for test set
-    test_pfas_unique = np.unique(test_pfas)
     test_pfas_true_means = {}
     test_pfas_pred_means = {}
     test_pfas_pred_sd = {}
 
-    # Calculate means for each PFAS in test set
-    for pfas in test_pfas_unique:
-        pfas_mask = np.array(test_pfas) == pfas
-        if np.sum(pfas_mask) > 0:
-            test_pfas_pred_means[pfas] = np.mean(y_test_mean[pfas_mask])
-            test_pfas_pred_sd[pfas] = np.mean(y_test_std[pfas_mask])
-
-            # Get true mean from halflife_stats
-            test_pfas_true_means[pfas] = pfas_to_mean[pfas]
+    # Use filtered_halflife_stats for true values and predictions
+    for i, row in filtered_halflife_stats.reset_index(drop=True).iterrows():
+        if row["SMILES"] in test_smiles:
+            pfas = row["PFAS"]
+            # Use the mean from filtered_halflife_stats as true value
+            test_pfas_true_means[pfas] = row["half_life_mean"]
+            # Use the corresponding prediction
+            test_pfas_pred_means[pfas] = predictions_per_pfas_mean[i]
+            test_pfas_pred_sd[pfas] = predictions_per_pfas_mean_sd[i]
+        else:
+            print(row["PFAS"])
 
     # Calculate PFAS-level R² for test
-
-    common_pfas = list(
-        set(test_pfas_true_means.keys()) & set(test_pfas_pred_means.keys())
-    )
+    common_pfas = list(test_pfas_true_means.keys())
     if len(common_pfas) > 1:
         test_pfas_true = np.array([test_pfas_true_means[pfas] for pfas in common_pfas])
         test_pfas_pred = np.array([test_pfas_pred_means[pfas] for pfas in common_pfas])
@@ -793,242 +788,198 @@ if __name__ == "__main__":
     # Plot predicted mean and standard deviation for each pfas vs
     # the true mean and sd
     # Filter halflife_stats to keep only PFAS compounds that are in the test set
-    test_smiles = set(test_df["SMILES"])
-    filtered_halflife_stats = halflife_stats[halflife_stats["SMILES"].isin(test_smiles)]
 
-    # Check if we have any matching compounds
-    if len(filtered_halflife_stats) == 0:
-        print("No matching PFAS compounds found between test set and halflife_stats")
-        # Create a basic plot of test predictions instead
-        plt.figure(figsize=(8, 8))
-        plt.scatter(y_test, y_test_mean, alpha=0.8)
-        plt.plot(
-            [0, max(y_test.max(), y_test_mean.max())],
-            [0, max(y_test.max(), y_test_mean.max())],
-            "k--",
-        )
-        plt.xlabel("Observed Half-life (years)")
-        plt.ylabel("Predicted Half-life (years)")
-        plt.title("PFAS Half-life: Test Set Predictions")
-        plt.savefig(
-            "PFAS_HalfLife_QSAR/ED_GPR/Revamped_dataset/Final_Modeling_Attempt/pfas_halflife_predictions_test.png",
-            dpi=300,
-        )
-        plt.show()
-    else:
-        # Process the filtered dataset
-        halflife_stats_dataset = JaqpotTabularDataset(
-            df=filtered_halflife_stats,
-            y_cols=None,
-            x_cols=x_cols,
-            smiles_cols="SMILES",
-            featurizer=featurizers,
-            task="regression",
-        )
+    data_to_plot = pd.DataFrame(
+        {
+            "SMILES": filtered_halflife_stats["SMILES"],
+            "PFAS": filtered_halflife_stats["PFAS"],
+            "Observed_Half_Life": filtered_halflife_stats["half_life_mean"],
+            "Observed_Half_Life_SD": filtered_halflife_stats["half_life_sd"],
+            "Predicted_Half_Life": predictions_per_pfas_mean,
+            "Predicted_Half_Life_SD": predictions_per_pfas_mean_sd,
+        }
+    )
 
-        # Use all selected features
-        halflife_stats_dataset = (
-            halflife_stats_dataset.X[selected_features].copy().values
-        )
-        predictions_per_pfas_mean, predictions_per_pfas_mean_sd = model.predict(
-            halflife_stats_dataset, return_std=True
-        )
-        print("Predicted test means", predictions_per_pfas_mean)
-        # print(
-        #     "observed test means", filtered_halflife_stats["half_life_mean"].flatten()
-        # )
+    # Create the plot
+    plt.style.use("seaborn-v0_8-whitegrid")
+    fig, ax = plt.subplots(figsize=(9, 8), dpi=300)
 
-        data_to_plot = pd.DataFrame(
-            {
-                "SMILES": filtered_halflife_stats["SMILES"],
-                "PFAS": filtered_halflife_stats["PFAS"],
-                "Observed_Half_Life": filtered_halflife_stats["half_life_mean"],
-                "Observed_Half_Life_SD": filtered_halflife_stats["half_life_sd"],
-                "Predicted_Half_Life": predictions_per_pfas_mean,
-                "Predicted_Half_Life_SD": predictions_per_pfas_mean_sd,
-            }
-        )
+    # Common styling parameters
+    TITLE_SIZE = 14
+    LABEL_SIZE = 12
+    TICK_SIZE = 10
+    LEGEND_SIZE = 10
 
-        # Create the plot
-        plt.style.use("seaborn-v0_8-whitegrid")
-        fig, ax = plt.subplots(figsize=(9, 8), dpi=300)
+    # Calculate plot limits including error bars
+    x_min = min(
+        data_to_plot["Observed_Half_Life"] - data_to_plot["Observed_Half_Life_SD"]
+    )
+    x_max = max(
+        data_to_plot["Observed_Half_Life"] + data_to_plot["Observed_Half_Life_SD"]
+    )
+    y_min = min(
+        data_to_plot["Predicted_Half_Life"] - data_to_plot["Predicted_Half_Life_SD"]
+    )
+    y_max = max(
+        data_to_plot["Predicted_Half_Life"] + data_to_plot["Predicted_Half_Life_SD"]
+    )
 
-        # Common styling parameters
-        TITLE_SIZE = 14
-        LABEL_SIZE = 12
-        TICK_SIZE = 10
-        LEGEND_SIZE = 10
+    # Make sure we start at 0 and add padding
+    x_min = max(0, x_min - 0.5)  # At least 0, with some padding
+    y_min = max(0, y_min - 0.5)  # At least 0, with some padding
+    x_max = x_max + 0.5  # Add padding
+    y_max = y_max + 0.5  # Add padding
 
-        # Calculate plot limits including error bars
-        x_min = min(
-            data_to_plot["Observed_Half_Life"] - data_to_plot["Observed_Half_Life_SD"]
-        )
-        x_max = max(
-            data_to_plot["Observed_Half_Life"] + data_to_plot["Observed_Half_Life_SD"]
-        )
-        y_min = min(
-            data_to_plot["Predicted_Half_Life"] - data_to_plot["Predicted_Half_Life_SD"]
-        )
-        y_max = max(
-            data_to_plot["Predicted_Half_Life"] + data_to_plot["Predicted_Half_Life_SD"]
-        )
+    # Use the maximum of both for square plot
+    max_value = max(x_max, y_max)
+    plot_range = [0, max_value]
 
-        # Make sure we start at 0 and add padding
-        x_min = max(0, x_min - 0.5)  # At least 0, with some padding
-        y_min = max(0, y_min - 0.5)  # At least 0, with some padding
-        x_max = x_max + 0.5  # Add padding
-        y_max = y_max + 0.5  # Add padding
+    # First add error bars (without markers)
+    ax.errorbar(
+        data_to_plot["Observed_Half_Life"],
+        data_to_plot["Predicted_Half_Life"],
+        xerr=data_to_plot["Observed_Half_Life_SD"],
+        yerr=data_to_plot["Predicted_Half_Life_SD"],
+        fmt="none",  # No markers, just error bars
+        ecolor="gray",
+        capsize=3,
+        alpha=0.4,
+        elinewidth=0.8,
+    )
+    # Now add text annotations for each point
+    for i, row in data_to_plot.iterrows():
+        pfas_name = row["PFAS"]
+        x = row["Observed_Half_Life"]
+        y = row["Predicted_Half_Life"]
 
-        # Use the maximum of both for square plot
-        max_value = max(x_max, y_max)
-        plot_range = [0, max_value]
-
-        # First add error bars (without markers)
-        ax.errorbar(
-            data_to_plot["Observed_Half_Life"],
-            data_to_plot["Predicted_Half_Life"],
-            xerr=data_to_plot["Observed_Half_Life_SD"],
-            yerr=data_to_plot["Predicted_Half_Life_SD"],
-            fmt="none",  # No markers, just error bars
-            ecolor="gray",
-            capsize=3,
-            alpha=0.4,
-            elinewidth=0.8,
-        )
-        # Now add text annotations for each point
-        for i, row in data_to_plot.iterrows():
-            pfas_name = row["PFAS"]
-            x = row["Observed_Half_Life"]
-            y = row["Predicted_Half_Life"]
-
-            # Slightly offset the text to avoid overlapping with the point
-            ax.annotate(
-                pfas_name,
-                xy=(x, y),
-                xytext=(5, 5),  # 5 points offset
-                textcoords="offset points",
-                fontsize=8,
-                alpha=0.8,
-                bbox=dict(boxstyle="round,pad=0.3", fc="white", ec="gray", alpha=0.7),
-            )
-        # Get unique PFAS compounds for coloring
-        unique_pfas = data_to_plot["PFAS"].unique()
-
-        # Create a categorical colormap for individual PFAS compounds
-        from matplotlib.cm import get_cmap
-        from matplotlib.colors import ListedColormap
-
-        # Choose a colormap with distinct colors based on number of PFAS compounds
-        if len(unique_pfas) <= 10:
-            cmap_name = "tab10"
-        elif len(unique_pfas) <= 20:
-            cmap_name = "tab20"
-        else:
-            cmap_name = "viridis"
-            cmap = get_cmap(cmap_name)
-            colors = [cmap(i / len(unique_pfas)) for i in range(len(unique_pfas))]
-            custom_cmap = ListedColormap(colors)
-
-        # If we're using a standard colormap without the extension
-        if len(unique_pfas) <= 20:
-            cmap = get_cmap(cmap_name)
-            colors = [cmap(i) for i in range(len(unique_pfas))]
-            custom_cmap = ListedColormap(colors[: len(unique_pfas)])
-
-        # Create a mapping of PFAS compounds to numeric indices for coloring
-        pfas_to_index = {pfas: i for i, pfas in enumerate(unique_pfas)}
-        color_indices = [pfas_to_index[p] for p in data_to_plot["PFAS"]]
-
-        # Then add scatter plot with points colored by individual PFAS compound
-        scatter = ax.scatter(
-            data_to_plot["Observed_Half_Life"],
-            data_to_plot["Predicted_Half_Life"],
-            c=color_indices,
-            cmap=custom_cmap,
-            s=70,
-            alpha=0.8,
-            edgecolor="white",
-            linewidth=0.5,
-            zorder=10,  # Make sure points are on top of error bars
-        )
-
-        # Identity line
-        ax.plot(plot_range, plot_range, "k--", lw=1.5)
-
-        # Styling
-        ax.set_xlabel("Observed Half-life (years)", fontsize=LABEL_SIZE)
-        ax.set_ylabel("Predicted Half-life (years)", fontsize=LABEL_SIZE)
-        ax.set_title(
-            "PFAS Half-life: Observed vs Predicted (Test Set Only)", fontsize=TITLE_SIZE
-        )
-        ax.tick_params(axis="both", labelsize=TICK_SIZE)
-        ax.set_xlim(plot_range)
-        ax.set_ylim(plot_range)
-
-        # Add grid to match previous example
-        ax.grid(True, linestyle="-", linewidth=0.5, alpha=0.3)
-
-        # Add legend for individual PFAS compounds
-        # Create custom legend handles
-        from matplotlib.patches import Patch
-
-        legend_elements = [
-            Patch(
-                facecolor=colors[pfas_to_index[pfas]],
-                edgecolor="white",
-                label=pfas,
-                alpha=0.8,
-            )
-            for pfas in unique_pfas
-        ]
-
-        # If there are many PFAS compounds, create a multi-column legend
-        ncols = 1
-
-        # Add legend in the most appropriate location
-        legend = ax.legend(
-            handles=legend_elements,
-            loc="upper left",
+        # Slightly offset the text to avoid overlapping with the point
+        ax.annotate(
+            pfas_name,
+            xy=(x, y),
+            xytext=(5, 5),  # 5 points offset
+            textcoords="offset points",
             fontsize=8,
-            bbox_to_anchor=(1.01, 1),
-            title="PFAS Compound",
-            title_fontsize=10,
-            framealpha=0.7,
-            ncol=ncols,
+            alpha=0.8,
+            bbox=dict(boxstyle="round,pad=0.3", fc="white", ec="gray", alpha=0.7),
         )
+    # Get unique PFAS compounds for coloring
+    unique_pfas = data_to_plot["PFAS"].unique()
 
-        # Add R² to the plot
-        test_r2 = r2_score(
-            data_to_plot["Observed_Half_Life"], data_to_plot["Predicted_Half_Life"]
-        )
-        ax.text(
-            0.05,
-            0.95,
-            f"$R^2 = {test_r2:.3f}$",
-            transform=ax.transAxes,
-            fontsize=LABEL_SIZE,
-            verticalalignment="top",
-            bbox=dict(facecolor="white", alpha=0.7, edgecolor="none"),
-        )
+    # Create a categorical colormap for individual PFAS compounds
+    from matplotlib.cm import get_cmap
+    from matplotlib.colors import ListedColormap
 
-        # Adjust layout to make room for the legend
-        plt.tight_layout(
-            rect=[0, 0, 0.85 if ncols == 1 and len(unique_pfas) > 10 else 0.95, 1]
-        )
+    # Choose a colormap with distinct colors based on number of PFAS compounds
+    if len(unique_pfas) <= 10:
+        cmap_name = "tab10"
+    elif len(unique_pfas) <= 20:
+        cmap_name = "tab20"
+    else:
+        cmap_name = "viridis"
+        cmap = get_cmap(cmap_name)
+        colors = [cmap(i / len(unique_pfas)) for i in range(len(unique_pfas))]
+        custom_cmap = ListedColormap(colors)
 
-        # Save the plot
-        plt.savefig(
-            "PFAS_HalfLife_QSAR/ED_GPR/Revamped_dataset/Final_Modeling_Attempt/pfas_halflife_predictions_test_only.png",
-            dpi=300,
-            bbox_inches="tight",
-        )
-        plt.show()
+    # If we're using a standard colormap without the extension
+    if len(unique_pfas) <= 20:
+        cmap = get_cmap(cmap_name)
+        colors = [cmap(i) for i in range(len(unique_pfas))]
+        custom_cmap = ListedColormap(colors[: len(unique_pfas)])
 
-        # Save the filtered data with predictions for reference
-        data_to_plot.to_csv(
-            "PFAS_HalfLife_QSAR/ED_GPR/Revamped_dataset/Final_Modeling_Attempt/pfas_halflife_test_stats_predictions.csv",
-            index=False,
+    # Create a mapping of PFAS compounds to numeric indices for coloring
+    pfas_to_index = {pfas: i for i, pfas in enumerate(unique_pfas)}
+    color_indices = [pfas_to_index[p] for p in data_to_plot["PFAS"]]
+
+    # Then add scatter plot with points colored by individual PFAS compound
+    scatter = ax.scatter(
+        data_to_plot["Observed_Half_Life"],
+        data_to_plot["Predicted_Half_Life"],
+        c=color_indices,
+        cmap=custom_cmap,
+        s=70,
+        alpha=0.8,
+        edgecolor="white",
+        linewidth=0.5,
+        zorder=10,  # Make sure points are on top of error bars
+    )
+
+    # Identity line
+    ax.plot(plot_range, plot_range, "k--", lw=1.5)
+
+    # Styling
+    ax.set_xlabel("Observed Half-life (years)", fontsize=LABEL_SIZE)
+    ax.set_ylabel("Predicted Half-life (years)", fontsize=LABEL_SIZE)
+    ax.set_title(
+        "PFAS Half-life: Observed vs Predicted (Test Set Only)", fontsize=TITLE_SIZE
+    )
+    ax.tick_params(axis="both", labelsize=TICK_SIZE)
+    ax.set_xlim(plot_range)
+    ax.set_ylim(plot_range)
+
+    # Add grid to match previous example
+    ax.grid(True, linestyle="-", linewidth=0.5, alpha=0.3)
+
+    # Add legend for individual PFAS compounds
+    # Create custom legend handles
+    from matplotlib.patches import Patch
+
+    legend_elements = [
+        Patch(
+            facecolor=colors[pfas_to_index[pfas]],
+            edgecolor="white",
+            label=pfas,
+            alpha=0.8,
         )
+        for pfas in unique_pfas
+    ]
+
+    # If there are many PFAS compounds, create a multi-column legend
+    ncols = 1
+
+    # Add legend in the most appropriate location
+    legend = ax.legend(
+        handles=legend_elements,
+        loc="upper left",
+        fontsize=8,
+        bbox_to_anchor=(1.01, 1),
+        title="PFAS Compound",
+        title_fontsize=10,
+        framealpha=0.7,
+        ncol=ncols,
+    )
+
+    # Add R² to the plot
+    test_r2 = r2_score(
+        data_to_plot["Observed_Half_Life"], data_to_plot["Predicted_Half_Life"]
+    )
+    ax.text(
+        0.05,
+        0.95,
+        f"$R^2 = {test_r2:.3f}$",
+        transform=ax.transAxes,
+        fontsize=LABEL_SIZE,
+        verticalalignment="top",
+        bbox=dict(facecolor="white", alpha=0.7, edgecolor="none"),
+    )
+
+    # Adjust layout to make room for the legend
+    plt.tight_layout(
+        rect=[0, 0, 0.85 if ncols == 1 and len(unique_pfas) > 10 else 0.95, 1]
+    )
+
+    # Save the plot
+    # plt.savefig(
+    #     "PFAS_HalfLife_QSAR/ED_GPR/Revamped_dataset/Final_Modeling_Attempt/pfas_halflife_predictions_test_only.png",
+    #     dpi=300,
+    #     bbox_inches="tight",
+    # )
+    plt.show()
+
+    # Save the filtered data with predictions for reference
+    data_to_plot.to_csv(
+        "PFAS_HalfLife_QSAR/ED_GPR/Revamped_dataset/Final_Modeling_Attempt/pfas_halflife_test_stats_predictions.csv",
+        index=False,
+    )
 
     # ---------------------------------------------------------------------
     #                       Domain of Applicability
@@ -1037,27 +988,75 @@ if __name__ == "__main__":
     # Get the PFAS compounds in the training set
     train_pfas_set = set(train_pfas)
 
-    # Filter halflife_stats to keep only PFAS compounds that were in the training set
-    train_domain = halflife_stats[halflife_stats["PFAS"].isin(train_pfas_set)]
-    test_domain = halflife_stats[halflife_stats["PFAS"].isin(test_pfas)]
+    # # Filter halflife_stats to keep only PFAS compounds that were in the training set
+    train_doa_data = halflife_stats[halflife_stats["PFAS"].isin(train_pfas_set)]
+    test_doa_data = halflife_stats[~halflife_stats["PFAS"].isin(train_pfas_set)]
 
-    test_domain = JaqpotTabularDataset()
+    train_pfas = JaqpotTabularDataset(
+        df=train_doa_data,
+        y_cols=None,
+        x_cols=x_cols,
+        smiles_cols="SMILES",
+        featurizer=featurizers,
+        task="regression",
+    )
+    train_pfas = model.X_scaler_.transform(train_pfas.X[selected_features])
 
-    # # Use model's optimized length scales for distance calculation
-    # lengthscales = model.length_scales_
+    test_pfas = JaqpotTabularDataset(
+        df=test_doa_data,
+        y_cols=None,
+        x_cols=x_cols,
+        smiles_cols="SMILES",
+        featurizer=featurizers,
+        task="regression",
+    )
+    test_pfas = model.X_scaler_.transform(test_pfas.X[selected_features])
 
-    # def ard_rbf_kernel(x, X_train, lengthscales):
-    #     diffs = (X_train - x) / lengthscales
-    #     dists2 = np.sum(diffs**2, axis=1)
-    #     return np.exp(-0.5 * dists2)
+    # Define RBF kernel using trained length scales
+    # Calculate distances of training data using the trained kernel
+    train_dists = model._compute_kernel(train_pfas, train_pfas)
 
-    # # 1. Calculate max kernel similarity for each train compound
-    # train_sims = []
-    # for i in range(X.shape[0]):
-    #     sims = ard_rbf_kernel(X[i], np.delete(X, i, axis=0), lengthscales)
-    #     train_sims.append(sims.max())
-    # threshold = np.percentile(train_sims, 5)
+    # Calculate the 95th percentile of training distances for DOA threshold
+    doa_threshold = np.percentile(train_dists, 95)
 
-    # # 2. Calculate for test set
-    # test_sims = np.array([ard_rbf_kernel(x, X, lengthscales).max() for x in X_test])
-    # in_domain = test_sims >= threshold
+    # Calculate distances from test data to training data
+    test_distances_from_train = []
+    test_pfas_names = []
+
+    for i in range(len(test_pfas)):
+        # Get distances from this test point to all training points
+        test_point = test_pfas[i : i + 1]  # Keep as 2D array
+        distances_to_train = model._compute_kernel(test_point, train_pfas)
+
+        # Calculate mean distance for this test point
+        mean_distance = np.mean(distances_to_train)
+        test_distances_from_train.append(mean_distance)
+        test_pfas_names.append(test_doa_data.iloc[i]["PFAS"])
+
+    # Identify PFAS compounds that are out of domain
+    out_of_domain_pfas = []
+    for i, mean_dist in enumerate(test_distances_from_train):
+        if mean_dist > doa_threshold:
+            out_of_domain_pfas.append(test_pfas_names[i])
+
+    print(f"\nDomain of Applicability Analysis:")
+    print(f"DOA threshold (95th percentile of training distances): {doa_threshold:.4f}")
+    print(f"Number of test PFAS compounds: {len(test_pfas_names)}")
+    print(f"Number of out-of-domain PFAS compounds: {len(out_of_domain_pfas)}")
+
+    if out_of_domain_pfas:
+        print(f"Out-of-domain PFAS compounds: {out_of_domain_pfas}")
+    else:
+        print("All test PFAS compounds are within the domain of applicability")
+
+    # Create a summary DataFrame
+    doa_summary = pd.DataFrame(
+        {
+            "PFAS": test_pfas_names,
+            "Mean_Distance_to_Train": test_distances_from_train,
+            "Within_DOA": [dist <= doa_threshold for dist in test_distances_from_train],
+        }
+    )
+
+    print(f"\nDOA Summary:")
+    print(doa_summary)

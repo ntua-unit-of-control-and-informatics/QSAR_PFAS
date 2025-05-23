@@ -408,7 +408,8 @@ def perform_pfas_cv_for_features(
 
     # Create copy of data for processing
     X = feature_df.values
-    y = dataset.y.values
+    y_original = dataset.y.values  # Store original values for evaluation
+    y = np.log10(y_original)  # Apply log10 transformation for training
 
     # Create PFAS mapping
     pfas_values = create_pfas_mapping(original_df, halflife_stats)
@@ -540,7 +541,9 @@ def perform_pfas_cv_for_features(
                         [val_pfas_pred_means[pfas] for pfas in common_pfas]
                     )
 
-                    pfas_r2 = r2_score(pfas_true, pfas_pred)
+                    pfas_r2 = r2_score(
+                        10 ** np.array(pfas_true), 10 ** np.array(pfas_pred)
+                    )
                     pfas_r2_scores.append(pfas_r2)
 
         except Exception as e:
@@ -858,7 +861,7 @@ if __name__ == "__main__":
         n_folds=5,
         max_features=7,
         n_jobs=-1,
-        preselected_features=None,  # ["LogKa"],
+        preselected_features=["LogKa"],
         tolerance=0.0001,
         verbose=True,
     )
