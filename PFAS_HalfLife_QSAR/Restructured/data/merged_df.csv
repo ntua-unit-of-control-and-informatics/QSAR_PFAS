@@ -1,0 +1,82 @@
+Study,PFAS,SMILES,half_life,half_life_sd,Individual_data,N_individuals,half_life_type,Occupational_exposure,SE,CI_l,CI_u,Comments,log_half_life,LogKa,N_excluded
+Li et al. 2018,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,5.3,3.677010765,False,106,apparent,False,,4.6,6.0,ME/2 != Ci - y,0.724275869600789,5.732048511505127,
+Li et al. 2018,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,3.4,1.575861756,False,106,apparent,False,,3.1,3.7,ME/2 != Ci - y,0.5314789170422551,5.895376205444336,
+Li et al. 2018,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,2.7,1.050574504,False,106,apparent,False,,2.5,2.9,ME/2 != Ci - y,0.43136376415898736,5.382719993591309,
+Li et al. 2022,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,2.47,1.171210114,False,114,intrinsic,False,,2.27,2.7,,0.39269695325966575,5.382719993591309,
+Li et al. 2022,PFPeS,C(C(C(F)(F)F)(F)F)(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F,0.94,0.435799112,False,114,intrinsic,False,,0.86,1.02,,-0.026872146400301365,4.869239330291748,
+Li et al. 2022,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,4.52,2.315182784,False,114,intrinsic,False,,4.14,4.99,,0.6551384348113821,5.732048511505127,
+Li et al. 2022,PFHpS,C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F,4.55,2.505844896,False,114,intrinsic,False,,4.14,5.06,,0.6580113966571124,5.7382307052612305,
+Li et al. 2022,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,2.73,1.007785447,False,114,intrinsic,False,,2.55,2.92,,0.436162647040756,5.895376205444336,
+Li et al. 2022,1mPFOS,C(C(C(C(C(F)(F)F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,5.01,2.696507008,False,114,intrinsic,False,,4.56,5.55,,0.6998377258672457,5.8139753341674805,
+Li et al. 2022,3mPFOS,C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)F,3.43,1.416347115,False,114,intrinsic,False,,3.19,3.71,,0.5352941200427705,5.8139753341674805,
+Li et al. 2022,4mPFOS,C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(F)(F)F)F,3.43,1.416347115,False,114,intrinsic,False,,3.19,3.71,,0.5352941200427705,5.8139753341674805,
+Li et al. 2022,5mPFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(F)(F)F)(F)F)(C(F)(F)F)F,3.43,1.416347115,False,114,intrinsic,False,,3.19,3.71,,0.5352941200427705,5.8139753341674805,
+Li et al. 2022,2mPFOS,C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(C(F)(F)F)(C(F)(F)S(=O)(=O)O)F,2.67,0.898835669,False,114,intrinsic,False,,2.52,2.85,,0.42651126136457523,5.8139753341674805,
+Li et al. 2022,6mPFOS,C(C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F)(C(F)(F)F)(C(F)(F)F)F,2.67,0.898835669,False,114,intrinsic,False,,2.52,2.85,,0.42651126136457523,5.853418350219727,
+Zhang et al. 2013,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,7.7,2.615339366,False,19,apparent,False,0.6,,,,0.8864907251724818,5.732048511505127,
+Zhang et al. 2013,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,6.7,2.236067977,False,20,apparent,False,0.5,,,,0.8260748027008264,5.895376205444336,
+Zhang et al. 2013,1mPFOS,C(C(C(C(C(F)(F)F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,10.0,2.88444102,False,13,apparent,False,0.8,,,,1.0,5.8139753341674805,
+Zhang et al. 2013,4mPFOS,C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(F)(F)F)F,5.8,2.236067977,False,20,apparent,False,0.5,,,,0.7634279935629372,5.8139753341674805,
+Zhang et al. 2013,3mPFOS,C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)F,5.0,1.788854382,False,20,apparent,False,0.4,,,,0.6989700043360189,5.8139753341674805,
+Zhang et al. 2013,5mPFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(F)(F)F)(F)F)(C(F)(F)F)F,5.0,1.788854382,False,20,apparent,False,0.4,,,,0.6989700043360189,5.8139753341674805,
+Zhang et al. 2013,PFHpA,C(=O)(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1.5,1.039230485,False,12,apparent,False,0.3,,,,0.17609125905568124,5.239198684692383,
+Zhang et al. 2013,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,2.5,2.4,False,16,apparent,False,0.6,,,,0.3979400086720376,5.445358753204346,
+Zhang et al. 2013,PFDA,C(=O)(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,4.5,1.743559577,False,19,apparent,False,0.4,,,,0.6532125137753437,5.391226291656494,
+Zhang et al. 2013,PFUnA,C(=O)(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,4.5,2.179449472,False,19,apparent,False,0.5,,,,0.6532125137753437,5.167116641998291,
+Zhang et al. 2013,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,2.3,1.788854382,False,20,apparent,False,0.4,,,,0.36172783601759284,5.382719993591309,
+Zhang et al. 2013,4mPFOA,C(=O)(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(C(F)(F)F)F)(F)F)(F)F)O,0.64,0.346410162,False,12,apparent,False,0.1,,,,-0.1938200260161128,5.314042091369629,
+Zhang et al. 2013,5mPFOA,C(=O)(C(C(C(C(C(C(F)(F)F)(F)F)(C(F)(F)F)F)(F)F)(F)F)(F)F)O,0.53,0.346410162,False,12,apparent,False,0.1,,,,-0.27572413039921095,5.314042091369629,
+Wallis et al. 2023,PFO4DA,C(=O)(C(OC(OC(OC(OC(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,0.347945205,0.727858669,False,44,intrinsic,False,,0.235616438,0.665753425,Had wrong values,-0.45848914409895514,4.925169467926025,
+Wallis et al. 2023,Nafion-BP2,C(C(F)(F)F)(OC(C(C(F)(F)F)(OC(C(F)(F)S(=O)(=O)O)(F)F)F)(F)F)F,0.810958904,3.467759775,False,44,intrinsic,False,,0.482191781,2.531506849,Had wrong values,-0.09100115345622455,5.72323751449585,
+Wallis et al. 2023,PFO5DoA,C(=O)(C(OC(OC(OC(OC(OC(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1.038356164,17.01891194,False,44,intrinsic,False,,0.545205479,10.60273973,Had wrong values,0.016346345351172267,5.108689308166504,
+Nilsson et al.2022a,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,4.1,1.4,False,88,apparent,True,,,,,0.6127838567197355,5.895376205444336,
+Nilsson et al.2022a,1mPFOS,C(C(C(C(C(F)(F)F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,12.4,5.0,False,81,apparent,True,,,,,1.0934216851622351,5.8139753341674805,
+Nilsson et al.2022a,3mPFOS,C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)F,7.8,2.8,False,79,apparent,True,,,,,0.8920946026904804,5.8139753341674805,
+Nilsson et al.2022a,4mPFOS,C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(F)(F)F)F,7.8,2.8,False,79,apparent,True,,,,,0.8920946026904804,5.8139753341674805,
+Nilsson et al.2022a,5mPFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(F)(F)F)(F)F)(C(F)(F)F)F,7.8,2.8,False,79,apparent,True,,,,,0.8920946026904804,5.8139753341674805,
+Nilsson et al.2022a,"4,5dm-PFOS",C(C(C(F)(F)F)(C(F)(F)F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(F)(F)F)F,5.1,1.8,False,66,apparent,True,,,,,0.7075701760979364,5.853418350219727,
+Nilsson et al.2022a,8-Cl-PFOS,C(C(C(C(C(F)(F)Cl)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F,5.2,1.0,False,75,apparent,True,,,,,0.7160033436347992,5.9384002685546875,
+Nilsson et al.2022b,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,2.0,1.385558736,False,118,apparent,True,,1.7,2.2,,0.3010299956639812,5.382719993591309,
+Nilsson et al.2022b,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,6.0,2.687666774,False,111,apparent,True,,5.5,6.5,,0.7781512503836436,5.732048511505127,
+Nilsson et al.2022b,PFHpS,C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F,5.6,2.504551251,False,119,apparent,True,,5.1,6.0,,0.7481880270062004,5.7382307052612305,
+Nilsson et al.2022b,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,5.7,2.829218497,False,123,apparent,True,,5.2,6.2,,0.7558748556724915,5.895376205444336,
+Batzella et al. 2024,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,2.36,1.356320239,False,5769,intrinsic,False,,2.33,2.4,,0.37291200297010657,5.382719993591309,
+Costa et al. 2009,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,5.1,1.7,False,16,apparent,True,,,,,0.7075701760979364,5.382719993591309,
+Lewis-Michl et al. 2025,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,3.65,2.73,False,307,apparent,False,,3.34,3.95,,0.5622928644564748,5.382719993591309,
+Abraham et al. 2024,6:2FTS,[13CH2]([13CH2]S(=O)(=O)O)C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,0.011342466,,,1,intrinsic,False,,,,,,5.660702228546143,0.0
+Abraham et al. 2024,DONA,C(C(C(=O)O)(F)F)(OC(C(C(OC(F)(F)F)(F)F)(F)F)(F)F)F,0.095068493,,,1,intrinsic,False,,,,,,5.232205867767334,0.0
+Abraham et al. 2024,HFPO-DA,C(=O)(C(C(F)(F)F)(OC(C(C(F)(F)F)(F)F)(F)F)F)O,0.007835616,,,1,intrinsic,False,,,,,,4.920711994171143,0.0
+Abraham et al. 2024,PFBA,C(=O)(C(C(C(F)(F)F)(F)F)(F)F)O,0.011452055,,,1,intrinsic,False,,,,,,4.3221564292907715,0.0
+Abraham et al. 2024,PFBS,C(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)(F)F,0.138630137,,,1,intrinsic,False,,,,,,4.940820693969727,0.0
+Abraham et al. 2024,PFDA,C(=O)(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,2.361643836,,,1,intrinsic,False,,,,,,5.391226291656494,0.0
+Abraham et al. 2024,PFDoA,C(=O)(C(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,0.808219178,,,1,intrinsic,False,,,,,,4.8039374351501465,0.0
+Abraham et al. 2024,PFHpA,C(=O)(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,0.416438356,,,1,intrinsic,False,,,,,,5.239198684692383,0.0
+Abraham et al. 2024,PFHxA,C(=O)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,0.003972603,,,1,intrinsic,False,,,,,,4.946195125579834,0.0
+Abraham et al. 2024,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,4.476712329,,,1,intrinsic,False,,,,,,5.732048511505127,0.0
+Abraham et al. 2024,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,3.575342466,,,1,intrinsic,False,,,,,,5.445358753204346,0.0
+Abraham et al. 2024,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,5.509589041,,,1,intrinsic,False,,,,,,5.382719993591309,0.0
+Abraham et al. 2024,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,3.317808219,,,1,intrinsic,False,,,,,,5.895376205444336,0.0
+Abraham et al. 2024,PFPeA,C(=O)(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)O,0.001424658,,,1,intrinsic,False,,,,,,4.85585880279541,0.0
+Abraham et al. 2024,PFUdA,C(=O)(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)[O-],1.6,,,1,intrinsic,False,,,,,,5.314082622528076,0.0
+Chang et al. 2008,PFBA,C(=O)(C(C(C(F)(F)F)(F)F)(F)F)O,0.021789383375000002,0.002894002196973691,,8,apparent,True,,,,,,4.3221564292907715,3.0
+Gomis et al. 2016,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,2.375,0.38622100754188216,,4,intrinsic,True,,,,,,5.382719993591309,0.0
+Olsen et al. 2007,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,8.518651211923077,5.1612671692445256,,26,apparent,True,,,,,,5.732048511505127,0.0
+Olsen et al. 2007,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,3.430658838952381,0.6553460272989683,,21,apparent,True,,,,,,5.382719993591309,5.0
+Olsen et al. 2007,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,4.761863013799999,1.5995691076037313,,25,apparent,True,,,,,,5.895376205444336,1.0
+Olsen et al. 2009,PFBS,C(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)(F)F,0.075890411,0.03038354909885236,,6,apparent,True,,,,,,4.940820693969727,0.0
+Russel et al. 2013,PFHxA,C(=O)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,0.09589041085714287,0.035826566568624436,,7,apparent,True,,,,,,4.946195125579834,0.0
+Xu et al.2020,1mPFOS,C(C(C(C(C(F)(F)F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,3.972727272727273,7.574574695531216,,11,apparent,False,,,,,,5.8139753341674805,0.0
+Xu et al.2020,2mPFOS,C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(C(F)(F)F)(C(F)(F)S(=O)(=O)O)F,1.1166666666666667,1.0768922739517495,,12,apparent,False,,,,,,5.8139753341674805,1.0
+Xu et al.2020,3mPFOS,C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)F,2.784615384615385,2.7691292716442333,,13,apparent,False,,,,,,5.8139753341674805,2.0
+Xu et al.2020,4mPFOS,C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(F)(F)F)F,2.784615384615385,2.7691292716442333,,13,apparent,False,,,,,,5.8139753341674805,2.0
+Xu et al.2020,5mPFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(F)(F)F)(F)F)(C(F)(F)F)F,2.784615384615385,2.7691292716442333,,13,apparent,False,,,,,,5.8139753341674805,2.0
+Xu et al.2020,6mPFOS,C(C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F)(C(F)(F)F)(C(F)(F)F)F,1.1166666666666667,1.0768922739517495,,12,apparent,False,,,,,,5.853418350219727,1.0
+Xu et al.2020,PFBS,C(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)(F)F,0.14705882352941177,0.05144957554275265,,17,apparent,False,,,,,,4.940820693969727,0.0
+Xu et al.2020,PFHpA,C(=O)(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,0.23529411764705882,0.16934128435864448,,17,apparent,False,,,,,,5.239198684692383,0.0
+Xu et al.2020,PFHpS,C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F,3.8000000000000003,4.8673307973579405,,12,apparent,False,,,,,,5.7382307052612305,0.0
+Xu et al.2020,PFHxA,C(=O)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1.0374999999999999,1.3521807782773934,,8,apparent,False,,,,,,4.946195125579834,0.0
+Xu et al.2020,PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,2.8076923076923075,2.264384220364534,,13,apparent,False,,,,,,5.732048511505127,1.0
+Xu et al.2020,PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,1.8875,0.6344288770224759,,16,apparent,False,,,,,,5.382719993591309,1.0
+Xu et al.2020,PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1.9909090909090907,1.1742695989035443,,11,apparent,False,,,,,,5.895376205444336,1.0
+Xu et al.2020,PFPeS,C(C(C(F)(F)F)(F)F)(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F,0.9058823529411765,0.4249567452036945,,17,apparent,False,,,,,,4.869239330291748,0.0
+Yu et al. 2021,PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,4.168072289156626,1.9650199886225486,,83,apparent,False,,,,,,5.445358753204346,8.0
