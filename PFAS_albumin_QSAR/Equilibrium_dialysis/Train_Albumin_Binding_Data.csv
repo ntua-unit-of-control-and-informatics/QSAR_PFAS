@@ -1,7 +1,7 @@
 Congener,SMILES,Group,Albumin_Type,Authors,Ka
 FOSAA,C(C(=O)O)NS(=O)(=O)C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,PFSOAA,HSA,Chen et al.2025,5.130655349022031
 7:3 FTCA,C(CC(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)C(=O)O,FTCA,HSA,Chen et al.2025,5.73996769675951
-HFPO-DA,C1(C(O1)(F)F)(C(F)(F)F)F,PFECA,HSA,Chen et al.2025,5.182414652434554
+HFPO-DA,C(=O)(C(C(F)(F)F)(OC(C(C(F)(F)F)(F)F)(F)F)F)O,PFECA,HSA,Chen et al.2025,5.182414652434554
 6:2 FTCA,C(C(=O)O)C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,FTCA,HSA,Chen et al.2025,5.438858659420562
 9Cl-PF3ONS,C(C(C(C(F)(F)Cl)(F)F)(F)F)(C(C(OC(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F,Highly Hydrophobic ESA,HSA,Chen et al.2025,5.801335095674546
 PFUnA,C(=O)(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,Highly Hydrophobic PFCA,HSA,Chen et al.2025,5.325104982971408

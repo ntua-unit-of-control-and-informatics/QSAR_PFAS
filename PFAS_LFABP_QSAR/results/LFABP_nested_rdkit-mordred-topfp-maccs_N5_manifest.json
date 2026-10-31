@@ -1,0 +1,200 @@
+{
+  "parameters": {
+    "N_FEATURES": 5,
+    "N_FEATURES_CURVE": 10,
+    "OUTER_SPLITS": 5,
+    "OUTER_REPEATS": 5,
+    "PERM_REPEATS": 10,
+    "N_INNER_SPLITS": 5,
+    "N_PERMUTATIONS": 5,
+    "MISSING_THRESHOLD": 0.05,
+    "CORR_THRESHOLD": 0.99,
+    "CANDIDATE_CAP": 500,
+    "RANDOM_STATE": 42,
+    "N_JOBS": -1,
+    "N_STRATA_BINS": 5,
+    "RUN_Q2_LOO": false,
+    "EXCLUDE_PFAS": [
+      "FPePA",
+      "6:2 diPAP"
+    ]
+  },
+  "featurizers": [
+    "RDKitDescriptors",
+    "MordredDescriptors",
+    "TopologicalFingerprint",
+    "MACCSKeysFingerprint"
+  ],
+  "featurizer_label": "rdkit-mordred-topfp-maccs",
+  "regressors": {
+    "Ridge": "Ridge()",
+    "RandomForest": "RandomForestRegressor(max_features=0.33, min_samples_leaf=3, n_estimators=300,\n                      n_jobs=1, random_state=42)",
+    "XGBoost": "XGBRegressor(base_score=None, booster=None, callbacks=None,\n             colsample_bylevel=None, colsample_bynode=None,\n             colsample_bytree=1.0, device=None, early_stopping_rounds=None,\n             enable_categorical=False, eval_metric=None, feature_types=None,\n             feature_weights=None, gamma=None, grow_policy=None,\n             importance_type=None, interaction_constraints=None,\n             learning_rate=0.03, max_bin=None, max_cat_threshold=None,\n             max_cat_to_onehot=None, max_delta_step=None, max_depth=2,\n             max_leaves=None, min_child_weight=3, missing=nan,\n             monotone_constraints=None, multi_strategy=None, n_estimators=400,\n             n_jobs=1, num_parallel_tree=None, ...)"
+  },
+  "n_compounds": 42,
+  "n_descriptors_raw": 4045,
+  "feature_counts_outer_folds": {
+    "start": {
+      "min": 4045,
+      "median": 4045.0,
+      "max": 4045
+    },
+    "dropped_missing": {
+      "min": 216,
+      "median": 216.0,
+      "max": 216
+    },
+    "dropped_constant": {
+      "min": 2464,
+      "median": 2479.0,
+      "max": 2525
+    },
+    "dropped_variance": {
+      "min": 0,
+      "median": 0.0,
+      "max": 0
+    },
+    "dropped_correlation": {
+      "min": 721,
+      "median": 741.0,
+      "max": 762
+    },
+    "dropped_cap": {
+      "min": 81,
+      "median": 108.0,
+      "max": 123
+    },
+    "final": {
+      "min": 500,
+      "median": 500.0,
+      "max": 500
+    }
+  },
+  "feature_counts_final_model": {
+    "start": 4045,
+    "dropped_missing": 216,
+    "dropped_constant": 2463,
+    "dropped_variance": 0,
+    "dropped_correlation": 745,
+    "dropped_cap": 121,
+    "final": 500
+  },
+  "rankings_computed": 75,
+  "metrics_at_N": [
+    {
+      "regressor": "Ridge",
+      "RMSE_median": 0.3939339120464936,
+      "RMSE_q25": 0.3766235644450591,
+      "RMSE_q75": 0.3949046037718652,
+      "RMSE_IQR": 0.01828103932680608,
+      "MAE_median": 0.3004185064763427,
+      "MAE_q25": 0.28748209093989535,
+      "MAE_q75": 0.3096273472116753,
+      "MAE_IQR": 0.022145256271779934,
+      "R2_median": 0.19063214144054808,
+      "R2_q25": 0.18663850385717862,
+      "R2_q75": 0.26020022559124234,
+      "R2_IQR": 0.07356172173406372
+    },
+    {
+      "regressor": "RandomForest",
+      "RMSE_median": 0.25375961547591713,
+      "RMSE_q25": 0.25020434840523775,
+      "RMSE_q75": 0.284511561530666,
+      "RMSE_IQR": 0.034307213125428226,
+      "MAE_median": 0.19889547509224764,
+      "MAE_q25": 0.19227178491085203,
+      "MAE_q75": 0.21049551396908245,
+      "MAE_IQR": 0.018223729058230415,
+      "R2_median": 0.6641508673647885,
+      "R2_q25": 0.5778186401235035,
+      "R2_q75": 0.6734956871295814,
+      "R2_IQR": 0.09567704700607793
+    },
+    {
+      "regressor": "XGBoost",
+      "RMSE_median": 0.2552732763748372,
+      "RMSE_q25": 0.25251575878475774,
+      "RMSE_q75": 0.2719093425063143,
+      "RMSE_IQR": 0.019393583721556584,
+      "MAE_median": 0.2037153898194671,
+      "MAE_q25": 0.18992220040678517,
+      "MAE_q75": 0.20460041479302582,
+      "MAE_IQR": 0.014678214386240646,
+      "R2_median": 0.6601322777827738,
+      "R2_q25": 0.6143907214425979,
+      "R2_q75": 0.6674352698044163,
+      "R2_IQR": 0.05304454836181838
+    }
+  ],
+  "win_matrix_rmse": {
+    "Ridge": {
+      "RandomForest": 0,
+      "XGBoost": 0
+    },
+    "RandomForest": {
+      "Ridge": 5,
+      "XGBoost": 3
+    },
+    "XGBoost": {
+      "Ridge": 5,
+      "RandomForest": 2
+    }
+  },
+  "rule": {
+    "chosen": "RandomForest",
+    "branch": "RandomForest has the lowest nested-CV median RMSE at N=5: deploy it"
+  },
+  "q2_loo": null,
+  "y_randomization": {
+    "perm_repeats": 3,
+    "metrics": [
+      {
+        "regressor": "RandomForest",
+        "RMSE_median": 0.25375961547591713,
+        "RMSE_q25": 0.25020434840523775,
+        "RMSE_q75": 0.284511561530666,
+        "RMSE_IQR": 0.034307213125428226,
+        "MAE_median": 0.19889547509224764,
+        "MAE_q25": 0.19227178491085203,
+        "MAE_q75": 0.21049551396908245,
+        "MAE_IQR": 0.018223729058230415,
+        "R2_median": 0.6641508673647885,
+        "R2_q25": 0.5778186401235035,
+        "R2_q75": 0.6734956871295814,
+        "R2_IQR": 0.09567704700607793,
+        "run": "real",
+        "perm_repeats": 10
+      },
+      {
+        "regressor": "RandomForest",
+        "RMSE_median": 0.4999216019050476,
+        "RMSE_q25": 0.4958419141220441,
+        "RMSE_q75": 0.5046724896380572,
+        "RMSE_IQR": 0.008830575516013128,
+        "MAE_median": 0.4096968353288285,
+        "MAE_q25": 0.40772529737489693,
+        "MAE_q75": 0.4394963688562473,
+        "MAE_IQR": 0.03177107148135039,
+        "R2_median": -0.30347594978494286,
+        "R2_q25": -0.3283682255342981,
+        "R2_q75": -0.282288321068497,
+        "R2_IQR": 0.046079904465801125,
+        "run": "y-randomized",
+        "perm_repeats": 3
+      }
+    ]
+  },
+  "final_features": [
+    "MIC4",
+    "AATS4v",
+    "Mv",
+    "AATS7v",
+    "AATS2v"
+  ],
+  "in_sample_metrics_not_a_performance_claim": {
+    "RMSE": 0.160730533482613,
+    "MAE": 0.11941443699843941,
+    "R2": 0.8652601721033472
+  }
+}

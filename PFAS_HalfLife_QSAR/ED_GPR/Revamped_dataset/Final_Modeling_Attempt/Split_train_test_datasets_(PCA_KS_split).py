@@ -441,7 +441,17 @@ print(f"Number of unique PFAS in train dataset: {len(train_df['SMILES'].unique()
 print(f"Number of unique PFAS in test dataset: {len(test_df['SMILES'].unique())}")
 
 # Create PCA plot with PFAS names, different shapes for train/test, and half-life coloring
-plt.figure(figsize=(12, 10))
+# JCIM Journal Requirements:
+# - Two-column max width: 7 inches
+# - Minimum font size: 4.5 points
+# - Recommended: Axis titles (8-10 pt), Tick labels (7-9 pt), Legend (7-8 pt)
+plt.figure(figsize=(7, 5), dpi=300)
+
+# Common styling parameters (adjusted for two-column figure)
+TITLE_SIZE = 12
+LABEL_SIZE = 10
+TICK_SIZE = 8
+LEGEND_SIZE = 8
 
 # Create a boolean mask for test compounds
 is_test = pca_with_pfas["PFAS"].isin(test_pfas_ks)
@@ -465,7 +475,7 @@ scatter_train = plt.scatter(
     ],
     cmap=cmap,
     marker="o",  # Circle for train
-    s=100,
+    s=80,
     alpha=0.7,
     label="Train",
     vmin=vmin,
@@ -479,7 +489,7 @@ scatter_test = plt.scatter(
     c=[half_life_values[i] for i in range(len(half_life_values)) if is_test.iloc[i]],
     cmap=cmap,
     marker="^",  # Triangle for test
-    s=100,
+    s=80,
     alpha=0.7,
     label="Test",
     vmin=vmin,
@@ -488,24 +498,42 @@ scatter_test = plt.scatter(
 
 # Add unified colorbar for half-life values (use one of the scatter objects)
 cbar = plt.colorbar(scatter_train, label="Half-life (years)")
+cbar.ax.set_ylabel(
+    "Half-life (years)", fontsize=LABEL_SIZE
+)  # Use the same size as axis labels
+cbar.ax.tick_params(labelsize=TICK_SIZE)  # Use the same size as tick labels
 
 # Add PFAS names as labels
 for idx, row in pca_with_pfas.iterrows():
     plt.annotate(
         row["PFAS"],
         (row["PC1"], row["PC2"]),
-        fontsize=8,
+        fontsize=7,
         ha="center",
         va="bottom",
         xytext=(0, 5),
         textcoords="offset points",
     )
 
-plt.xlabel(f"Principal Component 1 ({explained_variance[0]:.2%} variance)")
-plt.ylabel(f"Principal Component 2 ({explained_variance[1]:.2%} variance)")
-plt.title("PCA: Train/Test Split with Half-life Coloring")
-plt.legend()
+plt.xlabel(
+    f"Principal Component 1 ({explained_variance[0]:.2%} variance)", fontsize=LABEL_SIZE
+)
+plt.ylabel(
+    f"Principal Component 2 ({explained_variance[1]:.2%} variance)", fontsize=LABEL_SIZE
+)
+# plt.title(
+#     "PCA: Train/Test Split of PFAS of Half-life Dataset",
+#     fontsize=TITLE_SIZE,
+#     weight="bold",
+# )
+plt.legend(fontsize=LEGEND_SIZE)
+plt.tick_params(axis="both", labelsize=TICK_SIZE)
 plt.tight_layout()
+plt.savefig(
+    "PFAS_HalfLife_QSAR/ED_GPR/Revamped_dataset/Final_Modeling_Attempt/halflife_PCA.png",
+    dpi=300,
+    bbox_inches="tight",
+)
 plt.show()
 
 # # Find and move PFHxS from test to train set

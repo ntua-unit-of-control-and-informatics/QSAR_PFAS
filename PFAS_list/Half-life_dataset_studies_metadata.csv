@@ -1,0 +1,19 @@
+Study,Doi,Congeners
+Chang et al. 2008,10.1093/toxsci/kfn057,['PFBA']
+Fu et al. 2016,10.1038/srep38039,"['PFHxS', 'PFOA', 'PFOS']"
+Li et al. 2018,10.1136/oemed-2017-104651,"['PFHxS', 'PFOS', 'PFOA']"
+Li et al. 2022,10.1016/j.envint.2022.107198,"['PFOA', 'PFPeS', 'PFHxS', 'PFHpS', 'PFOS', '1mPFOS', '3mPFOS', '4mPFOS', '5mPFOS', '2mPFOS', '6mPFOS']"
+Olsen et al. 2007,10.1289/ehp.10009,"['PFOS', 'PFHxS', 'PFOA']"
+Olsen et al. 2009,10.1016/j.tox.2008.11.008,['PFBS']
+Russel et al. 2013,https://dx.doi.org/10.1016/j.chemosphere.2013.08.060,['PFHxA']
+Xu et al.2020,10.1289/EHP6785,"['PFHxA', 'PFHpA', 'PFBS', 'PFPeS', 'PFOA', 'PFHxS', 'PFHpS', 'PFOS', '1mPFOS', '3mPFOS', '4mPFOS', '5mPFOS', '2mPFOS', '6mPFOS']"
+Zhang et al. 2013,dx.doi.org/10.1021/es401905e,"['PFHxS', 'PFOS', 'iso-PFOS', '1mPFOS', '4mPFOS', '3mPFOS', '5mPFOS', 'PFHpA', 'PFNA', 'PFDA', 'PFUnA', 'PFOA', 'iso-PFOA', '4mPFOA', '5mPFOA']"
+Wallis et al. 2023,10.1021/acs.est.2c08241,"['PFO4DA', 'Nafion-BP2', 'PFO5DoA']"
+Nilsson et al.2022a,10.1021/acs.est.2c04637,"['PFOS', '1mPFOS', '3mPFOS', '4mPFOS', '5mPFOS', '4,5dm-PFOS', '8-Cl-PFOS']"
+Nilsson et al.2022b,10.1016/j.ijheh.2022.114040,"['PFOA', 'PFHxS', 'PFHpS', 'PFOS']"
+Batzella et al. 2024,10.1289/EHP13152,['PFOA']
+Costa et al. 2009,10.1097/JOM.0b013e3181965d80,['PFOA']
+Gomis et al. 2016,10.1021/acs.est.6b01477,['PFOA']
+Yu et al. 2021,10.1016/j.ijheh.2021.113757,['PFNA']
+Abraham et al. 2024,10.1016/j.envint.2024.109047,"['PFBA', 'PFPeA', 'PFHxA', 'PFHpA', 'PFOA', 'PFNA', 'PFDA', 'PFUdA', 'PFDoA', 'PFBS', 'PFHxS', 'PFOS', '6:2FTS', 'HFPO-DA', 'DONA']"
+Lewis-Michl et al. 2025,10.1038/s41370-025-00769-z,['PFOA']

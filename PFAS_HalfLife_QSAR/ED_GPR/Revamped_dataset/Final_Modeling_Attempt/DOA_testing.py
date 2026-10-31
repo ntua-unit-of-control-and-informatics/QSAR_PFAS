@@ -8,7 +8,11 @@ from sklearn.base import BaseEstimator, RegressorMixin
 from scipy.optimize import minimize
 from scipy.linalg import cholesky, cho_solve
 from scipy.stats import norm
+from matplotlib.patches import Patch
+from matplotlib.font_manager import FontProperties
 import warnings
+import shap
+import sys
 from jaqpotpy.descriptors import RDKitDescriptors, TopologicalFingerprint
 from jaqpotpy.datasets import JaqpotTabularDataset
 
@@ -436,6 +440,8 @@ def perform_pfas_cv(model, X, y, pfas_values, halflife_stats, n_folds=5):
     rmse_scores = []
     mae_scores = []
     pfas_r2_scores = []
+    pfas_rmse_scores = []
+    pfas_mae_scores = []
 
     for fold_idx in range(n_folds):
         # Calculate start and end indices for validation PFAS
@@ -533,7 +539,11 @@ def perform_pfas_cv(model, X, y, pfas_values, halflife_stats, n_folds=5):
                 )
 
                 pfas_r2 = r2_score(pfas_true, pfas_pred)
+                pfas_rmse = np.sqrt(np.mean((pfas_true - pfas_pred) ** 2))
+                pfas_mae = np.mean(np.abs(pfas_true - pfas_pred))
                 pfas_r2_scores.append(pfas_r2)
+                pfas_rmse_scores.append(pfas_rmse)
+                pfas_mae_scores.append(pfas_mae)
                 print(
                     f"PFAS-level metrics - R² (mean values): {pfas_r2:.4f} (n={len(common_pfas)} PFAS)"
                 )
@@ -545,11 +555,15 @@ def perform_pfas_cv(model, X, y, pfas_values, halflife_stats, n_folds=5):
     avg_rmse = np.mean(rmse_scores) if rmse_scores else np.nan
     avg_mae = np.mean(mae_scores) if mae_scores else np.nan
     avg_pfas_r2 = np.mean(pfas_r2_scores) if pfas_r2_scores else np.nan
+    avg_pfas_rmse = np.mean(pfas_rmse_scores) if pfas_rmse_scores else np.nan
+    avg_pfas_mae = np.mean(pfas_mae_scores) if pfas_mae_scores else np.nan
 
     print("\nAverage CV metrics:")
-    print(f"Sample-level - R²: {avg_r2:.4f}, RMSE: {avg_rmse:.4f}, MAE: {avg_mae:.4f}")
+    # print(f"Sample-level - R²: {avg_r2:.4f}, RMSE: {avg_rmse:.4f}, MAE: {avg_mae:.4f}")
     if pfas_r2_scores:
         print(f"PFAS-level - R² (mean values): {avg_pfas_r2:.4f}")
+        print(f"PFAS-level - RMSE (mean values): {avg_pfas_rmse:.4f}")
+        print(f"PFAS-level - MAE (mean values): {avg_pfas_mae:.4f}")
 
     return {
         "r2": avg_r2,
@@ -557,7 +571,9 @@ def perform_pfas_cv(model, X, y, pfas_values, halflife_stats, n_folds=5):
         "mae": avg_mae,
         "pfas_r2": avg_pfas_r2,
         "sample_scores": {"r2": r2_scores, "rmse": rmse_scores, "mae": mae_scores},
-        "pfas_scores": pfas_r2_scores,
+        "pfas_R2_scores": pfas_r2_scores,
+        "pfas_rmse_scores": pfas_rmse_scores,
+        "pfas_mae_scores": pfas_mae_scores,
     }
 
 
@@ -637,6 +653,8 @@ if __name__ == "__main__":
     # Refit model on all training data
     model = HeteroscedasticGPR(**model_params)
     model.fit(X, y)
+    # Save the model
+    # joblib.dump(model, "hgpr_model.pkl")
 
     # Print optimized parameters
     print("\nOptimized parameters:")
@@ -802,7 +820,7 @@ if __name__ == "__main__":
 
     # Create the plot
     plt.style.use("seaborn-v0_8-whitegrid")
-    fig, ax = plt.subplots(figsize=(9, 8), dpi=300)
+    fig, ax = plt.subplots(figsize=(10, 8), dpi=300)
 
     # Common styling parameters
     TITLE_SIZE = 14
@@ -907,8 +925,8 @@ if __name__ == "__main__":
     ax.plot(plot_range, plot_range, "k--", lw=1.5)
 
     # Styling
-    ax.set_xlabel("Observed Half-life (years)", fontsize=LABEL_SIZE)
-    ax.set_ylabel("Predicted Half-life (years)", fontsize=LABEL_SIZE)
+    ax.set_xlabel("Observed Half-life (years)", fontsize=LABEL_SIZE, weight="bold")
+    ax.set_ylabel("Predicted Half-life (years)", fontsize=LABEL_SIZE, weight="bold")
     ax.set_title(
         "PFAS Half-life: Observed vs Predicted (Test Set Only)", fontsize=TITLE_SIZE
     )
@@ -921,7 +939,6 @@ if __name__ == "__main__":
 
     # Add legend for individual PFAS compounds
     # Create custom legend handles
-    from matplotlib.patches import Patch
 
     legend_elements = [
         Patch(
@@ -947,6 +964,7 @@ if __name__ == "__main__":
         framealpha=0.7,
         ncol=ncols,
     )
+    plt.setp(legend.get_title(), fontweight="bold")
 
     # Add R² to the plot
     test_r2 = r2_score(
@@ -968,11 +986,11 @@ if __name__ == "__main__":
     )
 
     # Save the plot
-    # plt.savefig(
-    #     "PFAS_HalfLife_QSAR/ED_GPR/Revamped_dataset/Final_Modeling_Attempt/pfas_halflife_predictions_test_only.png",
-    #     dpi=300,
-    #     bbox_inches="tight",
-    # )
+    plt.savefig(
+        "PFAS_HalfLife_QSAR/ED_GPR/Revamped_dataset/Final_Modeling_Attempt/pfas_halflife_predictions_test_only.png",
+        dpi=300,
+        bbox_inches="tight",
+    )
     plt.show()
 
     # Save the filtered data with predictions for reference
@@ -1017,7 +1035,11 @@ if __name__ == "__main__":
     train_dists = model._compute_kernel(train_pfas, train_pfas)
 
     # Calculate the 95th percentile of training distances for DOA threshold
-    doa_threshold = np.percentile(train_dists, 95)
+    # Extract maximum value from each row in train_dists
+    # Get maximum distances excluding self-similarities (diagonal)
+    np.fill_diagonal(train_dists, 0)  # Set diagonal values to 0
+    max_train_dists = np.max(train_dists, axis=1)
+    doa_threshold = np.percentile(max_train_dists, 5)
 
     # Calculate distances from test data to training data
     test_distances_from_train = []
@@ -1036,7 +1058,7 @@ if __name__ == "__main__":
     # Identify PFAS compounds that are out of domain
     out_of_domain_pfas = []
     for i, mean_dist in enumerate(test_distances_from_train):
-        if mean_dist > doa_threshold:
+        if mean_dist < doa_threshold:
             out_of_domain_pfas.append(test_pfas_names[i])
 
     print(f"\nDomain of Applicability Analysis:")
@@ -1053,10 +1075,241 @@ if __name__ == "__main__":
     doa_summary = pd.DataFrame(
         {
             "PFAS": test_pfas_names,
-            "Mean_Distance_to_Train": test_distances_from_train,
-            "Within_DOA": [dist <= doa_threshold for dist in test_distances_from_train],
+            "Mean_Kernel_Distance_to_Train": test_distances_from_train,
+            "Within_DOA": [dist >= doa_threshold for dist in test_distances_from_train],
         }
     )
 
     print(f"\nDOA Summary:")
     print(doa_summary)
+
+
+# ---------------------------------------------------------------------
+#                       SHAP Analysis
+# ---------------------------------------------------------------------
+
+
+# Create a wrapper function for SHAP that matches the expected interface
+class GPRWrapper:
+    def __init__(self, model):
+        self.model = model
+
+    def predict(self, X):
+        # SHAP expects just the predictions, not the uncertainties
+        return self.model.predict(X)
+
+
+# Wrap the trained model
+model_wrapper = GPRWrapper(model)
+
+# Use a subset of training data as background for SHAP
+# This helps with computational efficiency
+background_size = min(100, len(X))
+background_indices = np.random.choice(len(X), background_size, replace=False)
+background_data = X[background_indices]
+
+# Create SHAP explainer
+explainer = shap.Explainer(model_wrapper.predict, background_data)
+
+# Calculate SHAP values for training PFAS mean data
+train_doa_dataset = JaqpotTabularDataset(
+    df=train_doa_data,
+    y_cols=None,
+    x_cols=x_cols,
+    smiles_cols="SMILES",
+    featurizer=featurizers,
+    task="regression",
+)
+
+# Use training PFAS data for SHAP analysis
+train_data_for_shap = train_doa_dataset.X[selected_features].values
+
+print("Calculating SHAP values for training PFAS...")
+shap_values = explainer(train_data_for_shap)
+
+# Create feature names for plotting
+feature_names = selected_features
+
+
+# Create a custom function to have more control over the plot
+def custom_shap_summary_plot():
+    # JCIM Journal Requirements:
+    # - Single-column max width: 3.33 inches (240 points)
+    # - Minimum font size: 4.5 points
+    # - Recommended: Axis titles (8-10 pt), Tick labels (7-9 pt)
+
+    # Set the figure size for single-column publication
+    plt.figure(figsize=(3.33, 4))
+
+    # Create the SHAP summary plot
+    shap.summary_plot(
+        shap_values,
+        train_data_for_shap,  # Use the training data for SHAP
+        feature_names=feature_names,
+        show=False,  # Don't show the plot yet
+        alpha=0.8,  # Adjust transparency of dots
+        cmap=plt.cm.viridis,  # Change colormap
+        plot_size=(3.33, 4),  # Set plot size to match JCIM single-column
+    )
+
+    # Get the current figure and its axes
+    fig = plt.gcf()
+    axes = fig.get_axes()
+
+    # Make feature names appropriately sized for JCIM
+    for ax in axes:
+        # Find y-axis tick labels (feature names)
+        y_labels = ax.get_yticklabels()
+
+        # Create font properties
+        font_prop = FontProperties()
+        # font_prop.set_weight("bold")
+        font_prop.set_size(8)  # Adjusted to JCIM tick label size (7-9 pt)
+
+        # Set the font properties for each label
+        for label in y_labels:
+            label.set_fontproperties(font_prop)
+
+    # Find all scatter plots and adjust dot size for smaller figure
+    for ax in axes:
+        for collection in ax.collections:
+            if isinstance(collection, plt.matplotlib.collections.PathCollection):
+                # Adjust dot size for single-column figure
+                collection.set_sizes([30])  # Reduced from 200 for smaller figure
+
+    # Add labels with JCIM-compliant font sizes
+    # plt.title("Feature Impact on Half-Life Prediction", fontsize=12, fontweight="bold")
+    plt.xlabel("SHAP Value (impact on Half-life)", fontsize=10)
+
+    # Customize x-axis ticks and grid
+    main_ax = axes[0]
+
+    # Set specific tick locations
+    main_ax.set_xticks([-2, 0, 2])
+
+    # Remove all vertical gridlines and keep only horizontal dotted lines
+    main_ax.grid(True, axis='y', linestyle=':', linewidth=0.5, alpha=0.7)
+    main_ax.grid(False, axis='x')
+
+    # Add only a vertical line at x=0
+    main_ax.axvline(x=0, color='gray', linestyle='-', linewidth=0.8, alpha=0.7)
+
+    # Adjust tick label size for all axes
+    for ax in axes:
+        ax.tick_params(axis="x", labelsize=8)
+
+    plt.tight_layout()
+
+    # Save the plot with high resolution
+    plt.savefig(
+        "PFAS_HalfLife_QSAR/ED_GPR/Revamped_dataset/Final_Modeling_Attempt/halflife_shap.png",
+        dpi=300,
+        bbox_inches="tight",
+    )
+    # plt.show()
+
+
+# Call the custom function
+custom_shap_summary_plot()
+
+
+def custom_shap_bar_plot():
+    """Create a SHAP feature importance bar plot following JCIM guidelines."""
+    # JCIM Journal Requirements:
+    # - Single-column max width: 3.33 inches (240 points)
+    # - Minimum font size: 4.5 points
+    # - Recommended: Axis titles (8-10 pt), Tick labels (7-9 pt)
+
+    # Create the SHAP bar plot with custom styling
+    plt.figure(figsize=(3.33, 4))
+    shap.summary_plot(
+        shap_values,
+        train_data_for_shap,
+        feature_names=feature_names,
+        plot_type="bar",
+        show=False,
+        color="#ff0051",  # Red color for bars (SHAP default red)
+    )
+
+    # Get the current figure and axes
+    fig = plt.gcf()
+    ax = fig.gca()
+
+    # Increase font sizes for readability in small figure
+    # For a 3.33" figure, fonts need to be larger to be readable when printed
+    ax.tick_params(axis="x", labelsize=14)
+    ax.tick_params(axis="y", labelsize=14)
+
+    # Update axis labels with custom text and font size
+    ax.set_xlabel("mean(|SHAP value|)", fontsize=16)
+    ax.set_ylabel(ax.get_ylabel(), fontsize=16)
+
+    plt.tight_layout()
+
+    # Save the plot with high resolution
+    plt.savefig(
+        "PFAS_HalfLife_QSAR/ED_GPR/Revamped_dataset/Final_Modeling_Attempt/halflife_SHAP_importance.png",
+        dpi=300,
+        bbox_inches="tight",
+    )
+    plt.close()
+    # plt.show()
+
+
+# Create the bar plot
+custom_shap_bar_plot()
+
+# Print feature importance summary
+print("\nSHAP Feature Importance Summary (Training PFAS):")
+mean_abs_shap = np.mean(np.abs(shap_values.values), axis=0)
+feature_importance = list(zip(feature_names, mean_abs_shap))
+feature_importance.sort(key=lambda x: x[1], reverse=True)
+
+for i, (feature, importance) in enumerate(feature_importance):
+    print(f"{i+1}. {feature}: {importance:.4f}")
+
+
+# ---------------------------------------------------------------------
+#                  SHAP Waterfall Plot for PFOA
+# ---------------------------------------------------------------------
+
+pfoa_smiles = "C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O"
+pfoa_df = pd.DataFrame({"SMILES": [pfoa_smiles], "LogKa": [5.38]})
+
+pfoa_dataset = JaqpotTabularDataset(
+    df=pfoa_df,
+    y_cols=None,
+    x_cols=["LogKa"],
+    smiles_cols="SMILES",
+    featurizer=featurizers,
+    task="regression",
+)
+
+pfoa_features = pfoa_dataset.X[selected_features].values
+
+# Compute SHAP values for PFOA
+pfoa_shap_values = explainer(pfoa_features)
+pfoa_shap_values.feature_names = selected_features
+
+# Waterfall plot for the single PFOA prediction
+plt.figure(figsize=(3.33, 4))
+shap.plots.waterfall(pfoa_shap_values[0], show=False)
+
+fig = plt.gcf()
+ax = fig.gca()
+ax.tick_params(axis="x", labelsize=8)
+ax.tick_params(axis="y", labelsize=8)
+ax.set_xlabel("SHAP Value (impact on Half-life)", fontsize=10)
+
+plt.title("PFOA Half-life Prediction", fontsize=10, fontweight="bold")
+plt.tight_layout()
+
+plt.savefig(
+    "PFAS_HalfLife_QSAR/ED_GPR/Revamped_dataset/Final_Modeling_Attempt/pfoa_shap_waterfall.png",
+    dpi=300,
+    bbox_inches="tight",
+)
+plt.close()
+
+pfoa_pred = model.predict(pfoa_features)
+print(f"\nPFOA predicted half-life: {pfoa_pred[0]:.3f} years")

@@ -1,0 +1,74 @@
+Substance,SMILES,CAS,in_LogKa_dataset,in_Halflife_dataset
+PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,335-67-1 ,True,True
+PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,375-95-1 ,True,True
+PFDA,C(=O)(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,335-76-2 ,True,True
+PFBS,C(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)(F)F,375-73-5 ,True,True
+PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,355-46-4 ,True,True
+PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1763-23-1 ,True,True
+HFPO-DA,C1(C(O1)(F)F)(C(F)(F)F)F,13252-13-6 ,True,False
+PFBA,C(=O)(C(C(C(F)(F)F)(F)F)(F)F)O,375-22-4 ,True,True
+PFHxA,C(=O)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,307-24-4 ,True,True
+PFHpA,C(=O)(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,375-85-9 ,True,True
+9Cl-PF3ONS / 6:2 Cl-PFESA,C(C(C(C(F)(F)Cl)(F)F)(F)F)(C(C(OC(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F,756426-58-1 ,True,False
+PFPeA,C(=O)(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)O,2706-90-3 ,True,True
+PFUnDA / PFUnA,C(=O)(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,2058-94-8 ,True,True
+PFUdA,C(=O)(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)[O-],196859-54-8,False,True
+PFDoA,C(=O)(C(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,307-55-1 ,True,True
+Nafion bp2,C(C(F)(F)F)(OC(C(C(F)(F)F)(OC(C(F)(F)S(=O)(=O)O)(F)F)F)(F)F)F,749836-20-2,False,True
+PFTrDA / PFTrA,C(=O)(C(C(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,72629-94-8 ,True,False
+PFTeDA,C(=O)(C(C(C(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,376-06-7 ,True,False
+PFPeS,C(C(C(F)(F)F)(F)F)(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F,2706-91-4 ,True,True
+PFHpS,C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F,375-92-8 ,True,True
+PFNS,C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F,68259-12-1 ,True,False
+PFDS,C(C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F)(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F,335-77-3 ,True,False
+4:2 FTSA,C(CS(=O)(=O)O)C(C(C(C(F)(F)F)(F)F)(F)F)(F)F,757124-72-4,True,False
+6:2 FTSA,C(CS(=O)(=O)O)C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,27619-97-2,True,False
+8:2 FTSA,C(CS(=O)(=O)O)C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,39108-34-4,True,False
+3m-PFOS,C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)F,https://pubchem.ncbi.nlm.nih.gov/compound/102175775,False,True
+4m-PFOS,C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(F)(F)F)F,https://pubchem.ncbi.nlm.nih.gov/compound/102175774,False,True
+5m-PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(F)(F)F)(F)F)(C(F)(F)F)F,747385-21-3,False,True
+5m-PFOA,C(=O)(C(C(C(C(C(C(F)(F)F)(F)F)(C(F)(F)F)F)(F)F)(F)F)(F)F)O,909009-42-3,False,True
+PFMBA,C(=O)(C(C(C(OC(F)(F)F)(F)F)(F)F)(F)F)O,863090-89-5 ,True,False
+PFEESA,C(C(F)(F)F)(OC(C(F)(F)S(=O)(=O)O)(F)F)(F)F,113507-82-7 ,True,False
+6:2 FTCA,C(C(=O)O)C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,53826-12-3 ,True,False
+PFHxDA,C(=O)(C(C(C(C(C(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,67905-19-5,True,False
+PFDoS,C(C(C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F)(F)F)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,79780-39-5,True,False
+10:2 FTS,C(CS(=O)(=O)O)C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,120226-60-0,True,False
+PFOSA/FOSA,C(C(C(C(C(F)(F)S(=O)(=O)N)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,754-91-6 ,True,False
+NMeFOSA,CNS(=O)(=O)C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,31506-32-8 ,True,False
+NEtFOSA,CCNS(=O)(=O)C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,4151-50-2 ,True,False
+NMeFOSAA/MeFOSAA,CN(CC(=O)O)S(=O)(=O)C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,2355-31-9 ,True,False
+NEtFOSAA/EtFOSAA,CCN(CC(=O)O)S(=O)(=O)C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,2991-50-6 ,True,False
+FOSAA,C(C(=O)O)NS(=O)(=O)C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,2806-24-8 ,True,False
+NMeFOSE,CN(CCO)S(=O)(=O)C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,24448-09-7 ,True,False
+NEtFOSE,CCN(CCO)S(=O)(=O)C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,1691-99-2 ,True,False
+ADONA/DONA,C(C(C(=O)O)(F)F)(OC(C(C(OC(F)(F)F)(F)F)(F)F)(F)F)F,919005-14-4 ,True,True
+PFMPA,C(=O)(C(C(OC(F)(F)F)(F)F)(F)F)O,377-73-1 ,True,False
+"NFDHA / Perfluoro-3,6-dioxaheptanoic acid",C(=O)(C(OC(C(OC(F)(F)F)(F)F)(F)F)(F)F)O,151772-58-6 ,True,False
+11Cl-PF3OUdS,C(C(C(C(C(F)(F)Cl)(F)F)(F)F)(F)F)(C(C(C(OC(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F)(F)F,763051-92-9 ,True,False
+7:3 FTCA,C(CC(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)C(=O)O,812-70-4 ,True,False
+8:2 FTCA,C(C(=O)O)C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,27854-31-5 ,True,False
+10:2 FTCA,C(C(=O)O)C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,53826-13-4 ,True,False
+8Cl-PFOS,C(C(C(C(C(F)(F)Cl)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F,777011-38-8 ,True,True
+PFEtCHxS / PFECHS,C1(C(C(C(C(C1(F)F)(F)F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)F,646-83-3 ,True,False
+FBSA,C(C(C(F)(F)S(=O)(=O)N)(F)F)(C(F)(F)F)(F)F,30334-69-1 ,True,False
+FHxSA,C(C(C(C(F)(F)S(=O)(=O)N)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,41997-13-1 ,True,False
+6:2 FTUCA,C(=C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)F)C(=O)O,70887-88-6 ,True,False
+8:2 FTUCA,C(=C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)F)C(=O)O,70887-84-2 ,True,False
+6:2 diPAP,C(COP(=O)(O)OCCC(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,57677-95-9 ,True,False
+8:2 diPAP,C(COP(=O)(O)OCCC(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,678-41-1 ,True,False
+diSAmPAP,CCN(CCOP(=O)(O)OCCN(CC)S(=O)(=O)C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)S(=O)(=O)C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,2965-52-8 ,True,False
+PFHxSaAm,CN(C)CCCNS(=O)(=O)C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,50598-28-2 ,True,False
+6:2 FtSaB,C[N+](C)(CCCNS(=O)(=O)CCC(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)CC(=O)[O-],34455-29-3 ,True,False
+N-TAmP-FHxSA,C[N+](C)(C)CCCNS(=O)(=O)C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,70248-51-0 ,True,False
+5:3 FTB,C[N+](C)(CCCC(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)CC(=O)[O-],171184-14-8 ,True,False
+5:1:2 FTB,C[N+](C)(CCC(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)F)CC(=O)[O-],171184-02-4 ,True,False
+1mPFOS,C(C(C(C(C(F)(F)F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,,False,True
+2mPFOS,C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(C(F)(F)F)(C(F)(F)S(=O)(=O)O)F,,False,True
+6mPFOS,C(C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F)(C(F)(F)F)(C(F)(F)F)F,,False,True
+4mPFOA,C(=O)(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(C(F)(F)F)F)(F)F)(F)F)O,,False,True
+PFO4DA,C(=O)(C(OC(OC(OC(OC(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,,False,True
+PFO5DoA,C(=O)(C(OC(OC(OC(OC(OC(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,,False,True
+"4,5dm-PFOS",C(C(C(F)(F)F)(C(F)(F)F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(F)(F)F)F,,False,True
+6:2FTS,[13CH2]([13CH2]S(=O)(=O)O)C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,,False,True
+HFPO-DA,C(=O)(C(C(F)(F)F)(OC(C(C(F)(F)F)(F)F)(F)F)F)O,,False,True

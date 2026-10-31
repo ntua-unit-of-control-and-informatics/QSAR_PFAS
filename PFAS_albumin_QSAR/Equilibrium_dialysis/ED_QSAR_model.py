@@ -25,6 +25,10 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import r2_score
 import sys
 import shap
+from matplotlib.ticker import FormatStrFormatter, MultipleLocator
+from matplotlib.pyplot import get_cmap
+from matplotlib.colors import ListedColormap
+from matplotlib.patches import Patch
 
 
 # Q2: Predictive Squared Correlation Coefficient
@@ -63,8 +67,8 @@ train_dataset = JaqpotTabularDataset(
     y_cols="Ka",
     x_cols=x_cols,
     smiles_cols="SMILES",
-    featurizer=featurizers,
-    task="regression",
+    featurizers=featurizers,
+    task="REGRESSION",
 )
 
 train_dataset.select_features(
@@ -87,8 +91,8 @@ test_dataset = JaqpotTabularDataset(
     y_cols="Ka",
     x_cols=x_cols,
     smiles_cols="SMILES",
-    featurizer=featurizers,
-    task="regression",
+    featurizers=featurizers,
+    task="REGRESSION",
 )
 
 test_dataset.select_features(SelectColumns=train_dataset.X.columns.tolist())
@@ -196,93 +200,148 @@ if len(yy.shape) > 1:
     yy = yy.flatten()
 
 # Create publication-quality visualization plot for LogKa predictions
-plt.style.use("seaborn-v0_8-whitegrid")  # Use clean, professional style
-# Define the exact pixel dimensions you want
-target_width_px = 2766
-target_height_px = 2071
-target_dpi = 300
+plt.style.use("seaborn-v0_8-whitegrid")
+fig, ax = plt.subplots(figsize=(3.33, 4), dpi=300)
 
-# Calculate the figure size in inches
-fig_width_in = target_width_px / target_dpi
-fig_height_in = target_height_px / target_dpi
-
-# Create figure with these exact dimensions
-fig = plt.figure(figsize=(fig_width_in, fig_height_in), dpi=target_dpi)
-ax = fig.add_subplot(111)
-
-# Common font sizes
-TITLE_SIZE = 16
-LABEL_SIZE = 14
-TICK_SIZE = 12
-LEGEND_SIZE = 12
+# Common styling parameters (adjusted for single-column figure)
+# JCIM Journal Requirements:
+# - Single-column max width: 3.33 inches (240 points)
+# - Minimum font size: 4.5 points
+# - Recommended: Axis titles (8-10 pt), Tick labels (7-9 pt), Legend (7-8 pt)
+TITLE_SIZE = 12
+LABEL_SIZE = 10
+TICK_SIZE = 8
+LEGEND_SIZE = 8
 
 # Calculate plot limits
 all_y_values = np.concatenate([yx, yy])
 min_y, max_y = np.floor(min(all_y_values)), np.ceil(max(all_y_values))
 plot_range = [min_y, max_y]
 
-# Create scatter plot - using a consistent style with the previous plot
+# Get unique PFAS for coloring
+unique_pfas = df_test["Congener"].unique()
+
+# Create a categorical colormap for individual PFAS compounds
+# Choose a colormap with distinct colors based on number of PFAS compounds
+if len(unique_pfas) <= 10:
+    cmap_name = "tab10"
+elif len(unique_pfas) <= 20:
+    cmap_name = "tab20"
+else:
+    cmap_name = "viridis"
+    cmap = get_cmap(cmap_name)
+    colors = [cmap(i / len(unique_pfas)) for i in range(len(unique_pfas))]
+    custom_cmap = ListedColormap(colors)
+
+# If we're using a standard colormap without the extension
+if len(unique_pfas) <= 20:
+    cmap = get_cmap(cmap_name)
+    colors = [cmap(i) for i in range(len(unique_pfas))]
+    custom_cmap = ListedColormap(colors[: len(unique_pfas)])
+
+# Create a mapping of PFAS to numeric indices for coloring
+pfas_to_index = {pfas: i for i, pfas in enumerate(unique_pfas)}
+color_indices = [pfas_to_index[p] for p in df_test["Congener"]]
+
+# Create scatter plot with points colored by individual PFAS
 scatter = ax.scatter(
     yx,
     yy,
-    alpha=0.7,
-    s=70,  # Size matching previous plot
-    color="#ff7f0e",  # Orange from previous plot
+    c=color_indices,
+    cmap=custom_cmap,
+    s=60,
+    alpha=0.8,
     edgecolor="white",
     linewidth=0.5,
+    zorder=10,  # Make sure points are on top
 )
 
+# Add text annotations for each point (matching DOA_testing.py style)
+# for i, congener_name in enumerate(df_test["Congener"]):
+#     x = yx[i]
+#     y = yy[i]
+
+#     # Slightly offset the text to avoid overlapping with the point
+#     ax.annotate(
+#         congener_name,
+#         xy=(x, y),
+#         xytext=(5, 5),  # 5 points offset
+#         textcoords="offset points",
+#         fontsize=12,
+#         alpha=0.8,
+#         bbox=dict(boxstyle="round,pad=0.3", fc="white", ec="gray", alpha=0.7),
+#     )
+
 # Identity line
-ax.plot(plot_range, plot_range, "k--", lw=1.5, label="y = x")
-
-# Calculate R² for annotation
-r_squared = r2_score(yx, yy)
-
-# Add R² annotation
-# ax.text(
-#     0.05,
-#     0.95,
-#     f"R² = {r_squared:.3f}",
-#     transform=ax.transAxes,
-#     fontsize=LABEL_SIZE,
-#     fontweight="bold",
-#     bbox=dict(facecolor="white", alpha=0.8, edgecolor="none", boxstyle="round,pad=0.3"),
-# )
-
-# Annotate the points with the congener - moved higher and darker
-for i, txt in enumerate(df_test["Congener"]):
-    ax.annotate(
-        txt,
-        (yx[i], yy[i]),
-        xytext=(0, 7),  # Offset 7 points higher
-        textcoords="offset points",  # Use offset coordinates
-        fontsize=8,
-        alpha=1.0,  # Darker text
-        color="black",
-        fontweight="medium",
-    )
+ax.plot(plot_range, plot_range, "k--", lw=1.5)
 
 # Styling
-ax.set_xlabel("Observed LogKa", fontsize=LABEL_SIZE)
-ax.set_ylabel("Predicted LogKa", fontsize=LABEL_SIZE)
-ax.set_title("Observed vs Predicted LogKa", fontsize=TITLE_SIZE, fontweight="bold")
+ax.set_xlabel(r"Observed $\mathit{Log}K_\mathrm{A}$", fontsize=LABEL_SIZE)
+ax.set_ylabel(r"Predicted $\mathit{Log}K_\mathrm{A}$", fontsize=LABEL_SIZE)
+# ax.set_title("PFAS LogKa: Observed vs Predicted", fontsize=TITLE_SIZE)
 ax.tick_params(axis="both", labelsize=TICK_SIZE)
 ax.set_xlim(plot_range)
 ax.set_ylim(plot_range)
 
-# Add more gridlines to match the density of the second plot
-ax.grid(True, linestyle="-", linewidth=0.5, alpha=0.7)
-ax.set_axisbelow(True)  # Ensure grid is behind the data points
+# Format axis ticks to have consistent decimal places at 0.5 intervals
+ax.xaxis.set_major_formatter(FormatStrFormatter("%.1f"))
+ax.xaxis.set_major_locator(MultipleLocator(0.5))
+ax.yaxis.set_major_formatter(FormatStrFormatter("%.1f"))
+ax.yaxis.set_major_locator(MultipleLocator(0.5))
 
-# Adjust layout
+# Add grid to match DOA_testing.py
+ax.grid(True, linestyle="-", linewidth=0.5, alpha=0.3)
+
+# Add legend for individual PFAS compounds (matching DOA_testing.py style)
+legend_elements = [
+    Patch(
+        facecolor=colors[pfas_to_index[pfas]],
+        edgecolor="white",
+        label=pfas,
+        alpha=0.8,
+    )
+    for pfas in unique_pfas
+]
+
+# Add legend in the most appropriate location
+legend = ax.legend(
+    handles=legend_elements,
+    loc="upper center",
+    fontsize=6,
+    bbox_to_anchor=(0.5, -0.15),
+    title="PFAS Compound",
+    title_fontsize=7,
+    framealpha=0.7,
+    ncol=3,
+    handlelength=1.0,
+    handleheight=0.7,
+    columnspacing=1.0,
+)
+plt.setp(legend.get_title(), fontweight="normal")
+
+# Add R² to the plot (matching DOA_testing.py style)
+# test_r2 = r2_score(yx, yy)
+# ax.text(
+#     0.05,
+#     0.95,
+#     f"$R^2 = {0.641:.3f}$",
+#     transform=ax.transAxes,
+#     fontsize=LABEL_SIZE,
+#     verticalalignment="top",
+#     bbox=dict(facecolor="white", alpha=0.7, edgecolor="none"),
+# )
+
+# Adjust layout to make room for the legend
 plt.tight_layout()
 
-# Save high-resolution figure
+# Save the plot
 # plt.savefig(
-#     "PFAS_albumin_QSAR/Equilibrium_dialysis/model_logka_predictions.png",
+#     # "PFAS_albumin_QSAR/Equilibrium_dialysis/model_logka_predictions.png",
+#     "PFAS_albumin_QSAR/Equilibrium_dialysis/LogKa_predictions.png",
 #     dpi=300,
 #     bbox_inches="tight",
 # )
+plt.show()
 
 # from jaqpotpy import Jaqpot
 

@@ -1,0 +1,202 @@
+{
+  "parameters": {
+    "N_FEATURES": 5,
+    "N_FEATURES_CURVE": 15,
+    "OUTER_SPLITS": 5,
+    "OUTER_REPEATS": 10,
+    "PERM_REPEATS": 10,
+    "N_INNER_SPLITS": 5,
+    "N_PERMUTATIONS": 5,
+    "MISSING_THRESHOLD": 0.05,
+    "CORR_THRESHOLD": 0.99,
+    "CANDIDATE_CAP": 500,
+    "RANDOM_STATE": 42,
+    "N_JOBS": -1,
+    "N_STRATA_BINS": 5,
+    "RUN_Q2_LOO": true,
+    "EXCLUDE_CONGENERS": [
+      "PFMBA",
+      "PFNS",
+      "PFTrA",
+      "FOSA"
+    ]
+  },
+  "featurizers": [
+    "RDKitDescriptors",
+    "MordredDescriptors",
+    "TopologicalFingerprint",
+    "MACCSKeysFingerprint"
+  ],
+  "featurizer_label": "rdkit-mordred-topfp-maccs",
+  "regressors": {
+    "Ridge": "RidgeCV(alphas=array([1.00000000e-02, 3.16227766e-02, 1.00000000e-01, 3.16227766e-01,\n       1.00000000e+00, 3.16227766e+00, 1.00000000e+01, 3.16227766e+01,\n       1.00000000e+02, 3.16227766e+02, 1.00000000e+03]))",
+    "RandomForest": "RandomForestRegressor(max_features=0.6, min_samples_leaf=2, n_estimators=500,\n                      n_jobs=1, random_state=42)",
+    "XGBoost": "XGBRegressor(base_score=None, booster=None, callbacks=None,\n             colsample_bylevel=None, colsample_bynode=None,\n             colsample_bytree=0.8, device=None, early_stopping_rounds=None,\n             enable_categorical=False, eval_metric=None, feature_types=None,\n             feature_weights=None, gamma=None, grow_policy=None,\n             importance_type=None, interaction_constraints=None,\n             learning_rate=0.05, max_bin=None, max_cat_threshold=None,\n             max_cat_to_onehot=None, max_delta_step=None, max_depth=2,\n             max_leaves=None, min_child_weight=3, missing=nan,\n             monotone_constraints=None, multi_strategy=None, n_estimators=300,\n             n_jobs=1, num_parallel_tree=None, ...)"
+  },
+  "n_compounds": 56,
+  "n_descriptors_raw": 4045,
+  "feature_counts_outer_folds": {
+    "start": {
+      "min": 4045,
+      "median": 4045.0,
+      "max": 4045
+    },
+    "dropped_missing": {
+      "min": 169,
+      "median": 218.0,
+      "max": 218
+    },
+    "dropped_constant": {
+      "min": 2324,
+      "median": 2337.0,
+      "max": 2379
+    },
+    "dropped_variance": {
+      "min": 0,
+      "median": 0.0,
+      "max": 0
+    },
+    "dropped_correlation": {
+      "min": 763,
+      "median": 791.5,
+      "max": 815
+    },
+    "dropped_cap": {
+      "min": 164,
+      "median": 193.5,
+      "max": 232
+    },
+    "final": {
+      "min": 500,
+      "median": 500.0,
+      "max": 500
+    }
+  },
+  "feature_counts_final_model": {
+    "start": 4045,
+    "dropped_missing": 218,
+    "dropped_constant": 2321,
+    "dropped_variance": 0,
+    "dropped_correlation": 792,
+    "dropped_cap": 214,
+    "final": 500
+  },
+  "rankings_computed": 150,
+  "metrics_at_N": [
+    {
+      "regressor": "Ridge",
+      "RMSE_median": 0.4386068088251779,
+      "RMSE_q25": 0.42427383325736734,
+      "RMSE_q75": 0.45451332130650374,
+      "RMSE_IQR": 0.030239488049136398,
+      "MAE_median": 0.35061646135645286,
+      "MAE_q25": 0.3410883276219076,
+      "MAE_q75": 0.36052869312601105,
+      "MAE_IQR": 0.01944036550410344,
+      "R2_median": 0.1281555167518051,
+      "R2_q25": 0.0637821790733569,
+      "R2_q75": 0.18421171529522423,
+      "R2_IQR": 0.12042953622186733
+    },
+    {
+      "regressor": "RandomForest",
+      "RMSE_median": 0.30374760920104826,
+      "RMSE_q25": 0.2995078769564529,
+      "RMSE_q75": 0.3152562711089167,
+      "RMSE_IQR": 0.015748394152463763,
+      "MAE_median": 0.24173936003460164,
+      "MAE_q25": 0.23779288189206738,
+      "MAE_q75": 0.25633981657495186,
+      "MAE_IQR": 0.018546934682884486,
+      "R2_median": 0.5818657321273589,
+      "R2_q25": 0.5495200314740121,
+      "R2_q75": 0.5934494954348308,
+      "R2_IQR": 0.04392946396081876
+    },
+    {
+      "regressor": "XGBoost",
+      "RMSE_median": 0.36098362617653074,
+      "RMSE_q25": 0.34995813459359004,
+      "RMSE_q75": 0.37581541818477066,
+      "RMSE_IQR": 0.025857283591180613,
+      "MAE_median": 0.29226005217430207,
+      "MAE_q25": 0.28487104525937423,
+      "MAE_q75": 0.3019701425417456,
+      "MAE_IQR": 0.017099097282371356,
+      "R2_median": 0.4093916003509221,
+      "R2_q25": 0.35985515194462425,
+      "R2_q75": 0.44491599852554264,
+      "R2_IQR": 0.08506084658091839
+    }
+  ],
+  "win_matrix_rmse": {
+    "Ridge": {
+      "RandomForest": 0,
+      "XGBoost": 0
+    },
+    "RandomForest": {
+      "Ridge": 10,
+      "XGBoost": 10
+    },
+    "XGBoost": {
+      "Ridge": 10,
+      "RandomForest": 0
+    }
+  },
+  "rule": {
+    "chosen": "RandomForest",
+    "branch": "RandomForest has the lowest nested-CV median RMSE at N=5: deploy it"
+  },
+  "q2_loo": 0.5343983744956596,
+  "y_randomization": {
+    "perm_repeats": 10,
+    "metrics": [
+      {
+        "regressor": "RandomForest",
+        "RMSE_median": 0.30374760920104826,
+        "RMSE_q25": 0.2995078769564529,
+        "RMSE_q75": 0.3152562711089167,
+        "RMSE_IQR": 0.015748394152463763,
+        "MAE_median": 0.24173936003460164,
+        "MAE_q25": 0.23779288189206738,
+        "MAE_q75": 0.25633981657495186,
+        "MAE_IQR": 0.018546934682884486,
+        "R2_median": 0.5818657321273589,
+        "R2_q25": 0.5495200314740121,
+        "R2_q75": 0.5934494954348308,
+        "R2_IQR": 0.04392946396081876,
+        "run": "real",
+        "perm_repeats": 10
+      },
+      {
+        "regressor": "RandomForest",
+        "RMSE_median": 0.528337573582679,
+        "RMSE_q25": 0.5136601147869495,
+        "RMSE_q75": 0.5385889261964691,
+        "RMSE_IQR": 0.024928811409519636,
+        "MAE_median": 0.42658547891388915,
+        "MAE_q25": 0.4156967313937183,
+        "MAE_q75": 0.44527949798718025,
+        "MAE_IQR": 0.02958276659346193,
+        "R2_median": -0.26507604256722317,
+        "R2_q25": -0.31468412026159603,
+        "R2_q75": -0.19574885727308727,
+        "R2_IQR": 0.11893526298850876,
+        "run": "y-randomized",
+        "perm_repeats": 10
+      }
+    ]
+  },
+  "final_features": [
+    "MIC4",
+    "AATS5d",
+    "BCUTd-1l",
+    "GATS5d",
+    "GATS5v"
+  ],
+  "in_sample_metrics_not_a_performance_claim": {
+    "RMSE": 0.13573816767969088,
+    "MAE": 0.10832236976741037,
+    "R2": 0.9164998166201295
+  }
+}

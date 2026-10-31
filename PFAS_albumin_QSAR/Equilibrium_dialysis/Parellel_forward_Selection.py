@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 from sklearn.preprocessing import StandardScaler
 from sklearn.ensemble import RandomForestRegressor
-from jaqpotpy.datasets import JaqpotpyDataset
+from jaqpotpy.datasets import JaqpotTabularDataset
 from jaqpotpy.descriptors import (
     MordredDescriptors,
     TopologicalFingerprint,
@@ -35,7 +35,7 @@ def parallel_forward_selection(
 
     Parameters:
     -----------
-    dataset : JaqpotpyDataset
+    dataset : JaqpotTabularDataset
         Input dataset
     estimator : sklearn estimator, optional
         If None, defaults to RandomForestRegressor()
@@ -111,12 +111,12 @@ if __name__ == "__main__":
         "PFAS_albumin_QSAR/Equilibrium_dialysis/Train_Albumin_Binding_Data.csv"
     )
 
-    # Create a JaqpotpyDataset objects
+    # Create a JaqpotTabularDataset objects
     x_cols = []
     categorical_cols = []
     featurizers = [RDKitDescriptors(), TopologicalFingerprint()]
 
-    train_dataset = JaqpotpyDataset(
+    train_dataset = JaqpotTabularDataset(
         df=df_train,
         y_cols="Ka",
         x_cols=x_cols,

@@ -2,12 +2,16 @@ import joblib
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+from matplotlib.ticker import FormatStrFormatter, MultipleLocator
+from matplotlib.cm import get_cmap
+from matplotlib.colors import ListedColormap
+from matplotlib.patches import Patch
 from sklearn.metrics import r2_score
 from sklearn.preprocessing import StandardScaler
 from sklearn.base import BaseEstimator, RegressorMixin
 from scipy.optimize import minimize
 from scipy.linalg import cholesky, cho_solve
-from scipy.stats import norm
+from scipy.stats import norm, pearsonr, spearmanr
 import warnings
 from jaqpotpy.descriptors import RDKitDescriptors, TopologicalFingerprint
 from jaqpotpy.datasets import JaqpotTabularDataset
@@ -70,6 +74,189 @@ def q2_score(y_true, y_pred, y_train_mean):
     ss_residual = np.sum((y_true - y_pred) ** 2)
     q2 = 1 - (ss_residual / ss_total)
     return q2
+
+
+def single_bin_ece(y_true, y_pred_mean, y_pred_std,
+                   confidence_levels=(0.50, 0.68, 0.90, 0.95, 0.99)):
+    """
+    Simplified ECE for a single data point or group: average deviation
+    from expected coverage across confidence levels, without binning.
+
+    Parameters
+    ----------
+    y_true : float or array-like
+        True target value(s).
+    y_pred_mean : float or array-like
+        Predicted mean value(s).
+    y_pred_std : float or array-like
+        Predicted standard deviation(s).
+    confidence_levels : tuple of float
+        Confidence levels to evaluate.
+
+    Returns
+    -------
+    ece : float
+        Expected calibration error for this point/group.
+    """
+    y_true = np.asarray(y_true).ravel()
+    y_pred_mean = np.asarray(y_pred_mean).ravel()
+    y_pred_std = np.maximum(np.asarray(y_pred_std).ravel(), 1e-8)
+
+    ece = 0
+    for cl in confidence_levels:
+        z = norm.ppf((1 + cl) / 2)
+        lower = y_pred_mean - z * y_pred_std
+        upper = y_pred_mean + z * y_pred_std
+        actual_coverage = np.mean((y_true >= lower) & (y_true <= upper))
+        ece += np.abs(cl - actual_coverage)
+
+    return ece / len(confidence_levels)
+
+
+def per_pfas_ece(y_true, y_pred_mean, y_pred_std, pfas_labels,
+                 confidence_levels=(0.50, 0.68, 0.90, 0.95, 0.99)):
+    """
+    Calculate per-PFAS Expected Calibration Error.
+
+    Computes single_bin_ece for each PFAS compound individually,
+    then returns the mean, median, and per-PFAS values.
+
+    Parameters
+    ----------
+    y_true : array-like
+        True target values (one per PFAS).
+    y_pred_mean : array-like
+        Predicted mean values (one per PFAS).
+    y_pred_std : array-like
+        Predicted standard deviations (one per PFAS).
+    pfas_labels : array-like
+        PFAS compound identifiers (one per entry).
+    confidence_levels : tuple of float
+        Confidence levels to evaluate.
+
+    Returns
+    -------
+    mean_ece : float
+        Mean per-PFAS ECE (ideal = 0.0).
+    median_ece : float
+        Median per-PFAS ECE (robust to outliers).
+    ece_per_pfas : dict
+        Mapping {pfas_label: ece_value}.
+    """
+    y_true = np.asarray(y_true).ravel()
+    y_pred_mean = np.asarray(y_pred_mean).ravel()
+    y_pred_std = np.maximum(np.asarray(y_pred_std).ravel(), 1e-8)
+
+    ece_per_pfas = {}
+    for i, pfas in enumerate(pfas_labels):
+        ece_per_pfas[pfas] = single_bin_ece(
+            y_true[i], y_pred_mean[i], y_pred_std[i],
+            confidence_levels=confidence_levels,
+        )
+
+    values = np.array(list(ece_per_pfas.values()))
+    mean_ece = np.mean(values)
+    median_ece = np.median(values)
+    return mean_ece, median_ece, ece_per_pfas
+
+
+def normalized_calibration_error(y_true, y_pred_mean, y_pred_std):
+    """
+    Calculate per-molecule Normalized Calibration Error (NCE).
+
+    For each molecule i:
+        NCE_i = |abs_error_i - sigma_i| / sigma_i
+
+    The mean NCE across all molecules is reported.
+
+    A well-calibrated model should have mean NCE ≈ 0.
+    Individual NCE_i > 0 with |error| > sigma: locally overconfident.
+    Individual NCE_i > 0 with |error| < sigma: locally underconfident.
+
+    Parameters
+    ----------
+    y_true : array-like
+        True target values.
+    y_pred_mean : array-like
+        Predicted mean values.
+    y_pred_std : array-like
+        Predicted standard deviations.
+
+    Returns
+    -------
+    mean_nce : float
+        Mean per-molecule NCE (ideal = 0.0).
+    median_nce : float
+        Median per-molecule NCE (more robust to outliers).
+    nce_per_molecule : ndarray
+        NCE value for each molecule.
+    """
+    y_true = np.asarray(y_true).ravel()
+    y_pred_mean = np.asarray(y_pred_mean).ravel()
+    y_pred_std = np.maximum(np.asarray(y_pred_std).ravel(), 1e-8)
+
+    abs_errors = np.abs(y_true - y_pred_mean)
+    nce_per_molecule = np.abs(abs_errors - y_pred_std) / y_pred_std
+    mean_nce = np.mean(nce_per_molecule)
+    median_nce = np.median(nce_per_molecule)
+    return mean_nce, median_nce, nce_per_molecule
+
+
+def uncertainty_pearson(observed_std, predicted_std):
+    """
+    Pearson correlation between observed and predicted standard deviations.
+
+    A high positive correlation indicates that the model's uncertainty
+    estimates capture the true data variability.
+
+    Parameters
+    ----------
+    observed_std : array-like
+        Observed standard deviations.
+    predicted_std : array-like
+        Predicted standard deviations.
+
+    Returns
+    -------
+    r : float
+        Pearson correlation coefficient.
+    p_value : float
+        Two-tailed p-value.
+    """
+    observed_std = np.asarray(observed_std).ravel()
+    predicted_std = np.asarray(predicted_std).ravel()
+
+    r, p_value = pearsonr(observed_std, predicted_std)
+    return r, p_value
+
+
+def uncertainty_spearman(observed_std, predicted_std):
+    """
+    Spearman rank correlation between observed and predicted standard
+    deviations.
+
+    A high positive correlation indicates that the ranking of predicted
+    uncertainty matches the ranking of observed variability.
+
+    Parameters
+    ----------
+    observed_std : array-like
+        Observed standard deviations.
+    predicted_std : array-like
+        Predicted standard deviations.
+
+    Returns
+    -------
+    rho : float
+        Spearman correlation coefficient.
+    p_value : float
+        Two-tailed p-value.
+    """
+    observed_std = np.asarray(observed_std).ravel()
+    predicted_std = np.asarray(predicted_std).ravel()
+
+    rho, p_value = spearmanr(observed_std, predicted_std)
+    return rho, p_value
 
 
 class HeteroscedasticGPR(BaseEstimator, RegressorMixin):
@@ -631,8 +818,8 @@ if __name__ == "__main__":
     train_pfas = create_pfas_mapping(train_df, halflife_stats)
 
     # Create and perform PFAS-based cross-validation
-    model = HeteroscedasticGPR(**model_params)
-    cv_results = perform_pfas_cv(model, X, y, train_pfas, halflife_stats, n_folds=5)
+    # model = HeteroscedasticGPR(**model_params)
+    # cv_results = perform_pfas_cv(model, X, y, train_pfas, halflife_stats, n_folds=5)
 
     # Refit model on all training data
     model = HeteroscedasticGPR(**model_params)
@@ -659,22 +846,28 @@ if __name__ == "__main__":
     train_pfas_pred_means = {}
     train_pfas_pred_sd = {}
 
-    # Create mapping from PFAS to mean value
+    # Create mapping from PFAS to mean and sd values
     pfas_to_mean = {}
+    pfas_to_sd = {}
     if "PFAS" in halflife_stats.columns and "half_life_mean" in halflife_stats.columns:
         for _, row in halflife_stats.iterrows():
             if not pd.isna(row.get("PFAS")) and not pd.isna(row.get("half_life_mean")):
                 pfas_to_mean[row["PFAS"]] = row["half_life_mean"]
+            if not pd.isna(row.get("PFAS")) and not pd.isna(row.get("half_life_sd")):
+                pfas_to_sd[row["PFAS"]] = row["half_life_sd"]
 
     # Calculate means for each PFAS in training set
+    train_pfas_true_sd = {}
     for pfas in train_pfas_unique:
         pfas_mask = np.array(train_pfas) == pfas
         if np.sum(pfas_mask) > 0:
             train_pfas_pred_means[pfas] = np.mean(y_train_pred[pfas_mask])
             train_pfas_pred_sd[pfas] = np.mean(y_train_sd_pred[pfas_mask])
 
-            # Get true mean from halflife_stats if available
+            # Get true mean and sd from halflife_stats if available
             train_pfas_true_means[pfas] = pfas_to_mean[pfas]
+            if pfas in pfas_to_sd:
+                train_pfas_true_sd[pfas] = pfas_to_sd[pfas]
 
     # Calculate PFAS-level R² for training
     if len(train_pfas_true_means) > 1:
@@ -706,6 +899,48 @@ if __name__ == "__main__":
             print(
                 f"Training PFAS-level average ELPD: {avg_elpd_train:.4f} (n={len(common_pfas)} PFAS)"
             )
+
+            # R² on SD (train, PFAS-level)
+            sd_common = [p for p in common_pfas if p in train_pfas_true_sd]
+            if len(sd_common) > 1:
+                train_obs_sd = np.array([train_pfas_true_sd[p] for p in sd_common])
+                train_pred_sd_arr = np.array(
+                    [train_pfas_pred_sd[common_pfas.index(p)] for p in sd_common]
+                )
+                train_sd_r2 = r2_score(train_obs_sd, train_pred_sd_arr)
+                print(
+                    f"Training PFAS-level R² (SD values): {train_sd_r2:.4f} (n={len(sd_common)} PFAS)"
+                )
+
+                # Uncertainty quality metrics (train, PFAS-level)
+                print("\n--- Uncertainty Quality Metrics (train set, PFAS-level) ---")
+
+                train_nce, train_nce_med, _ = normalized_calibration_error(
+                    train_pfas_true, train_pfas_pred, train_pfas_pred_sd
+                )
+                print(f"NCE  mean   (per-PFAS Calibration Error):     {train_nce:.4f}")
+                print(f"NCE  median (per-PFAS Calibration Error):     {train_nce_med:.4f}")
+
+                train_ece_mean, train_ece_med, _ = per_pfas_ece(
+                    train_pfas_true, train_pfas_pred, train_pfas_pred_sd,
+                    sd_common,
+                )
+                print(f"ECE  mean   (per-PFAS Calibration Error):     {train_ece_mean:.4f}")
+                print(f"ECE  median (per-PFAS Calibration Error):     {train_ece_med:.4f}")
+
+                train_pfas_pearson_r, train_pfas_pearson_p = uncertainty_pearson(
+                    train_obs_sd, train_pred_sd_arr
+                )
+                print(
+                    f"Pearson  r = {train_pfas_pearson_r:.4f}  (p = {train_pfas_pearson_p:.4e})"
+                )
+
+                train_pfas_spearman_rho, train_pfas_spearman_p = uncertainty_spearman(
+                    train_obs_sd, train_pred_sd_arr
+                )
+                print(
+                    f"Spearman ρ = {train_pfas_spearman_rho:.4f}  (p = {train_pfas_spearman_p:.4e})"
+                )
 
     print(f"ELPD on training data: {elpd_train:.3f}")
     print(f"Average ELPD on training data: {avg_elpd_train:.3f}")
@@ -742,14 +977,17 @@ if __name__ == "__main__":
     test_pfas_pred_sd = {}
 
     # Calculate means for each PFAS in test set
+    test_pfas_true_sd = {}
     for pfas in test_pfas_unique:
         pfas_mask = np.array(test_pfas) == pfas
         if np.sum(pfas_mask) > 0:
             test_pfas_pred_means[pfas] = np.mean(y_test_mean[pfas_mask])
             test_pfas_pred_sd[pfas] = np.mean(y_test_std[pfas_mask])
 
-            # Get true mean from halflife_stats
+            # Get true mean and sd from halflife_stats
             test_pfas_true_means[pfas] = pfas_to_mean[pfas]
+            if pfas in pfas_to_sd:
+                test_pfas_true_sd[pfas] = pfas_to_sd[pfas]
 
     # Calculate PFAS-level R² for test
 
@@ -785,6 +1023,49 @@ if __name__ == "__main__":
         print(
             f"Test PFAS-level average ELPD: {avg_elpd_test:.4f} (n={len(common_pfas)} PFAS)"
         )
+
+    # ---------------------------------------------------------------------
+    #               Uncertainty Quality Metrics (test set, PFAS-level)
+    # ---------------------------------------------------------------------
+    sd_common_test = [p for p in common_pfas if p in test_pfas_true_sd]
+    if len(sd_common_test) > 1:
+        test_obs_sd = np.array([test_pfas_true_sd[p] for p in sd_common_test])
+        test_pred_sd_arr = np.array(
+            [test_pfas_pred_sd[common_pfas.index(p)] for p in sd_common_test]
+        )
+        test_sd_r2 = r2_score(test_obs_sd, test_pred_sd_arr)
+        print(
+            f"Test PFAS-level R² (SD values): {test_sd_r2:.4f} (n={len(sd_common_test)} PFAS)"
+        )
+
+        print("\n--- Uncertainty Quality Metrics (test set, PFAS-level) ---")
+
+        test_nce, test_nce_med, test_nce_per_pfas = normalized_calibration_error(
+            test_pfas_true, test_pfas_pred, test_pfas_pred_sd
+        )
+        print(f"NCE  mean   (per-PFAS Calibration Error):     {test_nce:.4f}")
+        print(f"NCE  median (per-PFAS Calibration Error):     {test_nce_med:.4f}")
+        for pfas, nce_i in zip(sd_common_test, test_nce_per_pfas):
+            print(f"  {pfas:>10s}: NCE = {nce_i:.4f}")
+
+        test_ece_mean, test_ece_med, test_ece_per_pfas = per_pfas_ece(
+            test_pfas_true, test_pfas_pred, test_pfas_pred_sd,
+            sd_common_test,
+        )
+        print(f"ECE  mean   (per-PFAS Calibration Error):     {test_ece_mean:.4f}")
+        print(f"ECE  median (per-PFAS Calibration Error):     {test_ece_med:.4f}")
+        for pfas, ece_i in test_ece_per_pfas.items():
+            print(f"  {pfas:>10s}: ECE = {ece_i:.4f}")
+
+        pfas_pearson_r, pfas_pearson_p = uncertainty_pearson(
+            test_obs_sd, test_pred_sd_arr
+        )
+        print(f"Pearson  r = {pfas_pearson_r:.4f}  (p = {pfas_pearson_p:.4e})")
+
+        pfas_spearman_rho, pfas_spearman_p = uncertainty_spearman(
+            test_obs_sd, test_pred_sd_arr
+        )
+        print(f"Spearman ρ = {pfas_spearman_rho:.4f}  (p = {pfas_spearman_p:.4e})")
 
     # ---------------------------------------------------------------------
     #                       Plotting the results
@@ -851,13 +1132,17 @@ if __name__ == "__main__":
 
         # Create the plot
         plt.style.use("seaborn-v0_8-whitegrid")
-        fig, ax = plt.subplots(figsize=(9, 8), dpi=300)
+        fig, ax = plt.subplots(figsize=(3.33, 4), dpi=300)
 
-        # Common styling parameters
-        TITLE_SIZE = 14
-        LABEL_SIZE = 12
-        TICK_SIZE = 10
-        LEGEND_SIZE = 10
+        # Common styling parameters (adjusted for single-column figure)
+        # JCIM Journal Requirements:
+        # - Single-column max width: 3.33 inches (240 points)
+        # - Minimum font size: 4.5 points
+        # - Recommended: Axis titles (8-10 pt), Tick labels (7-9 pt), Legend (7-8 pt)
+        TITLE_SIZE = 12
+        LABEL_SIZE = 10
+        TICK_SIZE = 8
+        LEGEND_SIZE = 6
 
         # Calculate plot limits including error bars
         x_min = min(
@@ -895,28 +1180,26 @@ if __name__ == "__main__":
             alpha=0.4,
             elinewidth=0.8,
         )
-        # Now add text annotations for each point
-        for i, row in data_to_plot.iterrows():
-            pfas_name = row["PFAS"]
-            x = row["Observed_Half_Life"]
-            y = row["Predicted_Half_Life"]
+        # # Now add text annotations for each point
+        # for i, row in data_to_plot.iterrows():
+        #     pfas_name = row["PFAS"]
+        #     x = row["Observed_Half_Life"]
+        #     y = row["Predicted_Half_Life"]
 
-            # Slightly offset the text to avoid overlapping with the point
-            ax.annotate(
-                pfas_name,
-                xy=(x, y),
-                xytext=(5, 5),  # 5 points offset
-                textcoords="offset points",
-                fontsize=8,
-                alpha=0.8,
-                bbox=dict(boxstyle="round,pad=0.3", fc="white", ec="gray", alpha=0.7),
-            )
+        #     # Slightly offset the text to avoid overlapping with the point
+        #     ax.annotate(
+        #         pfas_name,
+        #         xy=(x, y),
+        #         xytext=(5, 5),  # 5 points offset
+        #         textcoords="offset points",
+        #         fontsize=12,
+        #         alpha=0.8,
+        #         bbox=dict(boxstyle="round,pad=0.3", fc="white", ec="gray", alpha=0.7),
+        #     )
         # Get unique PFAS compounds for coloring
         unique_pfas = data_to_plot["PFAS"].unique()
 
         # Create a categorical colormap for individual PFAS compounds
-        from matplotlib.cm import get_cmap
-        from matplotlib.colors import ListedColormap
 
         # Choose a colormap with distinct colors based on number of PFAS compounds
         if len(unique_pfas) <= 10:
@@ -945,7 +1228,7 @@ if __name__ == "__main__":
             data_to_plot["Predicted_Half_Life"],
             c=color_indices,
             cmap=custom_cmap,
-            s=70,
+            s=60,
             alpha=0.8,
             edgecolor="white",
             linewidth=0.5,
@@ -958,20 +1241,19 @@ if __name__ == "__main__":
         # Styling
         ax.set_xlabel("Observed Half-life (years)", fontsize=LABEL_SIZE)
         ax.set_ylabel("Predicted Half-life (years)", fontsize=LABEL_SIZE)
-        ax.set_title(
-            "PFAS Half-life: Observed vs Predicted (Test Set Only)", fontsize=TITLE_SIZE
-        )
+        # ax.set_title("PFAS Half-life: Observed vs Predicted", fontsize=TITLE_SIZE)
         ax.tick_params(axis="both", labelsize=TICK_SIZE)
         ax.set_xlim(plot_range)
         ax.set_ylim(plot_range)
+
+        # Format axis ticks to have consistent decimal places
+        ax.xaxis.set_major_formatter(FormatStrFormatter("%.1f"))
+        ax.yaxis.set_major_formatter(FormatStrFormatter("%.1f"))
 
         # Add grid to match previous example
         ax.grid(True, linestyle="-", linewidth=0.5, alpha=0.3)
 
         # Add legend for individual PFAS compounds
-        # Create custom legend handles
-        from matplotlib.patches import Patch
-
         legend_elements = [
             Patch(
                 facecolor=colors[pfas_to_index[pfas]],
@@ -982,43 +1264,42 @@ if __name__ == "__main__":
             for pfas in unique_pfas
         ]
 
-        # If there are many PFAS compounds, create a multi-column legend
-        ncols = 1
-
         # Add legend in the most appropriate location
         legend = ax.legend(
             handles=legend_elements,
-            loc="upper left",
-            fontsize=8,
-            bbox_to_anchor=(1.01, 1),
+            loc="upper center",
+            fontsize=LEGEND_SIZE,
+            bbox_to_anchor=(0.5, -0.15),
             title="PFAS Compound",
-            title_fontsize=10,
+            title_fontsize=7,
             framealpha=0.7,
-            ncol=ncols,
+            ncol=3,
+            handlelength=1.0,
+            handleheight=0.7,
+            columnspacing=1.0,
         )
+        plt.setp(legend.get_title(), fontweight="normal")
 
-        # Add R² to the plot
-        test_r2 = r2_score(
-            data_to_plot["Observed_Half_Life"], data_to_plot["Predicted_Half_Life"]
-        )
-        ax.text(
-            0.05,
-            0.95,
-            f"$R^2 = {test_r2:.3f}$",
-            transform=ax.transAxes,
-            fontsize=LABEL_SIZE,
-            verticalalignment="top",
-            bbox=dict(facecolor="white", alpha=0.7, edgecolor="none"),
-        )
+        # # Add R² to the plot
+        # test_r2 = r2_score(
+        #     data_to_plot["Observed_Half_Life"], data_to_plot["Predicted_Half_Life"]
+        # )
+        # ax.text(
+        #     0.05,
+        #     0.95,
+        #     f"$R^2 = {test_r2:.3f}$",
+        #     transform=ax.transAxes,
+        #     fontsize=LABEL_SIZE,
+        #     verticalalignment="top",
+        #     bbox=dict(facecolor="white", alpha=0.7, edgecolor="none"),
+        # )
 
         # Adjust layout to make room for the legend
-        plt.tight_layout(
-            rect=[0, 0, 0.85 if ncols == 1 and len(unique_pfas) > 10 else 0.95, 1]
-        )
+        plt.tight_layout()
 
         # Save the plot
         plt.savefig(
-            "PFAS_HalfLife_QSAR/ED_GPR/Revamped_dataset/Final_Modeling_Attempt/pfas_halflife_predictions_test_only.png",
+            "PFAS_HalfLife_QSAR/ED_GPR/Revamped_dataset/Final_Modeling_Attempt/halflife_predictions.png",
             dpi=300,
             bbox_inches="tight",
         )
@@ -1030,18 +1311,88 @@ if __name__ == "__main__":
             index=False,
         )
 
+        # -----------------------------------------------------------------
+        #       Observed SD vs Predicted SD (PFAS-level, test set)
+        # -----------------------------------------------------------------
+        fig_sd, ax_sd = plt.subplots(figsize=(3.33, 4), dpi=300)
+
+        # Plot limits
+        sd_x_max = data_to_plot["Observed_Half_Life_SD"].max() + 0.5
+        sd_y_max = data_to_plot["Predicted_Half_Life_SD"].max() + 0.5
+        sd_max_value = max(sd_x_max, sd_y_max)
+        sd_plot_range = [0, sd_max_value]
+
+        # Scatter plot coloured by PFAS compound (reuse same mapping)
+        ax_sd.scatter(
+            data_to_plot["Observed_Half_Life_SD"],
+            data_to_plot["Predicted_Half_Life_SD"],
+            c=color_indices,
+            cmap=custom_cmap,
+            s=60,
+            alpha=0.8,
+            edgecolor="white",
+            linewidth=0.5,
+            zorder=10,
+        )
+
+        # Identity line
+        ax_sd.plot(sd_plot_range, sd_plot_range, "k--", lw=1.5)
+
+        # Styling (same sizes as mean plot)
+        ax_sd.set_xlabel("Observed SD (years)", fontsize=LABEL_SIZE)
+        ax_sd.set_ylabel("Predicted SD (years)", fontsize=LABEL_SIZE)
+        ax_sd.tick_params(axis="both", labelsize=TICK_SIZE)
+        ax_sd.set_xlim(sd_plot_range)
+        ax_sd.set_ylim(sd_plot_range)
+        ax_sd.xaxis.set_major_formatter(FormatStrFormatter("%.1f"))
+        ax_sd.yaxis.set_major_formatter(FormatStrFormatter("%.1f"))
+        ax_sd.grid(True, linestyle="-", linewidth=0.5, alpha=0.3)
+
+        # Legend (same as mean plot)
+        sd_legend_elements = [
+            Patch(
+                facecolor=colors[pfas_to_index[pfas]],
+                edgecolor="white",
+                label=pfas,
+                alpha=0.8,
+            )
+            for pfas in unique_pfas
+        ]
+        sd_legend = ax_sd.legend(
+            handles=sd_legend_elements,
+            loc="upper center",
+            fontsize=LEGEND_SIZE,
+            bbox_to_anchor=(0.5, -0.15),
+            title="PFAS Compound",
+            title_fontsize=7,
+            framealpha=0.7,
+            ncol=3,
+            handlelength=1.0,
+            handleheight=0.7,
+            columnspacing=1.0,
+        )
+        plt.setp(sd_legend.get_title(), fontweight="normal")
+
+        plt.tight_layout()
+        fig_sd.savefig(
+            "PFAS_HalfLife_QSAR/ED_GPR/Revamped_dataset/Final_Modeling_Attempt/halflife_sd_predictions.png",
+            dpi=300,
+            bbox_inches="tight",
+        )
+        plt.show()
+
     # ---------------------------------------------------------------------
     #                       Domain of Applicability
     # ---------------------------------------------------------------------
 
     # Get the PFAS compounds in the training set
-    train_pfas_set = set(train_pfas)
+    # train_pfas_set = set(train_pfas)
 
-    # Filter halflife_stats to keep only PFAS compounds that were in the training set
-    train_domain = halflife_stats[halflife_stats["PFAS"].isin(train_pfas_set)]
-    test_domain = halflife_stats[halflife_stats["PFAS"].isin(test_pfas)]
+    # # Filter halflife_stats to keep only PFAS compounds that were in the training set
+    # train_domain = halflife_stats[halflife_stats["PFAS"].isin(train_pfas_set)]
+    # test_domain = halflife_stats[halflife_stats["PFAS"].isin(test_pfas)]
 
-    test_domain = JaqpotTabularDataset()
+    # test_domain = JaqpotTabularDataset()
 
     # # Use model's optimized length scales for distance calculation
     # lengthscales = model.length_scales_

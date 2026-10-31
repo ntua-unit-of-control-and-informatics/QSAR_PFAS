@@ -5,8 +5,13 @@ from jaqpotpy.datasets import JaqpotTabularDataset
 from jaqpotpy.descriptors import RDKitDescriptors, TopologicalFingerprint
 
 
-halflife_df = pd.read_csv("Restructured/data/Half-life_dataset_Human_statistics.csv")
-Ka_data = pd.read_csv("Restructured/data/Ka_results.csv")
+halflife_df = pd.read_csv(
+    "PFAS_HalfLife_QSAR/Restructured/data/Half-life_dataset_Human_statistics.csv"
+)
+hsa_Ka_data = pd.read_csv("PFAS_HalfLife_QSAR/Restructured/data/HSA_LogKa_results.csv")
+lfabp_Ka_data = pd.read_csv(
+    "PFAS_HalfLife_QSAR/Restructured/data/LFABP_LogKa_results.csv"
+)
 
 # Estimate the log10 half-life values (Assuming log normal distribution for half-life)
 halflife_df["log_half_life"] = np.log10(halflife_df["half_life"])
@@ -39,8 +44,26 @@ halflife_df.drop(
     inplace=True,
 )
 
-# Add Ka values to the dataset
-halflife_df = halflife_df.merge(Ka_data, on="SMILES", how="left")
+# Add the two binding predictions, each named after its protein so the featurized
+# dataset says which is which. Only SMILES -> LogKa is taken from each file: both
+# also carry PFAS, in_*_training and n_failed_descriptors, and their PFAS column
+# would collide with the half-life one and rename both to PFAS_x / PFAS_y.
+halflife_df = halflife_df.merge(
+    hsa_Ka_data[["SMILES", "LogKa"]].rename(columns={"LogKa": "LogKa_HSA"}),
+    on="SMILES",
+    how="left",
+)
+halflife_df = halflife_df.merge(
+    lfabp_Ka_data[["SMILES", "LogKa"]].rename(columns={"LogKa": "LogKa_LFABP"}),
+    on="SMILES",
+    how="left",
+)
+for col, source in [
+    ("LogKa_HSA", "HSA_deploy_model.py"),
+    ("LogKa_LFABP", "LFABP_deploy_model.py"),
+]:
+    missing = halflife_df.loc[halflife_df[col].isna(), "PFAS"].unique()
+    assert len(missing) == 0, f"no {col} for {sorted(missing)}; rerun {source}"
 
 # --- Impute missing SE via coefficient-of-variation (CV = half_life_sd / half_life) ---
 # Runs after this script's own row-cleaning (SMILES dropna, Zhang "both"-sex
@@ -110,7 +133,8 @@ columns_to_keep = [
     "SMILES",
     "half_life_type",
     "Occupational_exposure",
-    "LogKa",
+    "LogKa_HSA",
+    "LogKa_LFABP",
     "half_life",
     "SE",
     "SE_method",
@@ -128,7 +152,8 @@ halflife_jp = JaqpotTabularDataset(
         "PFAS",
         "half_life_type",
         "Occupational_exposure",
-        "LogKa",
+        "LogKa_HSA",
+        "LogKa_LFABP",
         "half_life",
         "SE",
         "SE_method",
@@ -186,4 +211,6 @@ def merge_isomer_group(df, isomer_names):
 for group_name, isomer_names in isomer_groups.items():
     featurized_dataset = merge_isomer_group(featurized_dataset, isomer_names)
 
-featurized_dataset.to_csv("Restructured/data/sum_featurized_dataset.csv", index=False)
+featurized_dataset.to_csv(
+    "PFAS_HalfLife_QSAR/Restructured/data/sum_featurized_dataset.csv", index=False
+)

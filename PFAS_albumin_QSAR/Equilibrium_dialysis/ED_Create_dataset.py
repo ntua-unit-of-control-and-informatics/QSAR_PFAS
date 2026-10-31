@@ -26,7 +26,9 @@ final_df["Ka"] = np.log10(final_df["Ka"])
 final_df = final_df[final_df["Authors"] == "Chen et al.2025"].reset_index(drop=True)
 print(final_df)
 
-train_dataset, test_dataset = train_test_split(final_df, test_size=0.2, random_state=0)
+train_dataset, test_dataset = train_test_split(
+    final_df, test_size=0.2, random_state=0
+)  # 0
 
 train_dataset.to_csv(
     "PFAS_albumin_QSAR/Equilibrium_dialysis/Train_Albumin_Binding_Data.csv", index=False

@@ -2,4 +2,6 @@
 **/Studies
 **/to_be_deleted/
 **/launch.json
+.DS_Store
 .env
+__pycache__

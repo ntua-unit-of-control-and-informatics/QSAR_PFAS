@@ -1,0 +1,93 @@
+import numpy as np
+import pandas as pd
+
+from jaqpotpy.descriptors import RDKitDescriptors, TopologicalFingerprint
+from jaqpotpy.datasets import JaqpotTabularDataset
+import seaborn as sns
+
+halflife_stats = pd.read_csv(
+    "PFAS_HalfLife_QSAR/ED_GPR/Revamped_dataset/Final_Modeling_Attempt/Halflife_stats.csv"
+)
+
+# halflife_stats = pd.read_csv(
+#     "/Users/vassilis/Desktop/Chemical List PFASSTRUCTV5-2025-05-30.csv"
+# )
+x_cols = None #['LogKa']
+featurizers = [RDKitDescriptors()]
+
+train_dataset = JaqpotTabularDataset(
+        df=halflife_stats,
+        y_cols=None,
+        x_cols=x_cols,
+        smiles_cols="SMILES",
+        featurizer=featurizers,
+        task="regression",
+    )
+
+features_df = train_dataset.X
+
+# Convert features to DataFrame for easier analysis
+feature_names = features_df.columns.tolist()
+
+# Find the index of PEOE_VSA4
+if "PEOE_VSA4" in feature_names:
+    # Calculate correlation with PEOE_VSA4
+    correlations = features_df.corrwith(features_df["PEOE_VSA4"])
+    
+    # Sort by absolute correlation and get top 15 (excluding self-correlation)
+    top_correlations = correlations.abs().sort_values(ascending=False)[1:30]
+    
+    print("Top 15 features correlated with PEOE_VSA4:")
+    for feature, corr in zip(top_correlations.index, correlations[top_correlations.index]):
+        print(f"{feature}: {corr:.4f}")
+else:
+    print("PEOE_VSA4 not found in the features.")
+
+# Extract the top correlated features including PEOE_VSA4
+top_features = ["PEOE_VSA4"] + top_correlations.index.tolist()
+
+# Create a correlation matrix for these features
+correlation_matrix = features_df[top_features].corr()
+# Print correlation between PEOE_VSA4 and MolLogP
+if "MolLogP" in feature_names and "PEOE_VSA4" in feature_names:
+    corr_value = features_df["PEOE_VSA4"].corr(features_df["MolLogP"])
+    print(f"\nCorrelation between PEOE_VSA4 and MolLogP: {corr_value:.4f}")
+else:
+    print("\nCould not calculate correlation: one or both features not found.")
+# Visualize the correlation matrix
+import matplotlib.pyplot as plt
+
+plt.figure(figsize=(12, 10))
+sns.heatmap(correlation_matrix, annot=True, cmap="coolwarm", vmin=-1, vmax=1, fmt=".2f")
+plt.title("Correlation Matrix of Features Most Correlated with PEOE_VSA4")
+plt.tight_layout()
+# plt.savefig("correlation_matrix.png", dpi=300)
+# plt.show()
+
+# # Create a DataFrame with both the target variable and PEOE_VSA4
+# plot_df = pd.DataFrame({
+#     'half_life_mean': train_dataset.y.values.flatten(),  
+#     'PEOE_VSA4': features_df['LogKa']
+# })
+
+# # Create scatter plot
+# plt.figure(figsize=(10, 6))
+# sns.scatterplot(data=plot_df, x='PEOE_VSA4', y='half_life_mean')
+# plt.title('Half-life Mean vs PEOE_VSA4')
+# plt.xlabel('PEOE_VSA4')
+# plt.ylabel('Half-life Mean (days)')
+# plt.grid(True, alpha=0.3)
+
+# # Add a trend line
+# sns.regplot(data=plot_df, x='PEOE_VSA4', y='half_life_mean', 
+#             scatter=False, ci=None, line_kws={'color': 'red'})
+
+# # Calculate correlation coefficient
+# corr = plot_df.corr().iloc[0, 1]
+# plt.annotate(f'Correlation: {corr:.4f}', 
+#              xy=(0.05, 0.95), xycoords='axes fraction',
+#              bbox=dict(boxstyle="round,pad=0.3", fc="white", ec="gray", alpha=0.8))
+
+# plt.tight_layout()
+# # plt.savefig("halflife_vs_PEOE_VSA4.png", dpi=300)
+# plt.show()

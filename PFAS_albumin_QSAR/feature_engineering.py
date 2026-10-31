@@ -1,4 +1,4 @@
-from jaqpotpy.datasets import JaqpotpyDataset
+from jaqpotpy.datasets import JaqpotTabularDataset
 from jaqpotpy.descriptors import (
     MordredDescriptors,
     TopologicalFingerprint,
@@ -26,7 +26,7 @@ x_cols = ["Temperature", "Albumin_Type", "Method"]
 categorical_cols = ["Albumin_Type", "Method"]
 featurizers = [RDKitDescriptors()]
 
-train_dataset = JaqpotpyDataset(
+train_dataset = JaqpotTabularDataset(
     df=df_train,
     y_cols="Ka",
     x_cols=x_cols,

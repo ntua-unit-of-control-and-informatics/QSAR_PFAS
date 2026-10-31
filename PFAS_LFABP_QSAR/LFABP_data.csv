@@ -1,0 +1,45 @@
+PFAS,SMILES,CAS,Kd_FABP_uM
+PFBA,C(=O)(C(C(C(F)(F)F)(F)F)(F)F)O,375-22-4 ,6.581
+PFPeA,C(=O)(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)O,2706-90-3 ,6.85
+PFHxA,C(=O)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,307-24-4 ,4.348
+PFHpA,C(=O)(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,375-85-9 ,3.222
+PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,335-67-1 ,1.045
+PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,375-95-1 ,0.862
+PFDA,C(=O)(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,335-76-2 ,0.866
+PFUnA,C(=O)(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,2058-94-8 ,0.957
+PFDoA,C(=O)(C(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,307-55-1 ,1.268
+PFTrDA,C(=O)(C(C(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,72629-94-8 ,1.393
+PFTeA,C(=O)(C(C(C(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,376-06-7 ,2.784
+PFBS,C(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)(F)F,375-73-5 ,2.649
+PFPeS,C(C(C(F)(F)F)(F)F)(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F,2706-91-4 ,1.289
+PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,355-46-4 ,0.836
+PFHpS,C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F,375-92-8 ,0.718
+PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1763-23-1 ,0.773
+PFNS,C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F,68259-12-1 ,1.04
+PFDS,C(C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F)(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F,335-77-3 ,1.287
+PFDoS,C(C(C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F)(F)F)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,79780-39-5,2.186
+PF4OPeA,C(=O)(C(C(OC(F)(F)F)(F)F)(F)F)O,377-73-1 ,5.041
+PF5OHxA,C(=O)(C(C(C(OC(F)(F)F)(F)F)(F)F)(F)F)O,863090-89-5 ,5.934
+"3,6-OPFHpA",C(=O)(C(OC(C(OC(F)(F)F)(F)F)(F)F)(F)F)O,151772-58-6 ,4.609
+ADONA,C(C(C(=O)O)(F)F)(OC(C(C(OC(F)(F)F)(F)F)(F)F)(F)F)F,919005-14-4 ,2.523
+GenX,C(=O)(C(C(F)(F)F)(OC(C(C(F)(F)F)(F)F)(F)F)F)O,13252-13-6 ,5.245
+HFPO-TA,C(=O)(C(C(F)(F)F)(OC(C(C(F)(F)F)(OC(C(C(F)(F)F)(F)F)(F)F)F)(F)F)F)O,13252-14-7,2.531
+HFPO-TeA,C(=O)(C(C(F)(F)F)(OC(C(C(F)(F)F)(OC(C(C(F)(F)F)(OC(C(C(F)(F)F)(F)F)(F)F)F)(F)F)F)(F)F)F)O,65294-16-8,1.759
+FHEA,C(C(=O)O)C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,53826-12-3 ,7.27
+FHUEA,C(=C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)F)C(=O)O,70887-88-6 ,6.171
+FPePA,C(CC(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)C(=O)O,914637-49-3,44.452
+PF8O3A2,C(=O)(C(OC(C(OC(C(OC(C(=O)O)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,55621-18-6,1.212
+PFECHS,C1(C(C(C(C(C1(F)F)(F)F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)F,646-83-3 ,0.368
+PFEESA,C(C(F)(F)F)(OC(C(F)(F)S(=O)(=O)O)(F)F)(F)F,113507-82-7,3.674
+4:2 FTS,C(CS(=O)(=O)O)C(C(C(C(F)(F)F)(F)F)(F)F)(F)F,757124-72-4,5.354
+6:2 FTS,C(CS(=O)(=O)O)C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,27619-97-2,5.192
+8:2 FTS,C(CS(=O)(=O)O)C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,39108-34-4,2.029
+10:2 FTS,C(CS(=O)(=O)O)C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,120226-60-0,3.859
+8Cl-PFOS,C(C(C(C(C(F)(F)Cl)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F,777011-38-8 ,0.385
+6:2 Cl-PFESA,C(C(C(C(F)(F)Cl)(F)F)(F)F)(C(C(OC(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F,756426-58-1 ,0.221
+8:2 Cl-PFESA,C(C(C(C(C(F)(F)Cl)(F)F)(F)F)(F)F)(C(C(C(OC(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F)(F)F,763051-92-9 ,0.286
+6:6 PFPiA,C(C(C(C(F)(F)P(=O)(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,40143-77-9,0.335
+8:8 PFPiA,C(C(C(C(C(F)(F)P(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,40143-79-1,0.622
+6:2 diPAP,C(COP(=O)(O)OCCC(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,57677-95-9 ,0.436
+8:2 diPAP,C(COP(=O)(O)OCCC(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,678-41-1 ,14.822
+6:2 PAP,C(COP(=O)(O)O)C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,57678-01-0,3.166

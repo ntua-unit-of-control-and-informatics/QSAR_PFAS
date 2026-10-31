@@ -1,0 +1,84 @@
+﻿Substance,SMILES,CAS
+PFOA,C(=O)(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,335-67-1 
+PFNA,C(=O)(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,375-95-1 
+PFDA,C(=O)(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,335-76-2 
+PFBS,C(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)(F)F,375-73-5 
+PFHxS,C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,355-46-4 
+PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,1763-23-1 
+HFPO-DA,C1(C(O1)(F)F)(C(F)(F)F)F,13252-13-6 
+PFBA,C(=O)(C(C(C(F)(F)F)(F)F)(F)F)O,375-22-4 
+PFHxA,C(=O)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)O,307-24-4 
+PFHpA,C(=O)(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,375-85-9 
+9Cl-PF3ONS / 6:2 Cl-PFESA,C(C(C(C(F)(F)Cl)(F)F)(F)F)(C(C(OC(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F,756426-58-1 
+PFPeA,C(=O)(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)O,2706-90-3 
+PFUnDA / PFUnA,C(=O)(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,2058-94-8 
+PFUdA,C(=O)(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)[O-],196859-54-8
+PFDoA,C(=O)(C(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,307-55-1 
+Nafion bp2,C(C(F)(F)F)(OC(C(C(F)(F)F)(OC(C(F)(F)S(=O)(=O)O)(F)F)F)(F)F)F,749836-20-2
+PFO3DoDA / PFO3DA,C(=O)(C(OC(C(OC(C(OC(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,151772-59-7
+3:3 FTCA,C(CC(C(C(F)(F)F)(F)F)(F)F)C(=O)O,356-02-5 
+5:3 FTCA,C(CC(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)C(=O)O,914637-49-3 
+6:3 FTCA,C(CC(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)C(=O)O,27854-30-4
+8:3 FTCA,C(CC(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)C(=O)O,83310-58-1
+PFTrDA / PFTrA,C(=O)(C(C(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,72629-94-8 
+PFTeDA,C(=O)(C(C(C(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,376-06-7 
+PFPeS,C(C(C(F)(F)F)(F)F)(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F,2706-91-4 
+PFHpS,C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F,375-92-8 
+L-PFPrS,C(C(F)(F)F)(C(F)(F)S(=O)(=O)O)(F)F,423-41-6
+PFNS,C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F,68259-12-1 
+PFDS,C(C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F)(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F,335-77-3 
+4:2 FTSA,C(CS(=O)(=O)O)C(C(C(C(F)(F)F)(F)F)(F)F)(F)F,757124-72-4
+6:2 FTSA,C(CS(=O)(=O)O)C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,27619-97-2
+8:2 FTSA,C(CS(=O)(=O)O)C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,39108-34-4
+HFPO-TA,C(=O)(C(C(F)(F)F)(OC(C(C(F)(F)F)(OC(C(C(F)(F)F)(F)F)(F)F)F)(F)F)F)O,13252-14-7
+DFSA,C(=O)(C(C(C(C(C(C(C(=O)O)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,678-45-5
+3m-PFOS,C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(C(C(F)(F)S(=O)(=O)O)(F)F)(C(F)(F)F)F,https://pubchem.ncbi.nlm.nih.gov/compound/102175775
+4m-PFOS,C(C(C(C(F)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(C(F)(F)F)F,https://pubchem.ncbi.nlm.nih.gov/compound/102175774
+5m-PFOS,C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(C(C(F)(F)F)(F)F)(C(F)(F)F)F,747385-21-3
+E1,C(C(F)(F)F)(OC(C(C(F)(F)F)(F)F)(F)F)F,3330-15-2
+3m-PFOA,C(=O)(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(C(F)(F)F)F)(F)F)O,705240-04-6
+5m-PFOA,C(=O)(C(C(C(C(C(C(F)(F)F)(F)F)(C(F)(F)F)F)(F)F)(F)F)(F)F)O,909009-42-3
+PFMBA,C(=O)(C(C(C(OC(F)(F)F)(F)F)(F)F)(F)F)O,863090-89-5 
+"Perfluoro-3,6-dioxaoctane-1,8-dioic acid",C(=O)(C(OC(C(OC(C(=O)O)(F)F)(F)F)(F)F)(F)F)O,55621-21-1
+"Perfluoro-3,6,9-trioxatridecanoic acid",C(=O)(C(OC(C(OC(C(OC(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,330562-41-9
+PFMOAA,C(=O)(C(OC(F)(F)F)(F)F)[O-].[Na+],21837-98-9
+"Potassium perfluoro(4-methyl-3,6-dioxaoctane)sulfonate",C(C(OC(C(F)(F)F)(F)F)(F)F)(C(F)(F)F)(OC(C(F)(F)S(=O)(=O)[O-])(F)F)F.[K+],70755-50-9
+PFEESA,C(C(F)(F)F)(OC(C(F)(F)S(=O)(=O)O)(F)F)(F)F,113507-82-7 
+"2,2,3,3,4,4-hexafluorobutyric acid",C(C(C(C(=O)O)(F)F)(F)F)(F)F,679-12-9
+5H- perfluoropentanoic ,C(C(C(C(C(=O)O)(F)F)(F)F)(F)F)(F)F,376-72-7
+9H-perfluorononanoic acid,C(C(C(C(C(C(C(C(C(=O)O)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,1413536-18-1
+6:2 FTCA,C(C(=O)O)C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,53826-12-3 
+3:2 FTOH,C(CO)C(C(C(F)(F)F)(F)F)(F)F,755-40-8
+C6O4,C(=O)(C(OC1(C(OC(O1)(F)F)(OC(F)(F)F)F)F)(F)F)O,1190931-41-9
+PFHxDA,C(=O)(C(C(C(C(C(C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)O,67905-19-5
+PFDoS,C(C(C(C(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F)(F)F)(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,79780-39-5
+10:2 FTS,C(CS(=O)(=O)O)C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,120226-60-0
+PFOSA/FOSA,C(C(C(C(C(F)(F)S(=O)(=O)N)(F)F)(F)F)(F)F)(C(C(C(F)(F)F)(F)F)(F)F)(F)F,754-91-6 
+NMeFOSA,CNS(=O)(=O)C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,31506-32-8 
+NEtFOSA,CCNS(=O)(=O)C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,4151-50-2 
+NMeFOSAA/MeFOSAA,CN(CC(=O)O)S(=O)(=O)C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,2355-31-9 
+NEtFOSAA/EtFOSAA,CCN(CC(=O)O)S(=O)(=O)C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,2991-50-6 
+FOSAA,C(C(=O)O)NS(=O)(=O)C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,2806-24-8 
+NMeFOSE,CN(CCO)S(=O)(=O)C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,24448-09-7 
+NEtFOSE,CCN(CCO)S(=O)(=O)C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,1691-99-2 
+ADONA/DONA,C(C(C(=O)O)(F)F)(OC(C(C(OC(F)(F)F)(F)F)(F)F)(F)F)F,919005-14-4 
+PFMPA,C(=O)(C(C(OC(F)(F)F)(F)F)(F)F)O,377-73-1 
+"NFDHA / Perfluoro-3,6-dioxaheptanoic acid",C(=O)(C(OC(C(OC(F)(F)F)(F)F)(F)F)(F)F)O,151772-58-6 
+11Cl-PF3OUdS,C(C(C(C(C(F)(F)Cl)(F)F)(F)F)(F)F)(C(C(C(OC(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F)(F)F)(F)F,763051-92-9 
+7:3 FTCA,C(CC(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)C(=O)O,812-70-4 
+8:2 FTCA,C(C(=O)O)C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,27854-31-5 
+10:2 FTCA,C(C(=O)O)C(C(C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,53826-13-4 
+8Cl-PFOS,C(C(C(C(C(F)(F)Cl)(F)F)(F)F)(F)F)(C(C(C(F)(F)S(=O)(=O)O)(F)F)(F)F)(F)F,777011-38-8 
+PFEtCHxS / PFECHS,C1(C(C(C(C(C1(F)F)(F)F)(F)S(=O)(=O)O)(F)F)(F)F)(C(C(F)(F)F)(F)F)F,646-83-3 
+FBSA,C(C(C(F)(F)S(=O)(=O)N)(F)F)(C(F)(F)F)(F)F,30334-69-1 
+FHxSA,C(C(C(C(F)(F)S(=O)(=O)N)(F)F)(F)F)(C(C(F)(F)F)(F)F)(F)F,41997-13-1 
+6:2 FTUCA,C(=C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)F)C(=O)O,70887-88-6 
+8:2 FTUCA,C(=C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)F)C(=O)O,70887-84-2 
+6:2 diPAP,C(COP(=O)(O)OCCC(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,57677-95-9 
+8:2 diPAP,C(COP(=O)(O)OCCC(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,678-41-1 
+diSAmPAP,CCN(CCOP(=O)(O)OCCN(CC)S(=O)(=O)C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)S(=O)(=O)C(C(C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,2965-52-8 
+PFHxSaAm,CN(C)CCCNS(=O)(=O)C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,50598-28-2 
+6:2 FtSaB,C[N+](C)(CCCNS(=O)(=O)CCC(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F)CC(=O)[O-],34455-29-3 
+N-TAmP-FHxSA,C[N+](C)(C)CCCNS(=O)(=O)C(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)(F)F,70248-51-0 
+5:3 FTB,C[N+](C)(CCCC(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)CC(=O)[O-],171184-14-8 
+5:1:2 FTB,C[N+](C)(CCC(C(C(C(C(C(F)(F)F)(F)F)(F)F)(F)F)(F)F)F)CC(=O)[O-],171184-02-4 

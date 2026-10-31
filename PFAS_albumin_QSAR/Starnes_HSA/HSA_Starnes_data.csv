@@ -1,0 +1,69 @@
+﻿Chemical Class,CAS ID,Chemical Name,Common Abbreviation(s),HSA Binding,Ka (mM-1),R2,ΔTm (℃)
+Fatty acids,124-07-2,Octanoic acid*,,Yes,0.48,0.93,3.1 ± 0.03
+Fatty acids,334-48-5,Decanoic acid*,,Yes,1.35,0.98,12.4 ± 0.27
+Fatty acids,57-10-3,Hexadecanoic acid**,,Yes,33.33,0.95,7.0 ± 0.07
+PFCA,375-22-4,Perfluorobutanoic Acid,PFBA,Yes,0.39,0.94,6.5 ± 0.12
+PFCA,2706-90-3,Perfluoropentanoic Acid,PFPeA,Yes,0.48,0.97,13.1 ± 0.15
+PFCA,307-24-4,Perfluorohexanoic Acid,PFHxA,Yes,0.61,0.98,10.6 ± 0.15
+PFCA,375-85-9,Perfluoroheptanoic Acid,PFHpA,Yes,2.27,0.95,15.3 ± 0.05
+PFCA,335-67-1,Perfluorooctanoic Acid,PFOA,Yes,1.2,0.97,15.3 ± 0.45
+PFCA,375-95-1,Perfluorononanoic Acid,PFNA,Yes,1.72,0.97,13.4 ± 0.27
+PFCA,335-76-2,Perfluorodecanoic Acid ,PFDA,Yes,0.84,0.99,16.9 ± 0.38
+PFCA,2058-94-8,Perfluoroundecanoic Acid,PFunDA,Yes,0.74,0.98,6.0 ± 0.35
+PFCA,307-55-1,Perfluorododecanoic Acid,PFDoA,Yes,0.53,0.98,7.7 ± 0.06
+PFSA,375-73-5,Perfluorobutanesulfonic Acid,PFBS,Yes,0.61,0.96,11.9 ± 0.09
+PFSA,3871-99-6,Perfluorohexanesulfonic Acid ,PFHxS,Yes,1.41,0.96,11.0 ± 0.16
+PFSA,2795-39-3,Perfluorooctanesulfonate,PFOS,Yes,1.49,0.98,15.9 ± 0.58
+PFECA,13252-13-6,Perfluoro(2-methyl-3-oxahexanoic) Acid,"HFPO-DA, GenX",Yes,0.63,0.97,13.7 ± 0.08
+PFECA,151772-59-7,"Perfluoro-3,6,9-trioxadecanoic Acid",PFO3DoDA,Yes,0.65,0.95,20.6 ± 0.37
+PFECA,863090-89-5,"2,2,3,3,4,4-Hexafluoro-4-(trifluoromethoxy)butanoic acid",PFMBA,Yes,0.44,0.96,8.70 ± 0.08
+PFECA,151772-58-6,"Perfluoro-3,6-dioxaheptanoic acid",,Yes,0.71,0.95,10.3 ± 0.08
+PFECA,55621-21-1,"Perfluoro-3,6-dioxaoctane-1,8-dioic acid",,Yes,0.93,0.96,6.84 ± 0.09
+PFECA,330562-41-9,"Perfluoro-3,6,9-trioxatridecanoic acid",,Yes,4.17,0.62,1.68 ± 0.08
+PFECA**,21837-98-9,Perfluoro-2-methoxyacetic acid,PFMOAA,Yes,0.1,0.96,5.63 ± 0.10
+PFESA,749836-20-2,"7H-Perfluoro-4-methyl-3,6-dioxaoctanesulfonic Acid",Nafion Byproduct 2,Yes,0.66,0.98,12.4 ± 0.14
+PFESA,70755-50-9,"Potassium perfluoro(4-methyl-3,6-dioxaoctane)sulfonate✧",,Yes,1.37,0.97,6.57 ± 0.12
+PFESA,113507-82-7,Perfluoro(2-ethoxyethane)sulfonic acid✧,PFEESA,Yes,0.52,0.99,9.14 ± 0.07
+Polyfluorinated carboxylic acids,679-12-9,"2,2,3,3,4,4-hexafluorobutyric acid",,Yes,0.52,0.85,2.95 ± 0.05
+Polyfluorinated carboxylic acids,376-72-7,5H- perfluoropentanoic ,,Yes,0.64,0.87,5.00 ± 0.07
+Polyfluorinated carboxylic acids,76-21-1,9H-perfluorononanoic acid✧,,Yes,0.93,0.99,9.07 ± 0.11
+FTCA,356-02-5,"2H,2H,3H,3H-Perfluorohexanoic acid",3:3 FTCA,Yes,0.58,0.81,2.23 ± 0.05
+FTCA,914637-49-3,"2H,2H,3H,3H-Perfluorooctanoic acid",5:3 FTCA,Yes,1.61,0.94,3.63 ± 0.09
+FTCA,53826-12-3,"3,3,4,4,5,5,6,6,7,7,8,8,8-Tridecafluorooctanoic acid",6:2 FTCA,Yes,1.75,0.94,7.17 ± 0.15
+FTCA,27854-30-4,"2,H,2H,3H,3H-Perfluorononanoic acid",6:3 FTCA,Yes,1.23,0.95,9.30 ± 0.16
+FTCA,83310-58-1,"2,H,2H,3H,3H-Perfluoroundecanoate ",8:3 FTCA,Yes,1.03,0.89,7.73 ± 0.16
+FTSA,757124-72-4,"2H,2H,3H,3H-Perfluorohexansulfonic acid",4:2 FTSA,Yes,0.93,0.93,3.53 ± 0.08
+FTSA,59587-38-1,"2H,2H,3H,3H-Perfluorooctane sulfonate ",6:2 FTSA,Yes,2.7,0.91,3.60 ± 0.28
+FTOH,755-40-8,"1H, 1H, 2H, 2H-Perfluoropentanol",3:2 FTOH,No,0,N/A,N/A
+FTOH,2043-47-2,"1H, 1H, 2H, 2H-Perfluorohexane-1-ol",4:2 FTOH,No,0,N/A,N/A
+FTOH,3792-02-7,"5,5,6,6,7,7,8,8,8-Nonafluorooctan-1-ol",4:4 FTOH,No,0,N/A,N/A
+FTOH,647-42-7,"1H, 1H, 2H, 2H-Perfluorooctanol",6:2 FTOH,No,0,N/A,N/A
+PFAE,3330-15-2,"1,1,1,2,2,3,3-Heptafluoro-3-(1,2,2,2-tetrafluoroethoxy)propane",E1,Yes,0.61,0.93,7.33 ± 0.04
+PFAE,1184-97-0,"1,1,2,3,3,3-hexafluoropropyl 1H,1H-heptafluorobutyl ether*☨✧",,Yes,0.03,0.64,2.98 ± 0.35
+Polyfluoroalkyl amines,1619-92-7,"1,1,1,3,3,3-hexafluoroisopropylamine",,No,0,N/A,N/A
+Polyfluoroalkyl amines,355-27-1,"1H,1H-perfluoropentylamine",,No,0,N/A,N/A
+Polyfluoroalkyl amines,883498-76-8,"Bis(2,2,3,3,3-pentafluoropropyl)amine",,Yes,0.67,0.83,2.50 ± 0.09
+Perfluoroalkyl amides,354-76-7,Pentafluoropropionamide,,No,0,N/A,N/A
+Perfluoroalkyl amides,662-50-0,Heptafluoropropionamide,,Yes,0.12,0.78,2.97 ± 0.11
+Perfluoroalkyl amides,13485-61-5,Nonafluoropentanamide,,No,0,N/A,N/A
+N-alkyl FASAs and FASEs,4151-50-2,N-Ethyl perfluorooctylsulfonamide*,"EtFOSA, Sulfluramid, Finatron",Yes,1.79,0.84,3.15 ± 0.08
+N-alkyl FASAs and FASEs,1691-99-2,N-Ethyl-N-(2-hydroxyethyl)perfluorooctylsulfonamide**,EtFOSE,No,0,N/A,N/A
+Per and polyfluoroalkyl trifluoromethane-sulfonates,74427-22-8,"2,2-difluoroethyl trifluoromethanesulfonate",,Yes,0.3,0.72,1.57 ± 0.08
+Per and polyfluoroalkyl trifluoromethane-sulfonates,425-75-2,Ethyl trifluoromethanesulfonate*✧,,Yes,0.47,0.55,1.12 ± 0.06
+Per and polyfluoroalkyl trifluoromethane-sulfonates,6401-02-1,"2,2,3,3-tetrafluoropropyl trifluoromethanesulfonate✧",,No,0,N/A,N/A
+Per and polyfluoroalkyl methyl esters,356-24-1,Methyl perfluorobutyrate,,Yes,0.33,0.93,5.04 ± 0.12
+Per and polyfluoroalkyl methyl esters,424-18-0,Methyl perfluoro-n-hexanoate,,Yes,0.06,0.88,6.53 ± 0.31
+Per and polyfluoroalkyl methyl esters,132424-36-3,"Methyl 4,4,5,5,6,6,7,7,7-nonafluoroheptanoate",,No,0,N/A,N/A
+Per and polyfluoroalkyl diols,375-21-3,"Heptafluorobutyraldehyde hydrate (diol), tech",,Yes,0.05,0.75,1.90 ± 0.10
+Per and polyfluoroalkyl diols,129301-42-4,"1H,1H,8H,8H- octafluoro- 3,6- dioxaoctane- 1,8- diol✧",,Yes,0.12,0.91,1.53 ± 0.06
+Per and polyfluoroalkyl diols,125070-38-4,"1H,1H,2H,3H,3H- perfluoroheptane- 1,2- diol✧",,No,0,N/A,N/A
+Per and polyfluoroalkyl diols,376-90-9,"2,2,3,3,4,4- hexfluoro- 1,5- pentanediol✧",,No,0,N/A,N/A
+Trifluoro-crotonic acids and crotonates,1763-28-6,"4,4,4-trifluoro-3-(trifluoromethyl)crotonic acid*",,Yes,3.57,0.96,7.86 ± 0.08
+Trifluoro-crotonic acids and crotonates,71027-02-6,"4,4,4-trifluorocrotonic acid➰",,Yes,0.41,0.77,1.57 ± 0.05
+Trifluoro-crotonic acids and crotonates,1513-60-6,"Ethyl 4,4,4-trifluoro-3-(trifluoromethyl)-2-butenoate✧",,No,0,N/A,N/A
+FTACs and MFTACs,52591-27-2,2-(perfluorobutyl)ethyl acrylate,,No,0,N/A,N/A
+FTACs and MFTACs,17527-29-6,"1H,1H,2H,2H-tridecafluoro-n-octyl acrylate",,No,0,N/A,N/A
+FTACs and MFTACs,2144-53-8,"1H,1H,2H,2H-perfluorooctyl methacrylate",,No,0,N/A,N/A
+Polyfluoralkyl tetrols,77953-71-0,"3h-heptafluoro-2,2,4,4-tetrahydroxypentane*",,No,0,N/A,N/A
+Polyfluoroalkyl aldehydes,2648-47-7,5H-octafluoropentanal,,Yes,0.1,0.83,2.02 ± 0.07
+Hydrofluoroolefins ,355-95-3,"4,4,5,5,6,6,6-heptafluoro-2-hexene",,No,0,N/A,N/A
