@@ -1,8 +1,37 @@
+import json
+
 import pandas as pd
 import numpy as np
-from rdkit.Chem import Descriptors
 from jaqpotpy.datasets import JaqpotTabularDataset
-from jaqpotpy.descriptors import RDKitDescriptors, TopologicalFingerprint
+from jaqpotpy.descriptors import (
+    MACCSKeysFingerprint,
+    MordredDescriptors,
+    RDKitDescriptors,
+    TopologicalFingerprint,
+)
+
+# The four featurizers used by the HSA and LFABP binding models, so the half-life
+# model draws candidates from the same descriptor space. Mordred and MACCS are new
+# here; the dataset previously carried only RDKit descriptors and topological bits.
+FEATURIZERS = [
+    RDKitDescriptors(),
+    MordredDescriptors(),
+    TopologicalFingerprint(),
+    MACCSKeysFingerprint(),
+]
+FEATURIZER_LABELS = {
+    "RDKitDescriptors": "rdkit",
+    "MordredDescriptors": "mordred",
+    "TopologicalFingerprint": "topfp",
+    "MACCSKeysFingerprint": "maccs",
+}
+# Written alongside the dataset. Downstream scripts need to know which columns are
+# 0/1 fingerprint bits and which are continuous descriptors, and that is no longer
+# recoverable from the names: with Mordred in the mix, matching against
+# rdkit.Chem.Descriptors.descList would classify ~1800 continuous Mordred
+# descriptors as fingerprint bits.
+COLUMNS_PATH = "PFAS_HalfLife_QSAR/Restructured/data/sum_featurized_columns.json"
+LOGKA_COLUMNS = ["LogKa_HSA", "LogKa_LFABP"]
 
 
 halflife_df = pd.read_csv(
@@ -139,38 +168,83 @@ columns_to_keep = [
     "SE",
     "SE_method",
 ]
-halflife_combined_df = halflife_df[columns_to_keep]
+halflife_combined_df = halflife_df[columns_to_keep].copy()
 halflife_combined_df["log_half_life"] = np.log10(halflife_combined_df["half_life"])
 
-# Calculate descriptors of the dataset
-featurizers = [RDKitDescriptors(), TopologicalFingerprint()]
+# Calculate descriptors of the dataset.
+#
+# Each featurizer runs on its own so that the continuous/binary provenance of every
+# column is known by construction rather than guessed from its name. Descriptors are
+# a property of the structure alone, with nothing fitted, so computing them for every
+# compound at once leaks nothing.
+def featurize(smiles):
+    blocks, binary_cols, seen = [], [], set()
+    frame = pd.DataFrame({"SMILES": smiles, "_y": 0.0})
+    for featurizer in FEATURIZERS:
+        name = type(featurizer).__name__
+        label = FEATURIZER_LABELS[name]
+        X = JaqpotTabularDataset(
+            df=frame,
+            y_cols="_y",
+            x_cols=[],
+            smiles_cols="SMILES",
+            featurizers=[featurizer],
+            task="REGRESSION",
+            verbose=False,
+        ).X
+        if X.shape[1] == 0:
+            raise RuntimeError(
+                f"{name} returned no descriptors; is its package installed?"
+            )
+        if isinstance(featurizer, MordredDescriptors):
+            # jaqpotpy encodes a failed Mordred descriptor as -1000, which would
+            # otherwise be read as a real and very extreme value
+            X = X.replace(-1000.0, np.nan)
+        if isinstance(featurizer, MACCSKeysFingerprint):
+            # jaqpotpy names these f0..f166; MACCS keys have published definitions,
+            # so a readable name is worth having in the downstream outputs
+            X = X.rename(columns=lambda c: f"MACCS_{c.removeprefix('f')}")
+        # A name produced by two featurizers gets the later one's label appended
+        X = X.rename(columns=lambda c: f"{c}_{label}" if c in seen else c)
+        seen.update(X.columns)
+        if isinstance(featurizer, (TopologicalFingerprint, MACCSKeysFingerprint)):
+            binary_cols += list(X.columns)
+        blocks.append(X)
+    return pd.concat(blocks, axis=1).astype(float), binary_cols
 
-halflife_jp = JaqpotTabularDataset(
-    df=halflife_combined_df,
-    x_cols=[
-        "Study",
-        "PFAS",
-        "half_life_type",
-        "Occupational_exposure",
-        "LogKa_HSA",
-        "LogKa_LFABP",
-        "half_life",
-        "SE",
-        "SE_method",
-    ],
-    y_cols=["log_half_life"],
-    smiles_cols=["SMILES"],
-    featurizers=featurizers,
-    task="REGRESSION",
-    verbose=False,
+
+# Featurize each distinct structure once, not each row: compounds repeat across
+# studies (PFOA appears 11 times), and Mordred is far too slow to run redundantly.
+unique_smiles = (
+    halflife_combined_df["SMILES"].drop_duplicates().reset_index(drop=True)
+)
+features_unique, binary_cols = featurize(unique_smiles)
+features_unique.insert(0, "SMILES", unique_smiles)
+n_descriptors = features_unique.shape[1] - 1
+print(
+    f"\nFeaturized {len(unique_smiles)} distinct structures: {n_descriptors} "
+    f"descriptors ({len(binary_cols)} binary, "
+    f"{n_descriptors - len(binary_cols)} continuous)"
 )
 
-featurized_dataset = halflife_jp.df
+features = (
+    halflife_combined_df[["SMILES"]]
+    .merge(features_unique, on="SMILES", how="left")
+    .drop(columns="SMILES")
+)
+assert len(features) == len(halflife_combined_df), "featurization changed the row count"
+featurized_dataset = pd.concat(
+    [halflife_combined_df.reset_index(drop=True), features], axis=1
+)
 
-# Identify RDKit descriptor vs ECFP fingerprint columns by name
-rdkit_descriptor_names = {name for name, _ in Descriptors.descList}
-rdkit_cols = [c for c in featurized_dataset.columns if c in rdkit_descriptor_names]
-ecfp_cols = [c for c in featurized_dataset.columns if c.startswith("Bit_")]
+# Continuous features include the two binding predictions: they are descriptor-derived
+# per-compound values and are averaged with the descriptors when isomers are merged.
+binary_cols = [c for c in binary_cols if c in featurized_dataset.columns]
+continuous_cols = [
+    c
+    for c in featurized_dataset.columns
+    if c not in set(binary_cols) | set(columns_to_keep) | {"log_half_life"}
+] + LOGKA_COLUMNS
 
 # Merge isomers that share the same log_half_life within a study
 isomer_groups = {
@@ -196,8 +270,8 @@ def merge_isomer_group(df, isomer_names):
         if len(group) == 1:
             return group
         row = group.iloc[[0]].copy()
-        row[rdkit_cols] = group[rdkit_cols].mean().values
-        row[ecfp_cols] = group[ecfp_cols].max().values
+        row[continuous_cols] = group[continuous_cols].mean().values
+        row[binary_cols] = group[binary_cols].max().values
         return row
 
     merged = (
@@ -213,4 +287,20 @@ for group_name, isomer_names in isomer_groups.items():
 
 featurized_dataset.to_csv(
     "PFAS_HalfLife_QSAR/Restructured/data/sum_featurized_dataset.csv", index=False
+)
+with open(COLUMNS_PATH, "w") as f:
+    json.dump(
+        {
+            "featurizers": [type(x).__name__ for x in FEATURIZERS],
+            "metadata": columns_to_keep + ["log_half_life"],
+            "continuous": continuous_cols,
+            "binary": binary_cols,
+            "logka": LOGKA_COLUMNS,
+        },
+        f,
+        indent=2,
+    )
+print(
+    f"\nWrote {len(featurized_dataset)} rows x {featurized_dataset.shape[1]} columns; "
+    f"column provenance -> {COLUMNS_PATH}"
 )

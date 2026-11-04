@@ -1,87 +1,170 @@
-"""Three-arm LogKa comparison using permutation-importance feature selection
-(Kvasnicka et al. 2024, SI "Model Training Steps") under nested
-leave-one-PFAS-out CV, swept across 10 seeds (0-9), with a RANDOM FOREST as
-the estimator.
+"""Four-arm LogKa comparison using permutation-importance feature selection
+(Kvasnicka et al. 2024, SI "Model Training Steps") under nested stratified
+grouped K-fold CV, repeated across OUTER_REPEATS partitions, with a RANDOM
+FOREST as the estimator.
 
-RANDOM-FOREST VARIANT of permutation_selection_three_arms_macro.py. Exactly
-two things differ from that script:
+RANDOM-FOREST VARIANT of permutation_selection_three_arms_macro.py, now
+diverged from it in four ways:
 
   * every XGBoost fit - the permutation selector's baseline fits, the outer
-    leave-one-PFAS-out fold and the final model - is replaced by the same
-    random forest configuration used in algorithm_comparison_three_arms.py
-    (see `make_random_forest`);
-  * the seed sweep covers seeds 0-9 instead of 0-4.
+    fold and the final model - is replaced by the same random forest
+    configuration used in algorithm_comparison_three_arms.py (see
+    `make_random_forest`);
+  * the outer layer is OUTER_SPLITS-fold StratifiedGroupKFold grouped by
+    PFAS, repeated OUTER_REPEATS times, instead of a single
+    leave-one-PFAS-out partition swept across seeds. LOPO had only one
+    possible partition, so a seed sweep over it varied the model and the
+    selector's inner folds but never the outer split; repeated grouped
+    K-fold varies the partition too, which is what the reported spread is
+    meant to describe. LOPO is kept as a single final pass for the final
+    models, where its maximal training data is worth having;
+  * preprocessing follows PFAS_albumin_QSAR/PFAS_HSA_QSAR/HSA_nested_permutation.py
+    (see `fit_preprocessing`): a missing-value threshold with mean
+    imputation, a constant drop, MinMax scaling, a zero-variance drop, the
+    correlation filter over the continuous and the binary block separately,
+    and a univariate |Spearman| cap on the candidate count;
+  * there are four arms, not three, because the binding prediction now comes
+    per protein (see the arm list below). That older script still expects a
+    single "LogKa" column and will not run against the current featurized
+    dataset.
 
-Everything else - the three arms and their forced features, the feature
-budget, the correlation threshold, R/K/P, the compound-averaged (macro) RMSE
-used for both the baseline and the permuted scores in the selector, the
-reported outer-loop macro/micro metrics, the final models at seed 42 and the
-SHAP figure - is unchanged, so the two scripts are directly comparable. The
-SHAP figure is saved under its own filename so it does not overwrite the
-XGBoost script's output.
+The arms' mechanics and their forced features, the feature budget, R/K/P,
+the compound-averaged (macro) RMSE used for both the baseline and the
+permuted scores in the selector, the reported outer macro/micro metrics, the
+final models at seed 42 and the SHAP figure are unchanged. The SHAP figure is
+saved under its own filename so it does not overwrite the XGBoost script's
+output.
 
-Seed-to-seed spread: the XGBoost configuration in the macro script is
-deterministic (no row or column subsampling), so its spread across seeds
-reflects only the selector's changing GroupKFold partitions. A random forest
-is stochastic through bootstrapping (and per-split feature subsampling), with
-random_state tied to the current seed, so the spread reported here includes
-model randomness on top of those changing fold partitions.
+Candidates come from the featurized dataset written by sum_preprocess_data.py,
+which now runs all four jaqpotpy featurizers used by the binding models -
+RDKitDescriptors, MordredDescriptors, TopologicalFingerprint and
+MACCSKeysFingerprint - so the half-life model draws from the same descriptor
+space. Which columns are 0/1 fingerprint bits is read from the provenance
+file that script writes beside the dataset, because it can no longer be
+inferred from the names.
 
 Fully self-contained: nothing is imported from any other project script. The
-loading/encoding/scaling/filtering code below is copied from
+loading/encoding code below started as a copy of
 Restructured/old/nested_CV_forced_halflife_type.py (which is left untouched),
 with greedy forward selection replaced everywhere by the repeated grouped
 K-fold permutation-importance ranking in `permutation_select_features`. The
-correlation threshold is 0.99 for both the numerical and the binary block.
+correlation threshold is 0.99 for both the continuous and the binary block.
 
-Arms (half_life_type is forced in all three):
-  A  LogKa excluded entirely - the column is dropped, so it is neither a
-     candidate nor forced.
-  B  LogKa is an ordinary candidate - it passes through the variance and
-     correlation filters and the permutation ranking like any other feature.
-  C  LogKa is forced - exempt from both filters and always selected, exactly
-     the way LogKa is handled in nested_CV_forced_halflife_type.py.
-Arms B and C drop rows with missing LogKa; Arm A drops the LogKa column.
+Two binding predictions are now available, one per protein: LogKa_HSA
+(serum albumin) and LogKa_LFABP (liver fatty acid binding protein), both
+written by sum_preprocess_data.py from the respective deploy scripts.
+
+Arms (half_life_type is forced in all four):
+  A  no binding prediction at all - both columns are dropped, so neither is
+     a candidate nor forced.
+  B  both columns are ordinary candidates - each passes through the whole
+     filter chain and the permutation ranking like any other feature, and the
+     selector is free to take neither, either or both.
+  C  LogKa_HSA forced - exempt from every filter and always selected, the way
+     LogKa is handled in nested_CV_forced_halflife_type.py. LogKa_LFABP stays
+     available as an ordinary candidate alongside it.
+  D  LogKa_LFABP forced the same way, with LogKa_HSA available as an ordinary
+     candidate.
+
+So B, C and D all see both columns and differ only in which one, if any, is
+forced. That isolates the effect of forcing a given protein rather than the
+effect of which columns are present: Arm C answers "does guaranteeing the
+albumin prediction a slot help?", not "does albumin alone help?". The
+consequence is that C and D can converge on the same feature set when the
+ranking picks the other protein anyway, which is itself informative - it
+means the forcing was not the binding constraint. To isolate one protein per
+arm instead, cut the arm's "logka_columns" down to just its forced column.
+
+Every arm drops rows whose kept LogKa columns are missing. Coverage is
+currently complete for all half-life compounds, so in practice no arm loses
+rows and all four run on identical rows.
 
 Budget is N_SELECT_STEPS=7 features per arm: A and B use 1 forced + 6 ranked,
-C uses 2 forced + 5 ranked.
+C and D use 2 forced + 5 ranked. Every outer fold also scores every prefix of
+its ranking up to N_CURVE_STEPS, which gives the RMSE-against-N curve of
+HSA_nested_permutation.py per arm. The ranking does not depend on how many
+features are asked for, so these extra models cost a few cheap narrow fits
+per fold and leave the reported N_SELECT_STEPS numbers untouched.
 
-Output is summary only (no per-seed table): per-arm candidate counts after
-filtering, nested-CV mean +/- std per metric across the 10 seeds, pairwise
-arm win counts, ranked-feature Jaccard stability, then the three final
-models' feature sets with in-sample (NOT generalization) metrics, and a
-1 x 3 SHAP beeswarm figure.
+Printed output is summary only: per-arm candidate counts after filtering,
+nested-CV mean +/- std per metric across the repeats, each arm's best N on
+the RMSE curve, pairwise arm win counts, ranked-feature Jaccard stability, then the four final models'
+feature sets with in-sample (NOT generalization) metrics and the
+leave-one-PFAS-out pass for those models.
+
+Everything is also written to PFAS_HalfLife_QSAR/Restructured/results, named
+after PREFIX - halflife_four_arms_rf_N<N_SELECT_STEPS> - following
+HSA_nested_permutation.py:
+
+  _metrics.csv                nested-CV mean/std per arm and metric
+  _metrics_per_repeat.csv     the per-repeat rows behind it
+  _N_curve.csv                every metric against N, median and IQR per arm
+  _N_curve_per_repeat.csv     the per-repeat rows behind it
+  _N_curve.png                macro RMSE against N, one curve per arm
+  _oof_predictions.csv        every out-of-fold prediction of the sweep
+  _head_to_head.csv           pairwise arm win counts
+  _filtering_stages.csv       the per-stage drop table (Arm B)
+  _filtering_counts.csv       its raw per-fold counts
+  _selection_frequency.csv    how often each ranked feature was selected
+  _final_features.csv         the four final feature sets, in rank order
+  _in_sample_metrics.csv      the final models on their own training data
+  _lopo_metrics.csv           the final leave-one-PFAS-out pass
+  _lopo_predictions.csv       its held-out predictions
+
+The two LOPO files and _lopo_scatter.png appear only when RUN_FINAL_LOPO is
+on; it is the slowest step here and nothing else depends on it, so it can be
+switched off for experiments.
+  _manifest.json              parameters, arms and every summary number
+  _shap.png                   1 x 4 SHAP beeswarm, one panel per arm
+  _lopo_scatter.png           observed vs LOPO-predicted, one panel per arm
+  _selection_frequency.png    top ranked features per arm
 """
+
+import json
+import os
+from collections import Counter
 
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import shap
-from rdkit.Chem import Descriptors
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.feature_selection import VarianceThreshold
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
-from sklearn.model_selection import GroupKFold
+from sklearn.model_selection import GroupKFold, StratifiedGroupKFold
 from sklearn.preprocessing import MinMaxScaler
 
 RANDOM_STATE = 42  # rebound per seed in the sweep, restored to 42 for the final models
-N_SELECT_STEPS = 7  # total features per arm, forced included
+N_SELECT_STEPS = 6  # total features per arm, forced included
+# The ranking is carried this far so every outer fold can also be scored at
+# every smaller feature count, giving the RMSE-vs-N curve. Must be >=
+# N_SELECT_STEPS; the extra models are cheap next to the selector itself.
+N_CURVE_STEPS = 15
+RUN_FINAL_LOPO = False  # the final leave-one-PFAS-out pass; off for quick experiments
 N_INNER_SPLITS = 5  # K in the permutation selector's grouped K-fold
 PERM_REPEATS = 10  # R repetitions of the grouped K-fold
 N_PERMUTATIONS = 5  # P shuffles per candidate per held-out fold
 CORR_THRESHOLD = 0.99
+MISSING_THRESHOLD = 0.05  # a candidate missing in more than this fraction is dropped
+CANDIDATE_CAP = 500  # keep only this many candidates, by |Spearman| with the target
+OUTER_SPLITS = 5  # compounds per outer fold: 29 compounds / 5 ~= 6 held out
+N_STRATA_BINS = 1  # quantile bins of compound-mean log_half_life for the outer split
 # n_jobs for every RandomForestRegressor here. The selector fits R*K=50 models
 # per training set on the full (wide) candidate matrix, so this is the main
 # wall-clock knob in this script.
 N_JOBS = 1
-SEEDS = list(range(10))
+OUTER_REPEATS = 5  # raise to 10 to match HSA_nested_permutation.py
+REPEATS = list(range(OUTER_REPEATS))
+assert N_SELECT_STEPS <= N_CURVE_STEPS
 
 # Forced in every arm: apparent vs intrinsic half-life are fundamentally
 # different estimations of the outcome, so the model should always account
 # for them. How LogKa is treated is what varies per arm (see ARM_CONFIGS).
 FORCED_BINARY_FEATURES = ["half_life_type"]
 NON_FEATURE_COLS = {
+    "Study",
     "PFAS",
+    "SMILES",
     "log_half_life",
     "half_life",
     "SE",
@@ -90,7 +173,19 @@ NON_FEATURE_COLS = {
     "weight",
 }
 
-dataset = pd.read_csv("Restructured/data/sum_featurized_dataset.csv")
+DATA_PATH = "PFAS_HalfLife_QSAR/Restructured/data/sum_featurized_dataset.csv"
+COLUMNS_PATH = "PFAS_HalfLife_QSAR/Restructured/data/sum_featurized_columns.json"
+
+# Everything this script persists goes here, named after PREFIX, in the same spirit as
+# PFAS_albumin_QSAR/PFAS_HSA_QSAR/HSA_nested_permutation.py: tables as CSV, the run as
+# a single manifest JSON, figures as PNG.
+OUT_DIR = "PFAS_HalfLife_QSAR/Restructured/results"
+# The feature budget is in the name, as in HSA_nested_permutation.py, so runs at
+# different N sit side by side instead of overwriting each other. Everything else
+# about a run - the seeds, OUTER_REPEATS, RUN_FINAL_LOPO - still overwrites.
+PREFIX = os.path.join(OUT_DIR, f"halflife_four_arms_rf_N{N_SELECT_STEPS}")
+
+dataset = pd.read_csv(DATA_PATH)
 dataset.drop(["Study"], axis=1, inplace=True)
 
 # Binary encoding
@@ -101,32 +196,57 @@ dataset["Occupational_exposure"] = dataset["Occupational_exposure"].map(
     {False: 0, True: 1}
 )
 
-rdkit_descriptor_names = {name for name, _ in Descriptors.descList}
+# Which candidates are 0/1 fingerprint bits, written by sum_preprocess_data.py. The
+# correlation filter runs separately over the binary and the continuous block, so this
+# split matters - and it is no longer inferable from the column names: with Mordred in
+# the dataset, matching against rdkit.Chem.Descriptors.descList would classify ~1800
+# continuous Mordred descriptors as fingerprint bits and send them to the wrong block.
+with open(COLUMNS_PATH) as _f:
+    _provenance = json.load(_f)
+BINARY_COLS = set(_provenance["binary"]) | {"half_life_type", "Occupational_exposure"}
+assert set(_provenance["continuous"]) <= set(
+    dataset.columns
+), f"{COLUMNS_PATH} does not describe {DATA_PATH}; rerun sum_preprocess_data.py"
 
+# The two binding predictions, one per protein.
+LOGKA_COLUMNS = ["LogKa_HSA", "LogKa_LFABP"]
+
+# "logka_columns" is which of LOGKA_COLUMNS this arm keeps as a candidate at
+# all; the rest are dropped from the arm's dataframe. "forced_numerical_features"
+# is the subset of those that is additionally exempt from the filters and the
+# ranking. Anything forced must also be kept.
 ARM_CONFIGS = [
     {
         "name": "A",
-        "label": "A (LogKa excluded)",
-        "include_logka": False,
-        "drop_logka_column": True,
+        "label": "A (no LogKa)",
+        "logka_columns": [],
         "forced_numerical_features": [],
     },
     {
         "name": "B",
-        "label": "B (LogKa ordinary candidate)",
-        "include_logka": True,
-        "drop_logka_column": False,
+        "label": "B (both LogKa ordinary candidates)",
+        "logka_columns": LOGKA_COLUMNS,
         "forced_numerical_features": [],
     },
     {
         "name": "C",
-        "label": "C (LogKa forced)",
-        "include_logka": True,
-        "drop_logka_column": False,
-        "forced_numerical_features": ["LogKa"],
+        "label": "C (LogKa_HSA forced, LogKa_LFABP a candidate)",
+        "logka_columns": LOGKA_COLUMNS,
+        "forced_numerical_features": ["LogKa_HSA"],
+    },
+    {
+        "name": "D",
+        "label": "D (LogKa_LFABP forced, LogKa_HSA a candidate)",
+        "logka_columns": LOGKA_COLUMNS,
+        "forced_numerical_features": ["LogKa_LFABP"],
     },
 ]
+for _cfg in ARM_CONFIGS:
+    assert set(_cfg["forced_numerical_features"]) <= set(
+        _cfg["logka_columns"]
+    ), f"Arm {_cfg['name']} forces a LogKa column it does not keep"
 METRICS = ["macro_rmse", "macro_mae", "macro_r2", "micro_rmse", "micro_mae", "micro_r2"]
+ARM_COLORS = {"A": "#7a7a7a", "B": "#2a78d6", "C": "#eb6834", "D": "#1baf7a"}
 LOWER_IS_BETTER = {"macro_rmse", "macro_mae", "micro_rmse", "micro_mae"}
 
 
@@ -152,12 +272,14 @@ def make_random_forest():
 
 
 def arm_dataframe(df, cfg):
-    """This arm's rows/columns: Arm A drops the LogKa column outright, Arms B
-    and C drop rows with missing LogKa (it is a real candidate for them)."""
-    df = df.copy()
-    if cfg["drop_logka_column"]:
-        return df.drop(columns=["LogKa"]).reset_index(drop=True)
-    return df[~df["LogKa"].isna()].reset_index(drop=True)
+    """This arm's rows/columns: the LogKa columns it does not keep are dropped
+    outright, and rows missing any column it does keep are dropped, since a
+    kept column is a real candidate for this arm."""
+    kept = cfg["logka_columns"]
+    df = df.drop(columns=[c for c in LOGKA_COLUMNS if c not in kept])
+    if kept:
+        df = df[~df[kept].isna().any(axis=1)]
+    return df.reset_index(drop=True)
 
 
 def forced_features_for(cfg):
@@ -185,87 +307,99 @@ def correlation_filter(X, threshold=CORR_THRESHOLD):
     return X.drop(columns=list(to_drop))
 
 
-def _numerical_and_binary_cols(columns, include_logka):
-    numerical_cols = [
-        c
-        for c in columns
-        if c in rdkit_descriptor_names or (include_logka and c == "LogKa")
-    ]
-    binary_cols = [
-        c for c in columns if c not in numerical_cols and c not in NON_FEATURE_COLS
-    ]
-    return numerical_cols, binary_cols
-
-
 def fit_preprocessing(train_df, cfg):
-    """Fit MinMax scaling plus the variance and correlation filters on
-    `train_df` only. Both RDKit descriptors and ECFP bits stay as candidates.
+    """Fit every preprocessing statistic on `train_df` only.
 
-    Forced features are exempt from both filters: they are pulled out of
-    their block before the variance/correlation filters run and concatenated
-    back afterward, so nothing can drop them. That is the same mechanism
-    nested_CV_forced_halflife_type.py uses for LogKa and half_life_type, just
-    parameterized per arm (Arm A/B force no numerical feature, Arm C forces
-    LogKa).
+    The chain is the one in PFAS_albumin_QSAR/PFAS_HSA_QSAR/HSA_nested_permutation.py:
+    drop candidates missing in more than MISSING_THRESHOLD of the training rows and
+    mean-impute the rest, drop constants, MinMax-scale, drop zero variance, correlation
+    filter over the continuous and the binary block separately, then cap the candidate
+    count by a univariate |Spearman| screen against the target. The missing-value stage
+    is what Mordred needs: jaqpotpy marks a descriptor it could not compute, and
+    sum_preprocess_data.py turns those into NaN rather than leaving them as -1000.
+
+    Forced features are exempt from every filter: they are pulled out after scaling and
+    concatenated back at the end, so nothing can drop them - including the Spearman cap,
+    which would otherwise be free to discard the very column the arm exists to force.
+    That is the mechanism nested_CV_forced_halflife_type.py uses for LogKa and
+    half_life_type, parameterized per arm (Arms A/B force no numerical feature, Arm C
+    forces LogKa_HSA, Arm D forces LogKa_LFABP).
     """
-    include_logka = cfg["include_logka"]
-    forced_numerical = cfg["forced_numerical_features"]
-
-    feature_cols = [c for c in train_df.columns if c not in NON_FEATURE_COLS]
-    numerical_cols, binary_cols = _numerical_and_binary_cols(
-        feature_cols, include_logka
-    )
-
-    X_num = train_df[numerical_cols].copy()
-    scaler = MinMaxScaler().fit(X_num)
-    X_num[:] = scaler.transform(X_num)
-
-    forced_num_cols = [c for c in forced_numerical if c in X_num.columns]
-    forced_num = X_num[forced_num_cols]
-    X_num = X_num.drop(columns=forced_num_cols)
-
-    num_var_filter = VarianceThreshold().fit(X_num)
-    X_num = X_num.loc[:, num_var_filter.get_support()]
-    X_num = correlation_filter(X_num, threshold=CORR_THRESHOLD)
-
-    X_num = pd.concat([forced_num, X_num], axis=1)
-
-    X_bin = train_df[binary_cols].copy()
-
-    forced_bin_cols = [c for c in FORCED_BINARY_FEATURES if c in X_bin.columns]
-    forced_bin = X_bin[forced_bin_cols]
-    X_bin = X_bin.drop(columns=forced_bin_cols)
-
-    bin_var_filter = VarianceThreshold(threshold=0).fit(X_bin)
-    X_bin = X_bin.loc[:, bin_var_filter.get_support()]
-    X_bin = correlation_filter(X_bin, threshold=CORR_THRESHOLD)
-
-    X_bin = pd.concat([forced_bin, X_bin], axis=1)
-
-    X_train = pd.concat([X_num, X_bin], axis=1)
+    forced = [c for c in forced_features_for(cfg) if c in train_df.columns]
     y_train = train_df["log_half_life"]
     groups_train = train_df["PFAS"]
 
+    feature_cols = [c for c in train_df.columns if c not in NON_FEATURE_COLS]
+    X = train_df[feature_cols].replace([np.inf, -np.inf], np.nan)
+    counts = {"start": X.shape[1]}
+
+    missing = X.isna().mean()
+    keep = [c for c in X.columns if missing[c] <= MISSING_THRESHOLD or c in forced]
+    counts["dropped_missing"] = X.shape[1] - len(keep)
+    means = X[keep].mean()
+    X = X[keep].fillna(means)
+
+    scaler = MinMaxScaler().fit(X)  # leaves 0/1 fingerprint bits unchanged
+    X = pd.DataFrame(scaler.transform(X), columns=X.columns, index=X.index)
+
+    # Everything below this line is filtering, so the forced columns sit it out
+    X_forced = X[forced]
+    X = X.drop(columns=forced)
+
+    nonconstant = list(X.columns[X.nunique() > 1])
+    counts["dropped_constant"] = X.shape[1] - len(nonconstant)
+    X = X[nonconstant]
+
+    variance = VarianceThreshold().fit(X)
+    counts["dropped_variance"] = int((~variance.get_support()).sum())
+    X = X.loc[:, variance.get_support()]
+
+    n_before = X.shape[1]
+    binary = [c for c in X.columns if c in BINARY_COLS]
+    X = pd.concat(
+        [
+            correlation_filter(X.drop(columns=binary), threshold=CORR_THRESHOLD),
+            correlation_filter(X[binary], threshold=CORR_THRESHOLD),
+        ],
+        axis=1,
+    )
+    counts["dropped_correlation"] = n_before - X.shape[1]
+
+    n_before = X.shape[1]
+    if X.shape[1] > CANDIDATE_CAP:
+        # Univariate screen: |Spearman| with log_half_life on this training set
+        ranked_y = pd.Series(y_train.to_numpy(), index=X.index).rank()
+        screen = X.rank().corrwith(ranked_y).abs()
+        top = set(
+            screen.sort_values(ascending=False, kind="mergesort").index[:CANDIDATE_CAP]
+        )
+        X = X[[c for c in X.columns if c in top]]
+    counts["dropped_cap"] = n_before - X.shape[1]
+
+    X_train = pd.concat([X_forced, X], axis=1)
+    counts["final"] = X_train.shape[1]
+
     fit_result = {
+        "keep": keep,
+        "means": means,
         "scaler": scaler,
-        "numerical_cols_all": numerical_cols,
-        "numerical_cols_kept": X_num.columns.tolist(),
-        "binary_cols_kept": X_bin.columns.tolist(),
+        "columns": list(X_train.columns),
         "n_candidates_after_filtering": X_train.shape[1],
+        "counts": counts,
     }
     return fit_result, X_train, y_train, groups_train
 
 
 def transform_with_fit(test_df, fit_result):
-    num_all = fit_result["numerical_cols_all"]
-    X_num_test = pd.DataFrame(
-        fit_result["scaler"].transform(test_df[num_all]),
-        columns=num_all,
-        index=test_df.index,
+    """Replay the fitted preprocessing on held-out rows. Nothing is refitted: the
+    imputation means, the scaler and the surviving column list all come from the
+    training set."""
+    X = test_df[fit_result["keep"]].replace([np.inf, -np.inf], np.nan)
+    X = X.fillna(fit_result["means"])
+    X = pd.DataFrame(
+        fit_result["scaler"].transform(X), columns=X.columns, index=X.index
     )
-    X_num_test = X_num_test[fit_result["numerical_cols_kept"]]
-    X_bin_test = test_df[fit_result["binary_cols_kept"]].copy()
-    return pd.concat([X_num_test, X_bin_test], axis=1)
+    return X[fit_result["columns"]]
 
 
 def _group_positions(groups_val):
@@ -440,51 +574,146 @@ def _macro_micro_metrics(results_df, per_group_rmse=None, per_group_mae=None):
     }
 
 
-def run_outer_lopo(df, cfg):
-    """Outer leave-one-PFAS-out loop for one arm: preprocessing and
-    permutation selection are redone inside every outer training set, then a
-    model is fit on the selected features and the held-out compound is
-    predicted. Returns the six metrics plus, for the summary, the per-fold
-    candidate counts and the per-fold ranked (non-forced) feature sets."""
-    forced = forced_features_for(cfg)
-    groups_all = sorted(df["PFAS"].unique())
+def _outer_fold(outer_train, outer_test, cfg, forced):
+    """One outer fold, shared by the repeated K-fold sweep and the LOPO pass:
+    preprocessing and permutation selection are redone on this fold's training rows
+    only, then a model is fit on the selected features and the held-out rows are
+    predicted. Returns per-row records plus the fold's candidate count, its ranked
+    (non-forced) feature set, and the same per-row records at every feature count
+    from the forced ones alone up to N_CURVE_STEPS - one model per count, all
+    reusing prefixes of this fold's single ranking, exactly as
+    HSA_nested_permutation.py builds its N curve.
 
-    fold_records = []
-    per_fold_rmse, per_fold_mae = [], []
-    candidate_counts, ranked_sets = [], []
+    The ranking does not depend on how many features are asked for, so the records
+    returned for N_SELECT_STEPS are the same ones this function returned before the
+    curve was added."""
+    fit_result, X_train, y_train, groups_train = fit_preprocessing(outer_train, cfg)
+    ordered, _ = permutation_select_features(
+        X_train, y_train, groups_train, forced, n_total=N_CURVE_STEPS
+    )
+    X_test_full = transform_with_fit(outer_test, fit_result)
 
-    for held_out in groups_all:
-        outer_test = df[df["PFAS"] == held_out].reset_index(drop=True)
-        outer_train = df[df["PFAS"] != held_out].reset_index(drop=True)
-
-        fit_result, X_train, y_train, groups_train = fit_preprocessing(outer_train, cfg)
-        candidate_counts.append(fit_result["n_candidates_after_filtering"])
-
-        selected, _ = permutation_select_features(
-            X_train, y_train, groups_train, forced
-        )
-        ranked_sets.append(frozenset(f for f in selected if f not in forced))
-
+    n_forced = len([f for f in forced if f in X_train.columns])
+    n_main = min(N_SELECT_STEPS, len(ordered))
+    records, curve = None, []
+    for n in range(max(1, n_forced), len(ordered) + 1):
+        cols = ordered[:n]
         model = make_random_forest()
-        model.fit(X_train[selected], y_train)
-
-        X_test = transform_with_fit(outer_test, fit_result)[selected]
-        y_test = outer_test["log_half_life"]
-        preds = model.predict(X_test)
-
-        per_fold_rmse.append(float(np.sqrt(mean_squared_error(y_test, preds))))
-        per_fold_mae.append(float(mean_absolute_error(y_test, preds)))
-        for true_val, pred_val in zip(y_test.tolist(), preds.tolist()):
-            fold_records.append(
-                {"PFAS": held_out, "true": true_val, "predicted": pred_val}
+        model.fit(X_train[cols], y_train)
+        preds = model.predict(X_test_full[cols])
+        rows = [
+            {"PFAS": pfas, "true": true_val, "predicted": pred_val}
+            for pfas, true_val, pred_val in zip(
+                outer_test["PFAS"].tolist(),
+                outer_test["log_half_life"].tolist(),
+                preds.tolist(),
             )
+        ]
+        curve.extend({"N": n, **row} for row in rows)
+        if n == n_main:
+            records = rows
+    assert records is not None, f"no model fitted at N={n_main}"
+    return (
+        records,
+        fit_result["n_candidates_after_filtering"],
+        frozenset(f for f in ordered[:n_main] if f not in forced),
+        fit_result["counts"],
+        curve,
+    )
+
+
+def _outer_strata(df):
+    """Quantile bins of each compound's MEAN log_half_life, broadcast back to its rows.
+
+    The outer split has to be grouped by PFAS - rows are study-by-compound, so PFOA
+    alone contributes 11 of the 72 rows, and splitting rows freely would put some of a
+    compound's rows in training and the rest in validation. Stratifying on the
+    compound mean rather than on the row value then keeps every outer fold spanning
+    the half-life range, which matters at 29 compounds and 5 folds.
+    """
+    compound_mean = df.groupby("PFAS")["log_half_life"].mean()
+    bins = pd.qcut(compound_mean, q=N_STRATA_BINS, labels=False, duplicates="drop")
+    return df["PFAS"].map(bins).to_numpy()
+
+
+def run_outer_cv(df, cfg):
+    """Outer stratified grouped K-fold for one arm, at the current RANDOM_STATE.
+
+    OUTER_SPLITS folds of compounds, grouped by PFAS so no compound is split across
+    training and validation, stratified on the compound-mean half-life. Out-of-fold
+    predictions are pooled across the folds before the metrics are computed, so every
+    compound is predicted exactly once per repeat.
+    """
+    forced = forced_features_for(cfg)
+    splitter = StratifiedGroupKFold(
+        n_splits=OUTER_SPLITS, shuffle=True, random_state=RANDOM_STATE
+    )
+    splits = splitter.split(df, _outer_strata(df), df["PFAS"].to_numpy())
+    return _collect_outer(df, cfg, forced, splits)
+
+
+def run_lopo(df, cfg):
+    """Outer leave-one-PFAS-out loop for one arm: as many folds as there are
+    compounds, each holding out every row of one compound. Maximal training data
+    (28 of 29 compounds) and only one possible partition, so it carries no
+    partition-to-partition variability - which is why it is reported once for the
+    final models rather than swept."""
+    forced = forced_features_for(cfg)
+    index = np.arange(len(df))
+    pfas = df["PFAS"].to_numpy()
+    splits = (
+        (index[pfas != held_out], index[pfas == held_out])
+        for held_out in sorted(df["PFAS"].unique())
+    )
+    return _collect_outer(df, cfg, forced, splits)
+
+
+def _collect_outer(df, cfg, forced, splits):
+    """Run every outer fold of `splits` and pool the out-of-fold predictions.
+
+    Per-compound RMSE/MAE are computed by `_macro_micro_metrics` from the pooled
+    predictions, grouped on PFAS - not from per-fold values. Under LOPO a fold holds
+    exactly one compound and the two agree, but a K-fold fold holds about six, so the
+    per-fold number is not a per-compound number.
+    """
+    fold_records, candidate_counts, ranked_sets, counts = [], [], [], []
+    curve_records = []
+    for train_idx, test_idx in splits:
+        records, n_candidates, ranked, fold_counts, curve = _outer_fold(
+            df.iloc[train_idx].reset_index(drop=True),
+            df.iloc[test_idx].reset_index(drop=True),
+            cfg,
+            forced,
+        )
+        fold_records.extend(records)
+        candidate_counts.append(n_candidates)
+        ranked_sets.append(ranked)
+        counts.append(fold_counts)
+        curve_records.extend(curve)
+
+    # Out-of-fold predictions pooled per feature count, then scored the same way as
+    # the headline metrics. Only counts every fold reached are kept, so a fold that
+    # ran out of candidates cannot leave a partly-predicted N in the curve.
+    curve_df = pd.DataFrame(curve_records)
+    complete = curve_df.groupby("N")["PFAS"].nunique() == df["PFAS"].nunique()
+    curve = pd.DataFrame(
+        [
+            {"N": n, **_macro_micro_metrics(curve_df[curve_df["N"] == n])}
+            for n in complete.index[complete]
+        ]
+    )
 
     results_df = pd.DataFrame(fold_records)
-    metrics = _macro_micro_metrics(results_df, per_fold_rmse, per_fold_mae)
+    assert (
+        results_df["PFAS"].nunique() == df["PFAS"].nunique()
+    ), "an outer sweep left some compound unpredicted"
     return {
-        "metrics": metrics,
+        "metrics": _macro_micro_metrics(results_df),
+        "predictions": results_df,
+        "curve": curve,
         "candidate_counts": candidate_counts,
         "ranked_sets": ranked_sets,
+        "counts": counts,
     }
 
 
@@ -498,6 +727,21 @@ def mean_pairwise_jaccard(sets):
             union = sets[i] | sets[j]
             overlaps.append(len(sets[i] & sets[j]) / len(union) if union else 1.0)
     return float(np.mean(overlaps)) if overlaps else float("nan")
+
+
+def json_safe(value):
+    """numpy types and anything unserialisable kept out of the manifest."""
+    if isinstance(value, np.ndarray):
+        return value.tolist()
+    if isinstance(value, np.integer):
+        return int(value)
+    if isinstance(value, np.floating):
+        return float(value)
+    try:
+        json.dumps(value)
+    except TypeError:
+        return repr(value)
+    return value
 
 
 def fit_final_model(df, cfg):
@@ -531,20 +775,116 @@ def fit_final_model(df, cfg):
 
 
 if __name__ == "__main__":
+    os.makedirs(OUT_DIR, exist_ok=True)
     arm_dfs = {cfg["name"]: arm_dataframe(dataset, cfg) for cfg in ARM_CONFIGS}
     sweep = {
-        cfg["name"]: {"metrics": [], "candidate_counts": [], "ranked_sets": []}
+        cfg["name"]: {
+            "metrics": [],
+            "candidate_counts": [],
+            "ranked_sets": [],
+            "counts": [],
+        }
         for cfg in ARM_CONFIGS
     }
+    oof_predictions, curves = [], []
 
-    for seed in SEEDS:
-        RANDOM_STATE = seed
+    for repeat in REPEATS:
+        RANDOM_STATE = repeat
         for cfg in ARM_CONFIGS:
-            print(f"Running seed={seed}, arm={cfg['label']}...", flush=True)
-            result = run_outer_lopo(arm_dfs[cfg["name"]], cfg)
+            print(f"Running repeat={repeat}, arm={cfg['label']}...", flush=True)
+            result = run_outer_cv(arm_dfs[cfg["name"]], cfg)
             sweep[cfg["name"]]["metrics"].append(result["metrics"])
             sweep[cfg["name"]]["candidate_counts"].extend(result["candidate_counts"])
             sweep[cfg["name"]]["ranked_sets"].extend(result["ranked_sets"])
+            sweep[cfg["name"]]["counts"].extend(result["counts"])
+            oof_predictions.append(
+                result["predictions"].assign(arm=cfg["name"], repeat=repeat)
+            )
+            curves.append(result["curve"].assign(arm=cfg["name"], repeat=repeat))
+
+    # Every out-of-fold prediction of the sweep, so the tables below can be
+    # recomputed - or plotted differently - without rerunning anything.
+    pd.concat(oof_predictions, ignore_index=True)[
+        ["arm", "repeat", "PFAS", "true", "predicted"]
+    ].to_csv(f"{PREFIX}_oof_predictions.csv", index=False)
+
+    # One row per arm x repeat: the per-repeat numbers behind the mean +/- std
+    # table, which the printed summary collapses.
+    per_repeat = pd.DataFrame(
+        [
+            {"arm": cfg["name"], "repeat": repeat, **metrics}
+            for cfg in ARM_CONFIGS
+            for repeat, metrics in zip(REPEATS, sweep[cfg["name"]]["metrics"])
+        ]
+    )
+    per_repeat.to_csv(f"{PREFIX}_metrics_per_repeat.csv", index=False)
+    metrics_summary = (
+        per_repeat.drop(columns="repeat")
+        .groupby("arm")
+        .agg(["mean", "std"])
+        .round(4)
+        .reset_index()
+    )
+    metrics_summary.columns = [
+        "arm" if a == "arm" else f"{a}_{b}" for a, b in metrics_summary.columns
+    ]
+    metrics_summary.to_csv(f"{PREFIX}_metrics.csv", index=False)
+
+    # RMSE (and every other metric) against the number of selected features, from the
+    # prefix models every outer fold fitted. Median and IQR across the repeats, as in
+    # HSA_nested_permutation.py's N curve; the band is partition-to-partition spread,
+    # not a confidence interval.
+    curve = pd.concat(curves, ignore_index=True)
+    curve[["arm", "repeat", "N"] + METRICS].to_csv(
+        f"{PREFIX}_N_curve_per_repeat.csv", index=False
+    )
+    grouped = curve.groupby(["arm", "N"], sort=True)[METRICS]
+    curve_summary = pd.concat(
+        [
+            grouped.median().add_suffix("_median"),
+            grouped.quantile(0.25).add_suffix("_q25"),
+            grouped.quantile(0.75).add_suffix("_q75"),
+        ],
+        axis=1,
+    ).reset_index()
+    curve_summary.to_csv(f"{PREFIX}_N_curve.csv", index=False)
+
+    fig, ax = plt.subplots(figsize=(6, 4), dpi=300)
+    for cfg in ARM_CONFIGS:
+        arm_curve = curve_summary[curve_summary["arm"] == cfg["name"]]
+        color = ARM_COLORS[cfg["name"]]
+        ax.fill_between(
+            arm_curve["N"],
+            arm_curve["macro_rmse_q25"],
+            arm_curve["macro_rmse_q75"],
+            color=color,
+            alpha=0.15,
+            linewidth=0,
+        )
+        ax.plot(
+            arm_curve["N"],
+            arm_curve["macro_rmse_median"],
+            color=color,
+            lw=2,
+            marker="o",
+            ms=4,
+            label=cfg["label"],
+        )
+    ax.axvline(
+        N_SELECT_STEPS,
+        color="black",
+        ls="--",
+        lw=1,
+        label=f"N={N_SELECT_STEPS} reported",
+    )
+    ax.set_xlabel("Number of selected features (N, forced included)")
+    ax.set_ylabel("Nested-CV macro RMSE (log half-life)")
+    ax.xaxis.set_major_locator(plt.MaxNLocator(integer=True))
+    ax.grid(True, linewidth=0.5, alpha=0.3)
+    ax.legend(frameon=False, fontsize=7, title="Median, IQR band", title_fontsize=7)
+    fig.tight_layout()
+    fig.savefig(f"{PREFIX}_N_curve.png", bbox_inches="tight")
+    plt.close(fig)
 
     print(f"\n{'=' * 30} Summary {'=' * 30}")
     print(
@@ -557,13 +897,21 @@ if __name__ == "__main__":
         f"(forced included); correlation threshold {CORR_THRESHOLD}."
     )
     print(
-        "Random forest is stochastic through bootstrapping, so unlike the "
-        "deterministic XGBoost configuration its seed-to-seed spread includes "
-        "model randomness on top of the selector's changing GroupKFold "
-        "partitions."
+        f"Outer loop: {OUTER_SPLITS}-fold StratifiedGroupKFold grouped by PFAS, "
+        f"stratified on compound-mean log_half_life in {N_STRATA_BINS} quantile bins, "
+        f"repeated {OUTER_REPEATS} times. Each repeat draws a different partition, so "
+        "the spread below covers both the partition and the random forest's own "
+        "bootstrap randomness."
+    )
+    print(
+        f"Preprocessing per outer training set: drop missing > {MISSING_THRESHOLD:.0%} "
+        f"and mean-impute, drop constant, MinMax scale, drop zero variance, "
+        f"|r| > {CORR_THRESHOLD} within the continuous and the binary block "
+        f"separately, then cap at {CANDIDATE_CAP} by |Spearman|. Forced features are "
+        "exempt from all of it."
     )
 
-    print("\nCandidate features remaining after filtering (all outer folds x seeds):")
+    print("\nCandidate features remaining after filtering (all outer folds x repeats):")
     for cfg in ARM_CONFIGS:
         counts = np.array(sweep[cfg["name"]]["candidate_counts"])
         print(
@@ -571,9 +919,40 @@ if __name__ == "__main__":
             f"mean={counts.mean():.1f}, max={counts.max()}"
         )
 
+    # Where the candidates actually go. Arm B is shown because every arm starts from
+    # the same columns bar the LogKa pair, so one arm is representative of the chain.
+    stages = {
+        "missing": f"missing > {MISSING_THRESHOLD:.0%}",
+        "constant": "constant",
+        "variance": "zero variance",
+        "correlation": f"|r| > {CORR_THRESHOLD}",
+        "cap": f"cap {CANDIDATE_CAP} (Spearman)",
+    }
+    stage_df = pd.DataFrame(sweep["B"]["counts"])
+    remaining = stage_df["start"]
+    rows = [["featurized", "", f"{remaining.median():g}"]]
+    for key, stage in stages.items():
+        dropped = stage_df[f"dropped_{key}"]
+        remaining = remaining - dropped
+        rows.append(
+            [
+                stage,
+                f"{dropped.median():g} [{dropped.min()}-{dropped.max()}]",
+                f"{remaining.median():g} [{remaining.min()}-{remaining.max()}]",
+            ]
+        )
     print(
-        f"\nNested LOPO-CV across {len(SEEDS)} seeds {SEEDS} "
-        "(mean +/- std of each metric):"
+        f"\nFeature filtering, Arm B (median [min-max] over "
+        f"{len(stage_df)} outer folds; forced features bypass every stage):"
+    )
+    stage_table = pd.DataFrame(rows, columns=["stage", "dropped", "remaining"])
+    print(stage_table.to_string(index=False))
+    stage_table.to_csv(f"{PREFIX}_filtering_stages.csv", index=False)
+    stage_df.assign(arm="B").to_csv(f"{PREFIX}_filtering_counts.csv", index=False)
+
+    print(
+        f"\nNested CV across {OUTER_REPEATS} repeats of "
+        f"{OUTER_SPLITS}-fold grouped CV (mean +/- std of each metric):"
     )
     metric_table = pd.DataFrame(
         {
@@ -590,7 +969,24 @@ if __name__ == "__main__":
     )
     print(metric_table.to_string())
 
-    print(f"\nHead-to-head wins (out of {len(SEEDS)} seeds, same seed compared):")
+    print(
+        f"\nMacro RMSE against feature count (median over {OUTER_REPEATS} repeats; "
+        f"the reported models use N={N_SELECT_STEPS}):"
+    )
+    for cfg in ARM_CONFIGS:
+        arm_curve = curve_summary[curve_summary["arm"] == cfg["name"]]
+        best = arm_curve.loc[arm_curve["macro_rmse_median"].idxmin()]
+        at_n = arm_curve[arm_curve["N"] == N_SELECT_STEPS]["macro_rmse_median"]
+        print(
+            f"  Arm {cfg['label']}: best N={int(best['N'])} at "
+            f"{best['macro_rmse_median']:.4f}"
+            + (f", N={N_SELECT_STEPS} at {at_n.iloc[0]:.4f}" if len(at_n) else "")
+        )
+
+    print(
+        f"\nHead-to-head wins (out of {OUTER_REPEATS} repeats, "
+        "same repeat compared):"
+    )
     win_table = pd.DataFrame(
         {
             f"{first} vs {second}": {
@@ -607,21 +1003,62 @@ if __name__ == "__main__":
                 )
                 for metric in METRICS
             }
-            for first, second in [("B", "A"), ("C", "A"), ("C", "B")]
+            for first, second in [
+                ("B", "A"),
+                ("C", "A"),
+                ("D", "A"),
+                ("C", "B"),
+                ("D", "B"),
+                ("D", "C"),
+            ]
         }
     )
     print(win_table.to_string())
+    win_table.rename_axis("metric").to_csv(f"{PREFIX}_head_to_head.csv")
 
     print(
         "\nRanked-feature stability (mean pairwise Jaccard across all outer "
-        "folds x seeds, forced features excluded):"
+        "folds x repeats, forced features excluded):"
     )
+    jaccard = {}
     for cfg in ARM_CONFIGS:
         sets = sweep[cfg["name"]]["ranked_sets"]
+        jaccard[cfg["name"]] = mean_pairwise_jaccard(sets)
         print(
-            f"  Arm {cfg['label']}: {mean_pairwise_jaccard(sets):.4f} "
+            f"  Arm {cfg['label']}: {jaccard[cfg['name']]:.4f} "
             f"({len(sets)} selected sets)"
         )
+
+    # How often each feature survived the ranking, per arm. Forced features are
+    # absent by construction - they never pass through the ranking.
+    frequency = pd.DataFrame(
+        [
+            {
+                "arm": cfg["name"],
+                "feature": feature,
+                "frequency": count / len(sweep[cfg["name"]]["ranked_sets"]),
+                "n_sets": count,
+            }
+            for cfg in ARM_CONFIGS
+            for feature, count in Counter(
+                f for s in sweep[cfg["name"]]["ranked_sets"] for f in s
+            ).most_common()
+        ]
+    )
+    frequency.to_csv(f"{PREFIX}_selection_frequency.csv", index=False)
+
+    fig, axes = plt.subplots(1, 4, figsize=(22, 6), sharex=True)
+    for ax, cfg in zip(axes, ARM_CONFIGS):
+        top = frequency[frequency["arm"] == cfg["name"]].head(15).iloc[::-1]
+        ax.barh(top["feature"], top["frequency"], color="#2a78d6")
+        ax.set_title(f"Arm {cfg['name']}")
+        ax.set_xlabel("fraction of outer folds")
+    fig.suptitle(
+        "Selection frequency of the ranked (non-forced) features, "
+        f"{OUTER_REPEATS} x {OUTER_SPLITS} outer folds - top 15 per arm"
+    )
+    fig.tight_layout()
+    fig.savefig(f"{PREFIX}_selection_frequency.png", dpi=300, bbox_inches="tight")
 
     # Final deployed models, back on the script's own seed.
     RANDOM_STATE = 42
@@ -652,28 +1089,77 @@ if __name__ == "__main__":
         {f"Arm {final['cfg']['name']}": final["in_sample_metrics"] for final in finals}
     )
     print(in_sample_table.to_string())
+    in_sample_table.rename_axis("metric").to_csv(f"{PREFIX}_in_sample_metrics.csv")
 
-    # One more honest LOPO pass per arm, at the final models' own seed
-    # (RANDOM_STATE is 42 here, outside the swept 0-9 range, so this number
-    # does not appear in the sweep above). Preprocessing and permutation
-    # selection are redone inside every outer fold exactly as in the sweep,
-    # so this is a genuine generalization estimate - just from a single seed
-    # rather than averaged over ten.
+    pd.DataFrame(
+        [
+            {
+                "arm": final["cfg"]["name"],
+                "rank": i,
+                "feature": feature,
+                "forced": feature in forced_features_for(final["cfg"]),
+            }
+            for final in finals
+            for i, feature in enumerate(final["selected"], start=1)
+        ]
+    ).to_csv(f"{PREFIX}_final_features.csv", index=False)
+
+    # The pass is skipped when RUN_FINAL_LOPO is off: it is the most expensive
+    # step in the script (one outer fold per compound, selection redone in each)
+    # and nothing else depends on it, so experiments can leave it out.
     final_lopo = {}
-    for cfg in ARM_CONFIGS:
-        print(f"\nRunning final LOPO pass, arm={cfg['label']}...", flush=True)
-        final_lopo[cfg["name"]] = run_outer_lopo(arm_dfs[cfg["name"]], cfg)["metrics"]
+    if RUN_FINAL_LOPO:
+        # Leave-one-PFAS-out pass per arm, for the final models. Preprocessing and
+        # permutation selection are redone inside every outer fold exactly as in the
+        # sweep, so this is a genuine generalization estimate; it just uses the most
+        # training data available (28 of 29 compounds, against ~23 under 5-fold) and has
+        # only one possible partition, so there is nothing to average over and no
+        # partition spread to report. It is run at RANDOM_STATE=42, the seed the final
+        # models were built with, which is outside the swept range, so this number does
+        # not appear in the table above and will not match its mean.
+        lopo_predictions = []
+        for cfg in ARM_CONFIGS:
+            print(f"\nRunning final LOPO pass, arm={cfg['label']}...", flush=True)
+            result = run_lopo(arm_dfs[cfg["name"]], cfg)
+            final_lopo[cfg["name"]] = result["metrics"]
+            lopo_predictions.append(result["predictions"].assign(arm=cfg["name"]))
+        lopo_predictions = pd.concat(lopo_predictions, ignore_index=True)
+        lopo_predictions[["arm", "PFAS", "true", "predicted"]].to_csv(
+            f"{PREFIX}_lopo_predictions.csv", index=False
+        )
 
-    print(
-        f"\nNested LOPO-CV at RANDOM_STATE={RANDOM_STATE}, the seed the final "
-        "models above were built with (selection redone inside every outer "
-        "fold; single-seed estimate, so it will not match the 10-seed mean "
-        "exactly):"
-    )
-    final_lopo_table = pd.DataFrame(
-        {f"Arm {cfg['name']}": final_lopo[cfg["name"]] for cfg in ARM_CONFIGS}
-    )
-    print(final_lopo_table.to_string())
+        print(
+            f"\nNested LOPO-CV at RANDOM_STATE={RANDOM_STATE}, the seed the final "
+            "models above were built with (one fold per compound, selection redone "
+            "inside every fold; single partition, so it will not match the "
+            f"{OUTER_REPEATS}-repeat mean above):"
+        )
+        final_lopo_table = pd.DataFrame(
+            {f"Arm {cfg['name']}": final_lopo[cfg["name"]] for cfg in ARM_CONFIGS}
+        )
+        print(final_lopo_table.to_string())
+        final_lopo_table.rename_axis("metric").to_csv(f"{PREFIX}_lopo_metrics.csv")
+
+        # Observed vs predicted, one panel per arm, from the LOPO pass - these are the
+        # held-out predictions of the partition the final models were built under.
+        fig, axes = plt.subplots(1, 4, figsize=(22, 6), sharex=True, sharey=True)
+        for ax, cfg in zip(axes, ARM_CONFIGS):
+            arm_rows = lopo_predictions[lopo_predictions["arm"] == cfg["name"]]
+            ax.scatter(arm_rows["true"], arm_rows["predicted"], s=18, alpha=0.7)
+            limits = [
+                min(arm_rows["true"].min(), arm_rows["predicted"].min()),
+                max(arm_rows["true"].max(), arm_rows["predicted"].max()),
+            ]
+            ax.plot(limits, limits, color="grey", linewidth=1)
+            ax.set_title(
+                f"Arm {cfg['name']} - macro RMSE "
+                f"{final_lopo[cfg['name']]['macro_rmse']:.3f}"
+            )
+            ax.set_xlabel("observed log half-life")
+        axes[0].set_ylabel("LOPO predicted log half-life")
+        fig.suptitle(f"Leave-one-PFAS-out predictions (RANDOM_STATE={RANDOM_STATE})")
+        fig.tight_layout()
+        fig.savefig(f"{PREFIX}_lopo_scatter.png", dpi=300, bbox_inches="tight")
 
     # SHAP beeswarms, one panel per arm. Plotted feature values are the
     # MinMax-scaled values the models were fit on, not raw descriptor units.
@@ -683,7 +1169,7 @@ if __name__ == "__main__":
     # `pred_contribs=True` because shap cannot parse the xgboost 3.x model
     # JSON; shap.TreeExplainer reads scikit-learn random forests directly, so
     # it is used here.
-    fig, axes = plt.subplots(1, 3, figsize=(22, 7))
+    fig, axes = plt.subplots(1, 4, figsize=(28, 7))
     for ax, final in zip(axes, finals):
         explainer = shap.TreeExplainer(final["model"])
         shap_values = explainer.shap_values(final["X_selected"])
@@ -701,9 +1187,69 @@ if __name__ == "__main__":
         "value (low to high), not the raw descriptor value"
     )
     fig.tight_layout()
-    fig.savefig(
-        "Restructured/old/permutation_selection_three_arms_macro_rf_shap.png",
-        dpi=300,
-        bbox_inches="tight",
-    )
+    fig.savefig(f"{PREFIX}_shap.png", dpi=300, bbox_inches="tight")
+
+    # One record of the whole run, in the spirit of HSA_nested_permutation.py's
+    # manifest: the parameters it was run with, the arms, and every summary number
+    # the block above printed.
+    manifest = {
+        "parameters": {
+            k: json_safe(globals()[k])
+            for k in [
+                "N_SELECT_STEPS",
+                "N_INNER_SPLITS",
+                "PERM_REPEATS",
+                "N_PERMUTATIONS",
+                "CORR_THRESHOLD",
+                "MISSING_THRESHOLD",
+                "CANDIDATE_CAP",
+                "OUTER_SPLITS",
+                "OUTER_REPEATS",
+                "N_STRATA_BINS",
+                "RANDOM_STATE",
+                "N_JOBS",
+                "N_CURVE_STEPS",
+                "RUN_FINAL_LOPO",
+            ]
+        },
+        "data_path": DATA_PATH,
+        "columns_path": COLUMNS_PATH,
+        "n_rows": int(len(dataset)),
+        "n_compounds": int(dataset["PFAS"].nunique()),
+        "regressor": repr(make_random_forest()),
+        "arms": {
+            cfg["name"]: {
+                "label": cfg["label"],
+                "logka_columns": cfg["logka_columns"],
+                "forced_features": forced_features_for(cfg),
+                "n_rows": int(len(arm_dfs[cfg["name"]])),
+                "candidate_counts": {
+                    "min": int(np.min(sweep[cfg["name"]]["candidate_counts"])),
+                    "mean": float(np.mean(sweep[cfg["name"]]["candidate_counts"])),
+                    "max": int(np.max(sweep[cfg["name"]]["candidate_counts"])),
+                },
+                "ranked_feature_jaccard": jaccard[cfg["name"]],
+                "nested_cv_metrics_per_repeat": sweep[cfg["name"]]["metrics"],
+                # null when RUN_FINAL_LOPO = False
+                "lopo_metrics": final_lopo.get(cfg["name"]),
+            }
+            for cfg in ARM_CONFIGS
+        },
+        "nested_cv_metrics_summary": metrics_summary.to_dict(orient="records"),
+        "head_to_head_wins": win_table.to_dict(),
+        "final_models": {
+            final["cfg"]["name"]: {
+                "selected_features": list(final["selected"]),
+                "n_candidates_after_filtering": int(
+                    final["n_candidates_after_filtering"]
+                ),
+                "in_sample_metrics_not_a_performance_claim": final["in_sample_metrics"],
+            }
+            for final in finals
+        },
+    }
+    with open(f"{PREFIX}_manifest.json", "w") as f:
+        json.dump(manifest, f, indent=2, default=json_safe)
+
+    print(f"\nOutputs: {PREFIX}_*")
     plt.show()
