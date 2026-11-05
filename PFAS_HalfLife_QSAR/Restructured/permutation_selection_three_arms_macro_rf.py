@@ -88,9 +88,10 @@ per fold and leave the reported N_SELECT_STEPS numbers untouched.
 
 Printed output is summary only: per-arm candidate counts after filtering,
 nested-CV mean +/- std per metric across the repeats, each arm's best N on
-the RMSE curve, pairwise arm win counts, ranked-feature Jaccard stability, then the four final models'
-feature sets with in-sample (NOT generalization) metrics and the
-leave-one-PFAS-out pass for those models.
+the RMSE curve, pairwise arm win counts, ranked-feature Jaccard stability,
+then the four final models' feature sets with in-sample (NOT generalization)
+metrics, the leave-one-PFAS-out pass for those models and the y-randomized
+null beside the real result.
 
 Everything is also written to PFAS_HalfLife_QSAR/Restructured/results, named
 after PREFIX - halflife_four_arms_rf_N<N_SELECT_STEPS> - following
@@ -111,9 +112,13 @@ HSA_nested_permutation.py:
   _lopo_metrics.csv           the final leave-one-PFAS-out pass
   _lopo_predictions.csv       its held-out predictions
 
+  _y_randomization.csv        the null run beside the real result
+
 The two LOPO files and _lopo_scatter.png appear only when RUN_FINAL_LOPO is
-on; it is the slowest step here and nothing else depends on it, so it can be
-switched off for experiments.
+on, and _y_randomization.csv only when RUN_Y_RANDOMIZATION is on. Both are
+end-of-run checks that nothing else depends on, and both are expensive - the
+LOPO pass runs one outer fold per compound, the null repeats the whole sweep
+- so either can be switched off for experiments.
   _manifest.json              parameters, arms and every summary number
   _shap.png                   1 x 4 SHAP beeswarm, one panel per arm
   _lopo_scatter.png           observed vs LOPO-predicted, one panel per arm
@@ -135,12 +140,17 @@ from sklearn.model_selection import GroupKFold, StratifiedGroupKFold
 from sklearn.preprocessing import MinMaxScaler
 
 RANDOM_STATE = 42  # rebound per seed in the sweep, restored to 42 for the final models
-N_SELECT_STEPS = 6  # total features per arm, forced included
+N_SELECT_STEPS = 2  # total features per arm, forced included
 # The ranking is carried this far so every outer fold can also be scored at
 # every smaller feature count, giving the RMSE-vs-N curve. Must be >=
 # N_SELECT_STEPS; the extra models are cheap next to the selector itself.
 N_CURVE_STEPS = 15
-RUN_FINAL_LOPO = False  # the final leave-one-PFAS-out pass; off for quick experiments
+RUN_FINAL_LOPO = True  # the final leave-one-PFAS-out pass; off for quick experiments
+RUN_Y_RANDOMIZATION = True  # the null run below; off for quick experiments
+# R in the selector during the null run only. The null has no signal to find, so
+# ranking it as carefully as the real run buys nothing; this is what keeps the
+# extra cost to a fraction of the real sweep.
+Y_RAND_PERM_REPEATS = 3
 N_INNER_SPLITS = 5  # K in the permutation selector's grouped K-fold
 PERM_REPEATS = 10  # R repetitions of the grouped K-fold
 N_PERMUTATIONS = 5  # P shuffles per candidate per held-out fold
@@ -153,7 +163,7 @@ N_STRATA_BINS = 1  # quantile bins of compound-mean log_half_life for the outer 
 # per training set on the full (wide) candidate matrix, so this is the main
 # wall-clock knob in this script.
 N_JOBS = 1
-OUTER_REPEATS = 5  # raise to 10 to match HSA_nested_permutation.py
+OUTER_REPEATS = 3  # raise to 10 to match HSA_nested_permutation.py
 REPEATS = list(range(OUTER_REPEATS))
 assert N_SELECT_STEPS <= N_CURVE_STEPS
 
@@ -620,6 +630,28 @@ def _outer_fold(outer_train, outer_test, cfg, forced):
         fit_result["counts"],
         curve,
     )
+
+
+def y_randomized(df, seed):
+    """A copy of `df` with the compound-level signal destroyed and nothing else.
+
+    Each compound's MEAN log_half_life is swapped for another compound's, while its
+    within-compound deviations, its row count and every feature value stay put. That
+    is the link the model is claimed to have learned - features are compound-level,
+    so a compound's mean is all they can address - and breaking it alone is what
+    makes this a null rather than a different dataset.
+
+    Shuffling rows outright would also destroy the study-to-study spread that the
+    macro metrics are built on and inflate the null's error, flattering the real run.
+    """
+    rng = np.random.RandomState(seed)
+    means = df.groupby("PFAS")["log_half_life"].mean()
+    shuffled = pd.Series(rng.permutation(means.to_numpy()), index=means.index)
+    out = df.copy()
+    out["log_half_life"] = (
+        df["log_half_life"] - df["PFAS"].map(means) + df["PFAS"].map(shuffled)
+    )
+    return out
 
 
 def _outer_strata(df):
@@ -1161,6 +1193,70 @@ if __name__ == "__main__":
         fig.tight_layout()
         fig.savefig(f"{PREFIX}_lopo_scatter.png", dpi=300, bbox_inches="tight")
 
+    # Y-randomization: the same nested CV against a target whose compound-level
+    # signal has been shuffled away, one shuffle per repeat. It answers the question
+    # the metrics above cannot - whether an arm's score could have arisen from this
+    # many candidates and this few compounds with no real relationship present. A
+    # null arm should land near the spread of the compound means; anything much
+    # better than that is the pipeline fitting noise.
+    y_rand = {}
+    if RUN_Y_RANDOMIZATION:
+        # The null needs no N curve and a lighter ranking; both are restored after.
+        saved_curve, saved_perm = N_CURVE_STEPS, PERM_REPEATS
+        N_CURVE_STEPS, PERM_REPEATS = N_SELECT_STEPS, Y_RAND_PERM_REPEATS
+        for repeat in REPEATS:
+            RANDOM_STATE = repeat
+            for cfg in ARM_CONFIGS:
+                print(
+                    f"\nRunning y-randomization repeat={repeat}, "
+                    f"arm={cfg['label']}...",
+                    flush=True,
+                )
+                shuffled = y_randomized(arm_dfs[cfg["name"]], 1000 + repeat)
+                y_rand.setdefault(cfg["name"], []).append(
+                    run_outer_cv(shuffled, cfg)["metrics"]
+                )
+        N_CURVE_STEPS, PERM_REPEATS = saved_curve, saved_perm
+        RANDOM_STATE = 42
+
+        compound_sd = float(
+            dataset.groupby("PFAS")["log_half_life"].mean().std(ddof=1)
+        )
+        print(
+            f"\nY-randomization: {OUTER_REPEATS} shuffles of the compound means, "
+            f"same outer CV, selector at R={Y_RAND_PERM_REPEATS}. A null arm should "
+            f"sit near the spread of the compound means ({compound_sd:.4f}); the "
+            "real run has to beat it by a clear margin to mean anything:"
+        )
+        y_rand_table = pd.DataFrame(
+            [
+                {
+                    "arm": cfg["name"],
+                    "run": run,
+                    **{
+                        metric: float(np.mean([m[metric] for m in runs]))
+                        for metric in METRICS
+                    },
+                    "macro_rmse_std": float(
+                        np.std([m["macro_rmse"] for m in runs], ddof=1)
+                    ),
+                }
+                for cfg in ARM_CONFIGS
+                for run, runs in [
+                    ("real", sweep[cfg["name"]]["metrics"]),
+                    ("y-randomized", y_rand[cfg["name"]]),
+                ]
+            ]
+        )
+        print(
+            y_rand_table[
+                ["arm", "run", "macro_rmse", "macro_rmse_std", "macro_r2", "micro_rmse"]
+            ]
+            .round(4)
+            .to_string(index=False)
+        )
+        y_rand_table.to_csv(f"{PREFIX}_y_randomization.csv", index=False)
+
     # SHAP beeswarms, one panel per arm. Plotted feature values are the
     # MinMax-scaled values the models were fit on, not raw descriptor units.
     #
@@ -1210,6 +1306,8 @@ if __name__ == "__main__":
                 "N_JOBS",
                 "N_CURVE_STEPS",
                 "RUN_FINAL_LOPO",
+                "RUN_Y_RANDOMIZATION",
+                "Y_RAND_PERM_REPEATS",
             ]
         },
         "data_path": DATA_PATH,
@@ -1232,6 +1330,8 @@ if __name__ == "__main__":
                 "nested_cv_metrics_per_repeat": sweep[cfg["name"]]["metrics"],
                 # null when RUN_FINAL_LOPO = False
                 "lopo_metrics": final_lopo.get(cfg["name"]),
+                # null when RUN_Y_RANDOMIZATION = False
+                "y_randomized_metrics_per_shuffle": y_rand.get(cfg["name"]),
             }
             for cfg in ARM_CONFIGS
         },
