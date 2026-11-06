@@ -1,4 +1,4 @@
-"""Four-arm LogKa comparison using permutation-importance feature selection
+"""Five-arm LogKa comparison using permutation-importance feature selection
 (Kvasnicka et al. 2024, SI "Model Training Steps") under nested stratified
 grouped K-fold CV, repeated across OUTER_REPEATS partitions, with a RANDOM
 FOREST as the estimator.
@@ -23,7 +23,7 @@ diverged from it in four ways:
     imputation, a constant drop, MinMax scaling, a zero-variance drop, the
     correlation filter over the continuous and the binary block separately,
     and a univariate |Spearman| cap on the candidate count;
-  * there are four arms, not three, because the binding prediction now comes
+  * there are five arms, not three, because the binding prediction now comes
     per protein (see the arm list below). That older script still expects a
     single "LogKa" column and will not run against the current featurized
     dataset.
@@ -54,7 +54,7 @@ Two binding predictions are now available, one per protein: LogKa_HSA
 (serum albumin) and LogKa_LFABP (liver fatty acid binding protein), both
 written by sum_preprocess_data.py from the respective deploy scripts.
 
-Arms (half_life_type is forced in all four):
+Arms (half_life_type is forced in all five):
   A  no binding prediction at all - both columns are dropped, so neither is
      a candidate nor forced.
   B  both columns are ordinary candidates - each passes through the whole
@@ -65,9 +65,12 @@ Arms (half_life_type is forced in all four):
      available as an ordinary candidate alongside it.
   D  LogKa_LFABP forced the same way, with LogKa_HSA available as an ordinary
      candidate.
+  E  both forced at once, so the model always carries both proteins. With
+     half_life_type that is three forced features, which is more than
+     N_SELECT_STEPS=2 asks for; see the budget note below.
 
-So B, C and D all see both columns and differ only in which one, if any, is
-forced. That isolates the effect of forcing a given protein rather than the
+So B, C, D and E all see both columns and differ only in which ones, if any,
+are forced. That isolates the effect of forcing a given protein rather than the
 effect of which columns are present: Arm C answers "does guaranteeing the
 albumin prediction a slot help?", not "does albumin alone help?". The
 consequence is that C and D can converge on the same feature set when the
@@ -79,8 +82,15 @@ Every arm drops rows whose kept LogKa columns are missing. Coverage is
 currently complete for all half-life compounds, so in practice no arm loses
 rows and all four run on identical rows.
 
-Budget is N_SELECT_STEPS=7 features per arm: A and B use 1 forced + 6 ranked,
-C and D use 2 forced + 5 ranked. Every outer fold also scores every prefix of
+Budget is N_SELECT_STEPS features per arm, forced included: A and B spend 1 on
+half_life_type, C and D 2, E 3. An arm whose forced set already fills or
+overflows the budget ranks nothing on top of it - a forced feature cannot be
+dropped to stay under a budget, so `budget_for` raises that arm's count to its
+forced floor. At N_SELECT_STEPS=2 that is exactly Arm E: it fits
+half_life_type plus both LogKa columns and selects nothing further, which is
+the point of the arm rather than a limitation.
+
+Every outer fold also scores every prefix of
 its ranking up to N_CURVE_STEPS, which gives the RMSE-against-N curve of
 HSA_nested_permutation.py per arm. The ranking does not depend on how many
 features are asked for, so these extra models cost a few cheap narrow fits
@@ -89,7 +99,7 @@ per fold and leave the reported N_SELECT_STEPS numbers untouched.
 Printed output is summary only: per-arm candidate counts after filtering,
 nested-CV mean +/- std per metric across the repeats, each arm's best N on
 the RMSE curve, pairwise arm win counts, ranked-feature Jaccard stability,
-then the four final models' feature sets with in-sample (NOT generalization)
+then every arm's final feature set with in-sample (NOT generalization)
 metrics, the leave-one-PFAS-out pass for those models and the y-randomized
 null beside the real result.
 
@@ -107,7 +117,7 @@ HSA_nested_permutation.py:
   _filtering_stages.csv       the per-stage drop table (Arm B)
   _filtering_counts.csv       its raw per-fold counts
   _selection_frequency.csv    how often each ranked feature was selected
-  _final_features.csv         the four final feature sets, in rank order
+  _final_features.csv         the final feature sets, in rank order
   _in_sample_metrics.csv      the final models on their own training data
   _lopo_metrics.csv           the final leave-one-PFAS-out pass
   _lopo_predictions.csv       its held-out predictions
@@ -120,7 +130,7 @@ end-of-run checks that nothing else depends on, and both are expensive - the
 LOPO pass runs one outer fold per compound, the null repeats the whole sweep
 - so either can be switched off for experiments.
   _manifest.json              parameters, arms and every summary number
-  _shap.png                   1 x 4 SHAP beeswarm, one panel per arm
+  _shap.png                   SHAP beeswarm, one panel per arm
   _lopo_scatter.png           observed vs LOPO-predicted, one panel per arm
   _selection_frequency.png    top ranked features per arm
 """
@@ -156,14 +166,14 @@ PERM_REPEATS = 10  # R repetitions of the grouped K-fold
 N_PERMUTATIONS = 5  # P shuffles per candidate per held-out fold
 CORR_THRESHOLD = 0.99
 MISSING_THRESHOLD = 0.05  # a candidate missing in more than this fraction is dropped
-CANDIDATE_CAP = 500  # keep only this many candidates, by |Spearman| with the target
+CANDIDATE_CAP = 50  # keep only this many candidates, by |Spearman| with the target
 OUTER_SPLITS = 5  # compounds per outer fold: 29 compounds / 5 ~= 6 held out
 N_STRATA_BINS = 1  # quantile bins of compound-mean log_half_life for the outer split
 # n_jobs for every RandomForestRegressor here. The selector fits R*K=50 models
 # per training set on the full (wide) candidate matrix, so this is the main
 # wall-clock knob in this script.
 N_JOBS = 1
-OUTER_REPEATS = 3  # raise to 10 to match HSA_nested_permutation.py
+OUTER_REPEATS = 10  # raise to 10 to match HSA_nested_permutation.py
 REPEATS = list(range(OUTER_REPEATS))
 assert N_SELECT_STEPS <= N_CURVE_STEPS
 
@@ -221,10 +231,12 @@ assert set(_provenance["continuous"]) <= set(
 # The two binding predictions, one per protein.
 LOGKA_COLUMNS = ["LogKa_HSA", "LogKa_LFABP"]
 
-# "logka_columns" is which of LOGKA_COLUMNS this arm keeps as a candidate at
-# all; the rest are dropped from the arm's dataframe. "forced_numerical_features"
-# is the subset of those that is additionally exempt from the filters and the
-# ranking. Anything forced must also be kept.
+# "logka_columns" is which of LOGKA_COLUMNS this arm keeps at all; the rest are
+# dropped from the arm's dataframe. Whatever is kept always reaches the selector:
+# the filters and the CANDIDATE_CAP screen cannot drop it, so an arm's question is
+# always put to the permutation ranking. "forced_numerical_features" is the subset
+# that additionally skips the ranking and is always in the model. Anything forced
+# must also be kept.
 ARM_CONFIGS = [
     {
         "name": "A",
@@ -250,13 +262,27 @@ ARM_CONFIGS = [
         "logka_columns": LOGKA_COLUMNS,
         "forced_numerical_features": ["LogKa_LFABP"],
     },
+    {
+        "name": "E",
+        "label": "E (both LogKa forced)",
+        "logka_columns": LOGKA_COLUMNS,
+        "forced_numerical_features": LOGKA_COLUMNS,
+    },
 ]
 for _cfg in ARM_CONFIGS:
     assert set(_cfg["forced_numerical_features"]) <= set(
         _cfg["logka_columns"]
     ), f"Arm {_cfg['name']} forces a LogKa column it does not keep"
+
+ARM_NAMES = [cfg["name"] for cfg in ARM_CONFIGS]
 METRICS = ["macro_rmse", "macro_mae", "macro_r2", "micro_rmse", "micro_mae", "micro_r2"]
-ARM_COLORS = {"A": "#7a7a7a", "B": "#2a78d6", "C": "#eb6834", "D": "#1baf7a"}
+ARM_COLORS = {
+    "A": "#7a7a7a",
+    "B": "#2a78d6",
+    "C": "#eb6834",
+    "D": "#1baf7a",
+    "E": "#9b5de5",
+}
 LOWER_IS_BETTER = {"macro_rmse", "macro_mae", "micro_rmse", "micro_mae"}
 
 
@@ -274,7 +300,7 @@ def make_random_forest():
     return RandomForestRegressor(
         n_estimators=300,
         min_samples_leaf=3,
-        max_features=0.33,
+        max_features=1.0,
         bootstrap=True,
         random_state=RANDOM_STATE,
         n_jobs=N_JOBS,
@@ -296,6 +322,23 @@ def forced_features_for(cfg):
     """Features always included, in order: forced numerical (LogKa in Arm C)
     first, then the forced binary features."""
     return list(cfg["forced_numerical_features"]) + list(FORCED_BINARY_FEATURES)
+
+
+def budget_for(cfg):
+    """How many features this arm actually fits: N_SELECT_STEPS, or its forced count
+    when that is larger.
+
+    N_SELECT_STEPS is a budget for the RANKING, and an arm cannot un-force a feature
+    to stay under it. Arm E forces three (both LogKa plus half_life_type), so at
+    N_SELECT_STEPS=2 it fits exactly those three and selects nothing on top - which
+    is the intended reading of a budget below an arm's floor, not an error.
+    """
+    return max(N_SELECT_STEPS, len(forced_features_for(cfg)))
+
+
+assert N_CURVE_STEPS >= max(
+    len(forced_features_for(cfg)) for cfg in ARM_CONFIGS
+), "N_CURVE_STEPS is below some arm's forced count, so its curve would be empty"
 
 
 def correlation_filter(X, threshold=CORR_THRESHOLD):
@@ -334,8 +377,20 @@ def fit_preprocessing(train_df, cfg):
     That is the mechanism nested_CV_forced_halflife_type.py uses for LogKa and
     half_life_type, parameterized per arm (Arms A/B force no numerical feature, Arm C
     forces LogKa_HSA, Arm D forces LogKa_LFABP).
+
+    The LogKa columns an arm keeps but does not force are exempt from the filters in
+    the same way, with one difference that is the whole point of the distinction: they
+    come back as ORDINARY CANDIDATES, so the permutation ranking is still free to pass
+    them over. Filtering decides what the selector may consider, and an arm that exists
+    to ask whether a binding prediction gets chosen has to put the question to the
+    selector rather than let a univariate screen answer it first. Without this, a tight
+    CANDIDATE_CAP could drop LogKa_LFABP from Arm B and turn it into Arm A by accident.
     """
     forced = [c for c in forced_features_for(cfg) if c in train_df.columns]
+    protected = [
+        c for c in cfg["logka_columns"] if c in train_df.columns and c not in forced
+    ]
+    exempt = set(forced) | set(protected)
     y_train = train_df["log_half_life"]
     groups_train = train_df["PFAS"]
 
@@ -344,7 +399,7 @@ def fit_preprocessing(train_df, cfg):
     counts = {"start": X.shape[1]}
 
     missing = X.isna().mean()
-    keep = [c for c in X.columns if missing[c] <= MISSING_THRESHOLD or c in forced]
+    keep = [c for c in X.columns if missing[c] <= MISSING_THRESHOLD or c in exempt]
     counts["dropped_missing"] = X.shape[1] - len(keep)
     means = X[keep].mean()
     X = X[keep].fillna(means)
@@ -352,9 +407,9 @@ def fit_preprocessing(train_df, cfg):
     scaler = MinMaxScaler().fit(X)  # leaves 0/1 fingerprint bits unchanged
     X = pd.DataFrame(scaler.transform(X), columns=X.columns, index=X.index)
 
-    # Everything below this line is filtering, so the forced columns sit it out
-    X_forced = X[forced]
-    X = X.drop(columns=forced)
+    # Everything below this line is filtering, so the exempt columns sit it out
+    X_forced, X_protected = X[forced], X[protected]
+    X = X.drop(columns=list(exempt))
 
     nonconstant = list(X.columns[X.nunique() > 1])
     counts["dropped_constant"] = X.shape[1] - len(nonconstant)
@@ -386,7 +441,9 @@ def fit_preprocessing(train_df, cfg):
         X = X[[c for c in X.columns if c in top]]
     counts["dropped_cap"] = n_before - X.shape[1]
 
-    X_train = pd.concat([X_forced, X], axis=1)
+    # Forced first, then the protected LogKa columns, then everything that passed the
+    # filters; only the first block is withheld from the ranking.
+    X_train = pd.concat([X_forced, X_protected, X], axis=1)
     counts["final"] = X_train.shape[1]
 
     fit_result = {
@@ -516,6 +573,11 @@ def permutation_select_features(X, y, groups, forced_features, n_total=N_SELECT_
     forced = [f for f in forced_features if f in X.columns]
     candidates = [c for c in X.columns if c not in forced]
     n_ranked = max(0, min(n_total - len(forced), len(candidates)))
+    if n_ranked == 0:
+        # The forced features already fill (or overflow) the budget, as in Arm E at
+        # N_SELECT_STEPS=2. Ranking candidates that cannot be selected would cost the
+        # full R x K fits for nothing.
+        return list(forced), {}
 
     columns = X.columns.tolist()
     X_arr = X.to_numpy(dtype=float)
@@ -604,7 +666,9 @@ def _outer_fold(outer_train, outer_test, cfg, forced):
     X_test_full = transform_with_fit(outer_test, fit_result)
 
     n_forced = len([f for f in forced if f in X_train.columns])
-    n_main = min(N_SELECT_STEPS, len(ordered))
+    # At least the forced features: an arm whose forced set overflows N_SELECT_STEPS
+    # reports that set, and its curve starts there too.
+    n_main = min(max(N_SELECT_STEPS, n_forced), len(ordered))
     records, curve = None, []
     for n in range(max(1, n_forced), len(ordered) + 1):
         cols = ordered[:n]
@@ -782,7 +846,7 @@ def fit_final_model(df, cfg):
     is held out, so it gets no generalization estimate."""
     fit_result, X_full, y_full, groups_full = fit_preprocessing(df, cfg)
     selected, _ = permutation_select_features(
-        X_full, y_full, groups_full, forced_features_for(cfg)
+        X_full, y_full, groups_full, forced_features_for(cfg), n_total=budget_for(cfg)
     )
 
     X_selected = X_full[selected]
@@ -921,12 +985,23 @@ if __name__ == "__main__":
     print(f"\n{'=' * 30} Summary {'=' * 30}")
     print(
         "Estimator: random forest (300 trees, min_samples_leaf=3, "
-        "max_features=0.33, bootstrap). "
+        "max_features=1.0, bootstrap). "
         f"Permutation selection: R={PERM_REPEATS} repeats x K={N_INNER_SPLITS} "
         f"grouped folds x P={N_PERMUTATIONS} shuffles = "
         f"{PERM_REPEATS * N_INNER_SPLITS * N_PERMUTATIONS} importances per "
-        f"candidate, median-pooled; {N_SELECT_STEPS} features per arm "
-        f"(forced included); correlation threshold {CORR_THRESHOLD}."
+        f"candidate, median-pooled; correlation threshold {CORR_THRESHOLD}."
+    )
+    print(
+        f"Feature budget: {N_SELECT_STEPS} per arm, forced included, except where an "
+        "arm forces more than that - a forced feature cannot be dropped to stay under "
+        "the budget, so such an arm fits its forced set and ranks nothing on top. "
+        "Per arm: "
+        + ", ".join(
+            f"{cfg['name']}={budget_for(cfg)} "
+            f"({len(forced_features_for(cfg))} forced)"
+            for cfg in ARM_CONFIGS
+        )
+        + "."
     )
     print(
         f"Outer loop: {OUTER_SPLITS}-fold StratifiedGroupKFold grouped by PFAS, "
@@ -1035,14 +1110,9 @@ if __name__ == "__main__":
                 )
                 for metric in METRICS
             }
-            for first, second in [
-                ("B", "A"),
-                ("C", "A"),
-                ("D", "A"),
-                ("C", "B"),
-                ("D", "B"),
-                ("D", "C"),
-            ]
+            # every pair, the later arm against the earlier one
+            for i, second in enumerate(ARM_NAMES)
+            for first in ARM_NAMES[i + 1 :]
         }
     )
     print(win_table.to_string())
@@ -1079,7 +1149,9 @@ if __name__ == "__main__":
     )
     frequency.to_csv(f"{PREFIX}_selection_frequency.csv", index=False)
 
-    fig, axes = plt.subplots(1, 4, figsize=(22, 6), sharex=True)
+    fig, axes = plt.subplots(
+        1, len(ARM_CONFIGS), figsize=(5.5 * len(ARM_CONFIGS), 6), sharex=True
+    )
     for ax, cfg in zip(axes, ARM_CONFIGS):
         top = frequency[frequency["arm"] == cfg["name"]].head(15).iloc[::-1]
         ax.barh(top["feature"], top["frequency"], color="#2a78d6")
@@ -1174,7 +1246,13 @@ if __name__ == "__main__":
 
         # Observed vs predicted, one panel per arm, from the LOPO pass - these are the
         # held-out predictions of the partition the final models were built under.
-        fig, axes = plt.subplots(1, 4, figsize=(22, 6), sharex=True, sharey=True)
+        fig, axes = plt.subplots(
+            1,
+            len(ARM_CONFIGS),
+            figsize=(5.5 * len(ARM_CONFIGS), 6),
+            sharex=True,
+            sharey=True,
+        )
         for ax, cfg in zip(axes, ARM_CONFIGS):
             arm_rows = lopo_predictions[lopo_predictions["arm"] == cfg["name"]]
             ax.scatter(arm_rows["true"], arm_rows["predicted"], s=18, alpha=0.7)
@@ -1219,9 +1297,7 @@ if __name__ == "__main__":
         N_CURVE_STEPS, PERM_REPEATS = saved_curve, saved_perm
         RANDOM_STATE = 42
 
-        compound_sd = float(
-            dataset.groupby("PFAS")["log_half_life"].mean().std(ddof=1)
-        )
+        compound_sd = float(dataset.groupby("PFAS")["log_half_life"].mean().std(ddof=1))
         print(
             f"\nY-randomization: {OUTER_REPEATS} shuffles of the compound means, "
             f"same outer CV, selector at R={Y_RAND_PERM_REPEATS}. A null arm should "
@@ -1265,7 +1341,7 @@ if __name__ == "__main__":
     # `pred_contribs=True` because shap cannot parse the xgboost 3.x model
     # JSON; shap.TreeExplainer reads scikit-learn random forests directly, so
     # it is used here.
-    fig, axes = plt.subplots(1, 4, figsize=(28, 7))
+    fig, axes = plt.subplots(1, len(ARM_CONFIGS), figsize=(7 * len(ARM_CONFIGS), 7))
     for ax, final in zip(axes, finals):
         explainer = shap.TreeExplainer(final["model"])
         shap_values = explainer.shap_values(final["X_selected"])
